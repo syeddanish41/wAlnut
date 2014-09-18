@@ -4,9 +4,9 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[How to contribute](#how-to-contribute) |**
 **[What are all the files here for?](#what-are-all-the-files-here-for) |**
 **[Important brain theories in use](#important-brain-theories-in-use) |**
-**[spatial pooling](#object-oriented-spatial-pooling-algorithm) |**
-**[temporal pooling](#object-oriented-temporal-pooling-algorithm)**
-
+**[Spatial pooling](#object-oriented-spatial-pooling-algorithm) |**
+**[Temporal pooling](#object-oriented-temporal-pooling-algorithm)**
+**[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
 "*When we hit our lowest point, we are open to the greatest change.*"  ~ Avatar Anng
@@ -130,46 +130,19 @@ programming. For more information please:
 ## How to contribute
 1. You need to be able to use Git & Github.com. If you don't know how I created a easy to follow 1.5 hour 
    playlist on how to use Git & Github 
-   [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4). 
+   [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).  
 
-2. Here is some example code of how part of the theorized prediction algorithm works. You do NOT need to understand
-   the following code to make meaningful contributions to this repository but it is a beautiful summary of how columns 
-   of neurons in your brain are probably working to encode what you see. The following are the three images the
-   retina will be looking at:
-   
-   ![alt text](https://db.tt/8ZAdcAbM)
-   
-   ```java
-   retina.seeBMPImage("2.bmp");
-   spatialPooler.performPooling();
-   assertEquals("((6, 2), (1, 5))", 
-       Formatter.format(spatialPooler.getActiveColumnPositions()));
- 
-   retina.seeBMPImage("2_with_some_noise.bmp");
-   spatialPooler.performPooling();
-   assertEquals("((6, 2), (1, 5))", 
-       Formatter.format(spatialPooler.getActiveColumnPositions()));
- 
-   retina.seeBMPImage("2_with_a_lot_of_noise.bmp");
-   spatialPooler.performPooling();
-   // when there is a lot of noise notice how the active columns are 
-   // no longer the same?
-   assertEquals("((6, 2), (2, 5))", 
-       Formatter.format(spatialPooler.getActiveColumnPositions()));
-   ```
-
-   You can view the entire file in [NoiseInvarianceExperiment.java](./experiments/model/MARK_I/vision/NoiseInvarianceExperiment.java).
-   Please do not be afraid to ask a question if you are confused! This stuff took me several months to fully understand
-   but it is really beautiful after you understand it.
+2. For now we are using the Git workflow model described 
+   [here](https://github.com/quinnliu/WalnutiQ/issues/62) to contribute to this
+   repository effectively. Happy coding!
 
 3. View our [issue tracker](https://github.com/quinnliu/WalnutiQ/issues?state=open) 
    and create a new issue with a question if you are confused. Otherwise, 
    assign a issue to yourself you would like to work on or suggest
-   a new issue if you kinda know what you are doing. 
+   a new issue if you kinda know what you are doing.
 
-4. For now we are using the Git workflow model described 
-   [here](https://github.com/quinnliu/WalnutiQ/issues/62) to contribute to this
-   repository effectively. Happy coding!
+4. While reading through the code base it will be very helpful to refer to the following labeled model:
+   ![alt text](https://dl.dropboxusercontent.com/u/106853306/WalnutiQ%20Gallery/labeled_MARK%20NULLA_version2.jpg)
    
 ## What are all the files here for
   - experiments  
@@ -807,3 +780,34 @@ void phaseThree(Set<Column> activeColumns) {
 
 The actual [TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java) class contains 
 the above code and additional code and clarifying comments.
+
+# Noise invariance experiment
+
+Here is some example code of how part of the theorized prediction algorithm works. You do NOT need to understand
+the following code to make meaningful contributions to this repository but it is a beautiful summary of how columns 
+of neurons in your brain are probably working to encode what you see. The following are the three images the
+retina will be looking at:
+
+![alt text](https://db.tt/8ZAdcAbM)
+
+```java
+retina.seeBMPImage("2.bmp");
+spatialPooler.performPooling();
+assertEquals("((6, 2), (1, 5))", 
+   Formatter.format(spatialPooler.getActiveColumnPositions()));
+
+retina.seeBMPImage("2_with_some_noise.bmp");
+spatialPooler.performPooling();
+assertEquals("((6, 2), (1, 5))", 
+   Formatter.format(spatialPooler.getActiveColumnPositions()));
+
+retina.seeBMPImage("2_with_a_lot_of_noise.bmp");
+spatialPooler.performPooling();
+// when there is a lot of noise notice how the active columns are 
+// no longer the same?
+assertEquals("((6, 2), (2, 5))", 
+   Formatter.format(spatialPooler.getActiveColumnPositions()));
+```
+
+You can view the entire file in [NoiseInvarianceExperiment.java](./experiments/model/MARK_I/vision/NoiseInvarianceExperiment.java). Please do not be afraid to ask a question if you are confused! This stuff took me several months to fully understand
+but it is really beautiful after you understand it.
