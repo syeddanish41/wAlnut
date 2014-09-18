@@ -5,7 +5,7 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[What are all the files here for?](#what-are-all-the-files-here-for) |**
 **[Important brain theories in use](#important-brain-theories-in-use) |**
 **[Spatial pooling](#object-oriented-spatial-pooling-algorithm) |**
-**[Temporal pooling](#object-oriented-temporal-pooling-algorithm)**
+**[Temporal pooling](#object-oriented-temporal-pooling-algorithm) |**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
@@ -793,20 +793,20 @@ retina will be looking at:
 ```java
 retina.seeBMPImage("2.bmp");
 spatialPooler.performPooling();
-assertEquals("((6, 2), (1, 5))", 
-   Formatter.format(spatialPooler.getActiveColumnPositions()));
+// set1 = ((6,2), (1,5))
+assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
 retina.seeBMPImage("2_with_some_noise.bmp");
 spatialPooler.performPooling();
-assertEquals("((6, 2), (1, 5))", 
-   Formatter.format(spatialPooler.getActiveColumnPositions()));
+// set1 = ((6,2), (1,5))
+assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
 retina.seeBMPImage("2_with_a_lot_of_noise.bmp");
 spatialPooler.performPooling();
 // when there is a lot of noise notice how the active columns are 
 // no longer the same?
-assertEquals("((6, 2), (2, 5))", 
-   Formatter.format(spatialPooler.getActiveColumnPositions()));
+// set2 = ((6,2), (2,5))
+assertEquals(set2, this.spatialPooler.getActiveColumnPositions());
 ```
 
 You can view the entire file in [NoiseInvarianceExperiment.java](./experiments/model/MARK_I/vision/NoiseInvarianceExperiment.java). Please do not be afraid to ask a question if you are confused! This stuff took me several months to fully understand
