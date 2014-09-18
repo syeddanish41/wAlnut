@@ -9,7 +9,7 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*When we hit our lowest point, we are open to the greatest change.*"  ~ Avatar Anng
+"*When we hit our lowest point, we are open to the greatest change.*"  ~ Avatar Aang
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
