@@ -9,35 +9,37 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*When we hit our lowest point, we are open to the greatest change.*"  ~ Avatar Aang
+"*When we hit our lowest point, we are open to the greatest change.*" 
+~ Avatar Aang
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
-Welcome! WalnutiQ is a human brain model simulation in Java. 
-The goal of this repository is to store code that can 
-simulate a full sized human brain in real-time. A real intelligence machine 
-built on biological principles will be able to solve many of the 
-problems which currently plague the world and allow us to unravel
-the mystery of human conciousness. It will be a long journey but
-this has the potential to dramatically change the world for the 
-better.
+Welcome! WalnutiQ is a human brain model simulation in Java. The long term goal 
+of this repository is to store code that can simulate a full sized human brain 
+in real-time. The current short term goal is to simulate a simplified visual 
+pathway from retina(eye) to hierarchical regions in layer 3, 4, & 5 of human 
+neocortex(70+% of brain). A real intelligence machine built on biological 
+computation principles will be able to solve many of the problems which 
+currently plague the world and allow us to unravel the mystery of human 
+conciousness. It will be a long journey but this has the potential to 
+dramatically change the world for the better.
 
-Here you will find code that allows you to build a partial 
-human brain model, train it on input data using theorized
-learning algorithms, and view its activity.
-All of the code here supports modeling of the human 
-brain at a high level of abstraction while still allowing user
-access to individual neuron properties. 
+Here you will find code that allows you to build a partial human brain model, 
+train it on input data using theorized learning algorithms, and view its 
+activity. All of the code here supports modeling of the human brain at a high 
+level of abstraction while still allowing user access to individual neuron 
+properties. 
 
-If you are interested in becoming a researcher/developer, the 
-only requirement is interest in understanding how the brain 
-really works. Please e-mail me at quinnliu@vt.edu to talk about how you can get involved!
+If you are interested in becoming a researcher/developer, the only requirement 
+is interest in understanding how the brain really works. Please e-mail me at 
+quinnliu@vt.edu to talk about how you can get involved!
 
-Most importantly, this research is made possible by everyone at [Numenta](http://numenta.org/). 
-Numenta has theorized and tested algorithms that model layers 3 & 4 of the human neocortex. 
-They have generously released the pseudocode for their learning algorithms, 
-and this repository is an extended implementation of their algorithms using object-oriented 
-programming. For more information please:
+Most importantly, this research is made possible by everyone at 
+[Numenta](http://numenta.org/). Numenta has theorized and tested algorithms 
+that model layers 3 & 4 of the human neocortex. They have generously released 
+the pseudocode for their learning algorithms, and this repository is an extended
+implementation of their algorithms using object-oriented programming. For more 
+information please:
 
 - Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f) to become 
   familiar with the neuroscience behind this repository.
@@ -77,32 +79,35 @@ programming. For more information please:
    your folder `WalnutiQ` in the package explorer `=>` Build Path `=>` 
    Add Libraries... `=>` JRE System Library `=>` Next > `=>` Finish
 
-7. Right click your folder `WalnutiQ` `=>` Run As `=>` JUnit Test `=>` ALL TESTS PASS!
+7. Right click your folder `WalnutiQ` `=>` Run As `=>` JUnit Test `=>` 
+   ALL TESTS PASS!
 
 ## Install in Linux/Mac/Windows with IntelliJ
-1. [Install IntelliJ IDEA 13.1 FREE Community Edition](http://www.jetbrains.com/idea/download/)
-   or use any other version of IntelliJ if you already have it installed.
+1. [Install IntelliJ IDEA 13.1 FREE Community Edition](http://www.jetbrains.com/idea/download/).
 
-2. Go to the top right of this page and hit the `Fork` button. Then clone 
-   your forked WalnutiQ repository locally.  
+2. Go to the top right of this page and hit the `Fork` button. Then clone your 
+   forked WalnutiQ repository locally.  
 
-3. Open up IntelliJ and click "Import Project" `=>` Select "Gradle" `=>` Next `=>` 
-   Select "Use default gradle wrapper (recommended)" `=>` Finish
+3. Open up IntelliJ and click "Import Project" `=>` Select "Gradle" `=>` Next 
+   `=>` Select "Use default gradle wrapper (recommended)" `=>` Finish
 
 4. In IntelliJ right-click the `WalnutiQ/` folder and select "Run 'All Tests'". 
   
 ## Install in Linux/Mac/Windows with Gradle
-1. Make sure you have java version 1.7. To check open up a new terminal and type:
+1. Make sure you have java version 1.7 or 1.8. To check open up a new terminal 
+   and type:
    ```sh
    prompt> java -version
-   java version "1.7.0_60" # it's only important to see the "1.7" part
+   java version "1.7.0_60" # it's only important to see "1.7" or "1.8" in the 
+   version
    ```  
-   If you don't have java 1.7 install it by going [
-   here](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html). After installing 
-   java 1.7 open up a new terminal to check if java 1.7 is installed by retyping `java -version` in the terminal.
+   If you don't have either install java 1.7 by going 
+   [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html). 
+   After installing java 1.7 open up a new terminal to check if java 1.7 
+   is installed by retyping `java -version` in the terminal.
    
-2. Go to the top right of this page and hit the `Fork` button. Then clone 
-   your forked WalnutiQ repository locally. Navigate into the `WalnutiQ/` folder.
+2. Go to the top right of this page and hit the `Fork` button. Then clone your 
+   forked WalnutiQ repository locally. Navigate into the `WalnutiQ/` folder.
 
 3. To run all of the code in the Linux or Mac terminal type:
    ```sh
@@ -120,7 +125,8 @@ programming. For more information please:
    BUILD SUCCESSFUL # If you see `BUILD SUCCESSFUL` all of the tests have passed! 
    ```
    
-5. In the future after editing some code make sure to clean your old compiled code before rerunning the tests by typing:
+5. In the future after editing some code make sure to clean your old compiled 
+   code before rerunning the tests by typing:
    ```sh
    prompt> ./gradlew clean # removes your old compiled code
    prompt> ./gradlew build
@@ -128,53 +134,62 @@ programming. For more information please:
    ```
 
 ## How to contribute
-1. You need to be able to use Git & Github.com. If you don't know how I created a easy to follow 1.5 hour 
-   playlist on how to use Git & Github 
+1. You need to be able to use Git & Github.com. If you don't know how I created 
+   a easy to follow 1.5 hour playlist on how to use Git & Github 
    [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).  
 
 2. For now we are using the Git workflow model described 
    [here](https://github.com/quinnliu/WalnutiQ/issues/62) to contribute to this
-   repository effectively. Happy coding!
+   repository effectively. Make sure you understand this model before 
+   trying to merge into the master branch. 
 
 3. View our [issue tracker](https://github.com/quinnliu/WalnutiQ/issues?state=open) 
    and create a new issue with a question if you are confused. Otherwise, 
    assign a issue to yourself you would like to work on or suggest
    a new issue if you kinda know what you are doing.
 
-4. While reading through the code base it will be very helpful to refer to the following labeled model:
+4. While reading through the code base it will be very helpful to refer to the 
+   following labeled model:
    ![alt text](https://dl.dropboxusercontent.com/u/106853306/WalnutiQ%20Gallery/labeled_MARK%20NULLA_version2.jpg)
    
 ## What are all the files here for
   - experiments  
       + model
           - MARK_I 
-            + [vision](./experiments/model/MARK_I/vision) = experiments with partial 
-              visual pathway models on a popular handwritten digit data
+            + [vision](./experiments/model/MARK_I/vision) = experiments with 
+              partial visual pathway models on a popular handwritten digit data
               set called MNIST
   - gradle = the actual Gradle code for building our Java code
   - images = images used in training & testing the partial brain model
-  - referencedLibraries = contains .jar files(of other people's code) needed to run WalnutiQ
+  - referencedLibraries = contains .jar files(of other people's code) needed to 
+                          run WalnutiQ
   - src
       + main
         - java
           + model
-            - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the partial brain model. 
-              Includes abstract data types for basic brain structures and learning 
-              algorithms that simulate how the brain learns.
-              + [connectTypes](./src/main/java/model/MARK_II/connectTypes) = allow the different 
-                brain structures to connect to each other in a variety of ways
-              + [parameters](./src/main/java/model/MARK_II/parameters) = allows construction of different WalnutiQ
-                models from command line for this repo https://github.com/quinnliu/CallWalnutiQ
+            - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the 
+              partial brain model. Includes abstract data types for basic brain 
+              structures and learning algorithms that simulate how the brain learns.
+              + [connectTypes](./src/main/java/model/MARK_II/connectTypes) = 
+                allow the different brain structures to connect to each other in
+                a variety of ways
+              + [parameters](./src/main/java/model/MARK_II/parameters) = allows 
+                construction of different WalnutiQ models from command line for 
+                this repo https://github.com/quinnliu/CallWalnutiQ
               + **[SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java) 
-                = models the sparse & distributed spiking activity of neurons seen in the neocortex 
-                  and models long term potentiation and depression on synapses of proximal dendrites**
+                = models the sparse & distributed spiking activity of neurons 
+                  seen in the neocortex and models long term potentiation and 
+                  depression on synapses of proximal dendrites**
               + **[TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java) 
-                = models neocortex's ability to predict future input using long term potentiation 
-                  and depression on synapses of distal dendrites**
-            - [util](./src/main/java/model/util) = classes that enable the brain model properties
-              to be viewed graphically and efficiently saved and opened  
-      + test = test classes for important classes in the `src/main/java/model` folder
-  - .gitignore = contains names of files/folders not to add to this repository but keep in your local WalnutiQ folder
+                = models neocortex's ability to predict future input using long 
+                  term potentiation and depression on synapses of distal dendrites**
+            - [util](./src/main/java/model/util) = classes that enable the brain
+              model properties to be viewed graphically and efficiently saved 
+              and opened  
+      + test = test classes for important classes in the `src/main/java/model` 
+               folder
+  - .gitignore = contains names of files/folders not to add to this repository 
+                 but keep in your local WalnutiQ folder
   - .project = when writing your code using Eclipse this file will allow all of
                your files to be organized in the correct folder
   - .travis.yml = tells [our custom travis testing site](https://travis-ci.org/quinnliu/WalnutiQ) 
@@ -182,8 +197,10 @@ programming. For more information please:
   - LICENSE.txt = GNU General Public License version 3
   - README.md = the file you are reading right now
   - build.gradle = compiles all of the code in this repository using Gradle
-  - gradlew = allows you to use Gradle to run all of the code in this repository in Linux & Mac
-  - gradlew.bat = allows you to use Gradle to run all of the code in this repository in Windows
+  - gradlew = allows you to use Gradle to run all of the code in this repository 
+              in Linux & Mac
+  - gradlew.bat = allows you to use Gradle to run all of the code in this 
+                  repository in Windows
 
 # Important brain theories in use 
 
@@ -252,68 +269,18 @@ programming. For more information please:
 The following section will not make sense until you have first read and tried to understand the spatial pooling
 algorithm explained in detail in this [white paper](https://db.tt/FuQWQuwE).
 
-The following is the spatial pooling algorithm pseudocode in the white paper pages 34-38:
-
-<b>Phase 1: Overlap</b>
-```
-for c in columns // line 1
-
-    overlap(c) = 0
-    for s in connectedSynapses(c)
-        overlap(c) = overlap(c) + input(t, s.sourceInput)
-
-    if overlap(c) < minOverlap then
-        overlap(c) = 0
-    else
-        overlap(c) = overlap(c) * boost(c) // line 10
-```
-
-<b>Phase 2: Inhibition</b>
-```
-for c in columns // line 11
-
-    minLocalActivity = kthScore(neighbors(c), desiredLocalActivity)
-
-    if overlap(c) > 0 and overlap(c) >= minLocalActivity then
-        activeColumns(t).append(c) // line 16
-```
-
-<b>Phase 3: Learning</b>
-```
-for c in activeColumns(t) // line 18
-
-    for s in potentialSynapses(c)
-        if active(s) then
-            s.permanence += permanenceInc
-            s.permanence = min(1.0, s.permanence)
-        else
-            s.permanence -= permanenceDec
-            s.permanece = max(0.0, s.permanence) // line 26
-
-for c in columns // line 28
-
-    minDutyCycle(c) = 0.01 * maxDutyCycle(neighbors(c))
-    activeDutyCycle(c) = updateActiveDutyCycle(c)
-    boost(c) = boostFunction(activeDutyCycle(c), minDutyCycle(c))
-
-    overlapDutyCycle(c) = updateOverlapDutyCycle(c)
-    if overlapDutyCycle(c) < minDutyCycle(c) then
-        increasePermanences(c, 0.1 * connectedPerm) // line 36
-
-inhibitionRadius = averageReceptiveFieldSize() // line 38
-```
-
 The following is the spatial pooling algorithm pseudocode in the white paper
-implemented using object oriented design. Notice how the pseudocode from above is
-placed immediately above the object oriented Java code that is equivalent to the
-pseudocode and always begins with `///` to differentiate from regular comments.
+implemented using object oriented design. Notice how the pseudocode from the
+white paper pages 34-38 is placed immediately above the object oriented Java 
+code that it is equivalent to. The pseudocode always begins with `///` to 
+differentiate from regular comments.
 
-The spatial pooling algorithm is run once my creating a `SpatialPooler` class 
-object and calling the `performPooling()` method on that object.
+The spatial pooling algorithm can be run once by creating a `SpatialPooler` 
+class object and calling the `performPooling()` method on that object.
 
 ```java
 public Set<Column> performPooling() {
-    /// for c in columns <== this pseudocode is from line 1 above
+    /// for c in columns <== this pseudocode is from line 1 in the white paper
     Column[][] columns = this.region.getColumns();
     for (int row = 0; row < columns.length; row++) {
         for (int column = 0; column < columns[0].length; column++) {
@@ -390,7 +357,8 @@ void computeActiveColumnsOfRegion() {
 
             /// if overlap(c) > 0 and overlap(c) >= minLocalActivity then
             if (columns[x][y].getOverlapScore() > 0
-                    && columns[x][y].getOverlapScore() >= minimumLocalOverlapScore) {
+                    && columns[x][y].getOverlapScore() 
+                    >= minimumLocalOverlapScore) {
                 /// activeColumns(t).append(c)
                 columns[x][y].setActiveState(true);
 
@@ -522,7 +490,8 @@ void boostSynapsesBasedOnActiveAndOverlapDutyCycle() {
                  this.updateOverlapDutyCycle(row, column);
     
                  /// if overlapDutyCycle(c) < minDutyCycle(c) then
-                 if (columns[row][column].getOverlapDutyCycle() < minimumActiveDutyCycle
+                 if (columns[row][column].getOverlapDutyCycle() 
+                         < minimumActiveDutyCycle
                          && this.getLearningState()) {
                      /// increasePermanences(c, 0.1*connectedPerm)
                      columns[row][column]
@@ -534,8 +503,8 @@ void boostSynapsesBasedOnActiveAndOverlapDutyCycle() {
 }
 ```
 
-The actual [SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java) class contains 
-the above code and additional code and clarifying comments.
+The actual [SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java) 
+class contains the above code and additional code and clarifying comments.
 
 # Object oriented temporal pooling algorithm
 
@@ -545,68 +514,13 @@ algorithm explained in detail in this [white paper](https://db.tt/FuQWQuwE).
 The following is the temporal pooling algorithm(combined inference and learning) pseudocode in the 
 white paper pages 39-46:
 
-<b>Phase 1</b>
-```
-for c in activeColumns(t) // line 18
- 
-    buPredicted = false 
-    lcChosen = false
-    for i = 0 to cellsPerColumn - 1 
-        if predictiveState(c, i, t-1) == true then 
-            s = getActiveSegment(c, i, t-1, activeState) 
-            if s.sequenceSegment == true then 
-                buPredicted = true 
-                activeState(c, i, t) = 1 
-                if segmentActive(s, t-1, learnState) then 
-                    lcChosen = true 
-                    learnState(c, i, t) = 1 
-
- 
-    if buPredicted == false then 
-        for i = 0 to cellsPerColumn - 1 
-            activeState(c, i, t) = 1 
-    
-    if lcChosen == false then 
-        i,s = getBestMatchingCell(c, t-1) 
-        learnState(c, i, t) = 1 
-        sUpdate = getSegmentActiveSynapses (c, i, s, t-1, true) 
-        sUpdate.sequenceSegment = true 
-        segmentUpdateList.add(sUpdate) // line 41
-```
-
-<b>Phase 2</b>
-```
-for c, i in cells // line 42
-    for s in segments(c, i) 
-        if segmentActive(s, t, activeState) then 
-            predictiveState(c, i, t) = 1 
- 
-            activeUpdate = getSegmentActiveSynapses (c, i, s, t, false) 
-            segmentUpdateList.add(activeUpdate) 
- 
-            predSegment = getBestMatchingSegment(c, i, t-1) 
-            predUpdate = getSegmentActiveSynapses( 
-                              c, i, predSegment, t-1, true) 
-            segmentUpdateList.add(predUpdate) // line 53
-```
-
-<b>Phase 3</b>
-```
-for c, i in cells // line 54
-    if learnState(s, i, t) == 1 then 
-        adaptSegments (segmentUpdateList(c, i), true) 
-        segmentUpdateList(c, i).delete() 
-    else if predictiveState(c, i, t) == 0 and predictiveState(c, i, t-1)==1 then 
-        adaptSegments (segmentUpdateList(c,i), false) 
-        segmentUpdateList(c, i).delete()  // line 60
-```
-
 The following is the temporal pooling algorithm pseudocode in the white paper
-implemented using object oriented design. Notice how the pseudocode from above is
-placed immediately above the object oriented Java code that is equivalent to the
-pseudocode and always begins with `///` to differentiate from regular comments.
+implemented using object oriented design. Notice how the pseudocode from the
+white paper pages 39-46 is placed immediately above the object oriented Java 
+code that is equivalent to the pseudocode. The pseudocode always begins with 
+`///` to differentiate from regular comments.
 
-The temporal pooling algorithm is run once my creating a `TemporalPooler` class 
+The temporal pooling algorithm is run once by creating a `TemporalPooler` class 
 object and calling the `performPooling()` method on that object.
 
 ```java
@@ -733,7 +647,8 @@ void phaseTwo(Set<Column> activeColumns) {
                     // .getBestPreviousActiveSegment();
 
                     /// predSegment = getBestMatchingSegment(c, i, t-1)
-                    /// predUpdate = getSegmentActiveSynapses(c, i, predSegment, t-1, true)
+                    /// predUpdate = getSegmentActiveSynapses(c, i, predSegment, 
+                                                              t-1, true)
                     SegmentUpdate predictionUpdate = this
                             .getSegmentActiveSynapses(
                                     column.getCurrentPosition(), i,
@@ -763,7 +678,8 @@ void phaseThree(Set<Column> activeColumns) {
                         this.segmentUpdateList.getSegmentUpdate(c, i), true);
                 /// segmentUpdateList(c, i).delete()
                 this.segmentUpdateList.deleteSegmentUpdate(c, i);
-            /// else if predictiveState(c, i, t) == 0 and predictiveState(c, i, t-1)==1 then
+            /// else if predictiveState(c, i, t) == 0 and predictiveState(c, i, 
+                                                                    t-1)==1 then
             } else if (neurons[i].getPredictingState() == false
                     && neurons[i].getPreviousPredictingState() == true) {
                 /// adaptSegments(segmentUpdateList(c, i), false)
@@ -778,15 +694,16 @@ void phaseThree(Set<Column> activeColumns) {
 }
 ```
 
-The actual [TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java) class contains 
-the above code and additional code and clarifying comments.
+The actual [TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java) 
+class contains the above code and additional code and clarifying comments.
 
 # Noise invariance experiment
 
-Here is some example code of how part of the theorized prediction algorithm works. You do NOT need to understand
-the following code to make meaningful contributions to this repository but it is a beautiful summary of how columns 
-of neurons in your brain are probably working to encode what you see. The following are the three images the
-retina will be looking at:
+Here is some example code of how part of the theorized prediction algorithm 
+works. You do NOT need to understand the following code to make meaningful 
+contributions to this repository but it is a beautiful summary of how columns 
+of neurons in your brain are probably working to encode what you see. The 
+following are the three images the retina will be looking at:
 
 ![alt text](https://db.tt/8ZAdcAbM)
 
@@ -809,5 +726,8 @@ spatialPooler.performPooling();
 assertEquals(set2, this.spatialPooler.getActiveColumnPositions());
 ```
 
-You can view the entire file in [NoiseInvarianceExperiment.java](./experiments/model/MARK_I/vision/NoiseInvarianceExperiment.java). Please do not be afraid to ask a question if you are confused! This stuff took me several months to fully understand
-but it is really beautiful after you understand it.
+You can view the entire file in 
+[NoiseInvarianceExperiment.java](./experiments/model/MARK_I/vision/NoiseInvarianceExperiment.java). 
+Please do not be afraid to ask a question if you are confused! This stuff took 
+me several months to fully understand but it is really beautiful after you 
+understand it.
