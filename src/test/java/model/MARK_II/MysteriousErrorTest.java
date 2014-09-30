@@ -34,7 +34,7 @@ public class MysteriousErrorTest extends junit.framework.TestCase {
         this.temporalPooler.setLearningState(true);
     }
 
-    public void test_performTemporalPoolingOnRegion() {
+    public int test_performTemporalPoolingOnRegion() {
         // segmentUpdateList.size = 0
 
         // in Phase 1
@@ -59,12 +59,27 @@ public class MysteriousErrorTest extends junit.framework.TestCase {
         //assertEquals(8, segmentUpdateListSize); // NOTE: why does this sometimes return 6?
         System.out.println("segmentUpdateListSize after TP = " + segmentUpdateListSize);
         this.temporalPooler.nextTimeStep();
+        return segmentUpdateListSize;
     }
 
     public void test_Call20Times() throws IOException {
+        boolean found6 = false;
+        boolean found8 = false;
+        int segmentUpdateListSize;
         for (int i = 0; i < 20; i++) {
             this.setUp();
-            this.test_performTemporalPoolingOnRegion();
+            segmentUpdateListSize = this.test_performTemporalPoolingOnRegion();
+            if (segmentUpdateListSize == 6) {
+                found6 = true;
+            } else if (segmentUpdateListSize == 8) {
+                found8 = true;
+            }
+
+            if (found6 && found8) {
+                break;
+            }
+
+            System.out.println("\n");
         }
     }
 }
