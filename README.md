@@ -204,28 +204,27 @@ information please:
 
 # Important brain theories in use 
 
-1. **Theory: 1 learning/predicting algorithm in the neocortex of the brain**
-   - Experiments that support this theory:
-     + A 1992 experiment summary: If you cut the wires from the ear to the auditory cortex and rewire the optic nerve to the 
-       auditory cortex, then the auditory cortex learns to see. Published paper describing details of experiment 
-       viewable [here](http://diyhpl.us/~bryan/papers2/paperbot/Visual%20projections%20routed%20to%20the%20auditory%20pathway%20in%20ferrets:%20receptive%20fields%20of%20visual%20neurons%20in%20primary%20auditory%20cortex.pdf) 
-     + A 1989 experiment summary: If you make the wires from the optic nerve connect to the somatosensory cortex then the 
-       somatosensory cortex learns to see. Published paper describing details of experiment viewable 
+1. **Theory:** 1 learning/predicting algorithm in the neocortex of the brain
+   - Supportive: 
+     + Summary: If you cut the wires from the ear to the auditory cortex and rewire the optic nerve to the auditory 
+       cortex, then the auditory cortex learns to see. Details [here](https://db.tt/dXTDFAVe) 
+     + Summary: If you make the wires from the optic nerve connect to the somatosensory cortex then the somatosensory 
+       cortex learns to see. Published paper describing details of experiment viewable 
        [here](http://www.pnas.org/content/86/1/357.full.pdf)
-   - Experiments that do NOT support this theory: 
+   - Not supportive:  
    - Conclusion: If different parts of the neocortex (contains auditory cortex, somatosensory, and others..)
      can be given new input and learn to process this new input, then we can guess there is a single 
      learning/predicting algorithm in all parts of the neocortex.
 
 2. **Theory: Orientation selectivity is learned & muscle movement is crucial for this process**
-   - Experiments that support this theory:
-     + A 1970 experiment summary: Kittens where raised in either a horizontally or vertically stripped environment for 
+   - Supportive:
+     + Summary: Kittens where raised in either a horizontally or vertically stripped environment for 
        five hours per day for five months. The environments forced the kitten's to only look forward at vertical 
        stripes or horizontal stripes. The remaining 19 hours each day the kittens were raised in darkness.
        At five months the kittens were tested for line recognition. Those kittens raised in horizontal environments
        could not detect vertical aligned objects, and vice-versa. Published paper describing details of experiment 
        viewable [here](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1307838/pdf/jphysiol00822-0028.pdf)
-   - Experiments that do NOT support this theory: 
+   - Not supportive:
    - Conclusion: Reality creates a representation in your brain as neuron activity which creates muscle movement(within the eyes,
      arms, other muscles) causing the next image to appear on your retina to be predictable by the temporal pooling
      algorithm in your neocortex. As you continue to see, columns in your neocortex become tuned to specific directions
@@ -233,13 +232,13 @@ information please:
 
 3. **Theory: Spatial pooling, sequence memory, & temporal pooling are deduced algorithms that are occurring**
    in the human neocortex layers 3 & 4 in a similar form giving the brain the ability to predict future input.
-   - Experiments that support this theory:
+   - Supportive:
      + Noise invariance experiment of vision input viewable in 
        [NoiseInvarianceExperiment.java](./experiments/model/MARK_I/vision/NoiseInvarianceExperiment.java). Paper that 
        describes details of theory behind experiment viewable [here](https://dl.dropboxusercontent.com/u/106853306/Brain/HTM_CorticalLearningAlgorithms.pdf)
      + A 2011 experiment summary: Neurons higher in the hierarchy are more stable & selective to input. Published paper 
        describing details of experiment viewable [here](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2975390/)
-   - Experiments that do NOT support this theory: 
+   - Not supportive: 
    - Conclusion: 
      + Spatial Pooling = Creates a sparse distributed representation activity of columns to efficiently represent 
        a larger input layer. Causes columns of neurons to become selectively tuned for specific input
@@ -255,14 +254,22 @@ information please:
 4. **Theory: Information flow in the brain**
    - Path 1) synapseOnAxonOfNeuronA `=>` dendriteOfNeuronB `=>` cellBodyOfNeuronB `=>` axonOfNeuronB `=>` synapseOfNeuronC
    - Path 2) Read somewhere that dendrites can also be output devices to synapses(cellBody `=>` dendrite `=>` synapse)
-   - Experiments that support this theory:
-   - Experiments that do NOT support this theory: 
+   - Supportive:
+   - Not Supportive: 
    
 5. **Theory: A lot of what we call intelligence is developed during the first 2 years of life**
    - Reasoning: About 10^14 synapses in the brain by 2 years of age. About 10^8 seconds in 2 years. That means on average
                 10^6 synapses were formed per second while you were becoming 2 years old.
-   - Experiments that support this theory:
-   - Experiments that do NOT support this theory: 
+   - Supportive:
+   - Not Supportive: 
+
+6. **Theory: Hieararchy in the neocortex**
+   - Using predictive models plus temporal pooling to create invariant 
+     representations takes a lot of memory. The only way to build a practical 
+     vision system is to use a hierarchy of regions. In the cortex we know that 
+     V1 can only form invariant representations of about 1 degree of the visual
+     space. Each successive level in the hierarchy is about 4X the previous. So 
+     V2 is about 4 degrees, V4 about 16 degrees, and IT about 64 degrees.
 
 # Object oriented spatial pooling algorithm
 
