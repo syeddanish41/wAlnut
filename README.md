@@ -275,6 +275,9 @@ white paper pages 34-38 is placed immediately above the object oriented Java
 code that it is equivalent to. The pseudocode always begins with `///` to 
 differentiate from regular comments.
 
+The actual [SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java) 
+class contains the below code and additional code and clarifying comments.
+
 The spatial pooling algorithm can be run once by creating a `SpatialPooler` 
 class object and calling the `performPooling()` method on that object.
 
@@ -503,24 +506,28 @@ void boostSynapsesBasedOnActiveAndOverlapDutyCycle() {
 }
 ```
 
-The actual [SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java) 
-class contains the above code and additional code and clarifying comments.
-
 # Object oriented temporal pooling algorithm
 
-The following section will not make sense until you have first read and tried to understand the temporal pooling
-algorithm explained in detail in this [white paper](https://db.tt/FuQWQuwE).
+The following section will not make sense until you have first read and tried to 
+understand the temporal pooling algorithm explained in detail in this 
+[white paper](https://db.tt/FuQWQuwE). This algorithm postulates that the only
+way to learn invariant representations of any type is by using when things
+happen across time. It hypothesizes the brain makes no assumptions about 
+the different transformations the world has(shits, rotations, etc.). The brain
+ONLY says if patterns follow each other in time in a predictable way they are
+causally related and should have the same representation. This is a incredibly
+simple and powerful idea.
 
-The following is the temporal pooling algorithm(combined inference and learning) pseudocode in the 
-white paper pages 39-46:
+The following is the temporal pooling algorithm(combined inference and learning)
+pseudocode in the white paper implemented using object oriented design. Notice 
+how the pseudocode from the white paper pages 39-46 is placed immediately above 
+the object oriented Java code that is equivalent to the pseudocode. The 
+pseudocode always begins with `///` to differentiate from regular comments.
 
-The following is the temporal pooling algorithm pseudocode in the white paper
-implemented using object oriented design. Notice how the pseudocode from the
-white paper pages 39-46 is placed immediately above the object oriented Java 
-code that is equivalent to the pseudocode. The pseudocode always begins with 
-`///` to differentiate from regular comments.
+The actual [TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java) 
+class contains the below code and additional code and clarifying comments.
 
-The temporal pooling algorithm is run once by creating a `TemporalPooler` class 
+The temporal pooling algorithm can be run once by creating a `TemporalPooler` class 
 object and calling the `performPooling()` method on that object.
 
 ```java
@@ -693,9 +700,6 @@ void phaseThree(Set<Column> activeColumns) {
     }
 }
 ```
-
-The actual [TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java) 
-class contains the above code and additional code and clarifying comments.
 
 # Noise invariance experiment
 
