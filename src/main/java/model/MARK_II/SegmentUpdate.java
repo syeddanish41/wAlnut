@@ -53,4 +53,26 @@ class SegmentUpdate {
     public void setSequenceState(boolean predictsFeedForwardInputOnNextTimeStep) {
         this.predictsFeedForwardInputOnNextTimeStep = predictsFeedForwardInputOnNextTimeStep;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n==========================================");
+        stringBuilder.append("\n------------SegmentUpdate Info------------");
+        stringBuilder.append("\n          synapsesWithActiveCells size: ");
+        stringBuilder.append(this.synapsesWithActiveCells.size());
+        stringBuilder.append("\n        synapsesWithDeactiveCells size: ");
+        stringBuilder.append(this.synapsesWithDeactiveCells.size());
+        stringBuilder.append("\npredictsFeedForwardInputOnNextTimeStep: ");
+        stringBuilder.append(this.predictsFeedForwardInputOnNextTimeStep);
+        stringBuilder.append("\n    neuronColumnPosition (row, column): (");
+        stringBuilder.append(this.neuronColumnPosition.getRow() + ", " + this.neuronColumnPosition.getColumn() + ")");
+        stringBuilder.append("\n                           neuronIndex: ");
+        stringBuilder.append(this.neuronIndex);
+        stringBuilder.append("\n       synapsesNonexistentInModel size: ");
+        stringBuilder.append(this.synapsesNonexistentInModel.size());
+        stringBuilder.append("\n==========================================");
+        String NeuronInformation = stringBuilder.toString();
+        return NeuronInformation;
+    }
 }
