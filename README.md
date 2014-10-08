@@ -94,14 +94,14 @@ information please:
 4. In IntelliJ right-click the `WalnutiQ/` folder and select "Run 'All Tests'". 
   
 ## Install in Linux/Mac/Windows with Gradle
-1. Make sure you have java version 1.7 or 1.8. To check open up a new terminal 
+1. Make sure you have java version 1.6, 1.7 or 1.8. To check open up a new terminal 
    and type:
    ```sh
    prompt> java -version
-   java version "1.7.0_60" # it's only important to see "1.7" or "1.8" in the 
-   version
+   java version "1.7.0_60" # it's only important to see "1.6", 1.7" or "1.8" in 
+   the version
    ```  
-   If you don't have either install java 1.7 by going 
+   If you don't have any of those Java versions install java 1.7 by going 
    [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html). 
    After installing java 1.7 open up a new terminal to check if java 1.7 
    is installed by retyping `java -version` in the terminal.
@@ -112,9 +112,7 @@ information please:
 3. To run all of the code in the Linux or Mac terminal type:
    ```sh
    prompt> ./gradlew build
-   :compileJava UP-TO-DATE
    # some other stuff...
-   :build UP-TO-DATE
    BUILD SUCCESSFUL # If you see `BUILD SUCCESSFUL` all of the tests have passed! 
    ```
 
