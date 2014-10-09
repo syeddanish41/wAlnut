@@ -9,38 +9,69 @@ import model.MARK_II.*;
 public class RegionToRegionRectangleConnect extends
         AbstractRegionToRegionConnect {
     @Override
-    public void connect(Region bottomLayer, Region topLayer,
+    public void connect(Region childRegion, Region parentRegion,
                         int numberOfColumnsToOverlapAlongNumberOfRows,
                         int numberOfColumnsToOverlapAlongNumberOfColumns) {
-        int rowBinitial, rowBfinal, colBinitial, colBfinal;
 
-        int topRowLength = topLayer.getNumberOfRowsAlongRegionYAxis();
-        int topColLength = topLayer.getNumberOfColumnsAlongRegionXAxis();
-        int botRowLength = bottomLayer.getNumberOfRowsAlongRegionYAxis();
-        int botColLength = bottomLayer.getNumberOfColumnsAlongRegionXAxis();
+        super.checkParameters(childRegion, parentRegion,
+                numberOfColumnsToOverlapAlongNumberOfRows,
+                numberOfColumnsToOverlapAlongNumberOfColumns);
 
-        for(int rowT = 0; rowT < topRowLength; rowT++){
+        Column[][] parentRegionColumns = parentRegion.getColumns();
+        int parentRegionNumberOfRows = parentRegionColumns.length; // = 8
+        int parentRegionNumberOfColumns = parentRegionColumns[0].length; // = 8
 
-            if (rowT < botRowLength % topRowLength) {
-                rowBinitial = rowT * (botRowLength/topRowLength) + rowT;
-                rowBfinal = (rowT + 1) * (botRowLength/topRowLength) + (rowT + 1) -1; // -1 of next rowBinitial
-            } else {
-                rowBinitial = rowT * (botRowLength/topRowLength) + botRowLength % topRowLength;
-                rowBfinal = (rowT + 1) * (botRowLength/topRowLength) + botRowLength % topRowLength - 1;
-            }
+        Column[][] childRegionColumns = childRegion.getColumns();
+        int childRegionNumberOfRows = childRegionColumns.length; // = 66
+        int childRegionNumberOfColumns = childRegionColumns[0].length; // = 66
 
-            for(int colT = 0; colT < topColLength; colT++) {
-                if(colT < botColLength % topColLength) {
-                    colBinitial = colT * (botColLength/topColLength) + colT;
-                    colBfinal = (colT + 1) * (botColLength/topColLength) + (colT + 1) -1; // -1 of next rowBinitial
-                } else {
-                    colBinitial = colT * (botColLength/topColLength) + botColLength %
-                            topColLength;
-                    rowBfinal = (colT + 1) * (botColLength/topColLength) + botColLength %
-                            topColLength - 1;
+        int connectingRectangleNumberOfRows = Math
+                .round((childRegionNumberOfRows
+                        + numberOfColumnsToOverlapAlongNumberOfRows
+                        * parentRegionNumberOfRows - numberOfColumnsToOverlapAlongNumberOfRows)
+                        / parentRegionNumberOfRows); // = 10
+        int connectingRectangleNumberOfColumns = Math
+                .round((childRegionNumberOfColumns
+                        + numberOfColumnsToOverlapAlongNumberOfColumns
+                        * parentRegionNumberOfColumns - numberOfColumnsToOverlapAlongNumberOfColumns)
+                        / parentRegionNumberOfColumns); // = 10
+
+        int shiftAmountInRows = connectingRectangleNumberOfRows
+                - numberOfColumnsToOverlapAlongNumberOfRows; // = 10 - 2
+        int shiftAmountInColumns = connectingRectangleNumberOfColumns
+                - numberOfColumnsToOverlapAlongNumberOfColumns; // = 10 - 2
+
+        for (int parentColumnRowPosition = 0; parentColumnRowPosition < parentRegionNumberOfRows; parentColumnRowPosition++) {
+            for (int parentColumnColumnPosition = 0; parentColumnColumnPosition < parentRegionNumberOfColumns; parentColumnColumnPosition++) {
+
+                // rowStart = 0, 8, 16, 24, 32, 40, 48, 56
+                // columnStart = 0, 8, 16, 24, 32, 40, 48, 56
+                int rowStart = parentColumnRowPosition * shiftAmountInRows;
+                int columnStart = parentColumnColumnPosition * shiftAmountInColumns;
+
+                // rowEnd = 10, 18, 26, 34, 42, 50, 58, 66
+                // columnEnd = 10, 18, 26, 34, 42, 50, 58, 66
+                int rowEnd = rowStart + connectingRectangleNumberOfRows;
+                int columnEnd = columnStart + connectingRectangleNumberOfColumns;
+
+                Column parentColumn = parentRegionColumns[parentColumnRowPosition][parentColumnColumnPosition];
+
+                for (int childColumnRowPosition = rowStart; childColumnRowPosition < rowEnd; childColumnRowPosition++) {
+                    for (int childColumnColumnPosition = columnStart; childColumnColumnPosition < columnEnd; childColumnColumnPosition++) {
+
+                        for (Neuron childColumnNeuron : childRegionColumns[childColumnRowPosition][childColumnColumnPosition]
+                                .getNeurons()) {
+                            // # of synapses connected/add =
+                            // connectingRectangleXAxisLength *
+                            // connectingRectangleYAxisLength *
+                            // column.getNeurons.length
+                            parentColumn.getProximalSegment().addSynapse(
+                                    new Synapse<Cell>(childColumnNeuron,
+                                            childColumnRowPosition, childColumnColumnPosition));
+                        }
+                    }
                 }
             }
         }
-
     }
 }

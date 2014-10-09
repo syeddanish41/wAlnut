@@ -147,7 +147,6 @@ public class TemporalPooler extends Pooler {
 
                 /// segmentUpdateList.add(sUpdate)
                 this.segmentUpdateList.add(segmentUpdate);
-                System.out.println("Added a segmentupdate in phase 1 " + segmentUpdateList.size());
             }
         }
     }
@@ -310,7 +309,6 @@ public class TemporalPooler extends Pooler {
                         .getBestPreviousActiveSegment();
 
                 /// for s in segments(c, i)
-                System.out.println("Distal Size at n[" + i + "] : " + neurons[i].getDistalSegments().size());
                 for (Segment segment : neurons[i].getDistalSegments()) {
                     // NOTE: segment may become active during the spatial pooling
                     // between temporal pooling iterations
@@ -326,7 +324,6 @@ public class TemporalPooler extends Pooler {
                                         segment, false, false);
                         /// segmentUpdateList.add(activeUpdate)
                         this.segmentUpdateList.add(activeUpdate);
-                        System.out.println("Added a segmentupdate in phase 2.1 " + segmentUpdateList.size() + " " + activeUpdate);
                         // Segment predictingSegment = neurons[i]
                         // .getBestPreviousActiveSegment();
 
@@ -338,7 +335,6 @@ public class TemporalPooler extends Pooler {
                                         predictingSegment, true, true);
                         /// segmentUpdateList.add(predUpdate)
                         this.segmentUpdateList.add(predictionUpdate);
-                        System.out.println("Added a segmentupdate in phase 2.2 " + segmentUpdateList.size()  + " " + activeUpdate);
                     }
                 }
             }
@@ -364,7 +360,6 @@ public class TemporalPooler extends Pooler {
                             this.segmentUpdateList.getSegmentUpdate(c, i), true);
                     /// segmentUpdateList(c, i).delete()
                     this.segmentUpdateList.deleteSegmentUpdate(c, i);
-                    System.out.println("Deleted a segmentupdate in phase 3.1 " + segmentUpdateList.size());
 
                     /// else if predictiveState(c, i, t) == 0 and predictiveState(c, i, t-1)==1 then
                 } else if (neurons[i].getPredictingState() == false
@@ -375,7 +370,6 @@ public class TemporalPooler extends Pooler {
                             false);
                     /// segmentUpdateList(c, i).delete()
                     this.segmentUpdateList.deleteSegmentUpdate(c, i);
-                    System.out.println("Deleted a segmentupdate in phase 3.2 " + segmentUpdateList.size());
                 }
             }
         }
