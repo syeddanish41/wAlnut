@@ -1,6 +1,7 @@
 package model.MARK_II.connectTypes;
 
 import model.MARK_II.*;
+import java.awt.Point;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
@@ -21,26 +22,33 @@ public class NewRegionToRegionRectangleConnect extends
 
         for(int rowT = 0; rowT < topRowLength; rowT++){
 
-            if (rowT < botRowLength % topRowLength) {
-                rowBinitial = rowT * (botRowLength/topRowLength) + rowT;
-                rowBfinal = (rowT + 1) * (botRowLength/topRowLength) + (rowT + 1) -1; // -1 of next rowBinitial
-            } else {
-                rowBinitial = rowT * (botRowLength/topRowLength) + botRowLength % topRowLength;
-                rowBfinal = (rowT + 1) * (botRowLength/topRowLength) + botRowLength % topRowLength - 1;
-            }
+            Point rowReceptiveField = updateReceptiveFieldDimensionLength(topRowLength, botRowLength, rowT);
+            rowBinitial = (int) rowReceptiveField.getX();
+            rowBfinal = (int) rowReceptiveField.getY();
 
             for(int colT = 0; colT < topColLength; colT++) {
-                if(colT < botColLength % topColLength) {
-                    colBinitial = colT * (botColLength/topColLength) + colT;
-                    colBfinal = (colT + 1) * (botColLength/topColLength) + (colT + 1) -1; // -1 of next rowBinitial
-                } else {
-                    colBinitial = colT * (botColLength/topColLength) + botColLength %
-                            topColLength;
-                    rowBfinal = (colT + 1) * (botColLength/topColLength) + botColLength %
-                            topColLength - 1;
-                }
+                Point colReceptiveField = updateReceptiveFieldDimensionLength(topColLength, botColLength, colT);
+                colBinitial = (int) rowReceptiveField.getX();
+                colBfinal = (int) rowReceptiveField.getY();
+                
+                //////////
+                
             }
         }
 
+    }
+    
+    public Point updateReceptiveFieldDimensionLength (int topLength, int botLength, int topIndex) {
+        int Binitial;
+        int Bfinal;
+        if (topIndex < botLength % topLength) {
+            Binitial = topIndex * (botLength/topLength) + topIndex;
+            Bfinal = (topIndex + 1) * (botLength/topLength) + (topIndex + 1) -1; // -1 of next rowBinitial
+        } else {
+            Binitial = topIndex * (botLength/topLength) + botLength % topLength;
+            Bfinal = (topIndex + 1) * (botLength/topLength) + botLength % topLength - 1;
+        }
+        
+        return new Point(Binitial, Bfinal);
     }
 }

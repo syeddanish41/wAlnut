@@ -7,6 +7,6 @@ import junit.framework.TestCase;
  */
 public class NewRegionToRegionRectangleConnectTest extends TestCase{
     public void setUp(){
-        
+
     }
 }
