@@ -217,7 +217,7 @@ information please:
          + implies "*significant implications for possible commonalities in 
            intracortical processing circuits between sensory cortices*".
 
-     + 1988 Paper [here](http://www.pnas.org/content/86/1/357.full.pdf) from
+     + 1988 Paper [here](https://db.tt/RXAOVwfa) from
        Laboratoire des Neuroscience de la Vision at Universite de Paris.
        - Summary: Wires of the optic nerve were routed permanently to the
          main thalamic somatosensory nucleus in hamsters. After the hamsters 
@@ -235,8 +235,18 @@ information please:
            similar transformations on their inputs*".
      
    - Not supportive:
- 
-   - Conclusion: If cortex X of the neocortex (contains visual cortex,
+     + 2002 Paper [here](https://db.tt/NJxHdObc) from Vision, Touch and Hearing
+       Research Centre at The University of Queensland.
+       - "*recent studies have revealed substantial variation in pyramidal
+         cell structure in different cortical areas*".
+       - Some of these variations like increase in dendritic arbor size(
+         dendritic branching) can be resolved with the idea of a common 
+         algorithm.
+     + 2008 PhD thesis [here]() by Dileep George from Stanford University
+       - "Until we understand and explain the computational reason behind
+         a large majority of such variations, the common cortical algorithm
+         will have to be considered as a working hypothesis".
+   - Conclusion: If cortex X(arbitrary cortex) of the neocortex(contains visual cortex,
      auditory cortex, somatosensory cortex, and others..) can be given 
      non-normal sensory input usually given to say cortex Y and then learn to 
      process this new input similarily to how cortex X would process it, then we 
