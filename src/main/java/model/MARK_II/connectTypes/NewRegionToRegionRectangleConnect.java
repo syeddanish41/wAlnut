@@ -32,6 +32,7 @@ public class NewRegionToRegionRectangleConnect extends
                 colBfinal = (int) rowReceptiveField.getY();
                 
                 //////////
+
                 
             }
         }
