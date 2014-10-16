@@ -30,13 +30,18 @@ public class NewRegionToRegionRectangleConnect extends
                 Point colReceptiveField = updateReceptiveFieldDimensionLength(topColLength, botColLength, colT);
                 colBinitial = (int) rowReceptiveField.getX();
                 colBfinal = (int) rowReceptiveField.getY();
-                
-                //////////
 
-                
+                // actually add synapses from bottom layer receptive field to top layer column
+                Column topColumn = topLayer.getColumn(rowT, colT);
+                for (int rowB = rowBinitial; rowB <= rowBfinal; rowB++){
+                    for (int colB = colBinitial; colB <= colBfinal; colB++) {
+                        for(Neuron neuron : bottomLayer.getColumn(rowB, colB).getNeurons()){
+                            topColumn.getProximalSegment().addSynapse(new Synapse<Cell>(neuron, rowB, colB));
+                        }
+                    }
+                }
             }
         }
-
     }
     
     public Point updateReceptiveFieldDimensionLength (int topLength, int botLength, int topIndex) {
