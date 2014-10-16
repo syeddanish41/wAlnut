@@ -206,15 +206,44 @@ information please:
 
 1. **Theory:** 1 learning/predicting algorithm in the neocortex of the brain
    - Supportive: 
-     + Summary: If you cut the wires from the ear to the auditory cortex and rewire the optic nerve to the auditory 
-       cortex, then the auditory cortex learns to see. Details [here](https://db.tt/dXTDFAVe) 
-     + Summary: If you make the wires from the optic nerve connect to the somatosensory cortex then the somatosensory 
-       cortex learns to see. Published paper describing details of experiment viewable 
-       [here](http://www.pnas.org/content/86/1/357.full.pdf)
-   - Not supportive:  
-   - Conclusion: If different parts of the neocortex (contains auditory cortex, somatosensory, and others..)
-     can be given new input and learn to process this new input, then we can guess there is a single 
-     learning/predicting algorithm in all parts of the neocortex.
+     + 1992 Paper [here](https://db.tt/dXTDFAVe) from Department of Brain and 
+       Cognitive Sciences at MIT.
+       - Summary: A portion of wires of the optic nerve are routed to the auditory 
+         cortex in ferrets. The neurons of this primary auditory cortex(A1) with 
+         vision input did not work exactly like neurons in primary visual 
+         cortex(V1). Neurons in rewired A1 had larger receptive field sizes 
+         and other differences. However there are also similarities including:
+         + rewired A1 neurons showed orientation and direction selectivity.
+         + similar proportions of simple, complex, and nonoriented cells between
+           rewired A1 and V1.
+         + implies "*significant implications for possible commonalities in 
+           intracortical processing circuits between sensory cortices*".
+
+     + 1988 Paper [here](http://www.pnas.org/content/86/1/357.full.pdf) from
+       Laboratoire des Neuroscience de la Vision at Universite de Paris.
+       - Summary: Wires of the optic nerve were routed permanently to the
+         main thalamic somatosensory nucleus in hamsters. After the hamsters 
+         grew up the neurons in the somatosensory cortex were recorded.
+         The "somatosensory neurons responded to visual stimulation of
+         distinct receptive fields, and their response properties resemlbled,
+         in several characteristic features, those of normal visual cortical
+         neurons." 
+         + "*the same functional categories of neurons occurred in similar 
+           proportions, and the neurons' selectivity for the orientation or
+           direction of movement of visual stimuli was comparable*" between
+           normal hamsters and rewired hamsters.
+         + "*These results suggest that thalamic nuclei or cortical areas at
+           corresponding levels in the visual and somatosensory pathways perform
+           similar transformations on their inputs*".
+     
+   - Not supportive:
+ 
+   - Conclusion: If cortex X of the neocortex (contains visual cortex,
+     auditory cortex, somatosensory cortex, and others..) can be given 
+     non-normal sensory input usually given to say cortex Y and then learn to 
+     process this new input similarily to how cortex X would process it, then we 
+     can hypothesize that there is a single learning/predicting algorithm in all 
+     cortices of the neocortex.
 
 2. **Theory: Orientation selectivity is learned & muscle movement is crucial for this process**
    - Supportive:
