@@ -21,15 +21,14 @@ public class NewRegionToRegionRectangleConnect extends
         int botColLength = bottomLayer.getNumberOfColumnsAlongRegionXAxis();
 
         for(int rowT = 0; rowT < topRowLength; rowT++){
-
             Point rowReceptiveField = updateReceptiveFieldDimensionLength(topRowLength, botRowLength, rowT);
             rowBinitial = (int) rowReceptiveField.getX();
             rowBfinal = (int) rowReceptiveField.getY();
 
             for(int colT = 0; colT < topColLength; colT++) {
                 Point colReceptiveField = updateReceptiveFieldDimensionLength(topColLength, botColLength, colT);
-                colBinitial = (int) rowReceptiveField.getX();
-                colBfinal = (int) rowReceptiveField.getY();
+                colBinitial = (int) colReceptiveField.getX();
+                colBfinal = (int) colReceptiveField.getY();
 
                 // actually add synapses from bottom layer receptive field to top layer column
                 Column topColumn = topLayer.getColumn(rowT, colT);
