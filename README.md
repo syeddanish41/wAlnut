@@ -9,8 +9,8 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*When we hit our lowest point, we are open to the greatest change.*" 
-~ Avatar Aang
+"*Don't be so driven by your past, you throw away your future.*" 
+~ Kate Beckett
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
@@ -99,7 +99,7 @@ information please:
    ```sh
    prompt> java -version
    java version "1.7.0_60" # it's only important to see "1.6", 1.7" or "1.8" in 
-   the version
+                           # the version
    ```  
    If you don't have any of those Java versions install java 1.7 by going 
    [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html). 
