@@ -4,8 +4,8 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[How to contribute](#how-to-contribute) |**
 **[What are all the files here for?](#what-are-all-the-files-here-for) |**
 **[Important brain theories in use](#important-brain-theories-in-use) |**
-**[Spatial pooling](#object-oriented-spatial-pooling-algorithm) |**
-**[Temporal pooling](#object-oriented-temporal-pooling-algorithm) |**
+**[algorithm part 1](#object-oriented-spatial-pooling-algorithm) |**
+**[algorithm part 2](#object-oriented-temporal-pooling-algorithm) |**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
@@ -236,18 +236,18 @@ information please:
      
    - Not supportive:
      + 2002 Paper [here](https://db.tt/NJxHdObc) from Vision, Touch and Hearing
-       Research Centre at The University of Queensland.
-       - "*recent studies have revealed substantial variation in pyramidal
-         cell structure in different cortical areas*".
-       - Some of these variations like increase in dendritic arbor size(
-         dendritic branching) can be resolved with the idea of a common 
-         algorithm.
+        Research Centre at The University of Queensland.
+          - "*recent studies have revealed substantial variation in pyramidal
+            cell structure in different cortical areas*".
+          - Some of these variations like increase in dendritic arbor size(
+            dendritic branching) can be resolved with the idea of a common 
+            algorithm.
 
      + 2008 PhD thesis [here](https://db.tt/I2Fi03DS) by Dileep George from 
-       Stanford University
-       - "*Until we understand and explain the computational reason behind
-         a large majority of such variations, the common cortical algorithm
-         will have to be considered as a working hypothesis*".
+        Stanford University
+          - "*Until we understand and explain the computational reason behind
+            a large majority of such variations, the common cortical algorithm
+            will have to be considered as a working hypothesis*".
 
    - Conclusion: If cortex X(arbitrary cortex) of the neocortex(contains visual cortex,
      auditory cortex, somatosensory cortex, and others..) can be given 
