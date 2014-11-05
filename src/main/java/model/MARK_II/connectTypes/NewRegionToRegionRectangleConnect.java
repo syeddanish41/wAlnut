@@ -21,12 +21,12 @@ public class NewRegionToRegionRectangleConnect extends
         int botColLength = bottomLayer.getNumberOfColumnsAlongRegionXAxis();
 
         for(int rowT = 0; rowT < topRowLength; rowT++){
-            Point rowReceptiveField = updateReceptiveFieldDimensionLength(topRowLength, botRowLength, rowT);
+            Point rowReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topRowLength, botRowLength, rowT, numberOfColumnsToOverlapAlongNumberOfRows);
             rowBinitial = (int) rowReceptiveField.getX();
             rowBfinal = (int) rowReceptiveField.getY();
 
             for(int colT = 0; colT < topColLength; colT++) {
-                Point colReceptiveField = updateReceptiveFieldDimensionLength(topColLength, botColLength, colT);
+                Point colReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topColLength, botColLength, colT, numberOfColumnsToOverlapAlongNumberOfColumns);
                 colBinitial = (int) colReceptiveField.getX();
                 colBfinal = (int) colReceptiveField.getY();
 
@@ -60,5 +60,21 @@ public class NewRegionToRegionRectangleConnect extends
         }
         
         return new Point(Binitial, Bfinal);
+    }
+
+    Point updateReceptiveFieldDimensionLengthWithOverlap(int topLength, int botLength, int topIndex, int overlap ) {
+        Point withoutOverlap = updateReceptiveFieldDimensionLength (topLength, botLength, topIndex);
+
+        int newBinitial = (int) withoutOverlap.getX() - overlap;
+        if (newBinitial < 0) {
+            newBinitial = 0;
+        }
+
+        int newBfinal = (int) withoutOverlap.getY() + overlap;
+        if (newBfinal > botLength - 1) {
+            newBfinal = botLength - 1;
+        }
+
+        return new Point(newBinitial, newBfinal);
     }
 }

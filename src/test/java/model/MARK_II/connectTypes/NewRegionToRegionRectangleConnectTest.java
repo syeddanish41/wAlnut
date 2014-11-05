@@ -35,7 +35,7 @@ public class NewRegionToRegionRectangleConnectTest extends TestCase{
         this.topRegion = new Region("topRegion", 2, 2, 1, 50, 2);
         this.bottomRegion = new Region("bottomRegion", 4, 8, bottomRegionColumnLength, 50, 2);
 
-        this.setUpExpectedPositionsForColumns();
+        this.setUpExpectedPositionsForColumnsWithOverlap();
     }
 
     public void test_updateReceptiveFieldDimensionLength(){
@@ -95,7 +95,7 @@ public class NewRegionToRegionRectangleConnectTest extends TestCase{
 
     public void test_connect() {
         AbstractRegionToRegionConnect regionToRegion = new NewRegionToRegionRectangleConnect();
-        regionToRegion.connect(this.bottomRegion, this.topRegion, 0, 0);
+        regionToRegion.connect(this.bottomRegion, this.topRegion, 1, 1);
         int topRowLength = topRegion.getNumberOfRowsAlongRegionYAxis();
         int topColLength = topRegion.getNumberOfColumnsAlongRegionXAxis();
 
@@ -127,10 +127,10 @@ public class NewRegionToRegionRectangleConnectTest extends TestCase{
         }
     }
 
-    private void setUpExpectedPositionsForColumns() {
+    private void setUpExpectedPositionsForColumnsWithOverlap() {
         expectedPositionsForColumnAt00 = new HashSet<Point3D>();
-        for(int r = 0; r < 2; r++) {
-            for(int c = 0; c < 4; c++) {
+        for(int r = 0; r < 2 + 1; r++) {
+            for(int c = 0; c < 4 + 1; c++) {
                 for (int z = 0; z < bottomRegionColumnLength; z++) {
                     expectedPositionsForColumnAt00.add(new Point3D(r, c, z));
                 }
@@ -138,8 +138,8 @@ public class NewRegionToRegionRectangleConnectTest extends TestCase{
         }
 
         expectedPositionsForColumnAt01 = new HashSet<Point3D>();
-        for(int r = 0; r < 2; r++) {
-            for(int c = 4; c < 8; c++) {
+        for(int r = 0; r < 2 + 1; r++) {
+            for(int c = 4 - 1; c < 8; c++) {
                 for (int z = 0; z < bottomRegionColumnLength; z++) {
                     expectedPositionsForColumnAt01.add(new Point3D(r, c, z));
                 }
@@ -147,8 +147,8 @@ public class NewRegionToRegionRectangleConnectTest extends TestCase{
         }
 
         expectedPositionsForColumnAt10 = new HashSet<Point3D>();
-        for(int r = 2; r < 4; r++) {
-            for(int c = 0; c < 4; c++) {
+        for(int r = 2 - 1; r < 4; r++) {
+            for(int c = 0; c < 4 + 1; c++) {
                 for (int z = 0; z < bottomRegionColumnLength; z++) {
                     expectedPositionsForColumnAt10.add(new Point3D(r, c, z));
                 }
@@ -156,8 +156,8 @@ public class NewRegionToRegionRectangleConnectTest extends TestCase{
         }
 
         expectedPositionsForColumnAt11 = new HashSet<Point3D>();
-        for(int r = 2; r < 4; r++) {
-            for(int c = 4; c < 8; c++) {
+        for(int r = 2 - 1; r < 4; r++) {
+            for(int c = 4 - 1; c < 8; c++) {
                 for (int z = 0; z < bottomRegionColumnLength; z++) {
                     expectedPositionsForColumnAt11.add(new Point3D(r, c, z));
                 }
