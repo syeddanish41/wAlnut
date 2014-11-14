@@ -33,7 +33,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
 
     public void setUp() throws IOException {
         //this.partialNervousSystem = this.constructConnectedNervousSystem();
-
+        // TODO: merge from 140
         this.gson = new Gson();
     }
 
