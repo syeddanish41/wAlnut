@@ -54,8 +54,8 @@ public class HowMARK_II_FitsInToBrainAnatomy {
      *         / \      / \
      * +<---- E   F    G   H (Layer 3 runs spatial pooling & temporal pooling predictive algorithm)
      * |      |   |    |   |
-     * |      I   J    K   L (Layer 4 runs spatial pooling sparsifying & learning algorithm)
-     * M      |   |    |   |
+     * M----->I-->J--->K-->L (Layer 4 runs spatial pooling sparsifying & learning algorithm)
+     * |      |   |    |   |
      * |       \  |    |  /
      * |  +-----\-|----|-/-----+
      * |  |      \|    |/      |
