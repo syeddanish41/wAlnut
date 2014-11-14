@@ -50,7 +50,6 @@ public class NewRegionToRegionRectangleConnectTest extends TestCase{
         Point c = connectType.updateReceptiveFieldDimensionLength(2, 4, 1);
         assertEquals(new Point(2,3), c);
 
-
         // larger evenly divisible
         Point d = connectType.updateReceptiveFieldDimensionLength(3, 6, 0);
         assertEquals(new Point(0,1), d);
