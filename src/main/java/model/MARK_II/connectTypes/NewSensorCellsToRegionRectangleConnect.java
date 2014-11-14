@@ -1,53 +1,53 @@
 package model.MARK_II.connectTypes;
 
 import model.MARK_II.*;
-import java.awt.Point;
+import java.awt.*;
 
 /**
- * @author Quinn Liu (quinnliu@vt.edu)
- * @version June 13, 2013
+ * Created by Huanqing on 11/5/2014.
  */
-public class NewRegionToRegionRectangleConnect extends
-        AbstractRegionToRegionConnect {
+public class NewSensorCellsToRegionRectangleConnect extends
+            AbstractSensorCellsToRegionConnect {
     @Override
-    public void connect(Region bottomLayer, Region topLayer,
-                        int numberOfColumnsToOverlapAlongNumberOfRows,
-                        int numberOfColumnsToOverlapAlongNumberOfColumns) {
+    public void connect(SensorCell[][] sensorCells, Region region,
+                        int numberOfColumnsToOverlapAlongXAxisOfSensorCells,
+                        int numberOfColumnsToOverlapAlongYAxisOfSensorCells) {
+
         int rowBinitial, rowBfinal, colBinitial, colBfinal;
 
-        int topRowLength = topLayer.getNumberOfRowsAlongRegionYAxis();
-        int topColLength = topLayer.getNumberOfColumnsAlongRegionXAxis();
-        int botRowLength = bottomLayer.getNumberOfRowsAlongRegionYAxis();
-        int botColLength = bottomLayer.getNumberOfColumnsAlongRegionXAxis();
+        int topRowLength = region.getNumberOfRowsAlongRegionYAxis();
+        int topColLength = region.getNumberOfColumnsAlongRegionXAxis();
+        int botRowLength = sensorCells.length;
+        int botColLength = sensorCells[0].length;
 
         for(int rowT = 0; rowT < topRowLength; rowT++){
-            Point rowReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topRowLength, botRowLength, rowT, numberOfColumnsToOverlapAlongNumberOfRows);
+            Point rowReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topRowLength, botRowLength, rowT, numberOfColumnsToOverlapAlongYAxisOfSensorCells);
             rowBinitial = (int) rowReceptiveField.getX();
             rowBfinal = (int) rowReceptiveField.getY();
 
             for(int colT = 0; colT < topColLength; colT++) {
-                Point colReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topColLength, botColLength, colT, numberOfColumnsToOverlapAlongNumberOfColumns);
+                Point colReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topColLength, botColLength, colT, numberOfColumnsToOverlapAlongXAxisOfSensorCells);
                 colBinitial = (int) colReceptiveField.getX();
                 colBfinal = (int) colReceptiveField.getY();
 
                 // actually add synapses from bottom layer receptive field to top layer column
-                Column topColumn = topLayer.getColumn(rowT, colT);
+                Column topColumn = region.getColumn(rowT, colT);
                 for (int rowB = rowBinitial; rowB <= rowBfinal; rowB++){
                     for (int colB = colBinitial; colB <= colBfinal; colB++) {
-                        for(Neuron neuron : bottomLayer.getColumn(rowB, colB).getNeurons()){
-                            topColumn.getProximalSegment().addSynapse(new Synapse<Cell>(neuron, rowB, colB));
-                        }
+                        //for(Neuron neuron : bottomLayer.getColumn(rowB, colB).getNeurons()){
+                            topColumn.getProximalSegment().addSynapse(new Synapse<Cell>(sensorCells[rowB][colB], rowB, colB));
+                        //}
                     }
                 }
             }
         }
     }
-    
+
     Point updateReceptiveFieldDimensionLength (int topLength, int botLength, int topIndex) {
         if (topLength > botLength) {
             throw new IllegalStateException("In class NewRegionToRegionRectangleConnect" +
-                " method updateReceptiveFieldDimensionLength() topLength must be <= botLength");
-        } 
+                    " method updateReceptiveFieldDimensionLength() topLength must be <= botLength");
+        }
 
         int Binitial;
         int Bfinal;
@@ -58,7 +58,7 @@ public class NewRegionToRegionRectangleConnect extends
             Binitial = topIndex * (botLength/topLength) + botLength % topLength;
             Bfinal = (topIndex + 1) * (botLength/topLength) + botLength % topLength - 1;
         }
-        
+
         return new Point(Binitial, Bfinal);
     }
 

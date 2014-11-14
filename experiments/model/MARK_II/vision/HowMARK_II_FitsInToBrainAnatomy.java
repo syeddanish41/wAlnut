@@ -109,6 +109,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         Retina retina = new Retina(1000, 1000);
 
         AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
+        // TODO: now we can overlap
         opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 0), new Point(500, 500))), I, 0, 0); // .getVisionCells(topLeftPoint, bottomRightPoint)
         opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 500), new Point(500, 1000))), J, 0, 0);
         opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 0), new Point(1000, 500))), K, 0, 0);
