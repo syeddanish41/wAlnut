@@ -111,6 +111,10 @@ public class Region {
         this.children.add(region);
     }
 
+    public List<Region> getChildRegions() {
+        return this.children;
+    }
+
     public Column[][] getColumns() {
         return this.columns;
     }
