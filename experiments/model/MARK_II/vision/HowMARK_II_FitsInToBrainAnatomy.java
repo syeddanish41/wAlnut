@@ -1,6 +1,7 @@
 package model.MARK_II.vision;
 
 import com.google.gson.Gson;
+import junit.framework.TestCase;
 import model.ImageViewer;
 import model.Layer5Region;
 import model.MARK_II.Neocortex;
@@ -23,7 +24,7 @@ import java.io.IOException;
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version July 12, 2014
  */
-public class HowMARK_II_FitsInToBrainAnatomy {
+public class HowMARK_II_FitsInToBrainAnatomy extends TestCase {
     private NervousSystem partialNervousSystem;
 
     /**
@@ -121,27 +122,28 @@ public class HowMARK_II_FitsInToBrainAnatomy {
     }
 
     public void test_HowToRunSingleLearningAlgorithmOnNervousSystem() throws IOException {
-        Neocortex neocortex = this.partialNervousSystem.getCNS().getBrain().getCerebrum().getCerebralCortex().getNeocortex();
-
-        ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
-                this.partialNervousSystem.getPNS().getSNS().getRetina());
-
-        final int NUMBER_OF_TIMES_TO_RUN_LEARNING_ALGORITHM = 1000;
-        for (int i = 0; i < NUMBER_OF_TIMES_TO_RUN_LEARNING_ALGORITHM; i++) {
-
-            neocortex.runSingleLearningAlgorithmOneTimeStep();
-
-            Layer5Region layer5Region = (Layer5Region) neocortex.getRegion("M");
-            Point3D nextRetinaPosition = layer5Region
-                    .getMotorOutput(imageViewer.getBoxRetinaIsStuckIn());
-            imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
-        }
-
-        // save partialNervousSystemObject object in JSON format
-        String partialNervousSystemObject = this.gson
-                .toJson(this.partialNervousSystem);
-        JsonFileInputOutput
-                .saveObjectToTextFile(partialNervousSystemObject,
-                        "./experiments/model/MARK_II/vision/PartialNervousSystem_MARK_II.json");
+//        Neocortex neocortex = this.partialNervousSystem.getCNS().getBrain()
+//                .getCerebrum().getCerebralCortex().getNeocortex();
+//
+//        ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
+//                this.partialNervousSystem.getPNS().getSNS().getRetina());
+//
+//        final int NUMBER_OF_TIMES_TO_RUN_LEARNING_ALGORITHM = 1000;
+//        for (int i = 0; i < NUMBER_OF_TIMES_TO_RUN_LEARNING_ALGORITHM; i++) {
+//
+//            neocortex.runSingleLearningAlgorithmOneTimeStep();
+//
+//            Layer5Region layer5Region = (Layer5Region) neocortex.getRegion("M");
+//            Point3D nextRetinaPosition = layer5Region
+//                    .getMotorOutput(imageViewer.getBoxRetinaIsStuckIn());
+//            imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
+//        }
+//
+//        // save partialNervousSystemObject object in JSON format
+//        String partialNervousSystemObject = this.gson
+//                .toJson(this.partialNervousSystem);
+//        JsonFileInputOutput
+//                .saveObjectToTextFile(partialNervousSystemObject,
+//                        "./experiments/model/MARK_II/vision/PartialNervousSystem_MARK_II.json");
     }
 }

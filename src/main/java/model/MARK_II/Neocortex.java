@@ -25,6 +25,8 @@ public class Neocortex {
     private Region currentRegion;
     private AbstractRegionToRegionConnect connectType;
 
+    private int totalNumberOfRegions;
+
     public Neocortex(Region rootRegion, AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion) {
         if (rootRegion == null) {
             throw new IllegalArgumentException(
@@ -56,7 +58,6 @@ public class Neocortex {
             throw new IllegalArgumentException("newCurrentRegionBiologicalName = " + newCurrentRegionBiologicalName
                     + " in class Neocortex method changeCurrentRegionTo() does not exist in the Neocortex");
         }
-        // TODO: actually implement
         this.currentRegion = newCurrentRegion;
     }
 
@@ -66,28 +67,20 @@ public class Neocortex {
                     "newCurrentRegionBiologicalName in class Neocortex method changeCurrentRegionTo() cannot be null");
         }
 
-
-        // TODO: search the neocortex for the region name
-        // since the neocortex is a undirected tree of regions this will take linear time
-        // just use BFS shown here: https://gist.github.com/gennad/791932
-
-        // TODO: check http://stackoverflow.com/questions/25028939/where-is-an-generic-breath-first-search-algorithm-for-custom-nodes
-
-        // here a Region is a Node
-        Queue<Region> queue = new LinkedList<Region>();
-        queue.add(this.rootRegion);
-
-
-        return null;
+        // search the neocortex for region
+        return this.getRegionRecur(regionBiologicalName, this.rootRegion, 0);
     }
 
-    Region getRegionRecur(String regionBiologicalName, Region root) {
-        if(root.getBiologicalName().equals(regionBiologicalName)) {
-            return root;
+    Region getRegionRecur(String regionBiologicalName, Region current, int numberOfRegionsVisited) {
+        if (numberOfRegionsVisited > this.totalNumberOfRegions) {
+            return null;
+        }
+        else if(current.getBiologicalName().equals(regionBiologicalName)) {
+            return current;
         }
         else{
-            for(Region child : root.getChildRegions()){
-                Region possible = getRegionRecur(regionBiologicalName, child);
+            for(Region child : current.getChildRegions()){
+                Region possible = getRegionRecur(regionBiologicalName, child, numberOfRegionsVisited + 1);
                 if(possible != null){
                     return possible;
                 }
@@ -106,11 +99,22 @@ public class Neocortex {
                     "childRegion in class Neocortex method addToCurrentRegion cannot be null");
         }
 
-        // TODO: throw an exception is Region with the exact same biological name is already in the Neocortex and tell user to change biological name to be more specific
+        // throw an exception is Region with the exact same biological
+        // name is already in the Neocortex and tell user to change biological
+        // name to be more specific
+        if (this.getRegion(childRegion.getBiologicalName()) != null) {
+            throw new IllegalArgumentException(
+                    "childRegion in class Neocortex method addToCurrentRegion" +
+                    " already exists within the Neocortex as another region " +
+                    "with the same name");
+        }
 
         this.currentRegion.addChildRegion(childRegion);
+        this.totalNumberOfRegions++;
         // connect currentRegion to childRegion
-        //this.connectType.connect(childRegion, this.currentRegion, 0, 0);
+        this.connectType.connect(childRegion, this.currentRegion,
+                numberOfColumnsToOverlapAlongNumberOfRows,
+                numberOfColumnsToOverlapAlongNumberOfColumns);
         return false;
     }
 
