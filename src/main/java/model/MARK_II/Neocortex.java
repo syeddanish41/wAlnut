@@ -66,6 +66,7 @@ public class Neocortex {
                     "newCurrentRegionBiologicalName in class Neocortex method changeCurrentRegionTo() cannot be null");
         }
 
+
         // TODO: search the neocortex for the region name
         // since the neocortex is a undirected tree of regions this will take linear time
         // just use BFS shown here: https://gist.github.com/gennad/791932
@@ -80,6 +81,20 @@ public class Neocortex {
         return null;
     }
 
+    Region getRegionRecur(String regionBiologicalName, Region root) {
+        if(root.getBiologicalName().equals(regionBiologicalName)) {
+            return root;
+        }
+        else{
+            for(Region child : root.getChildRegions()){
+                Region possible = getRegionRecur(regionBiologicalName, child);
+                if(possible != null){
+                    return possible;
+                }
+            }
+        }
+        return null;
+    }
     /**
      * @param childRegion The Region to be added to the currentRegion.
      */
