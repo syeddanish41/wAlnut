@@ -118,11 +118,6 @@ public class Neocortex {
         return false;
     }
 
-    public boolean runSingleLearningAlgorithmOneTimeStep() {
-        // TODO: post-order traversal with running learning algorithm
-        return false;
-    }
-
     public Region getCurrentRegion() {
         return this.currentRegion;
     }
