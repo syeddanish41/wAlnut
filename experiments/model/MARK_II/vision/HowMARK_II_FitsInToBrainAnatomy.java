@@ -34,7 +34,7 @@ public class HowMARK_II_FitsInToBrainAnatomy extends TestCase {
     private TemporalPooler temporalPooler;
 
     public void setUp() throws IOException {
-        //this.partialNervousSystem = this.constructConnectedNervousSystem();
+        this.partialNervousSystem = this.constructConnectedNervousSystem();
 
         this.gson = new Gson();
     }
@@ -123,21 +123,21 @@ public class HowMARK_II_FitsInToBrainAnatomy extends TestCase {
     }
 
     public void test_HowToRunSingleLearningAlgorithmOnNervousSystem() throws IOException {
-/*        Neocortex neocortex = this.partialNervousSystem.getCNS().getBrain()
+        Neocortex neocortex = this.partialNervousSystem.getCNS().getBrain()
                 .getCerebrum().getCerebralCortex().getNeocortex();
 
-        ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
-                this.partialNervousSystem.getPNS().getSNS().getRetina());
+        //ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
+        //        this.partialNervousSystem.getPNS().getSNS().getRetina());
 
-        runForreal(neocortex, imageViewer);
+        //runForreal(neocortex, imageViewer);
 
-        save partialNervousSystemObject object in JSON format
-        String partialNervousSystemObject = this.gson
+        // save partialNervousSystemObject object in JSON format
+/*        String partialNervousSystemObject = this.gson
                 .toJson(this.partialNervousSystem);
         JsonFileInputOutput
                 .saveObjectToTextFile(partialNervousSystemObject,
                         "./experiments/model/MARK_II/vision/PartialNervousSystem_MARK_II.json");
-*/    }
+ */   }
     public void runForreal(Neocortex neocortex, ImageViewer imageViewer) throws IOException {
 
 
