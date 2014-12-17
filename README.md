@@ -4,13 +4,13 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[How to contribute](#how-to-contribute) |**
 **[What are all the files here for?](#what-are-all-the-files-here-for) |**
 **[Important brain theories in use](#important-brain-theories-in-use) |**
-**[Spatial pooling](#object-oriented-spatial-pooling-algorithm) |**
-**[Temporal pooling](#object-oriented-temporal-pooling-algorithm) |**
+**[algorithm part 1](#object-oriented-spatial-pooling-algorithm) |**
+**[algorithm part 2](#object-oriented-temporal-pooling-algorithm) |**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*When we hit our lowest point, we are open to the greatest change.*" 
-~ Avatar Aang
+"*Don't be so driven by your past, you throw away your future.*" 
+~ Kate Beckett
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
@@ -94,14 +94,14 @@ information please:
 4. In IntelliJ right-click the `WalnutiQ/` folder and select "Run 'All Tests'". 
   
 ## Install in Linux/Mac/Windows with Gradle
-1. Make sure you have java version 1.7 or 1.8. To check open up a new terminal 
+1. Make sure you have java version 1.6, 1.7 or 1.8. To check open up a new terminal 
    and type:
    ```sh
    prompt> java -version
-   java version "1.7.0_60" # it's only important to see "1.7" or "1.8" in the 
-   version
+   java version "1.7.0_60" # it's only important to see "1.6", 1.7" or "1.8" in 
+                           # the version
    ```  
-   If you don't have either install java 1.7 by going 
+   If you don't have any of those Java versions install java 1.7 by going 
    [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html). 
    After installing java 1.7 open up a new terminal to check if java 1.7 
    is installed by retyping `java -version` in the terminal.
@@ -112,9 +112,7 @@ information please:
 3. To run all of the code in the Linux or Mac terminal type:
    ```sh
    prompt> ./gradlew build
-   :compileJava UP-TO-DATE
    # some other stuff...
-   :build UP-TO-DATE
    BUILD SUCCESSFUL # If you see `BUILD SUCCESSFUL` all of the tests have passed! 
    ```
 
@@ -204,72 +202,59 @@ information please:
 
 # Important brain theories in use 
 
-1. **Theory:** 1 learning/predicting algorithm in the neocortex of the brain
+1. **Theory:** 1 common learning/predicting algorithm in the neocortex of the brain
    - Supportive: 
-     + Summary: If you cut the wires from the ear to the auditory cortex and rewire the optic nerve to the auditory 
-       cortex, then the auditory cortex learns to see. Details [here](https://db.tt/dXTDFAVe) 
-     + Summary: If you make the wires from the optic nerve connect to the somatosensory cortex then the somatosensory 
-       cortex learns to see. Published paper describing details of experiment viewable 
-       [here](http://www.pnas.org/content/86/1/357.full.pdf)
-   - Not supportive:  
-   - Conclusion: If different parts of the neocortex (contains auditory cortex, somatosensory, and others..)
-     can be given new input and learn to process this new input, then we can guess there is a single 
-     learning/predicting algorithm in all parts of the neocortex.
+     + 1992 Paper [here](https://db.tt/dXTDFAVe) from Department of Brain and 
+       Cognitive Sciences at MIT.
+       - Summary: A portion of wires of the optic nerve are routed to the auditory 
+         cortex in ferrets. The neurons of this primary auditory cortex(A1) with 
+         vision input did not work exactly like neurons in primary visual 
+         cortex(V1). Neurons in rewired A1 had larger receptive field sizes 
+         and other differences. However there are also similarities including:
+         + rewired A1 neurons showed orientation and direction selectivity.
+         + similar proportions of simple, complex, and nonoriented cells between
+           rewired A1 and V1.
+         + implies "*significant implications for possible commonalities in 
+           intracortical processing circuits between sensory cortices*".
 
-2. **Theory: Orientation selectivity is learned & muscle movement is crucial for this process**
-   - Supportive:
-     + Summary: Kittens where raised in either a horizontally or vertically stripped environment for 
-       five hours per day for five months. The environments forced the kitten's to only look forward at vertical 
-       stripes or horizontal stripes. The remaining 19 hours each day the kittens were raised in darkness.
-       At five months the kittens were tested for line recognition. Those kittens raised in horizontal environments
-       could not detect vertical aligned objects, and vice-versa. Published paper describing details of experiment 
-       viewable [here](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1307838/pdf/jphysiol00822-0028.pdf)
+     + 1988 Paper [here](https://db.tt/RXAOVwfa) from
+       Laboratoire des Neuroscience de la Vision at Universite de Paris.
+       - Summary: Wires of the optic nerve were routed permanently to the
+         main thalamic somatosensory nucleus in hamsters. After the hamsters 
+         grew up the neurons in the somatosensory cortex were recorded.
+         The "*somatosensory neurons responded to visual stimulation of
+         distinct receptive fields, and their response properties resembled,
+         in several characteristic features, those of normal visual cortical
+         neurons.*" 
+         + "*the same functional categories of neurons occurred in similar 
+           proportions, and the neurons' selectivity for the orientation or
+           direction of movement of visual stimuli was comparable*" between
+           normal hamsters and rewired hamsters.
+         + "*These results suggest that thalamic nuclei or cortical areas at
+           corresponding levels in the visual and somatosensory pathways perform
+           similar transformations on their inputs*".
+     
    - Not supportive:
-   - Conclusion: Reality creates a representation in your brain as neuron activity which creates muscle movement(within the eyes,
-     arms, other muscles) causing the next image to appear on your retina to be predictable by the temporal pooling
-     algorithm in your neocortex. As you continue to see, columns in your neocortex become tuned to specific directions
-     and phases. 
+     + 2002 Paper [here](https://db.tt/NJxHdObc) from Vision, Touch and Hearing
+        Research Centre at The University of Queensland.
+          - "*recent studies have revealed substantial variation in pyramidal
+            cell structure in different cortical areas*".
+          - Some of these variations like increase in dendritic arbor size(
+            dendritic branching) can be resolved with the idea of a common 
+            algorithm.
 
-3. **Theory: Spatial pooling, sequence memory, & temporal pooling are deduced algorithms that are occurring**
-   in the human neocortex layers 3 & 4 in a similar form giving the brain the ability to predict future input.
-   - Supportive:
-     + Noise invariance experiment of vision input viewable in 
-       [NoiseInvarianceExperiment.java](./experiments/model/MARK_I/vision/NoiseInvarianceExperiment.java). Paper that 
-       describes details of theory behind experiment viewable [here](https://dl.dropboxusercontent.com/u/106853306/Brain/HTM_CorticalLearningAlgorithms.pdf)
-     + A 2011 experiment summary: Neurons higher in the hierarchy are more stable & selective to input. Published paper 
-       describing details of experiment viewable [here](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2975390/)
-   - Not supportive: 
-   - Conclusion: 
-     + Spatial Pooling = Creates a sparse distributed representation activity of columns to efficiently represent 
-       a larger input layer. Causes columns of neurons to become selectively tuned for specific input
-       by strengthening & weakening the connections between cells/neurons.
-     + Sequence Memory = Create even more sparse encoding by forcing specific neurons(within the set of active columns
-       produced by spatial pooling) that best predicted the input to become "learning neurons". 
-       This allows sensory input to be encoded within context. For example "squash" can mean the
-       sport, the vegetable, and to step with force on something. How does your brain not get confused?
-       Sequence memory provides an elegant solution to the brain's ability to do this.
-     + Temporal Pooling = The act of strengthening & weakening the connections between cells/neurons to allow
-       neurons to become more predictive of it's input.
-   
-4. **Theory: Information flow in the brain**
-   - Path 1) synapseOnAxonOfNeuronA `=>` dendriteOfNeuronB `=>` cellBodyOfNeuronB `=>` axonOfNeuronB `=>` synapseOfNeuronC
-   - Path 2) Read somewhere that dendrites can also be output devices to synapses(cellBody `=>` dendrite `=>` synapse)
-   - Supportive:
-   - Not Supportive: 
-   
-5. **Theory: A lot of what we call intelligence is developed during the first 2 years of life**
-   - Reasoning: About 10^14 synapses in the brain by 2 years of age. About 10^8 seconds in 2 years. That means on average
-                10^6 synapses were formed per second while you were becoming 2 years old.
-   - Supportive:
-   - Not Supportive: 
+     + 2008 PhD thesis [here](https://db.tt/I2Fi03DS) by Dileep George from 
+        Stanford University
+          - "*Until we understand and explain the computational reason behind
+            a large majority of such variations, the common cortical algorithm
+            will have to be considered as a working hypothesis*".
 
-6. **Theory: Hieararchy in the neocortex**
-   - Using predictive models plus temporal pooling to create invariant 
-     representations takes a lot of memory. The only way to build a practical 
-     vision system is to use a hierarchy of regions. In the cortex we know that 
-     V1 can only form invariant representations of about 1 degree of the visual
-     space. Each successive level in the hierarchy is about 4X the previous. So 
-     V2 is about 4 degrees, V4 about 16 degrees, and IT about 64 degrees.
+   - Conclusion: If cortex X(arbitrary cortex) of the neocortex(contains visual cortex,
+     auditory cortex, somatosensory cortex, and others..) can be given 
+     non-normal sensory input usually given to say cortex Y and then learn to 
+     process this new input similarily to how cortex X would process it, then we 
+     can hypothesize that there is a common learning/predicting algorithm in all 
+     cortices of the neocortex.
 
 # Object oriented spatial pooling algorithm
 
