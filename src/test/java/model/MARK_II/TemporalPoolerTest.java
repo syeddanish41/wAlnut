@@ -83,6 +83,7 @@ public class TemporalPoolerTest extends junit.framework.TestCase {
         //   segmentUpdateList.size -= adapt segments on learning neurons
         //   segmentUpdateList.size -= adapt segments previously predictive & NOT currently predictive
 
+        // temporal pooling algorithm is deterministic
         this.temporalPooler.performPooling();
         assertEquals(16, this.temporalPooler.getSegmentUpdateList().size());
         this.temporalPooler.nextTimeStep();
