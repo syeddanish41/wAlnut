@@ -360,7 +360,8 @@ public class TemporalPooler extends Pooler {
                             this.segmentUpdateList.getSegmentUpdate(c, i), true);
                     /// segmentUpdateList(c, i).delete()
                     this.segmentUpdateList.deleteSegmentUpdate(c, i);
-                /// else if predictiveState(c, i, t) == 0 and predictiveState(c, i, t-1)==1 then
+
+                    /// else if predictiveState(c, i, t) == 0 and predictiveState(c, i, t-1)==1 then
                 } else if (neurons[i].getPredictingState() == false
                         && neurons[i].getPreviousPredictingState() == true) {
                     /// adaptSegments(segmentUpdateList(c, i), false)
@@ -406,36 +407,49 @@ public class TemporalPooler extends Pooler {
     }
 
     /**
-     * @return the index of the Neuron with the Segment with the greatest number
-     * of active Synapses.
+     * @return The index of the Neuron with the Segment with the greatest number
+     * of active Synapses. If no best matching Segment is found, return the
+     * Neuron with the least number of active Synapses.
      */
     int getBestMatchingNeuronIndex(Column column) {
         int greatestNumberOfActiveSynapses = 0;
         int bestMatchingNeuronIndex = 0;
 
+        int leastNumberOfSegments = -1;
+        int neuronWithLeastSegmentsIndex = -1;
+        boolean setNumberOfSegments = false;
+
         Neuron[] neurons = column.getNeurons();
 
-        // make order of checking neurons random
-        List<Integer> allNeuronPositions = new ArrayList<Integer>(
-                neurons.length);
         for (int i = 0; i < neurons.length; i++) {
-            allNeuronPositions.add(new Integer(i));
-        }
-        Collections.shuffle(allNeuronPositions);
-
-        for (int i = 0; i < neurons.length; i++) {
-            int randomIndex = allNeuronPositions.get(i);
-            // by making the order random neurons[0] is NOT the
-            // only neuron that will get new distal segments
-            Segment bestSegment = neurons[randomIndex].getBestActiveSegment();
-            int numberOfActiveSynapses = bestSegment
-                    .getNumberOfActiveSynapses();
-            // VERY IMPORTANT >= makes the returned neuron random and not
-            // always neurons[0]
-            if (numberOfActiveSynapses >= greatestNumberOfActiveSynapses) {
-                greatestNumberOfActiveSynapses = numberOfActiveSynapses;
-                bestMatchingNeuronIndex = randomIndex;
+            int numberOfSegments = neurons[i].getDistalSegments().size();
+            if (setNumberOfSegments == false) {
+                // following code should be only run the first time
+                leastNumberOfSegments = numberOfSegments;
+                neuronWithLeastSegmentsIndex = i;
+                setNumberOfSegments = true;
             }
+
+            Segment bestSegment = neurons[i].getBestActiveSegment();
+            int numberOfActiveSynapses = bestSegment.getNumberOfActiveSynapses();
+
+            if (numberOfActiveSynapses > greatestNumberOfActiveSynapses) {
+                greatestNumberOfActiveSynapses = numberOfActiveSynapses;
+                bestMatchingNeuronIndex = i;
+            }
+
+            // In the case all Neuron's Segments have 0 active Synapses we
+            // need to return Neuron with least Segments.
+            if (numberOfSegments < leastNumberOfSegments) {
+                leastNumberOfSegments = numberOfSegments;
+                neuronWithLeastSegmentsIndex = i;
+            }
+        }
+
+        if (greatestNumberOfActiveSynapses == 0) {
+            // All Segments have 0 active Synapses so we nned to return Neuron
+            // with least Segments.
+            return neuronWithLeastSegmentsIndex;
         }
 
         return bestMatchingNeuronIndex;
