@@ -89,12 +89,12 @@ public class TemporalPoolerTest extends junit.framework.TestCase {
 
         this.spatialPooler.performPooling();
         this.temporalPooler.performPooling();
-        //assertEquals(8, this.temporalPooler.getSegmentUpdateList().size()); // NOTE: why does this sometimes return 6?
+        assertEquals(8, this.temporalPooler.getSegmentUpdateList().size());
         this.temporalPooler.nextTimeStep();
 
         this.spatialPooler.performPooling();
         this.temporalPooler.performPooling();
-        //assertEquals(8, this.temporalPooler.getSegmentUpdateList().size());
+        assertEquals(8, this.temporalPooler.getSegmentUpdateList().size());
         this.temporalPooler.nextTimeStep();
     }
 
@@ -367,8 +367,16 @@ public class TemporalPoolerTest extends junit.framework.TestCase {
         column.setNeuron(neuron1, 1);
         column.setNeuron(neuron2, 2);
         column.setNeuron(neuron3, 3);
-
         assertEquals(2, this.temporalPooler.getBestMatchingNeuronIndex(column));
+
+        Column column2 = new Column(2, new ColumnPosition(0, 0));
+        Neuron neuron4 = new Neuron();
+        Neuron neuron5 = new Neuron();
+        neuron4.addDistalSegment(new DistalSegment());
+        neuron5.addDistalSegment(new DistalSegment());
+        column2.setNeuron(neuron4, 0);
+        column2.setNeuron(neuron5, 1);
+        assertEquals(0, this.temporalPooler.getBestMatchingNeuronIndex(column2));
     }
 
     void setUpDistalSegments() {
