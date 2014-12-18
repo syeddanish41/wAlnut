@@ -1,67 +1,82 @@
 package model.MARK_II.connectTypes;
 
 import model.MARK_II.*;
+import java.awt.*;
 
 /**
- * @author Quinn Liu (quinnliu@vt.edu)
- * @version June 13, 2013
+ * @author Nathan Waggoner(nwagg14@vt.edu)
+ * @author Quinn Liu(quinnliu@vt.edu)
+ * @version 11/5/14
  */
 public class SensorCellsToRegionRectangleConnect extends
-        AbstractSensorCellsToRegionConnect {
+            AbstractSensorCellsToRegionConnect {
     @Override
     public void connect(SensorCell[][] sensorCells, Region region,
                         int numberOfColumnsToOverlapAlongXAxisOfSensorCells,
                         int numberOfColumnsToOverlapAlongYAxisOfSensorCells) {
 
-        super.checkParameters(sensorCells, region,
-                numberOfColumnsToOverlapAlongXAxisOfSensorCells,
-                numberOfColumnsToOverlapAlongYAxisOfSensorCells);
+        int rowBinitial, rowBfinal, colBinitial, colBfinal;
 
-        Column[][] regionColumns = region.getColumns();
-        int regionXAxisLength = regionColumns[0].length;
-        int regionYAxisLength = regionColumns.length;
+        int topRowLength = region.getNumberOfRowsAlongRegionYAxis();
+        int topColLength = region.getNumberOfColumnsAlongRegionXAxis();
+        int botRowLength = sensorCells.length;
+        int botColLength = sensorCells[0].length;
 
-        int sensorCellsXAxisLength = sensorCells[0].length;
-        int sensorCellsYAxisLength = sensorCells.length;
+        for(int rowT = 0; rowT < topRowLength; rowT++){
+            Point rowReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topRowLength, botRowLength, rowT, numberOfColumnsToOverlapAlongYAxisOfSensorCells);
+            rowBinitial = (int) rowReceptiveField.getX();
+            rowBfinal = (int) rowReceptiveField.getY();
 
-        int connectingRectangleXAxisLength = Math
-                .round((sensorCellsXAxisLength
-                        + numberOfColumnsToOverlapAlongXAxisOfSensorCells
-                        * regionXAxisLength - numberOfColumnsToOverlapAlongXAxisOfSensorCells)
-                        / regionXAxisLength);
-        int connectingRectangleYAxisLength = Math
-                .round((sensorCellsYAxisLength
-                        + numberOfColumnsToOverlapAlongYAxisOfSensorCells
-                        * regionYAxisLength - numberOfColumnsToOverlapAlongYAxisOfSensorCells)
-                        / regionYAxisLength);
+            for(int colT = 0; colT < topColLength; colT++) {
+                Point colReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topColLength, botColLength, colT, numberOfColumnsToOverlapAlongXAxisOfSensorCells);
+                colBinitial = (int) colReceptiveField.getX();
+                colBfinal = (int) colReceptiveField.getY();
 
-        int shiftAmountXAxis = connectingRectangleXAxisLength
-                - numberOfColumnsToOverlapAlongXAxisOfSensorCells;
-        int shiftAmountYAxis = connectingRectangleYAxisLength
-                - numberOfColumnsToOverlapAlongYAxisOfSensorCells;
-        for (int columnRowPosition = 0; columnRowPosition < regionXAxisLength; columnRowPosition++) {
-            for (int columnColumnPosition = 0; columnColumnPosition < regionYAxisLength; columnColumnPosition++) {
-
-                int rowStart = columnRowPosition * shiftAmountXAxis;
-                int columnStart = columnColumnPosition * shiftAmountYAxis;
-
-                int rowEnd = rowStart + connectingRectangleXAxisLength;
-                int columnEnd = columnStart + connectingRectangleYAxisLength;
-
-                Column column = regionColumns[columnRowPosition][columnColumnPosition];
-
-                for (int sensorCellRowPosition = rowStart; sensorCellRowPosition < rowEnd; sensorCellRowPosition++) {
-                    for (int sensorCellColumnPosition = columnStart; sensorCellColumnPosition < columnEnd; sensorCellColumnPosition++) {
-                        // # of Synapses connected/add to this proximal Segment
-                        // = connectingRectangleXAxisLength *
-                        // connectingRectangleYAxisLength
-                        column.getProximalSegment().addSynapse(
-                                new Synapse<Cell>(
-                                        sensorCells[sensorCellRowPosition][sensorCellColumnPosition],
-                                        sensorCellRowPosition, sensorCellColumnPosition));
+                // actually add synapses from bottom layer receptive field to top layer column
+                Column topColumn = region.getColumn(rowT, colT);
+                for (int rowB = rowBinitial; rowB <= rowBfinal; rowB++){
+                    for (int colB = colBinitial; colB <= colBfinal; colB++) {
+                        //for(Neuron neuron : bottomLayer.getColumn(rowB, colB).getNeurons()){
+                            topColumn.getProximalSegment().addSynapse(new Synapse<Cell>(sensorCells[rowB][colB], rowB, colB));
+                        //}
                     }
                 }
             }
         }
+    }
+
+    Point updateReceptiveFieldDimensionLength (int topLength, int botLength, int topIndex) {
+        if (topLength > botLength) {
+            throw new IllegalStateException("In class NewRegionToRegionRectangleConnect" +
+                    " method updateReceptiveFieldDimensionLength() topLength must be <= botLength");
+        }
+
+        int Binitial;
+        int Bfinal;
+        if (topIndex < botLength % topLength) {
+            Binitial = topIndex * (botLength/topLength) + topIndex;
+            Bfinal = (topIndex + 1) * (botLength/topLength) + (topIndex + 1) -1; // -1 of next rowBinitial
+        } else {
+            Binitial = topIndex * (botLength/topLength) + botLength % topLength;
+            Bfinal = (topIndex + 1) * (botLength/topLength) + botLength % topLength - 1;
+        }
+
+        return new Point(Binitial, Bfinal);
+    }
+
+    Point updateReceptiveFieldDimensionLengthWithOverlap(int topLength, int botLength, int topIndex, int overlap ) {
+        Point withoutOverlap = updateReceptiveFieldDimensionLength (topLength, botLength, topIndex);
+
+        int newBinitial = (int) withoutOverlap.getX() - overlap;
+        if (newBinitial < 0) {
+            newBinitial = 0;
+        }
+
+        int newBfinal = (int) withoutOverlap.getY() + overlap;
+        if (newBfinal > botLength - 1) {
+            newBfinal = botLength - 1;
+        }
+
+        return new Point(newBinitial, newBfinal);
     }
 }

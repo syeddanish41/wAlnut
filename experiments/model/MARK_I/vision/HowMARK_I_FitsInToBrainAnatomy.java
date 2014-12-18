@@ -77,7 +77,7 @@ public class HowMARK_I_FitsInToBrainAnatomy extends TestCase {
         Set<ColumnPosition> LGNNeuronActivity = spatialPooler
                 .getActiveColumnPositions();
 
-        assertEquals(11, LGNNeuronActivity.size());
+        assertEquals(10, LGNNeuronActivity.size());
 
         // save partialNervousSystemObject object in JSON format
         String partialNervousSystemObject = this.gson

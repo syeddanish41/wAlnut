@@ -114,7 +114,7 @@ public class SDRScoreCalculatorTest extends TestCase {
 
     public void test_computeSparsityScore() {
         // setup with column activity after seeing image 2
-        assertEquals(-1.12, this.sdrScoreCalculator.computeSparsityScore(),
+        assertEquals(-1.08, this.sdrScoreCalculator.computeSparsityScore(),
                 0.01);
 
         this.sdrScoreCalculator.updateParameters(
@@ -142,7 +142,7 @@ public class SDRScoreCalculatorTest extends TestCase {
     }
 
     public void test_computeNumberOfActiveColumnsScore() {
-        assertEquals(-0.2,
+        assertEquals(-0.25,
                 this.sdrScoreCalculator.computeNumberOfActiveColumnsScore(),
                 0.01);
 
@@ -158,6 +158,6 @@ public class SDRScoreCalculatorTest extends TestCase {
     }
 
     public void test_computeSDRScore() {
-        assertEquals(-1.32, this.sdrScoreCalculator.computeSDRScore(), 0.01);
+        assertEquals(-1.33, this.sdrScoreCalculator.computeSDRScore(), 0.01);
     }
 }
