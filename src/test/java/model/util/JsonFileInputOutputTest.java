@@ -39,7 +39,7 @@ public class JsonFileInputOutputTest extends TestCase {
         Set<Column> LGNNeuronActivity = spatialPooler
                 .performPooling();
 
-        assertEquals(11, LGNNeuronActivity.size());
+        assertEquals(10, LGNNeuronActivity.size());
 
         Gson gson2 = new Gson();
         Region trainedLGNRegion = spatialPooler.getRegion();
