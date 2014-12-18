@@ -46,7 +46,7 @@ public class SpatialPoolerTest extends TestCase {
         Set<ColumnPosition> columnActivityAfterSeeingImage2 = this.spatialPooler
                 .getActiveColumnPositions();
 
-        assertEquals(5, columnActivityAfterSeeingImage2.size());
+        assertEquals(4, columnActivityAfterSeeingImage2.size());
     }
 
     public void test_computeColumnOverlapScore() {
@@ -56,11 +56,12 @@ public class SpatialPoolerTest extends TestCase {
         Column[][] columns = this.parentRegion.getColumns();
         assertEquals(0, columns[0][0].getProximalSegment()
                 .getNumberOfActiveSynapses());
-        assertEquals(100, columns[0][0].getProximalSegment().getSynapses()
+        assertEquals(121, columns[0][0].getProximalSegment().getSynapses()
                 .size());
 
         columns[0][0].setOverlapScore(69);
         assertEquals(69, columns[0][0].getOverlapScore());
+
         this.spatialPooler.computeColumnOverlapScore(columns[0][0]);
         assertEquals(0, columns[0][0].getOverlapScore());
 
@@ -68,15 +69,15 @@ public class SpatialPoolerTest extends TestCase {
         // proximal Segment > regionMinimumOverlapScore
         // Column new overlapScore = # of active Synapses * Column boostValue
 
-        // the current regionMinimumOverlapScore is 20 active Synapses out of
+        // the current regionMinimumOverlapScore is 24 active Synapses out of
         // 100 total Synapses
 
-        // to test if method is working correctly add 21 synapses
+        // to test if method is working correctly add 24 synapses
         Set<Synapse<Cell>> oneHundredInactiveSynapses = columns[0][0]
                 .getProximalSegment().getSynapses();
         int i = 0;
         for (Synapse inactiveSynapse : oneHundredInactiveSynapses) {
-            if (i < 21) {
+            if (i < 24) {
                 Cell cell = (Cell) inactiveSynapse.getConnectedCell();
                 cell.setActiveState(true);
                 i++;
@@ -84,13 +85,13 @@ public class SpatialPoolerTest extends TestCase {
                 break;
             }
         }
-        // now the overlapScore will be 21
+        // now the overlapScore will be 24
         columns[0][0].setBoostValue(1.5f); // now since the boostValue is 1.5
 
-        // the new overlapScore will be 21 * 1.5 ~= 31
+        // the new overlapScore will be 24 * 1.5 ~= 36
         this.spatialPooler.computeColumnOverlapScore(columns[0][0]);
 
-        assertEquals(31, columns[0][0].getOverlapScore());
+        assertEquals(36, columns[0][0].getOverlapScore());
     }
 
     public void test_computeActiveColumnsOfRegion() {
@@ -143,7 +144,7 @@ public class SpatialPoolerTest extends TestCase {
     public void test_regionLearnOneTimeStep() {
         assertEquals(1, this.parentRegion.getInhibitionRadius());
         this.spatialPooler.regionLearnOneTimeStep();
-        assertEquals(3, this.parentRegion.getInhibitionRadius());
+        assertEquals(4, this.parentRegion.getInhibitionRadius());
     }
 
     public void test_modelLongTermPotentiationAndDepression() {
@@ -270,7 +271,7 @@ public class SpatialPoolerTest extends TestCase {
     }
 
     public void test_averageReceptiveFieldSizeOfRegion() {
-        assertEquals(3.853,
+        assertEquals(4.733,
                 this.spatialPooler.averageReceptiveFieldSizeOfRegion(), 0.001);
         // Outputting a reasonable value.
 

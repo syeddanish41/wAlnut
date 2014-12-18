@@ -1,77 +1,81 @@
 package model.MARK_II.connectTypes;
 
 import model.MARK_II.*;
+import java.awt.Point;
 
 /**
- * @author Quinn Liu (quinnliu@vt.edu)
- * @version June 13, 2013
+ * @author Nathan Waggoner(nwagg14@vt.edu)
+ * @author Quinn Liu(quinnliu@vt.edu)
+ * @version 10/16/14
  */
 public class RegionToRegionRectangleConnect extends
         AbstractRegionToRegionConnect {
     @Override
-    public void connect(Region childRegion, Region parentRegion,
+    public void connect(Region bottomLayer, Region topLayer,
                         int numberOfColumnsToOverlapAlongNumberOfRows,
                         int numberOfColumnsToOverlapAlongNumberOfColumns) {
+        int rowBinitial, rowBfinal, colBinitial, colBfinal;
 
-        super.checkParameters(childRegion, parentRegion,
-                numberOfColumnsToOverlapAlongNumberOfRows,
-                numberOfColumnsToOverlapAlongNumberOfColumns);
+        int topRowLength = topLayer.getNumberOfRowsAlongRegionYAxis();
+        int topColLength = topLayer.getNumberOfColumnsAlongRegionXAxis();
+        int botRowLength = bottomLayer.getNumberOfRowsAlongRegionYAxis();
+        int botColLength = bottomLayer.getNumberOfColumnsAlongRegionXAxis();
 
-        Column[][] parentRegionColumns = parentRegion.getColumns();
-        int parentRegionNumberOfRows = parentRegionColumns.length; // = 8
-        int parentRegionNumberOfColumns = parentRegionColumns[0].length; // = 8
+        for(int rowT = 0; rowT < topRowLength; rowT++){
+            Point rowReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topRowLength, botRowLength, rowT, numberOfColumnsToOverlapAlongNumberOfRows);
+            rowBinitial = (int) rowReceptiveField.getX();
+            rowBfinal = (int) rowReceptiveField.getY();
 
-        Column[][] childRegionColumns = childRegion.getColumns();
-        int childRegionNumberOfRows = childRegionColumns.length; // = 66
-        int childRegionNumberOfColumns = childRegionColumns[0].length; // = 66
+            for(int colT = 0; colT < topColLength; colT++) {
+                Point colReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topColLength, botColLength, colT, numberOfColumnsToOverlapAlongNumberOfColumns);
+                colBinitial = (int) colReceptiveField.getX();
+                colBfinal = (int) colReceptiveField.getY();
 
-        int connectingRectangleNumberOfRows = Math
-                .round((childRegionNumberOfRows
-                        + numberOfColumnsToOverlapAlongNumberOfRows
-                        * parentRegionNumberOfRows - numberOfColumnsToOverlapAlongNumberOfRows)
-                        / parentRegionNumberOfRows); // = 10
-        int connectingRectangleNumberOfColumns = Math
-                .round((childRegionNumberOfColumns
-                        + numberOfColumnsToOverlapAlongNumberOfColumns
-                        * parentRegionNumberOfColumns - numberOfColumnsToOverlapAlongNumberOfColumns)
-                        / parentRegionNumberOfColumns); // = 10
-
-        int shiftAmountInRows = connectingRectangleNumberOfRows
-                - numberOfColumnsToOverlapAlongNumberOfRows; // = 10 - 2
-        int shiftAmountInColumns = connectingRectangleNumberOfColumns
-                - numberOfColumnsToOverlapAlongNumberOfColumns; // = 10 - 2
-
-        for (int parentColumnRowPosition = 0; parentColumnRowPosition < parentRegionNumberOfRows; parentColumnRowPosition++) {
-            for (int parentColumnColumnPosition = 0; parentColumnColumnPosition < parentRegionNumberOfColumns; parentColumnColumnPosition++) {
-
-                // rowStart = 0, 8, 16, 24, 32, 40, 48, 56
-                // columnStart = 0, 8, 16, 24, 32, 40, 48, 56
-                int rowStart = parentColumnRowPosition * shiftAmountInRows;
-                int columnStart = parentColumnColumnPosition * shiftAmountInColumns;
-
-                // rowEnd = 10, 18, 26, 34, 42, 50, 58, 66
-                // columnEnd = 10, 18, 26, 34, 42, 50, 58, 66
-                int rowEnd = rowStart + connectingRectangleNumberOfRows;
-                int columnEnd = columnStart + connectingRectangleNumberOfColumns;
-
-                Column parentColumn = parentRegionColumns[parentColumnRowPosition][parentColumnColumnPosition];
-
-                for (int childColumnRowPosition = rowStart; childColumnRowPosition < rowEnd; childColumnRowPosition++) {
-                    for (int childColumnColumnPosition = columnStart; childColumnColumnPosition < columnEnd; childColumnColumnPosition++) {
-
-                        for (Neuron childColumnNeuron : childRegionColumns[childColumnRowPosition][childColumnColumnPosition]
-                                .getNeurons()) {
-                            // # of synapses connected/add =
-                            // connectingRectangleXAxisLength *
-                            // connectingRectangleYAxisLength *
-                            // column.getNeurons.length
-                            parentColumn.getProximalSegment().addSynapse(
-                                    new Synapse<Cell>(childColumnNeuron,
-                                            childColumnRowPosition, childColumnColumnPosition));
+                // actually add synapses from bottom layer receptive field to top layer column
+                Column topColumn = topLayer.getColumn(rowT, colT);
+                for (int rowB = rowBinitial; rowB <= rowBfinal; rowB++){
+                    for (int colB = colBinitial; colB <= colBfinal; colB++) {
+                        for(Neuron neuron : bottomLayer.getColumn(rowB, colB).getNeurons()){
+                            topColumn.getProximalSegment().addSynapse(new Synapse<Cell>(neuron, rowB, colB));
                         }
                     }
                 }
             }
         }
+    }
+    
+    Point updateReceptiveFieldDimensionLength (int topLength, int botLength, int topIndex) {
+        if (topLength > botLength) {
+            throw new IllegalStateException("In class NewRegionToRegionRectangleConnect" +
+                " method updateReceptiveFieldDimensionLength() topLength must be <= botLength");
+        } 
+
+        int Binitial;
+        int Bfinal;
+        if (topIndex < botLength % topLength) {
+            Binitial = topIndex * (botLength/topLength) + topIndex;
+            Bfinal = (topIndex + 1) * (botLength/topLength) + (topIndex + 1) -1; // -1 of next rowBinitial
+        } else {
+            Binitial = topIndex * (botLength/topLength) + botLength % topLength;
+            Bfinal = (topIndex + 1) * (botLength/topLength) + botLength % topLength - 1;
+        }
+        
+        return new Point(Binitial, Bfinal);
+    }
+
+    Point updateReceptiveFieldDimensionLengthWithOverlap(int topLength, int botLength, int topIndex, int overlap ) {
+        Point withoutOverlap = updateReceptiveFieldDimensionLength (topLength, botLength, topIndex);
+
+        int newBinitial = (int) withoutOverlap.getX() - overlap;
+        if (newBinitial < 0) {
+            newBinitial = 0;
+        }
+
+        int newBfinal = (int) withoutOverlap.getY() + overlap;
+        if (newBfinal > botLength - 1) {
+            newBfinal = botLength - 1;
+        }
+
+        return new Point(newBinitial, newBfinal);
     }
 }

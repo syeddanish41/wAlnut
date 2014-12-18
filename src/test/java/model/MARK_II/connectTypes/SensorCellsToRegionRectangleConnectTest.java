@@ -8,7 +8,7 @@ import model.MARK_II.VisionCell;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
- * @version June 13, 2013
+ * @version 12/18/2014
  */
 public class SensorCellsToRegionRectangleConnectTest extends TestCase {
 
@@ -20,20 +20,20 @@ public class SensorCellsToRegionRectangleConnectTest extends TestCase {
 
     public void test_connect() {
         Region leafRegion = new Region("leafRegion", 8, 8, 4, 20, 3);
-        SensorCell[][] sensorCells = new VisionCell[66][66];
+        SensorCell[][] sensorCells = new VisionCell[64][64];
         for (int row = 0; row < sensorCells.length; row++) {
             for (int column = 0; column < sensorCells[0].length; column++) {
                 sensorCells[row][column] = new VisionCell();
             }
         }
 
-        this.connectType.connect(sensorCells, leafRegion, 2, 2);
+        this.connectType.connect(sensorCells, leafRegion, 0, 0);
 
         Column[][] columns = leafRegion.getColumns();
         for (int parentColumnRowPosition = 0; parentColumnRowPosition < leafRegion.getNumberOfRowsAlongRegionYAxis(); parentColumnRowPosition++) {
             for (int parentColumnColumnPosition = 0; parentColumnColumnPosition < leafRegion
                     .getNumberOfColumnsAlongRegionXAxis(); parentColumnColumnPosition++) {
-                assertEquals(100, columns[parentColumnRowPosition][parentColumnColumnPosition]
+                assertEquals(64, columns[parentColumnRowPosition][parentColumnColumnPosition]
                         .getProximalSegment().getSynapses().size());
             }
         }
