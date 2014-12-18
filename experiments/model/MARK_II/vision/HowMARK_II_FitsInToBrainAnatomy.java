@@ -32,7 +32,7 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
     private Gson gson;
 
     public void setUp() throws IOException {
-        this.partialNervousSystem = this.constructConnectedNervousSystem();
+        //this.partialNervousSystem = this.constructConnectedNervousSystem();
 
         this.gson = new Gson();
     }
