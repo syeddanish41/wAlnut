@@ -11,7 +11,7 @@ import model.util.Point3D;
 /**
  * @author Nathan Waggoner(nwagg14@vt.edu)
  * @author Quinn Liu(quinnliu@vt.edu)
- * @version 10/16/14
+ * @version 12/18/14
  */
 public class RegionToRegionRectangleConnectTest extends TestCase{
 
@@ -186,6 +186,10 @@ public class RegionToRegionRectangleConnectTest extends TestCase{
         AbstractRegionToRegionConnect regionToRegion = new RegionToRegionRectangleConnect();
         regionToRegion.connect(childRegion, parentRegion, 2, 2);
 
+        int numberOfColumnsWith100Synapses = 0;
+        int numberOfColumnsWith120Synapses = 0;
+        int numberOfColumnsWith144Synapses = 0;
+
         Column[][] columns = parentRegion.getColumns();
         for (int parentRegionRow = 0; parentRegionRow < parentRegion
                 .getNumberOfRowsAlongRegionYAxis(); parentRegionRow++) {
@@ -194,9 +198,21 @@ public class RegionToRegionRectangleConnectTest extends TestCase{
                 int numberOfSynapses = columns[parentRegionRow][parentRegionColumn]
                         .getProximalSegment().getSynapses().size();
 
-                assertTrue(numberOfSynapses == 100 || numberOfSynapses == 120
-                    || numberOfSynapses == 144);
+                if (numberOfSynapses == 100) {
+                    numberOfColumnsWith100Synapses++;
+                } else if (numberOfSynapses == 120) {
+                    numberOfColumnsWith120Synapses++;
+                } else if (numberOfSynapses == 144) {
+                    numberOfColumnsWith144Synapses++;
+                }
             }
         }
+
+        assertEquals(4, numberOfColumnsWith100Synapses); // 4 corners with no overlap
+        assertEquals(24, numberOfColumnsWith120Synapses); // 6 on each of 4 sides = 24
+        assertEquals(36, numberOfColumnsWith144Synapses); // inner 6 by 6 columns = 36
+        // counted every column
+        assertEquals(64, numberOfColumnsWith100Synapses +
+                numberOfColumnsWith120Synapses + numberOfColumnsWith144Synapses);
     }
 }
