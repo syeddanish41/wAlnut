@@ -21,7 +21,8 @@ import java.io.IOException;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
- * @version July 12, 2014
+ * @author Nathan Waggoner(nwagg14@vt.edu)
+ * @version 12/18/2014
  */
 public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
     private NervousSystem partialNervousSystem;

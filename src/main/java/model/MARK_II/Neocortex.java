@@ -3,9 +3,6 @@ package model.MARK_II;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.util.Rectangle;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * Neocortex is a tree(undirected graph) of Regions. Each Region in the Neocortex
  * can have as many children Regions as necessary. Each Region can receive
@@ -14,11 +11,12 @@ import java.util.Queue;
  * Input to Neocortex: activity of Cells within VisionCellLayer, AudioCellLayer,
  * etc.
  *
- * Output from Neocortex: activity of Cells/Columns within root Region.
+ * Output from Neocortex: activity of Cells/Columns within all Regions.
  *
  * @author Quinn Liu (quinnliu@vt.edu)
  * @author Michael Cogswell (cogswell@vt.edu)
- * @version July 12, 2014
+ * @author Nathan Waggoner(nwagg14@vt.edu)
+ * @version 12/18/2014
  */
 public class Neocortex {
     private Region rootRegion;
@@ -68,10 +66,10 @@ public class Neocortex {
         }
 
         // search the neocortex for region
-        return this.getRegionRecur(regionBiologicalName, this.rootRegion, 0);
+        return this.recursiveFind(regionBiologicalName, this.rootRegion, 0);
     }
 
-    Region getRegionRecur(String regionBiologicalName, Region current, int numberOfRegionsVisited) {
+    Region recursiveFind(String regionBiologicalName, Region current, int numberOfRegionsVisited) {
         if (numberOfRegionsVisited > this.totalNumberOfRegions) {
             return null;
         }
@@ -80,7 +78,7 @@ public class Neocortex {
         }
         else{
             for(Region child : current.getChildRegions()){
-                Region possible = getRegionRecur(regionBiologicalName, child, numberOfRegionsVisited + 1);
+                Region possible = recursiveFind(regionBiologicalName, child, numberOfRegionsVisited + 1);
                 if(possible != null){
                     return possible;
                 }
