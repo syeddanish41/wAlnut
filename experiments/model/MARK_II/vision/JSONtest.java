@@ -15,12 +15,12 @@ public class JSONtest {
             array[i] = i*i;
         }
 
-        Gson gson = new Gson();
+//        Gson gson = new Gson();
+//
+//        String output = gson.toJson(array);
+//        JsonFileInputOutput.saveObjectToTextFile(output,
+//                "./experiments/model/MARK_II/vision/array.txt");
 
-        String output = gson.toJson(array);
-        JsonFileInputOutput.saveObjectToTextFile(output,
-                "./experiments/model/MARK_II/vision/array.txt");
-
-        // Open up gnuplot and use the command: plot "array.txt" title "whatDataIs" with lines
+        // Open up gnuplot and use the command: plot "array.txt" using 1:2 with lines
     }
 }
