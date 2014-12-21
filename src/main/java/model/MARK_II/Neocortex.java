@@ -86,6 +86,7 @@ public class Neocortex {
         }
         return null;
     }
+
     /**
      * @param childRegion The Region to be added to the currentRegion.
      */
