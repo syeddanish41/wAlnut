@@ -35,7 +35,7 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
     private TemporalPooler temporalPooler;
 
     public void setUp() throws IOException {
-        //this.partialNervousSystem = this.constructConnectedNervousSystem();
+        //this.partialNervousSystem = this.buildNervousSystem();
 
         this.gson = new Gson();
     }
@@ -51,13 +51,13 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
      *
      *             root (runs just temporal pooling algorithm)
      *           /      \
-     *          A        B (higher layer 3 runs spatial & temporal pooling learning)
+     *          A        B (higher layer 3 runs spatial & temporal pooling)
      *          |        |
-     *          C        D (higher Layer 4 runs spatial pooling sparsifying & learning algorithm)
+     *          C        D (higher Layer 4 runs spatial pooling)
      *         / \      / \
-     * +<---- E   F    G   H (Layer 3 runs spatial pooling & temporal pooling predictive algorithm)
+     * +<---- E   F    G   H (Layer 3 runs spatial pooling & temporal pooling)
      * |      |   |    |   |
-     * M----->I-->J--->K-->L (Layer 4 runs spatial pooling sparsifying & learning algorithm)
+     * M----->I-->J--->K-->L (Layer 4 runs spatial pooling)
      * |      |   |    |   |
      * |       \  |    |  /
      * |  +-----\-|----|-/-----+
@@ -66,45 +66,45 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
      *    |                    |
      *    ImageRetinaIsLookingAt
      */
-    private NervousSystem constructConnectedNervousSystem() {
-        final int LAYER_3_CELLS_PER_COLUMN = 4;
-        final int LAYER_4_CELLS_PER_COLUMN = 1;
-        double percentMinimumOverlap = 20;
-        int desiredLocalActivity = 3;
+    private NervousSystem buildNervousSystem() {
+        final int L3NPM = 4; // = layer 3 neurons per column
+        final int L4NPM = 1; // = layer 4 neurons per column
+        double PMO = 20; // = percent minimum overlap
+        int DLA = 3; // = desired local activity
 
-        Neocortex neocortex = new Neocortex(new Region("root", 60, 60, LAYER_3_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity), new RegionToRegionRectangleConnect());
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(29, 60)), new Region("A", 125, 125, LAYER_3_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity), 0, 0);
-        neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new Point(60, 60)), new Region("B", 125, 125, LAYER_3_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity), 0, 0);
+        Neocortex neocortex = new Neocortex(new Region("root", 60, 60, L3NPM, PMO, DLA), new RegionToRegionRectangleConnect());
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(29, 59)), new Region("A", 125, 125, L3NPM, PMO, DLA), 0, 0);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(29, 0), new Point(59, 59)), new Region("B", 125, 125, L3NPM, PMO, DLA), 0, 0);
 
         neocortex.changeCurrentRegionTo("A");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), new Region("C", 125, 125, LAYER_4_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity), 0, 0);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(124, 124)), new Region("C", 125, 125, L4NPM, PMO, DLA), 0, 0);
 
         neocortex.changeCurrentRegionTo("B");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), new Region("D", 125, 125, LAYER_4_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity), 0, 0);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(124, 124)), new Region("D", 125, 125, L4NPM, PMO, DLA), 0, 0);
 
         neocortex.changeCurrentRegionTo("C");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(62, 125)), new Region("E", 125, 125, LAYER_3_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity), 0, 0);
-        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), new Region("F", 125, 125, LAYER_3_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity), 0, 0);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(62, 125)), new Region("E", 125, 125, L3NPM, PMO, DLA), 0, 0);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), new Region("F", 125, 125, L3NPM, PMO, DLA), 0, 0);
 
         neocortex.changeCurrentRegionTo("D");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(62, 125)), new Region("G", 125, 125, LAYER_3_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity), 0, 0);
-        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), new Region("H", 125, 125, LAYER_3_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity), 0, 0);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(62, 125)), new Region("G", 125, 125, L3NPM, PMO, DLA), 0, 0);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), new Region("H", 125, 125, L3NPM, PMO, DLA), 0, 0);
 
-        Region I = new Region("I", 250, 250, LAYER_4_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity);
-        Layer5Region M = new Layer5Region("M", 250, 250, LAYER_3_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity);
+        Region I = new Region("I", 250, 250, L4NPM, PMO, DLA);
+        Layer5Region M = new Layer5Region("M", 250, 250, L3NPM, PMO, DLA);
         neocortex.changeCurrentRegionTo("E");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), I, 0, 0);
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 0, 0);
 
-        Region J = new Region("J", 250, 250, LAYER_4_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity);
+        Region J = new Region("J", 250, 250, L4NPM, PMO, DLA);
         neocortex.changeCurrentRegionTo("F");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), J, 0, 0);
 
-        Region K = new Region("K", 250, 250, LAYER_4_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity);
+        Region K = new Region("K", 250, 250, L4NPM, PMO, DLA);
         neocortex.changeCurrentRegionTo("G");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), K, 0, 0);
 
-        Region L = new Region("L", 250, 250, LAYER_4_CELLS_PER_COLUMN, percentMinimumOverlap, desiredLocalActivity);
+        Region L = new Region("L", 250, 250, L4NPM, PMO, DLA);
         neocortex.changeCurrentRegionTo("H");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 0, 0);
 

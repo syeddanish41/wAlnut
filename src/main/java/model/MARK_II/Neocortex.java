@@ -87,9 +87,6 @@ public class Neocortex {
         return null;
     }
 
-    /**
-     * @param childRegion The Region to be added to the currentRegion.
-     */
     public boolean addToCurrentRegion(Rectangle rectanglePartOfParentRegionToConnectTo, Region childRegion,
                                       int numberOfColumnsToOverlapAlongNumberOfRows,
                                       int numberOfColumnsToOverlapAlongNumberOfColumns) {
