@@ -1,7 +1,5 @@
 package model.MARK_II;
 
-import model.MARK_II.connectTypes.RegionConnectType;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,19 +59,6 @@ public class Region {
         // inhibitionRadius used in computeColumnOverlapScore() it won't
         // really have a computed value.
         this.inhibitionRadius = 1;
-    }
-
-    public Region(String biologicalName, int numberOfColumnsAlongXAxis,
-                  int numberOfColumnsAlongYAxis, int cellsPerColumn,
-                  double percentMinimumOverlapScore, int desiredLocalActivity,
-                  RegionConnectType regionConnectType) {
-        this(biologicalName, numberOfColumnsAlongXAxis,
-                numberOfColumnsAlongYAxis, cellsPerColumn,
-                percentMinimumOverlapScore, desiredLocalActivity);
-
-        if (regionConnectType == RegionConnectType.CONNECT_EACH_NEURON_TO_ALL_OTHER_NEURONS) {
-
-        }
     }
 
     private void checkParameters(String biologicalName,
