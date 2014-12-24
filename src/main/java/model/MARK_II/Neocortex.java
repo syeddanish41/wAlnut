@@ -105,6 +105,8 @@ public class Neocortex {
                     "with the same name");
         }
 
+        // TODO: connect specific parts of top Region to bottom Region
+
         this.currentRegion.addChildRegion(childRegion);
         this.totalNumberOfRegions++;
         // connect currentRegion to childRegion
