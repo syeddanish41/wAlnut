@@ -98,11 +98,17 @@ public class Neocortex {
         // throw an exception is Region with the exact same biological
         // name is already in the Neocortex and tell user to change biological
         // name to be more specific
-        if (this.getRegion(childRegion.getBiologicalName()) != null) {
+        Region regionAlreadyInNeocortex = this.getRegion(childRegion.getBiologicalName());
+        if (regionAlreadyInNeocortex == null) {
+            // childRegion is new so we can add
+        } else if (regionAlreadyInNeocortex.equals(childRegion)) {
+            // the user is trying to make a cycle connection within regions in
+            // the Neocortex which is allowed
+        } else if (regionAlreadyInNeocortex != null) {
             throw new IllegalArgumentException(
                     "childRegion in class Neocortex method addToCurrentRegion" +
-                    " already exists within the Neocortex as another region " +
-                    "with the same name");
+                            " already exists within the Neocortex as another region " +
+                            "with the same name");
         }
 
         // TODO: connect specific parts of top Region to bottom Region

@@ -17,23 +17,56 @@ public class NeocortexTest extends junit.framework.TestCase {
     private int DLA = 3; // = desired local activity
 
     public void setUp() {
-
         this.neocortex = new Neocortex(new Region("root", 10, 10, L3NPM, PMO, DLA), new RegionToRegionRectangleConnect());
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(29, 59)), new Region("A", 125, 125, L3NPM, PMO, DLA), 0, 0);
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new Point(59, 59)), new Region("B", 125, 125, L3NPM, PMO, DLA), 0, 0);
-//
-//        neocortex.changeCurrentRegionTo("A");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(124, 124)), new Region("C", 125, 125, L4NPM, PMO, DLA), 0, 0);
     }
 
     public void test_addToCurrentRegion() {
 
     }
 
-    public void test_recursiveFind() {
+    public void test_getRegion() {
         Rectangle connectionLocation = new Rectangle(new Point(0, 0), new Point(9, 9));
 
         Region A = new Region("A", 10, 10, L4NPM, PMO, DLA);
+        Region B = new Region("B", 10, 10, L4NPM, PMO, DLA);
+        Region C = new Region("C", 10, 10, L4NPM, PMO, DLA);
+        Region D = new Region("D", 10, 10, L4NPM, PMO, DLA);
         this.neocortex.addToCurrentRegion(connectionLocation, A, 0, 0);
+        this.neocortex.changeCurrentRegionTo("A");
+        this.neocortex.addToCurrentRegion(connectionLocation, B, 0, 0);
+        this.neocortex.addToCurrentRegion(connectionLocation, C, 0, 0);
+        this.neocortex.changeCurrentRegionTo("C");
+        this.neocortex.addToCurrentRegion(connectionLocation, D, 0, 0);
+
+        Region foundD = this.neocortex.getRegion("D");
+        assertEquals(D, foundD);
+
+        // when looking for a nonexistent region
+        Region foundE = this.neocortex.getRegion("E");
+        assertEquals(null, foundE);
+
+        // now see if the recursive find works even when there is a cycle in
+        // the neocortex undirected graph
+        this.neocortex.changeCurrentRegionTo("D");
+        this.neocortex.addToCurrentRegion(connectionLocation, A, 0, 0);
+        Region E = new Region("E", 10, 10, L4NPM, PMO, DLA);
+        this.neocortex.addToCurrentRegion(connectionLocation, E, 0, 0);
+        Region F = new Region("F", 10, 10, L4NPM, PMO, DLA);
+        Region G = new Region("G", 10, 10, L4NPM, PMO, DLA);
+        this.neocortex.addToCurrentRegion(connectionLocation, C, 0, 0);
+        this.neocortex.addToCurrentRegion(connectionLocation, F, 0, 0);
+        this.neocortex.addToCurrentRegion(connectionLocation, G, 0, 0);
+
+        // Current Neocortex undirected graph:
+        //    A <-----
+        //  B  -> C  |
+        //     |  D --
+        //     ---E
+        //      F   G
+        Region foundHInGraphWithCycle = this.neocortex.getRegion("H");
+        assertEquals(null, foundHInGraphWithCycle);
+
+        Region foundG = this.neocortex.getRegion("G");
+        assertEquals(G, foundG);
     }
 }
