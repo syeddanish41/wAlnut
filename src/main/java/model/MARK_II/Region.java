@@ -231,19 +231,15 @@ public class Region {
                     "Column[][] 2D array");
         }
         Column[][] partialColumns = new Column[rectangleHeight][rectangleWidth];
-        int newRow = 0;
-        int newColumn = 0;
-        for (int row = largestRowIndex; row < rectangleHeight; row++) {
-            for (int column = largestColumnIndex; column < rectangleWidth; column++) {
-//                System.out.println("row = " + row);
-//                System.out.println("column = " + column);
-//                System.out.println("oldRow = " + oldRow);
-//                System.out.println("oldColumn = " + oldColumn + "\n");
-
-                partialColumns[newRow][newColumn] = this.columns[row][column];
-                newColumn++;
+        int oldRow = (int) rectangle.getTopLeftCorner().getY();
+        int oldColumn = (int) rectangle.getTopLeftCorner().getX();
+        for (int row = 0; row < rectangleHeight; row++) {
+            oldColumn = 0;
+            for (int column = 0; column < rectangleWidth; column++) {
+                partialColumns[row][column] = this.columns[oldRow][oldColumn];
+                oldColumn++;
             }
-            newRow++;
+            oldRow++;
         }
         return partialColumns;
     }

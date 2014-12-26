@@ -65,7 +65,6 @@ public class Retina {
         for (int row = 0; row < rectangleHeight; row++) {
             oldColumn = 0;
             for (int column = 0; column < rectangleWidth; column++) {
-
                 partialVisionCells[row][column] = this.visionCells[oldRow][oldColumn];
                 oldColumn++;
             }
