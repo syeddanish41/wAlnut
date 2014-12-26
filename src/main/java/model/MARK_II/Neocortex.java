@@ -95,9 +95,6 @@ public class Neocortex {
                     "childRegion in class Neocortex method addToCurrentRegion cannot be null");
         }
 
-        // throw an exception is Region with the exact same biological
-        // name is already in the Neocortex and tell user to change biological
-        // name to be more specific
         Region regionAlreadyInNeocortex = this.getRegion(childRegion.getBiologicalName());
         if (regionAlreadyInNeocortex == null) {
             // childRegion is new so we can add
@@ -116,7 +113,7 @@ public class Neocortex {
         this.currentRegion.addChildRegion(childRegion);
         this.totalNumberOfRegions++;
         // connect currentRegion to childRegion
-        this.connectType.connect(childRegion, this.currentRegion,
+        this.connectType.connect(childRegion, this.currentRegion, // .getColumns(rectanglePartOfParentRegionToConnectTo),
                 numberOfColumnsToOverlapAlongNumberOfRows,
                 numberOfColumnsToOverlapAlongNumberOfColumns);
         return false;

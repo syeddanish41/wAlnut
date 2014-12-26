@@ -1,5 +1,7 @@
 package model.MARK_II;
 
+import model.util.Rectangle;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +10,10 @@ import java.util.Set;
 /**
  * Node within Neocortex tree. A Region object is an undirected graph of Neuron
  * nodes.
- * <p/>
+ *
  * Input to Region: activity of Cells within a SensorCellLayer or lower Region.
  * For example, VisionCellLayer, AudioCellLayer, etc.
- * <p/>
+ *
  * Output from Region: activity of Cells within this Region created by one or
  * more of the Pooler algorithms.
  *
@@ -208,6 +210,35 @@ public class Region {
             }
         }
         return maximumActiveDutyCycle;
+    }
+
+    /**
+     * @param rectangle Rectangle part of parent region to connect to.
+     * @return Partial 2D array of Columns in parent Region based on input rectangle
+     *         dimensions.
+     */
+    public Column[][] getColumns(Rectangle rectangle) {
+        int rectangleWidth = (int) rectangle.getWidth();
+        int rectangleHeight = (int) rectangle.getHeight();
+        if (rectangleWidth > this.columns[0].length ||
+                rectangleHeight > this.columns.length) {
+            throw new IllegalArgumentException("In class Region method " +
+                "getColumns the input parameter Rectangle is larger than the" +
+                    "Column[][] 2D array");
+        }
+        Column[][] partialColumns = new Column[rectangleHeight][rectangleWidth];
+        int newRow = 0;
+        int newColumn = 0;
+        for (int row = (int) rectangle.getTopLeftCorner().getY();
+             row < rectangleHeight; row++) {
+            for (int column = (int) rectangle.getTopLeftCorner().getX();
+                 column < rectangleWidth; column++) {
+                partialColumns[newRow][newColumn] = this.columns[row][column];
+                newColumn++;
+            }
+            newRow++;
+        }
+        return partialColumns;
     }
 
     @Override

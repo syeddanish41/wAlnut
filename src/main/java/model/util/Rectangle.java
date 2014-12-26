@@ -3,7 +3,10 @@ package model.util;
 import java.awt.geom.Point2D;
 
 /**
- * IMPORTANT TO UNDERSTAND: the most top left corner of the plane this rectangle can be on is (0, 0)
+ * IMPORTANT TO UNDERSTAND: the most top left corner of the plane this
+ * rectangle can be on is (0, 0). Additionally, the positive X-axis is the
+ * horizontal axis pointing right and the positive Y-axis is the vertical axis
+ * pointing south.
  *
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version July 12, 2014
