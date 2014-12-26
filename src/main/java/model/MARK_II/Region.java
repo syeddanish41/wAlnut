@@ -220,8 +220,12 @@ public class Region {
     public Column[][] getColumns(Rectangle rectangle) {
         int rectangleWidth = (int) rectangle.getWidth();
         int rectangleHeight = (int) rectangle.getHeight();
+        int largestColumnIndex = (int) rectangle.getBottomRightCorner().getX();
+        int largestRowIndex = (int) rectangle.getBottomRightCorner().getY();
         if (rectangleWidth > this.columns[0].length ||
-                rectangleHeight > this.columns.length) {
+                rectangleHeight > this.columns.length ||
+                largestColumnIndex >= this.columns[0].length ||
+                largestRowIndex >= this.columns.length) {
             throw new IllegalArgumentException("In class Region method " +
                 "getColumns the input parameter Rectangle is larger than the" +
                     "Column[][] 2D array");
@@ -229,10 +233,8 @@ public class Region {
         Column[][] partialColumns = new Column[rectangleHeight][rectangleWidth];
         int newRow = 0;
         int newColumn = 0;
-        for (int row = (int) rectangle.getTopLeftCorner().getY();
-             row < rectangleHeight; row++) {
-            for (int column = (int) rectangle.getTopLeftCorner().getX();
-                 column < rectangleWidth; column++) {
+        for (int row = largestRowIndex; row < rectangleHeight; row++) {
+            for (int column = largestColumnIndex; column < rectangleWidth; column++) {
                 partialColumns[newRow][newColumn] = this.columns[row][column];
                 newColumn++;
             }

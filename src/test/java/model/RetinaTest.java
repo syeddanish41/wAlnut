@@ -15,7 +15,7 @@ public class RetinaTest extends TestCase {
     private Retina retina;
 
     public void setUp() {
-        this.retina = new Retina(5, 15);
+        this.retina = new Retina(5, 15); // 5 rows 15 columns
     }
 
     public void test_getVisionCells() throws IOException {
