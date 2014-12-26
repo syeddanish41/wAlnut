@@ -47,8 +47,8 @@ public class Retina {
      *         dimensions.
      */
     public VisionCell[][] getVisionCells(Rectangle rectangle) {
-        int rectangleWidth = (int) rectangle.getWidth();
-        int rectangleHeight = (int) rectangle.getHeight();
+        int rectangleWidth = rectangle.getWidth();
+        int rectangleHeight = rectangle.getHeight();
         int largestColumnIndex = (int) rectangle.getBottomRightCorner().getX();
         int largestRowIndex = (int) rectangle.getBottomRightCorner().getY();
         if (rectangleWidth > this.visionCells[0].length ||
@@ -65,10 +65,6 @@ public class Retina {
         for (int row = 0; row < rectangleHeight; row++) {
             oldColumn = 0;
             for (int column = 0; column < rectangleWidth; column++) {
-                System.out.println("row = " + row);
-                System.out.println("column = " + column);
-                System.out.println("oldRow = " + oldRow);
-                System.out.println("oldColumn = " + oldColumn + "\n");
 
                 partialVisionCells[row][column] = this.visionCells[oldRow][oldColumn];
                 oldColumn++;

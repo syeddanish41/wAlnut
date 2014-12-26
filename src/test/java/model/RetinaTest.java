@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 import model.MARK_II.VisionCell;
 import model.util.Rectangle;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.io.IOException;
 
@@ -22,7 +23,7 @@ public class RetinaTest extends TestCase {
         this.retina.seeBMPImage("Array2DTest.bmp");
 
         try {
-            Rectangle partialRetinaWanted1 = new Rectangle(new Point2D.Double(0, 0), new Point2D.Double(5, 14));
+            Rectangle partialRetinaWanted1 = new Rectangle(new Point(0, 0), new Point(5, 14));
             VisionCell[][] partialVisionCells1 = this.retina.getVisionCells(partialRetinaWanted1);
         } catch (IllegalArgumentException expected) {
             assertEquals("In class Retina method getVisionCells the input " +
@@ -31,7 +32,7 @@ public class RetinaTest extends TestCase {
                     expected.getMessage());
         }
 
-        Rectangle partialRetinaWanted2 = new Rectangle(new Point2D.Double(0, 0), new Point2D.Double(7, 2));
+        Rectangle partialRetinaWanted2 = new Rectangle(new Point(0, 0), new Point(7, 2));
         VisionCell[][] partialVisionCells2 = this.retina.getVisionCells(partialRetinaWanted2);
         int numberOfRows = partialVisionCells2.length;
         int numberOfColumns = partialVisionCells2[0].length;

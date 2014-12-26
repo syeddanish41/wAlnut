@@ -218,8 +218,8 @@ public class Region {
      *         dimensions.
      */
     public Column[][] getColumns(Rectangle rectangle) {
-        int rectangleWidth = (int) rectangle.getWidth();
-        int rectangleHeight = (int) rectangle.getHeight();
+        int rectangleWidth = rectangle.getWidth();
+        int rectangleHeight = rectangle.getHeight();
         int largestColumnIndex = (int) rectangle.getBottomRightCorner().getX();
         int largestRowIndex = (int) rectangle.getBottomRightCorner().getY();
         if (rectangleWidth > this.columns[0].length ||
@@ -235,6 +235,11 @@ public class Region {
         int newColumn = 0;
         for (int row = largestRowIndex; row < rectangleHeight; row++) {
             for (int column = largestColumnIndex; column < rectangleWidth; column++) {
+//                System.out.println("row = " + row);
+//                System.out.println("column = " + column);
+//                System.out.println("oldRow = " + oldRow);
+//                System.out.println("oldColumn = " + oldColumn + "\n");
+
                 partialColumns[newRow][newColumn] = this.columns[row][column];
                 newColumn++;
             }
