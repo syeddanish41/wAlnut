@@ -21,18 +21,28 @@ public class RetinaTest extends TestCase {
     public void test_getVisionCells() throws IOException {
         this.retina.seeBMPImage("Array2DTest.bmp");
 
-        Rectangle partialRetinaWanted = new Rectangle(new Point2D.Double(0, 0), new Point2D.Double(7, 2));
-        VisionCell[][] partialVisionCells = this.retina.getVisionCells(partialRetinaWanted);
-        int numberOfRows = partialVisionCells.length;
-        int numberOfColumns = partialVisionCells[0].length;
+        try {
+            Rectangle partialRetinaWanted1 = new Rectangle(new Point2D.Double(0, 0), new Point2D.Double(5, 14));
+            VisionCell[][] partialVisionCells1 = this.retina.getVisionCells(partialRetinaWanted1);
+        } catch (IllegalArgumentException expected) {
+            assertEquals("In class Retina method getVisionCells the input " +
+                            "parameter Rectangleis larger than the " +
+                            "VisionCell[][] 2D array",
+                    expected.getMessage());
+        }
+
+        Rectangle partialRetinaWanted2 = new Rectangle(new Point2D.Double(0, 0), new Point2D.Double(7, 2));
+        VisionCell[][] partialVisionCells2 = this.retina.getVisionCells(partialRetinaWanted2);
+        int numberOfRows = partialVisionCells2.length;
+        int numberOfColumns = partialVisionCells2[0].length;
         assertEquals(2, numberOfRows);
         assertEquals(7, numberOfColumns);
-        assertTrue(partialVisionCells[1][3].getActiveState());
-        assertFalse(partialVisionCells[0][3].getActiveState());
+        assertTrue(partialVisionCells2[1][3].getActiveState());
+        assertFalse(partialVisionCells2[0][3].getActiveState());
 
         this.retina.seeBMPImage("Array2DTest2.bmp");
-        assertFalse(partialVisionCells[1][3].getActiveState());
-        assertTrue(partialVisionCells[0][3].getActiveState());
+        assertFalse(partialVisionCells2[1][3].getActiveState());
+        assertTrue(partialVisionCells2[0][3].getActiveState());
     }
 
     public void test_seeBMPImage() throws IOException {
