@@ -22,13 +22,15 @@ public class SensorCellsToRegionRectangleConnect extends
         int botRowLength = sensorCells.length;
         int botColLength = sensorCells[0].length;
 
+        RectangleConnect rectangleConnect = new RectangleConnect();
+
         for(int rowT = 0; rowT < topRowLength; rowT++){
-            Point rowReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topRowLength, botRowLength, rowT, numberOfColumnsToOverlapAlongYAxisOfSensorCells);
+            Point rowReceptiveField = rectangleConnect.updateReceptiveFieldDimensionLengthWithOverlap(topRowLength, botRowLength, rowT, numberOfColumnsToOverlapAlongYAxisOfSensorCells);
             rowBinitial = (int) rowReceptiveField.getX();
             rowBfinal = (int) rowReceptiveField.getY();
 
             for(int colT = 0; colT < topColLength; colT++) {
-                Point colReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topColLength, botColLength, colT, numberOfColumnsToOverlapAlongXAxisOfSensorCells);
+                Point colReceptiveField = rectangleConnect.updateReceptiveFieldDimensionLengthWithOverlap(topColLength, botColLength, colT, numberOfColumnsToOverlapAlongXAxisOfSensorCells);
                 colBinitial = (int) colReceptiveField.getX();
                 colBfinal = (int) colReceptiveField.getY();
 
@@ -41,40 +43,5 @@ public class SensorCellsToRegionRectangleConnect extends
                 }
             }
         }
-    }
-
-    Point updateReceptiveFieldDimensionLength (int topLength, int botLength, int topIndex) {
-        if (topLength > botLength) {
-            throw new IllegalStateException("In class NewRegionToRegionRectangleConnect" +
-                    " method updateReceptiveFieldDimensionLength() topLength must be <= botLength");
-        }
-
-        int Binitial;
-        int Bfinal;
-        if (topIndex < botLength % topLength) {
-            Binitial = topIndex * (botLength/topLength) + topIndex;
-            Bfinal = (topIndex + 1) * (botLength/topLength) + (topIndex + 1) -1; // -1 of next rowBinitial
-        } else {
-            Binitial = topIndex * (botLength/topLength) + botLength % topLength;
-            Bfinal = (topIndex + 1) * (botLength/topLength) + botLength % topLength - 1;
-        }
-
-        return new Point(Binitial, Bfinal);
-    }
-
-    Point updateReceptiveFieldDimensionLengthWithOverlap(int topLength, int botLength, int topIndex, int overlap ) {
-        Point withoutOverlap = updateReceptiveFieldDimensionLength (topLength, botLength, topIndex);
-
-        int newBinitial = (int) withoutOverlap.getX() - overlap;
-        if (newBinitial < 0) {
-            newBinitial = 0;
-        }
-
-        int newBfinal = (int) withoutOverlap.getY() + overlap;
-        if (newBfinal > botLength - 1) {
-            newBfinal = botLength - 1;
-        }
-
-        return new Point(newBinitial, newBfinal);
     }
 }

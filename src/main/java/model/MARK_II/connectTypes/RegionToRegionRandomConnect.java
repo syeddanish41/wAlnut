@@ -64,21 +64,4 @@ public class RegionToRegionRandomConnect extends AbstractRegionToRegionConnect {
             }
         }
     }
-
-    /**
-     * @param minimum
-     * @param maximum Must be greater than min.
-     * @return Integer between minimum and maximum inclusive.
-     */
-    public int randomIntegerInRange(int minimum, int maximum) {
-        Random randomGenerator = new Random();
-
-        // nextInt is normally exclusive of the top value,
-        // so add 1 to make it inclusive
-        int randomNumber = randomGenerator.nextInt((maximum - minimum) + 1)
-                + minimum;
-
-        return randomNumber;
-    }
-
 }
