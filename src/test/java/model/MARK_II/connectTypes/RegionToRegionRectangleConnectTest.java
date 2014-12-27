@@ -91,7 +91,7 @@ public class RegionToRegionRectangleConnectTest extends TestCase{
 
     public void test_connect() {
         AbstractRegionToRegionConnect regionToRegion = new RegionToRegionRectangleConnect();
-        regionToRegion.connect(this.bottomRegion, this.topRegion, 1, 2);
+        regionToRegion.connect(this.bottomRegion.getColumns(), this.topRegion.getColumns(), 1, 2);
         int topRowLength = topRegion.getNumberOfRowsAlongRegionYAxis();
         int topColLength = topRegion.getNumberOfColumnsAlongRegionXAxis();
 
@@ -166,7 +166,7 @@ public class RegionToRegionRectangleConnectTest extends TestCase{
         Region childRegion = new Region("childRegion", 64, 64, 4, 20, 3);
 
         AbstractRegionToRegionConnect regionToRegion = new RegionToRegionRectangleConnect();
-        regionToRegion.connect(childRegion, parentRegion, 0, 0);
+        regionToRegion.connect(childRegion.getColumns(), parentRegion.getColumns(), 0, 0);
 
         Column[][] columns = parentRegion.getColumns();
         for (int parentRegionRow = 0; parentRegionRow < parentRegion
@@ -184,7 +184,7 @@ public class RegionToRegionRectangleConnectTest extends TestCase{
         Region childRegion = new Region("childRegion", 64, 64, 4, 20, 3);
 
         AbstractRegionToRegionConnect regionToRegion = new RegionToRegionRectangleConnect();
-        regionToRegion.connect(childRegion, parentRegion, 2, 2);
+        regionToRegion.connect(childRegion.getColumns(), parentRegion.getColumns(), 2, 2);
 
         int numberOfColumnsWith100Synapses = 0;
         int numberOfColumnsWith120Synapses = 0;

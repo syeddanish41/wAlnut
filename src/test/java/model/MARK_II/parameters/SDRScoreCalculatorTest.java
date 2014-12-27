@@ -48,7 +48,7 @@ public class SDRScoreCalculatorTest extends TestCase {
         Region region = new Region("Region", 8, 8, 1, 50, 3);
 
         AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
-        retinaToRegion.connect(retina.getVisionCells(), region, 0, 0);
+        retinaToRegion.connect(retina.getVisionCells(), region.getColumns(), 0, 0);
 
         SpatialPooler spatialPooler = new SpatialPooler(region);
         spatialPooler.setLearningState(true);

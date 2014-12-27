@@ -54,7 +54,7 @@ public class RegionTest extends TestCase {
     public void test_getBottomLayerXYAxisLength() {
         Region bottomLayer = new Region("bottomLayer", 25, 35, 1, 50, 1);
         AbstractRegionToRegionConnect connectType = new RegionToRegionRectangleConnect();
-        connectType.connect(bottomLayer, this.region, 0, 0);
+        connectType.connect(bottomLayer.getColumns(), this.region.getColumns(), 0, 0);
 
         Dimension bottomLayerDimensions = this.region
                 .getBottomLayerXYAxisLength();

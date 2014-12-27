@@ -1,40 +1,31 @@
 package model.MARK_II.connectTypes;
 
-import model.MARK_II.Region;
+import model.MARK_II.Column;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version June 7, 2013
  */
 public abstract class AbstractRegionToRegionConnect {
-    /**
-     * Place a description of your method here.
-     *
-     * @param childRegion
-     * @param parentRegion
-     * @param numberOfColumnsToOverlapAlongXAxisOfRegion
-     * @param numberOfColumnsToOverlapAlongYAxisOfRegion
-     */
-    public abstract void connect(Region childRegion, Region parentRegion,
+
+    public abstract void connect(Column[][] childRegionColumns, Column[][] parentRegionColumns,
                                  int numberOfColumnsToOverlapAlongXAxisOfRegion,
                                  int numberOfColumnsToOverlapAlongYAxisOfRegion);
 
-    void checkParameters(Region childRegion, Region parentRegion,
+    void checkParameters(Column[][] childRegionColumns, Column[][] parentRegionColumns,
                          int numberOfColumnsToOverlapAlongXAxisOfRegion,
                          int numberOfColumnsToOverlapAlongYAxisOfRegion) {
-        if (parentRegion == null) {
+        if (parentRegionColumns == null) {
             throw new IllegalArgumentException(
-                    "parentRegion in connect method cannot be null");
-        } else if (childRegion == null) {
+                    "parentRegionColumns in connect method cannot be null");
+        } else if (childRegionColumns == null) {
             throw new IllegalArgumentException(
-                    "childRegion in connect method cannot be null");
-        } else if (childRegion.getNumberOfRowsAlongRegionYAxis() <= parentRegion
-                .getNumberOfRowsAlongRegionYAxis()
-                || childRegion.getNumberOfColumnsAlongRegionXAxis() <= parentRegion
-                .getNumberOfColumnsAlongRegionXAxis()) {
+                    "childRegionColumns in connect method cannot be null");
+        } else if (childRegionColumns.length <= parentRegionColumns.length
+                || childRegionColumns[0].length <= parentRegionColumns[0].length) {
             throw new IllegalArgumentException(
-                    "childRegion in connect method cannot be smaller in X or Y "
-                            + "dimensions than the parentRegion");
+                    "childRegionColumns in connect method cannot be smaller in X or Y "
+                            + "dimensions than the parentRegionColumns");
         } else if (numberOfColumnsToOverlapAlongXAxisOfRegion < 0) {
             throw new IllegalArgumentException(
                     "numberOfColumnsToOverlapAlongXAxisOfRegion in connect method cannot be < 0");

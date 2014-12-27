@@ -113,7 +113,7 @@ public class Neocortex {
         this.currentRegion.addChildRegion(childRegion);
         this.totalNumberOfRegions++;
         // connect currentRegion to childRegion
-        this.connectType.connect(childRegion, this.currentRegion, // .getColumns(rectanglePartOfParentRegionToConnectTo),
+        this.connectType.connect(childRegion.getColumns(), this.currentRegion.getColumns(), // .getColumns(rectanglePartOfParentRegionToConnectTo),
                 numberOfColumnsToOverlapAlongNumberOfRows,
                 numberOfColumnsToOverlapAlongNumberOfColumns);
         return false;

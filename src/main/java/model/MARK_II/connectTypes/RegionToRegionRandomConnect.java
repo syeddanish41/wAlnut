@@ -15,19 +15,17 @@ import java.util.Random;
 public class RegionToRegionRandomConnect extends AbstractRegionToRegionConnect {
 
     @Override
-    public void connect(Region childRegion, Region parentRegion,
+    public void connect(Column[][] childRegionColumns, Column[][] parentRegionColumns,
                         int numberOfColumnsToOverlapAlongXAxisOfRegion,
                         int numberOfColumnsToOverlapAlongYAxisOfRegion) {
 
-        super.checkParameters(childRegion, parentRegion,
+        super.checkParameters(childRegionColumns, parentRegionColumns,
                 numberOfColumnsToOverlapAlongXAxisOfRegion,
                 numberOfColumnsToOverlapAlongYAxisOfRegion);
 
-        Column[][] parentRegionColumns = parentRegion.getColumns();
         int parentRegionXAxisLength = parentRegionColumns.length; // = 8
         int parentRegionYAxisLength = parentRegionColumns[0].length; // = 8
 
-        Column[][] childRegionColumns = childRegion.getColumns();
         int childRegionXAxisLength = childRegionColumns.length; // = 66
         int childRegionYAxisLength = childRegionColumns[0].length; // = 66
 

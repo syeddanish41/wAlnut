@@ -11,15 +11,15 @@ import java.awt.Point;
 public class RegionToRegionRectangleConnect extends
         AbstractRegionToRegionConnect {
     @Override
-    public void connect(Region bottomLayer, Region topLayer,
+    public void connect(Column[][] bottomLayer, Column[][] topLayer,
                         int numberOfColumnsToOverlapAlongNumberOfRows,
                         int numberOfColumnsToOverlapAlongNumberOfColumns) {
         int rowBinitial, rowBfinal, colBinitial, colBfinal;
 
-        int topRowLength = topLayer.getNumberOfRowsAlongRegionYAxis();
-        int topColLength = topLayer.getNumberOfColumnsAlongRegionXAxis();
-        int botRowLength = bottomLayer.getNumberOfRowsAlongRegionYAxis();
-        int botColLength = bottomLayer.getNumberOfColumnsAlongRegionXAxis();
+        int topRowLength = topLayer.length;
+        int topColLength = topLayer[0].length;
+        int botRowLength = bottomLayer.length;
+        int botColLength = bottomLayer[0].length;
 
         for(int rowT = 0; rowT < topRowLength; rowT++){
             Point rowReceptiveField = updateReceptiveFieldDimensionLengthWithOverlap(topRowLength, botRowLength, rowT, numberOfColumnsToOverlapAlongNumberOfRows);
@@ -32,10 +32,10 @@ public class RegionToRegionRectangleConnect extends
                 colBfinal = (int) colReceptiveField.getY();
 
                 // actually add synapses from bottom layer receptive field to top layer column
-                Column topColumn = topLayer.getColumn(rowT, colT);
+                Column topColumn = topLayer[rowT][colT];
                 for (int rowB = rowBinitial; rowB <= rowBfinal; rowB++){
                     for (int colB = colBinitial; colB <= colBfinal; colB++) {
-                        for(Neuron neuron : bottomLayer.getColumn(rowB, colB).getNeurons()){
+                        for(Neuron neuron : bottomLayer[rowB][colB].getNeurons()){
                             topColumn.getProximalSegment().addSynapse(new Synapse<Cell>(neuron, rowB, colB));
                         }
                     }

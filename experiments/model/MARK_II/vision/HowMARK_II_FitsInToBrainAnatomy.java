@@ -118,10 +118,10 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
 
         AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
         // now we can overlap
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 0), new Point(499, 499))), I, 0, 0); // .getVisionCells(topLeftPoint, bottomRightPoint)
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(499, 0), new Point(999, 499))), J, 0, 0);
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 499), new Point(499, 999))), K, 0, 0);
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(499, 499), new Point(999, 999))), L, 0, 0);
+        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 0), new Point(499, 499))), I.getColumns(), 0, 0); // .getVisionCells(topLeftPoint, bottomRightPoint)
+        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(499, 0), new Point(999, 499))), J.getColumns(), 0, 0);
+        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 499), new Point(499, 999))), K.getColumns(), 0, 0);
+        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(499, 499), new Point(999, 999))), L.getColumns(), 0, 0);
 
         NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
 

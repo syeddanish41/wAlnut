@@ -11,14 +11,14 @@ import java.awt.*;
 public class SensorCellsToRegionRectangleConnect extends
             AbstractSensorCellsToRegionConnect {
     @Override
-    public void connect(SensorCell[][] sensorCells, Region region,
+    public void connect(SensorCell[][] sensorCells, Column[][] regionColumns,
                         int numberOfColumnsToOverlapAlongXAxisOfSensorCells,
                         int numberOfColumnsToOverlapAlongYAxisOfSensorCells) {
 
         int rowBinitial, rowBfinal, colBinitial, colBfinal;
 
-        int topRowLength = region.getNumberOfRowsAlongRegionYAxis();
-        int topColLength = region.getNumberOfColumnsAlongRegionXAxis();
+        int topRowLength = regionColumns.length;
+        int topColLength = regionColumns[0].length;
         int botRowLength = sensorCells.length;
         int botColLength = sensorCells[0].length;
 
@@ -33,12 +33,10 @@ public class SensorCellsToRegionRectangleConnect extends
                 colBfinal = (int) colReceptiveField.getY();
 
                 // actually add synapses from bottom layer receptive field to top layer column
-                Column topColumn = region.getColumn(rowT, colT);
+                Column topColumn = regionColumns[rowT][colT];
                 for (int rowB = rowBinitial; rowB <= rowBfinal; rowB++){
                     for (int colB = colBinitial; colB <= colBfinal; colB++) {
-                        //for(Neuron neuron : bottomLayer.getColumn(rowB, colB).getNeurons()){
-                            topColumn.getProximalSegment().addSynapse(new Synapse<Cell>(sensorCells[rowB][colB], rowB, colB));
-                        //}
+                        topColumn.getProximalSegment().addSynapse(new Synapse<Cell>(sensorCells[rowB][colB], rowB, colB));
                     }
                 }
             }

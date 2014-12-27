@@ -1,6 +1,6 @@
 package model.MARK_II.connectTypes;
 
-import model.MARK_II.Region;
+import model.MARK_II.Column;
 import model.MARK_II.SensorCell;
 
 /**
@@ -8,23 +8,23 @@ import model.MARK_II.SensorCell;
  * @version June 7, 2013
  */
 public abstract class AbstractSensorCellsToRegionConnect {
-    public abstract void connect(SensorCell[][] sensorCells, Region region,
+    public abstract void connect(SensorCell[][] sensorCells, Column[][] regionColumns,
                                  int numberOfColumnsToOverlapAlongXAxisOfSensorCells,
                                  int numberOfColumnsToOverlapAlongYAxisOfSensorCells);
 
-    void checkParameters(SensorCell[][] sensorCells, Region region,
+    void checkParameters(SensorCell[][] sensorCells, Column[][] regionColumns,
                          int numberOfColumnsToOverlapAlongXAxisOfSensorCells,
                          int numberOfColumnsToOverlapAlongYAxisOfSensorCells) {
-        if (region == null) {
+        if (regionColumns == null) {
             throw new IllegalArgumentException(
-                    "region in SensorCellsToRegionRectangleConnect class"
+                    "regionColumns in SensorCellsToRegionRectangleConnect class"
                             + "connect method cannot be null");
         } else if (sensorCells == null) {
             throw new IllegalArgumentException(
                     "sensorCells in SensorCellsToRegionRectangleConnect class"
                             + "connect method cannot be null");
-        } else if (sensorCells.length <= region.getNumberOfRowsAlongRegionYAxis()
-                || sensorCells[0].length <= region.getNumberOfColumnsAlongRegionXAxis()) {
+        } else if (sensorCells.length <= regionColumns.length
+                || sensorCells[0].length <= regionColumns[0].length) {
             throw new IllegalArgumentException(
                     "sensorCells in connect method cannot be smaller in X or Y "
                             + "dimentions than the region");
