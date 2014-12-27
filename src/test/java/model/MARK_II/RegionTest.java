@@ -3,6 +3,8 @@ package model.MARK_II;
 import junit.framework.TestCase;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
+import model.util.*;
+import model.util.Rectangle;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -86,6 +88,26 @@ public class RegionTest extends TestCase {
 
         assertEquals(0.3f, this.region.maximumActiveDutyCycle(neighborColumns),
                 0.001);
+    }
+
+    public void test_getColumns() {
+        try {
+            this.region.getColumns(new Rectangle(new Point(0, 0), new Point(5, 6)));
+        } catch (IllegalArgumentException expected) {
+            assertEquals("In class Region method " +
+                    "getColumns the input parameter Rectangle is larger than the" +
+                    "Column[][] 2D array", expected.getMessage());
+        }
+
+        Region parent = new Region("parent", 6, 8, 4, 20, 3); // 6 rows 8 columns
+        Column[][] partialParent = parent.getColumns(new Rectangle(new Point(2, 2), new Point(7, 5)));
+        int numberOfRows = partialParent.length;
+        int numberOfColumns = partialParent[0].length;
+        assertEquals(3, numberOfRows);
+        assertEquals(5, numberOfColumns);
+
+        // TODO: connect parent to child Region
+
     }
 
     public void test_toString() {
