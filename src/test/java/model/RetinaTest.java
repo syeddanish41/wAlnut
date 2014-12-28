@@ -23,8 +23,9 @@ public class RetinaTest extends TestCase {
         this.retina.seeBMPImage("Array2DTest.bmp");
 
         try {
-            Rectangle partialRetinaWanted1 = new Rectangle(new Point(0, 0), new Point(5, 14));
+            Rectangle partialRetinaWanted1 = new Rectangle(new Point(0, 0), new Point(16, 2));
             VisionCell[][] partialVisionCells1 = this.retina.getVisionCells(partialRetinaWanted1);
+            fail("should've thrown an exception!");
         } catch (IllegalArgumentException expected) {
             assertEquals("In class Retina method getVisionCells the input " +
                             "parameter Rectangleis larger than the " +
@@ -44,6 +45,13 @@ public class RetinaTest extends TestCase {
         this.retina.seeBMPImage("Array2DTest2.bmp");
         assertFalse(partialVisionCells2[1][3].getActiveState());
         assertTrue(partialVisionCells2[0][3].getActiveState());
+
+        this.retina.seeBMPImage("Array2DTest3.bmp");
+        for (int row = 0; row < 2; row++) {
+            for (int column = 0; column < 7; column++) {
+                assertTrue(partialVisionCells2[row][column].getActiveState());
+            }
+        }
     }
 
     public void test_seeBMPImage() throws IOException {

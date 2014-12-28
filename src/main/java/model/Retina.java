@@ -53,22 +53,22 @@ public class Retina {
         int largestRowIndex = (int) rectangle.getBottomRightCorner().getY();
         if (rectangleWidth > this.visionCells[0].length ||
                 rectangleHeight > this.visionCells.length ||
-                largestColumnIndex >= this.visionCells[0].length ||
-                largestRowIndex >= this.visionCells.length) {
+                largestColumnIndex > this.visionCells[0].length ||
+                largestRowIndex > this.visionCells.length) {
             throw new IllegalArgumentException("In class Retina method " +
                     "getVisionCells the input parameter Rectangle" +
                     "is larger than the VisionCell[][] 2D array");
         }
         VisionCell[][] partialVisionCells = new VisionCell[rectangleHeight][rectangleWidth];
-        int oldRow = (int) rectangle.getTopLeftCorner().getY();
-        int oldColumn = (int) rectangle.getTopLeftCorner().getX();
+        int oldRowInitial = (int) rectangle.getTopLeftCorner().getY();
+        int oldColumnInitial = (int) rectangle.getTopLeftCorner().getX();
         for (int row = 0; row < rectangleHeight; row++) {
-            oldColumn = 0;
+            oldColumnInitial = (int) rectangle.getTopLeftCorner().getX();
             for (int column = 0; column < rectangleWidth; column++) {
-                partialVisionCells[row][column] = this.visionCells[oldRow][oldColumn];
-                oldColumn++;
+                partialVisionCells[row][column] = this.visionCells[oldRowInitial][oldColumnInitial];
+                oldColumnInitial++;
             }
-            oldRow++;
+            oldRowInitial++;
         }
         return partialVisionCells;
     }
