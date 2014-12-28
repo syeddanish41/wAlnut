@@ -213,7 +213,8 @@ public class Region {
     }
 
     /**
-     * @param rectangle Rectangle part of parent region to connect to.
+     * @param rectangle Rectangle part of parent region to connect inclusively
+     *                  (including first last and in between) to.
      * @return Partial 2D array of Columns in parent Region based on input rectangle
      *         dimensions.
      */
@@ -224,22 +225,22 @@ public class Region {
         int largestRowIndex = (int) rectangle.getBottomRightCorner().getY();
         if (rectangleWidth > this.columns[0].length ||
                 rectangleHeight > this.columns.length ||
-                largestColumnIndex >= this.columns[0].length ||
-                largestRowIndex >= this.columns.length) {
+                largestColumnIndex > this.columns[0].length ||
+                largestRowIndex > this.columns.length) {
             throw new IllegalArgumentException("In class Region method " +
                 "getColumns the input parameter Rectangle is larger than the" +
                     "Column[][] 2D array");
         }
         Column[][] partialColumns = new Column[rectangleHeight][rectangleWidth];
-        int oldRow = (int) rectangle.getTopLeftCorner().getY();
-        int oldColumn = (int) rectangle.getTopLeftCorner().getX();
+        int oldRowInitial = (int) rectangle.getTopLeftCorner().getY();
+        int oldColumnInitial = (int) rectangle.getTopLeftCorner().getX();
         for (int row = 0; row < rectangleHeight; row++) {
-            oldColumn = 0;
+            oldColumnInitial = (int) rectangle.getTopLeftCorner().getX();
             for (int column = 0; column < rectangleWidth; column++) {
-                partialColumns[row][column] = this.columns[oldRow][oldColumn];
-                oldColumn++;
+                partialColumns[row][column] = this.columns[oldRowInitial][oldColumnInitial];
+                oldColumnInitial++;
             }
-            oldRow++;
+            oldRowInitial++;
         }
         return partialColumns;
     }

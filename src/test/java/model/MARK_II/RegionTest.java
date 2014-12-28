@@ -92,7 +92,8 @@ public class RegionTest extends TestCase {
 
     public void test_getColumns() {
         try {
-            this.region.getColumns(new Rectangle(new Point(0, 0), new Point(5, 6)));
+            this.region.getColumns(new Rectangle(new Point(0, 0), new Point(2, 6)));
+            fail("should've thrown an exception!");
         } catch (IllegalArgumentException expected) {
             assertEquals("In class Region method " +
                     "getColumns the input parameter Rectangle is larger than the" +
@@ -100,14 +101,26 @@ public class RegionTest extends TestCase {
         }
 
         Region parent = new Region("parent", 6, 8, 4, 20, 3); // 6 rows 8 columns
-        Column[][] partialParent = parent.getColumns(new Rectangle(new Point(2, 2), new Point(7, 5)));
+        Column[][] partialParent = parent.getColumns(new Rectangle(new Point(2, 2), new Point(6, 5)));
         int numberOfRows = partialParent.length;
         int numberOfColumns = partialParent[0].length;
         assertEquals(3, numberOfRows);
-        assertEquals(5, numberOfColumns);
+        assertEquals(4, numberOfColumns);
 
-        // TODO: connect parent to child Region
+        assertEquals(0, partialParent[0][0].getProximalSegment().getSynapses().size());
 
+        Region child = new Region("child", 12, 16, 4, 20, 3);
+        AbstractRegionToRegionConnect connectType = new RegionToRegionRectangleConnect();
+        connectType.connect(child.getColumns(), partialParent, 0, 0);
+
+        // partialParent = 3 rows  x 4 columns
+        // child         = 12 rows x 16 columns
+        // Thus, each parent Column connects to 4 x 4 Neurons = 16 Synapses
+        for (int row = 0; row < numberOfRows; row++) {
+            for (int column = 0; column < numberOfColumns; column++) {
+                assertEquals(16, partialParent[row][column].getProximalSegment().getSynapses().size());
+            }
+        }
     }
 
     public void test_toString() {
