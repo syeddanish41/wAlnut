@@ -52,14 +52,14 @@ public class HowMARK_I_FitsInToBrainAnatomy extends TestCase {
         Retina retina = nervousSystem.getPNS().getSNS().getRetina();
         LGN LGN = nervousSystem.getCNS().getBrain().getThalamus().getLGN();
         AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
-        opticNerve.connect(retina.getVisionCells(), LGN.getRegion(), 0, 0);
+        opticNerve.connect(retina.getVisionCells(), LGN.getRegion().getColumns(), 0, 0);
 
         // connect LGN to very small part of V1 Region of Neocortex
         Neocortex neocortex = nervousSystem.getCNS().getBrain().getCerebrum()
                 .getCerebralCortex().getNeocortex();
         AbstractRegionToRegionConnect regionToRegionConnect = new RegionToRegionRectangleConnect();
-        regionToRegionConnect.connect(LGN.getRegion(),
-                neocortex.getCurrentRegion(), 0, 0);
+        regionToRegionConnect.connect(LGN.getRegion().getColumns(),
+                neocortex.getCurrentRegion().getColumns(), 0, 0);
 
         return nervousSystem;
     }

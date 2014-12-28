@@ -1,25 +1,26 @@
 package model.util;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 
 /**
- * IMPORTANT TO UNDERSTAND: the most top left corner of the plane this rectangle can be on is (0, 0)
+ * IMPORTANT TO UNDERSTAND: the most top left corner of the plane this
+ * rectangle can be on is (0, 0). Additionally, the positive X-axis is the
+ * horizontal axis pointing right and the positive Y-axis is the vertical axis
+ * pointing south.
  *
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version July 12, 2014
  */
 public class Rectangle {
-    private Point2D topLeftCorner;
-    private Point2D bottomRightCorner;
+    private Point topLeftCorner;
+    private Point bottomRightCorner;
 
-    /**
-     * IMPORTANT TO UNDERSTAND: the most top left corner of the plane this rectangle can be on is (0, 0)
-     */
-    public Rectangle(Point2D topLeftCorner, Point2D bottomRightCorner) {
-        double TLx = topLeftCorner.getX();
-        double TLy = topLeftCorner.getY();
-        double BRx = bottomRightCorner.getX();
-        double BRy = bottomRightCorner.getY();
+    public Rectangle(Point topLeftCorner, Point bottomRightCorner) {
+        int TLx = (int) topLeftCorner.getX();
+        int TLy = (int) topLeftCorner.getY();
+        int BRx = (int) bottomRightCorner.getX();
+        int BRy = (int) bottomRightCorner.getY();
 
         if (TLx < 0 || TLy < 0 || BRx < 0 || BRy < 0) {
             throw new IllegalArgumentException("In class Rectangle constructor method the input point" +
@@ -33,35 +34,35 @@ public class Rectangle {
         this.bottomRightCorner = bottomRightCorner;
     }
 
-    public double getWidth() {
-        return this.bottomRightCorner.getX() - this.topLeftCorner.getX();
+    public int getWidth() {
+        return (int) (this.bottomRightCorner.getX() - this.topLeftCorner.getX());
     }
 
-    public double getHeight() {
-        return this.bottomRightCorner.getY() - this.topLeftCorner.getY();
+    public int getHeight() {
+        return (int) (this.bottomRightCorner.getY() - this.topLeftCorner.getY());
     }
 
-    public Point2D getTopLeftCorner() {
+    public Point getTopLeftCorner() {
         return this.topLeftCorner;
     }
 
-    public void setTopLeftCorner(Point2D topLeftCorner) {
+    public void setTopLeftCorner(Point topLeftCorner) {
         this.setNewTopLeftCornerIfValid(topLeftCorner);
     }
 
-    public Point2D getBottomRightCorner() {
+    public Point getBottomRightCorner() {
         return this.bottomRightCorner;
     }
 
-    public void setBottomRightCorner(Point2D bottomRightCorner) {
+    public void setBottomRightCorner(Point bottomRightCorner) {
         this.setNewBottomRightCornerIfValid(bottomRightCorner);
     }
 
-    void setNewTopLeftCornerIfValid(Point2D newTopLeftCorner) {
-        double TLx = newTopLeftCorner.getX();
-        double TLy = newTopLeftCorner.getY();
-        double BRx = this.bottomRightCorner.getX();
-        double BRy = this.bottomRightCorner.getY();
+    void setNewTopLeftCornerIfValid(Point newTopLeftCorner) {
+        int TLx = (int) newTopLeftCorner.getX();
+        int TLy = (int) newTopLeftCorner.getY();
+        int BRx = (int) this.bottomRightCorner.getX();
+        int BRy = (int) this.bottomRightCorner.getY();
         if (TLx < 0 || TLy < 0) {
             throw new IllegalArgumentException("In class Rectangle isNewTopLeftCornerValid method the input point" +
                     " must be >= 0");
@@ -73,11 +74,11 @@ public class Rectangle {
         }
     }
 
-    void setNewBottomRightCornerIfValid(Point2D newBottomRightCorner) {
-        double TLx = this.topLeftCorner.getX();
-        double TLy = this.topLeftCorner.getY();
-        double BRx = newBottomRightCorner.getX();
-        double BRy = newBottomRightCorner.getY();
+    void setNewBottomRightCornerIfValid(Point newBottomRightCorner) {
+        int TLx = (int) this.topLeftCorner.getX();
+        int TLy = (int) this.topLeftCorner.getY();
+        int BRx = (int) newBottomRightCorner.getX();
+        int BRy = (int) newBottomRightCorner.getY();
 
         if (BRx <= 0 || BRy <= 0) {
             throw new IllegalArgumentException("In class Rectangle isNewBottomRightCornerValid method the input point" +
