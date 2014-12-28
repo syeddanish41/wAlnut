@@ -15,19 +15,17 @@ import java.util.Random;
 public class RegionToRegionRandomConnect extends AbstractRegionToRegionConnect {
 
     @Override
-    public void connect(Region childRegion, Region parentRegion,
+    public void connect(Column[][] childRegionColumns, Column[][] parentRegionColumns,
                         int numberOfColumnsToOverlapAlongXAxisOfRegion,
                         int numberOfColumnsToOverlapAlongYAxisOfRegion) {
 
-        super.checkParameters(childRegion, parentRegion,
+        super.checkParameters(childRegionColumns, parentRegionColumns,
                 numberOfColumnsToOverlapAlongXAxisOfRegion,
                 numberOfColumnsToOverlapAlongYAxisOfRegion);
 
-        Column[][] parentRegionColumns = parentRegion.getColumns();
         int parentRegionXAxisLength = parentRegionColumns.length; // = 8
         int parentRegionYAxisLength = parentRegionColumns[0].length; // = 8
 
-        Column[][] childRegionColumns = childRegion.getColumns();
         int childRegionXAxisLength = childRegionColumns.length; // = 66
         int childRegionYAxisLength = childRegionColumns[0].length; // = 66
 
@@ -66,21 +64,4 @@ public class RegionToRegionRandomConnect extends AbstractRegionToRegionConnect {
             }
         }
     }
-
-    /**
-     * @param minimum
-     * @param maximum Must be greater than min.
-     * @return Integer between minimum and maximum inclusive.
-     */
-    public int randomIntegerInRange(int minimum, int maximum) {
-        Random randomGenerator = new Random();
-
-        // nextInt is normally exclusive of the top value,
-        // so add 1 to make it inclusive
-        int randomNumber = randomGenerator.nextInt((maximum - minimum) + 1)
-                + minimum;
-
-        return randomNumber;
-    }
-
 }

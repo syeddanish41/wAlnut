@@ -3,6 +3,8 @@ package model.MARK_II;
 import junit.framework.TestCase;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
+import model.util.*;
+import model.util.Rectangle;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class RegionTest extends TestCase {
     public void test_getBottomLayerXYAxisLength() {
         Region bottomLayer = new Region("bottomLayer", 25, 35, 1, 50, 1);
         AbstractRegionToRegionConnect connectType = new RegionToRegionRectangleConnect();
-        connectType.connect(bottomLayer, this.region, 0, 0);
+        connectType.connect(bottomLayer.getColumns(), this.region.getColumns(), 0, 0);
 
         Dimension bottomLayerDimensions = this.region
                 .getBottomLayerXYAxisLength();
@@ -86,6 +88,39 @@ public class RegionTest extends TestCase {
 
         assertEquals(0.3f, this.region.maximumActiveDutyCycle(neighborColumns),
                 0.001);
+    }
+
+    public void test_getColumns() {
+        try {
+            this.region.getColumns(new Rectangle(new Point(0, 0), new Point(2, 6)));
+            fail("should've thrown an exception!");
+        } catch (IllegalArgumentException expected) {
+            assertEquals("In class Region method " +
+                    "getColumns the input parameter Rectangle is larger than the" +
+                    "Column[][] 2D array", expected.getMessage());
+        }
+
+        Region parent = new Region("parent", 6, 8, 4, 20, 3); // 6 rows 8 columns
+        Column[][] partialParent = parent.getColumns(new Rectangle(new Point(2, 2), new Point(6, 5)));
+        int numberOfRows = partialParent.length;
+        int numberOfColumns = partialParent[0].length;
+        assertEquals(3, numberOfRows);
+        assertEquals(4, numberOfColumns);
+
+        assertEquals(0, partialParent[0][0].getProximalSegment().getSynapses().size());
+
+        Region child = new Region("child", 12, 16, 4, 20, 3);
+        AbstractRegionToRegionConnect connectType = new RegionToRegionRectangleConnect();
+        connectType.connect(child.getColumns(), partialParent, 0, 0);
+
+        // partialParent = 3 rows  x 4 columns
+        // child         = 12 rows x 16 columns
+        // Thus, each parent Column connects to 4 x 4 Neurons = 16 Synapses
+        for (int row = 0; row < numberOfRows; row++) {
+            for (int column = 0; column < numberOfColumns; column++) {
+                assertEquals(16, partialParent[row][column].getProximalSegment().getSynapses().size());
+            }
+        }
     }
 
     public void test_toString() {

@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 import model.MARK_II.VisionCell;
 import model.util.Rectangle;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.io.IOException;
 
@@ -15,24 +16,42 @@ public class RetinaTest extends TestCase {
     private Retina retina;
 
     public void setUp() {
-        this.retina = new Retina(5, 15);
+        this.retina = new Retina(5, 15); // 5 rows 15 columns
     }
 
     public void test_getVisionCells() throws IOException {
         this.retina.seeBMPImage("Array2DTest.bmp");
 
-        Rectangle partialRetinaWanted = new Rectangle(new Point2D.Double(0, 0), new Point2D.Double(7, 2));
-        VisionCell[][] partialVisionCells = this.retina.getVisionCells(partialRetinaWanted);
-        int numberOfRows = partialVisionCells.length;
-        int numberOfColumns = partialVisionCells[0].length;
+        try {
+            Rectangle partialRetinaWanted1 = new Rectangle(new Point(0, 0), new Point(16, 2));
+            VisionCell[][] partialVisionCells1 = this.retina.getVisionCells(partialRetinaWanted1);
+            fail("should've thrown an exception!");
+        } catch (IllegalArgumentException expected) {
+            assertEquals("In class Retina method getVisionCells the input " +
+                            "parameter Rectangleis larger than the " +
+                            "VisionCell[][] 2D array",
+                    expected.getMessage());
+        }
+
+        Rectangle partialRetinaWanted2 = new Rectangle(new Point(0, 0), new Point(7, 2));
+        VisionCell[][] partialVisionCells2 = this.retina.getVisionCells(partialRetinaWanted2);
+        int numberOfRows = partialVisionCells2.length;
+        int numberOfColumns = partialVisionCells2[0].length;
         assertEquals(2, numberOfRows);
         assertEquals(7, numberOfColumns);
-        assertTrue(partialVisionCells[1][3].getActiveState());
-        assertFalse(partialVisionCells[0][3].getActiveState());
+        assertTrue(partialVisionCells2[1][3].getActiveState());
+        assertFalse(partialVisionCells2[0][3].getActiveState());
 
         this.retina.seeBMPImage("Array2DTest2.bmp");
-        assertFalse(partialVisionCells[1][3].getActiveState());
-        assertTrue(partialVisionCells[0][3].getActiveState());
+        assertFalse(partialVisionCells2[1][3].getActiveState());
+        assertTrue(partialVisionCells2[0][3].getActiveState());
+
+        this.retina.seeBMPImage("Array2DTest3.bmp");
+        for (int row = 0; row < 2; row++) {
+            for (int column = 0; column < 7; column++) {
+                assertTrue(partialVisionCells2[row][column].getActiveState());
+            }
+        }
     }
 
     public void test_seeBMPImage() throws IOException {

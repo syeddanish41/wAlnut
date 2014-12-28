@@ -26,7 +26,7 @@ public class SpatialPoolerTest extends TestCase {
         this.parentRegion = new Region("parentRegion", 8, 8, 4, 20, 3);
         Region childRegion = new Region("childRegion", 66, 66, 4, 20, 3);
         AbstractRegionToRegionConnect connectType = new RegionToRegionRectangleConnect();
-        connectType.connect(childRegion, this.parentRegion, 2, 2);
+        connectType.connect(childRegion.getColumns(), this.parentRegion.getColumns(), 2, 2);
 
         this.spatialPooler = new SpatialPooler(this.parentRegion);
         this.spatialPooler.setLearningState(true);
@@ -39,7 +39,7 @@ public class SpatialPoolerTest extends TestCase {
         Retina retina = new Retina(66, 66);
 
         AbstractSensorCellsToRegionConnect connectType2 = new SensorCellsToRegionRectangleConnect();
-        connectType2.connect(retina.getVisionCells(), region, 2, 2);
+        connectType2.connect(retina.getVisionCells(), region.getColumns(), 2, 2);
 
         retina.seeBMPImage("2.bmp");
         this.spatialPooler.performPooling();
@@ -281,7 +281,7 @@ public class SpatialPoolerTest extends TestCase {
         Region parentRegion2 = new Region("parentRegion2", 1, 1, 1, 50, 1);
         Region childRegion2 = new Region("childRegion2", 5, 5, 1, 50, 3);
         AbstractRegionToRegionConnect connectType = new RegionToRegionRectangleConnect();
-        connectType.connect(childRegion2, parentRegion2, 0, 0);
+        connectType.connect(childRegion2.getColumns(), parentRegion2.getColumns(), 0, 0);
         // parentRegion2 has 1 Column with 25 synapses.
 
         Column[][] columns = parentRegion2.getColumns();

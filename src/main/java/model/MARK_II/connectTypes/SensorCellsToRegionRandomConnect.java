@@ -26,15 +26,14 @@ public class SensorCellsToRegionRandomConnect extends
      * connect a SensorCellLayer to a leaf Region Column.
      */
     @Override
-    public void connect(SensorCell[][] sensorCells, Region region,
+    public void connect(SensorCell[][] sensorCells, Column[][] regionColumns,
                         int numberOfSynapsesToOverlapAlongXAxisOfSensorCells,
                         int numberOfSynapsesToOverlapAlongYAxisOfSensorCells) {
 
-        super.checkParameters(sensorCells, region,
+        super.checkParameters(sensorCells, regionColumns,
                 numberOfSynapsesToOverlapAlongXAxisOfSensorCells,
                 numberOfSynapsesToOverlapAlongYAxisOfSensorCells);
 
-        Column[][] regionColumns = region.getColumns();
         int regionRowLength = regionColumns.length; // 8
         int regionColumnLength = regionColumns[0].length; // 8
 
@@ -71,7 +70,6 @@ public class SensorCellsToRegionRandomConnect extends
                                             randomSynapseXPosition,
                                             randomSynapseYPosition));
                 }
-                //Collections.shuffle(allSynapsePositions);
             }
         }
     }
