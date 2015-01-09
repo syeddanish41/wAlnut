@@ -8,15 +8,34 @@ public class SDRStatistics {
     // notes on below variables @ https://github.com/WalnutiQ/WalnutiQ/issues/152
     private int numberOfNeurons; // n
     private int numberOfActiveNeurons; // w
-    private int numberOfOverlapNeurons; // b
     private int minimumNumberOfOverlapNeuronsForMatch; // theta
 
     public SDRStatistics(int numberOfNeurons, int numberOfActiveNeurons,
-                         int numberOfOverlapNeurons, int minimumNumberOfOverlapNeuronsForMatch) {
+                         int minimumNumberOfOverlapNeuronsForMatch) {
         this.numberOfNeurons = numberOfNeurons;
         this.numberOfActiveNeurons = numberOfActiveNeurons;
-        this.numberOfOverlapNeurons = numberOfOverlapNeurons;
         this.minimumNumberOfOverlapNeuronsForMatch = minimumNumberOfOverlapNeuronsForMatch;
+    }
+
+    public double percentageOfFalsePositiveMatch() {
+        double favorableOutcomes = 0;
+        int theta = minimumNumberOfOverlapNeuronsForMatch;
+        int w = numberOfActiveNeurons;
+        int n = numberOfNeurons;
+        for (int b = theta; b <= w; b++) {
+            favorableOutcomes += overlap(n, w, b);
+        }
+
+        double totalOutcomes = combination(n, w);
+        return favorableOutcomes / totalOutcomes;
+    }
+
+    double overlap(int n, int w, int b) {
+        if (b > w) {
+            throw new IllegalArgumentException("b cannot be greater" +
+                    "than w when computing overlap");
+        }
+        return combination(w, b) * combination(n - w, w - b);
     }
 
     /**
@@ -27,7 +46,19 @@ public class SDRStatistics {
      * @return The number of times k elements can be arranged out of n elements
      *         where order of arranging things do NOT make arrangement unique.
      */
-    private double combination(int n, int k) {
+    double combination(int n, int k) {
+        return (double) factorial(n) / (factorial(k) * (factorial(n - k)));
+    }
 
+    long factorial(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("You cannot take the factorial" +
+                    "of the negative integer " + n);
+        }
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
     }
 }
