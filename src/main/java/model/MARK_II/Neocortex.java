@@ -3,9 +3,6 @@ package model.MARK_II;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.util.Rectangle;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * Neocortex is a tree(undirected graph) of Regions. Each Region in the Neocortex
  * can have as many children Regions as necessary. Each Region can receive
@@ -14,11 +11,12 @@ import java.util.Queue;
  * Input to Neocortex: activity of Cells within VisionCellLayer, AudioCellLayer,
  * etc.
  *
- * Output from Neocortex: activity of Cells/Columns within root Region.
+ * Output from Neocortex: activity of Cells/Columns within all Regions.
  *
  * @author Quinn Liu (quinnliu@vt.edu)
  * @author Michael Cogswell (cogswell@vt.edu)
- * @version July 12, 2014
+ * @author Nathan Waggoner(nwagg14@vt.edu)
+ * @version 12/18/2014
  */
 public class Neocortex {
     private Region rootRegion;
@@ -68,10 +66,10 @@ public class Neocortex {
         }
 
         // search the neocortex for region
-        return this.getRegionRecur(regionBiologicalName, this.rootRegion, 0);
+        return this.recursiveFind(regionBiologicalName, this.rootRegion, 0);
     }
 
-    Region getRegionRecur(String regionBiologicalName, Region current, int numberOfRegionsVisited) {
+    Region recursiveFind(String regionBiologicalName, Region current, int numberOfRegionsVisited) {
         if (numberOfRegionsVisited > this.totalNumberOfRegions) {
             return null;
         }
@@ -80,7 +78,7 @@ public class Neocortex {
         }
         else{
             for(Region child : current.getChildRegions()){
-                Region possible = getRegionRecur(regionBiologicalName, child, numberOfRegionsVisited + 1);
+                Region possible = recursiveFind(regionBiologicalName, child, numberOfRegionsVisited + 1);
                 if(possible != null){
                     return possible;
                 }
@@ -88,9 +86,7 @@ public class Neocortex {
         }
         return null;
     }
-    /**
-     * @param childRegion The Region to be added to the currentRegion.
-     */
+
     public boolean addToCurrentRegion(Rectangle rectanglePartOfParentRegionToConnectTo, Region childRegion,
                                       int numberOfColumnsToOverlapAlongNumberOfRows,
                                       int numberOfColumnsToOverlapAlongNumberOfColumns) {
@@ -99,20 +95,25 @@ public class Neocortex {
                     "childRegion in class Neocortex method addToCurrentRegion cannot be null");
         }
 
-        // throw an exception is Region with the exact same biological
-        // name is already in the Neocortex and tell user to change biological
-        // name to be more specific
-        if (this.getRegion(childRegion.getBiologicalName()) != null) {
+        Region regionAlreadyInNeocortex = this.getRegion(childRegion.getBiologicalName());
+        if (regionAlreadyInNeocortex == null) {
+            // childRegion is new so we can add
+        } else if (regionAlreadyInNeocortex.equals(childRegion)) {
+            // the user is trying to make a cycle connection within regions in
+            // the Neocortex which is allowed
+        } else if (regionAlreadyInNeocortex != null) {
             throw new IllegalArgumentException(
                     "childRegion in class Neocortex method addToCurrentRegion" +
-                    " already exists within the Neocortex as another region " +
-                    "with the same name");
+                            " already exists within the Neocortex as another region " +
+                            "with the same name");
         }
+
+        // TODO: connect specific parts of top Region to bottom Region
 
         this.currentRegion.addChildRegion(childRegion);
         this.totalNumberOfRegions++;
         // connect currentRegion to childRegion
-        this.connectType.connect(childRegion, this.currentRegion,
+        this.connectType.connect(childRegion.getColumns(), this.currentRegion.getColumns(), // .getColumns(rectanglePartOfParentRegionToConnectTo),
                 numberOfColumnsToOverlapAlongNumberOfRows,
                 numberOfColumnsToOverlapAlongNumberOfColumns);
         return false;

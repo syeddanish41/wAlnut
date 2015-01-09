@@ -44,7 +44,7 @@ public class NoiseInvarianceExperiment extends TestCase {
         this.region.setInhibitionRadius(3);
 
         AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
-        retinaToRegion.connect(this.retina.getVisionCells(), this.region, 0, 0);
+        retinaToRegion.connect(this.retina.getVisionCells(), this.region.getColumns(), 0, 0);
 
         this.spatialPooler = new SpatialPooler(this.region);
         this.spatialPooler.setLearningState(true);

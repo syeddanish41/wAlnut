@@ -27,7 +27,7 @@ public class SensorCellsToRegionRectangleConnectTest extends TestCase {
             }
         }
 
-        this.connectType.connect(sensorCells, leafRegion, 0, 0);
+        this.connectType.connect(sensorCells, leafRegion.getColumns(), 0, 0);
 
         Column[][] columns = leafRegion.getColumns();
         for (int parentColumnRowPosition = 0; parentColumnRowPosition < leafRegion.getNumberOfRowsAlongRegionYAxis(); parentColumnRowPosition++) {

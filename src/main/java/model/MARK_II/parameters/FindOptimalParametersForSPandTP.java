@@ -61,7 +61,7 @@ public class FindOptimalParametersForSPandTP {
                 percentMinimumOverlapScore, (int) desiredLocalActivity);
 
         AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
-        retinaToRegion.connect(retina.getVisionCells(), region, 0, 0);
+        retinaToRegion.connect(retina.getVisionCells(), region.getColumns(), 0, 0);
 
         SpatialPooler spatialPooler = new SpatialPooler(region);
         spatialPooler.setLearningState(true);

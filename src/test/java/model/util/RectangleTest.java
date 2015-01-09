@@ -2,6 +2,7 @@ package model.util;
 
 import junit.framework.TestCase;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 
 /**
@@ -12,24 +13,24 @@ public class RectangleTest extends TestCase {
     private Rectangle rectangle;
 
     public void setUp() {
-        this.rectangle = new Rectangle(new Point2D.Double(0.1, 0), new Point2D.Double(1.5, 2.0));
+        this.rectangle = new Rectangle(new Point(1, 0), new Point(5, 10));
     }
 
     public void test_getWidth() {
-        assertEquals(1.4, this.rectangle.getWidth());
+        assertEquals(4, this.rectangle.getWidth());
     }
 
     public void test_getHeight() {
-        assertEquals(2.0, this.rectangle.getHeight());
+        assertEquals(10, this.rectangle.getHeight());
     }
 
     public void test_setTopLeftCorner() {
-        this.rectangle.setTopLeftCorner(new Point2D.Double(1.4, 1.9));
-        assertEquals(1.4, this.rectangle.getTopLeftCorner().getX());
-        assertEquals(1.9, this.rectangle.getTopLeftCorner().getY());
+        this.rectangle.setTopLeftCorner(new Point(4, 9));
+        assertEquals(4, (int) this.rectangle.getTopLeftCorner().getX());
+        assertEquals(9, (int) this.rectangle.getTopLeftCorner().getY());
 
         try {
-            this.rectangle.setTopLeftCorner(new Point2D.Double(-1, 0));
+            this.rectangle.setTopLeftCorner(new Point(-1, 0));
             fail("should've thrown an exception!");
         } catch (IllegalArgumentException expected) {
             assertEquals("In class Rectangle isNewTopLeftCornerValid method the input point must be >= 0",
@@ -37,7 +38,7 @@ public class RectangleTest extends TestCase {
         }
 
         try {
-            this.rectangle.setTopLeftCorner(new Point2D.Double(1.6, 0));
+            this.rectangle.setTopLeftCorner(new Point(6, 10));
             fail("should've thrown an exception!");
         } catch (IllegalArgumentException expected) {
             assertEquals("In class Rectangle isNewTopLeftCornerValid method the input point is not to the top left of the current bottom right point",
@@ -46,12 +47,12 @@ public class RectangleTest extends TestCase {
     }
 
     public void test_setBottomRightCorner() {
-        this.rectangle.setBottomRightCorner(new Point2D.Double(0.2, 0.1));
-        assertEquals(0.2, this.rectangle.getBottomRightCorner().getX());
-        assertEquals(0.1, this.rectangle.getBottomRightCorner().getY());
+        this.rectangle.setBottomRightCorner(new Point(2, 1));
+        assertEquals(2, (int) this.rectangle.getBottomRightCorner().getX());
+        assertEquals(1, (int) this.rectangle.getBottomRightCorner().getY());
 
         try {
-            this.rectangle.setBottomRightCorner(new Point2D.Double(-1, 0.3));
+            this.rectangle.setBottomRightCorner(new Point(-1, 3));
             fail("should've thrown an exception!");
         } catch (IllegalArgumentException expected) {
             assertEquals("In class Rectangle isNewBottomRightCornerValid method the input point must be >= 0",
@@ -59,7 +60,7 @@ public class RectangleTest extends TestCase {
         }
 
         try {
-            this.rectangle.setBottomRightCorner(new Point2D.Double(0.05, 1));
+            this.rectangle.setBottomRightCorner(new Point(1, 1));
             fail("should've thrown an exception!");
         } catch (IllegalArgumentException expected) {
             assertEquals("In class Rectangle isNewBottomRightCornerValid method the input point is not to the bottom right of the current top left point",

@@ -29,7 +29,7 @@ public class JsonFileInputOutputTest extends TestCase {
         Retina retina = new Retina(66, 66);
 
         AbstractSensorCellsToRegionConnect retinaToLGN = new SensorCellsToRegionRectangleConnect();
-        retinaToLGN.connect(retina.getVisionCells(), LGNRegion, 0, 0);
+        retinaToLGN.connect(retina.getVisionCells(), LGNRegion.getColumns(), 0, 0);
 
         // run spatial pooling on a image
         SpatialPooler spatialPooler = new SpatialPooler(LGNRegion);

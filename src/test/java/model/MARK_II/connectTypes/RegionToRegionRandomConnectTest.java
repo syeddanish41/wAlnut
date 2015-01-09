@@ -20,7 +20,7 @@ public class RegionToRegionRandomConnectTest extends TestCase {
     }
 
     public void test_ConnectWithNoOverlap() {
-        this.connectType.connect(this.childRegion, this.parentRegion, 2, 2);
+        this.connectType.connect(this.childRegion.getColumns(), this.parentRegion.getColumns(), 2, 2);
 
         Column[][] columns = this.parentRegion.getColumns();
         for (int parentColumnRowPosition = 0; parentColumnRowPosition < this.parentRegion

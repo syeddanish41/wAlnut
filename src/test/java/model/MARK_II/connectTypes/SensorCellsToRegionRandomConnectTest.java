@@ -27,7 +27,7 @@ public class SensorCellsToRegionRandomConnectTest extends TestCase {
             }
         }
 
-        this.connectType.connect(sensorCells, leafRegion, 2, 2);
+        this.connectType.connect(sensorCells, leafRegion.getColumns(), 2, 2);
         Column[][] columns = leafRegion.getColumns();
         for (int parentColumnRowPosition = 0; parentColumnRowPosition < leafRegion.getNumberOfRowsAlongRegionYAxis(); parentColumnRowPosition++) {
             for (int parentColumnColumnPosition = 0; parentColumnColumnPosition < leafRegion

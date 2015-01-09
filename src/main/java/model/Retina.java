@@ -38,7 +38,8 @@ public class Retina {
      * NOTE: When creating the input rectangle object remember that the point
      * parameters are (x, y) coordinates and not (row, column). For example:
      *
-     * Rectangle rectangle = new Rectangle(new Point2D.Double(x1_or_column1, y1_or_row1), new Point2D.Double(x2_or_column2, y2_or_row2));
+     * Rectangle rectangle = new Rectangle(new Point(x1_or_column1, y1_or_row1),
+     *                                    new Point(x2_or_column2, y2_or_row2));
      *
      * @param rectangle The rectangle shape of VisionCells you want to
      *                  retrieve from the retina.
@@ -46,17 +47,28 @@ public class Retina {
      *         dimensions.
      */
     public VisionCell[][] getVisionCells(Rectangle rectangle) {
-        int rectangleWidth = (int) rectangle.getWidth();
-        int rectangleHeight = (int) rectangle.getHeight();
-        if (rectangleWidth > this.visionCells[0].length || rectangleHeight > this.visionCells.length) {
-            throw new IllegalArgumentException("In class Retina method getVisionCells the input parameter Rectangle" +
+        int rectangleWidth = rectangle.getWidth();
+        int rectangleHeight = rectangle.getHeight();
+        int largestColumnIndex = (int) rectangle.getBottomRightCorner().getX();
+        int largestRowIndex = (int) rectangle.getBottomRightCorner().getY();
+        if (rectangleWidth > this.visionCells[0].length ||
+                rectangleHeight > this.visionCells.length ||
+                largestColumnIndex > this.visionCells[0].length ||
+                largestRowIndex > this.visionCells.length) {
+            throw new IllegalArgumentException("In class Retina method " +
+                    "getVisionCells the input parameter Rectangle" +
                     "is larger than the VisionCell[][] 2D array");
         }
-        VisionCell[][] partialVisionCells = new VisionCell[(int)rectangle.getHeight()][(int)rectangle.getWidth()];
-        for (int row = 0; row < rectangle.getHeight(); row++) {
-            for (int column = 0; column < rectangle.getWidth(); column++) {
-                partialVisionCells[row][column] = this.visionCells[row][column];
+        VisionCell[][] partialVisionCells = new VisionCell[rectangleHeight][rectangleWidth];
+        int oldRowInitial = (int) rectangle.getTopLeftCorner().getY();
+        int oldColumnInitial = (int) rectangle.getTopLeftCorner().getX();
+        for (int row = 0; row < rectangleHeight; row++) {
+            oldColumnInitial = (int) rectangle.getTopLeftCorner().getX();
+            for (int column = 0; column < rectangleWidth; column++) {
+                partialVisionCells[row][column] = this.visionCells[oldRowInitial][oldColumnInitial];
+                oldColumnInitial++;
             }
+            oldRowInitial++;
         }
         return partialVisionCells;
     }

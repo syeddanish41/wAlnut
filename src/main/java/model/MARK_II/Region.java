@@ -1,6 +1,6 @@
 package model.MARK_II;
 
-import model.MARK_II.connectTypes.RegionConnectType;
+import model.util.Rectangle;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -10,10 +10,10 @@ import java.util.Set;
 /**
  * Node within Neocortex tree. A Region object is an undirected graph of Neuron
  * nodes.
- * <p/>
+ *
  * Input to Region: activity of Cells within a SensorCellLayer or lower Region.
  * For example, VisionCellLayer, AudioCellLayer, etc.
- * <p/>
+ *
  * Output from Region: activity of Cells within this Region created by one or
  * more of the Pooler algorithms.
  *
@@ -61,19 +61,6 @@ public class Region {
         // inhibitionRadius used in computeColumnOverlapScore() it won't
         // really have a computed value.
         this.inhibitionRadius = 1;
-    }
-
-    public Region(String biologicalName, int numberOfColumnsAlongXAxis,
-                  int numberOfColumnsAlongYAxis, int cellsPerColumn,
-                  double percentMinimumOverlapScore, int desiredLocalActivity,
-                  RegionConnectType regionConnectType) {
-        this(biologicalName, numberOfColumnsAlongXAxis,
-                numberOfColumnsAlongYAxis, cellsPerColumn,
-                percentMinimumOverlapScore, desiredLocalActivity);
-
-        if (regionConnectType == RegionConnectType.CONNECT_EACH_NEURON_TO_ALL_OTHER_NEURONS) {
-
-        }
     }
 
     private void checkParameters(String biologicalName,
@@ -223,6 +210,39 @@ public class Region {
             }
         }
         return maximumActiveDutyCycle;
+    }
+
+    /**
+     * @param rectangle Rectangle part of parent region to connect inclusively
+     *                  (including first last and in between) to.
+     * @return Partial 2D array of Columns in parent Region based on input rectangle
+     *         dimensions.
+     */
+    public Column[][] getColumns(Rectangle rectangle) {
+        int rectangleWidth = rectangle.getWidth();
+        int rectangleHeight = rectangle.getHeight();
+        int largestColumnIndex = (int) rectangle.getBottomRightCorner().getX();
+        int largestRowIndex = (int) rectangle.getBottomRightCorner().getY();
+        if (rectangleWidth > this.columns[0].length ||
+                rectangleHeight > this.columns.length ||
+                largestColumnIndex > this.columns[0].length ||
+                largestRowIndex > this.columns.length) {
+            throw new IllegalArgumentException("In class Region method " +
+                "getColumns the input parameter Rectangle is larger than the" +
+                    "Column[][] 2D array");
+        }
+        Column[][] partialColumns = new Column[rectangleHeight][rectangleWidth];
+        int oldRowInitial = (int) rectangle.getTopLeftCorner().getY();
+        int oldColumnInitial = (int) rectangle.getTopLeftCorner().getX();
+        for (int row = 0; row < rectangleHeight; row++) {
+            oldColumnInitial = (int) rectangle.getTopLeftCorner().getX();
+            for (int column = 0; column < rectangleWidth; column++) {
+                partialColumns[row][column] = this.columns[oldRowInitial][oldColumnInitial];
+                oldColumnInitial++;
+            }
+            oldRowInitial++;
+        }
+        return partialColumns;
     }
 
     @Override
