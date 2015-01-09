@@ -2,6 +2,8 @@ package model.util;
 
 import junit.framework.TestCase;
 
+import java.math.BigInteger;
+
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version 1/9/2015
@@ -17,6 +19,9 @@ public class SDRStatisticsTest extends TestCase {
     // factorials
 
     public void test_factorial() {
-        assertEquals(120, this.SDR_statistics.factorial(5));
+        assertEquals(new BigInteger("93326215443944152681699238856266700490" +
+                "7159682643816214685929638952175999932299156089414639761565" +
+                "1828625369792082722375825118521091686400000000000000000000" +
+                "0000"), this.SDR_statistics.factorial(100));
     }
 }

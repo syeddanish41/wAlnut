@@ -1,5 +1,7 @@
 package model.util;
 
+import java.math.BigInteger;
+
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version 1/9/2015
@@ -17,47 +19,59 @@ public class SDRStatistics {
         this.minimumNumberOfOverlapNeuronsForMatch = minimumNumberOfOverlapNeuronsForMatch;
     }
 
-    public double percentageOfFalsePositiveMatch() {
-        double favorableOutcomes = 0;
-        int theta = minimumNumberOfOverlapNeuronsForMatch;
-        int w = numberOfActiveNeurons;
-        int n = numberOfNeurons;
-        for (int b = theta; b <= w; b++) {
-            favorableOutcomes += overlap(n, w, b);
-        }
+//    public double percentageOfFalsePositiveMatch() {
+//        double favorableOutcomes = 0;
+//        int theta = minimumNumberOfOverlapNeuronsForMatch;
+//        int w = numberOfActiveNeurons;
+//        int n = numberOfNeurons;
+//        for (int b = theta; b <= w; b++) {
+//            favorableOutcomes += overlap(n, w, b);
+//        }
+//
+//        double totalOutcomes = combination(n, w);
+//        return favorableOutcomes / totalOutcomes;
+//    }
+//
+//    double overlap(int n, int w, int b) {
+//        if (b > w) {
+//            throw new IllegalArgumentException("b cannot be greater" +
+//                    "than w when computing overlap");
+//        }
+//        return combination(w, b) * combination(n - w, w - b);
+//    }
+//
+//    /**
+//     * n choose k = n!/(k!(n-k)!)
+//     *
+//     * @param n Total number of elements.
+//     * @param k Number of elements to combine at one time.
+//     * @return The number of times k elements can be arranged out of n elements
+//     *         where order of arranging things do NOT make arrangement unique.
+//     */
+//    double combination(int n, int k) {
+//        return (double) factorial(n) / (factorial(k) * (factorial(n - k)));
+//    }
+//
+//    long factorial(int n) {
+//        if (n < 0) {
+//            throw new IllegalArgumentException("You cannot take the factorial" +
+//                    "of the negative integer " + n);
+//        }
+//        int result = 1;
+//        for (int i = 1; i <= n; i++) {
+//            result *= i;
+//        }
+//        return result;
+//    }
 
-        double totalOutcomes = combination(n, w);
-        return favorableOutcomes / totalOutcomes;
-    }
-
-    double overlap(int n, int w, int b) {
-        if (b > w) {
-            throw new IllegalArgumentException("b cannot be greater" +
-                    "than w when computing overlap");
-        }
-        return combination(w, b) * combination(n - w, w - b);
-    }
-
-    /**
-     * n choose k = n!/(k!(n-k)!)
-     *
-     * @param n Total number of elements.
-     * @param k Number of elements to combine at one time.
-     * @return The number of times k elements can be arranged out of n elements
-     *         where order of arranging things do NOT make arrangement unique.
-     */
-    double combination(int n, int k) {
-        return (double) factorial(n) / (factorial(k) * (factorial(n - k)));
-    }
-
-    long factorial(int n) {
+    BigInteger factorial(long n) {
         if (n < 0) {
             throw new IllegalArgumentException("You cannot take the factorial" +
                     "of the negative integer " + n);
         }
-        int result = 1;
+        BigInteger result = BigInteger.valueOf(1);
         for (int i = 1; i <= n; i++) {
-            result *= i;
+            result = result.multiply(BigInteger.valueOf(i));
         }
         return result;
     }
