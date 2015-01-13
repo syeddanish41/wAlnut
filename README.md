@@ -9,8 +9,9 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*Don't be so driven by your past, you throw away your future.*" 
-~ Kate Beckett
+"*Jim's freedom means more to Huck than the money he would
+  get from turning him in. So it is a good lie.*" 
+~ Mamere
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
