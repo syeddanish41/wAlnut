@@ -51,7 +51,7 @@ found [here](https://github.com/numenta/nupic). For more information please:
 - Read Numenta's great explanation of their research in this [white paper](https://db.tt/FuQWQuwE) 
   to better understand the theory behind this repository.
 
-Thank you, 
+Thank you,  
 Quinn Liu
 
 ## Install in Linux/Mac/Windows with Eclipse

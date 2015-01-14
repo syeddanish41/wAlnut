@@ -40,29 +40,17 @@ public class SDRStatistics {
 //        return combination(w, b) * combination(n - w, w - b);
 //    }
 //
-//    /**
-//     * n choose k = n!/(k!(n-k)!)
-//     *
-//     * @param n Total number of elements.
-//     * @param k Number of elements to combine at one time.
-//     * @return The number of times k elements can be arranged out of n elements
-//     *         where order of arranging things do NOT make arrangement unique.
-//     */
-//    double combination(int n, int k) {
-//        return (double) factorial(n) / (factorial(k) * (factorial(n - k)));
-//    }
-//
-//    long factorial(int n) {
-//        if (n < 0) {
-//            throw new IllegalArgumentException("You cannot take the factorial" +
-//                    "of the negative integer " + n);
-//        }
-//        int result = 1;
-//        for (int i = 1; i <= n; i++) {
-//            result *= i;
-//        }
-//        return result;
-//    }
+    /**
+     * n choose k = n!/(k!(n-k)!)
+     *
+     * @param n Total number of elements.
+     * @param k Number of elements to combine at one time.
+     * @return The number of times k elements can be arranged out of n elements
+     *         where order of arranging things do NOT make arrangement unique.
+     */
+    BigInteger combination(int n, int k) {
+        return factorial(n).divide(factorial(k).multiply(factorial(n - k)));
+    }
 
     BigInteger factorial(long n) {
         if (n < 0) {

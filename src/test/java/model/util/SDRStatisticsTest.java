@@ -18,6 +18,12 @@ public class SDRStatisticsTest extends TestCase {
     // TODO: test remaining methods after finding a way to find large
     // factorials
 
+    public void test_combination() {
+        assertEquals(new BigInteger("14628688452830972398381012578234922987" +
+                "60600478383709499868425589357644160"),
+                this.SDR_statistics.combination(1024, 40));
+    }
+
     public void test_factorial() {
         assertEquals(new BigInteger("93326215443944152681699238856266700490" +
                 "7159682643816214685929638952175999932299156089414639761565" +
