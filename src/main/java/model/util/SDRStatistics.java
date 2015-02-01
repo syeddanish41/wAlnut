@@ -32,14 +32,14 @@ public class SDRStatistics {
 //        return favorableOutcomes / totalOutcomes;
 //    }
 //
-//    double overlap(int n, int w, int b) {
-//        if (b > w) {
-//            throw new IllegalArgumentException("b cannot be greater" +
-//                    "than w when computing overlap");
-//        }
-//        return combination(w, b) * combination(n - w, w - b);
-//    }
-//
+    BigInteger overlap(int n, int w, int b) {
+        if (b > w) {
+            throw new IllegalArgumentException("b cannot be greater" +
+                    "than w when computing overlap");
+        }
+        return combination(w, b).multiply(combination(n - w, w - b));
+    }
+
     /**
      * n choose k = n!/(k!(n-k)!)
      *
