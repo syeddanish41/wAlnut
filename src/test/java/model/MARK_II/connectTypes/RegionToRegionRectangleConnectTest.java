@@ -1,7 +1,7 @@
 package model.MARK_II.connectTypes;
 
 import junit.framework.TestCase;
-import java.awt.Point;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -48,10 +48,10 @@ public class RegionToRegionRectangleConnectTest extends TestCase{
                 //System.out.println("Column at (row, column) = (" + rowT + ", " + colT + ")");
                 for(Synapse<Cell> synapse : proximalSegment.getSynapses()) {
                     for (int i = 0; i < bottomRegionColumnLength; i++) {
-                        Point3D neuronPosition = new Point3D(synapse.getCellXPosition(), synapse.getCellYPosition(), i);
+                        Point3D neuronPosition = new Point3D(synapse.getCellColumn(), synapse.getCellRow(), i);
                         actualConnectedNeuronPositions.add(neuronPosition);
                         //System.out.println("added neuronPosition (r, c, i) = ("
-                        //        + synapse.getCellXPosition() + ", " + synapse.getCellYPosition() + ", " + i + ")");
+                        //        + synapse.getCellColumn() + ", " + synapse.getCellRow() + ", " + i + ")");
                     }
                 }
 

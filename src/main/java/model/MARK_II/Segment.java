@@ -131,10 +131,10 @@ public class Segment {
                     .equals(synapse.getConnectedCell().getClass())
                     && synapseToRemove.getPermanenceValue() == synapse
                     .getPermanenceValue()
-                    && synapseToRemove.getCellXPosition() == synapse
-                    .getCellXPosition()
-                    && synapseToRemove.getCellYPosition() == synapse
-                    .getCellYPosition()) {
+                    && synapseToRemove.getCellColumn() == synapse
+                    .getCellColumn()
+                    && synapseToRemove.getCellRow() == synapse
+                    .getCellRow()) {
                 this.synapses.remove(synapse);
                 return true;
             }
@@ -144,8 +144,8 @@ public class Segment {
 
     public Synapse getSynapse(int cellXPosition, int cellYPosition) {
         for (Synapse synapse : this.synapses) {
-            if (synapse.getCellXPosition() == cellXPosition
-                    && synapse.getCellYPosition() == cellYPosition) {
+            if (synapse.getCellColumn() == cellXPosition
+                    && synapse.getCellRow() == cellYPosition) {
                 return synapse;
             }
         }
