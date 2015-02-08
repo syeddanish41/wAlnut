@@ -9,42 +9,50 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*Don't be so driven by your past, you throw away your future.*" 
-~ Kate Beckett
+"*Jim's freedom means more to Huck than the money he would
+  get from turning him in. So it is a good lie.*" 
+~ Mamere
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
 Welcome! WalnutiQ is a human brain model simulation in Java. The long term goal 
 of this repository is to store code that can simulate a full sized human brain 
 in real-time. The current short term goal is to simulate a simplified visual 
-pathway from retina(eye) to hierarchical regions in layer 3, 4, & 5 of human 
-neocortex(70+% of brain). A real intelligence machine built on biological 
-computation principles will be able to solve many of the problems which 
-currently plague the world and allow us to unravel the mystery of human 
-conciousness. It will be a long journey but this has the potential to 
-dramatically change the world for the better.
+pathway from an eye that is able to move to hierarchical regions in layer 3, 4, 
+& 5 of the neocortex(70+% of the brain). 
 
-Here you will find code that allows you to build a partial human brain model, 
-train it on input data using theorized learning algorithms, and view its 
-activity. All of the code here supports modeling of the human brain at a high 
-level of abstraction while still allowing user access to individual neuron 
-properties. 
+I believe that a real intelligence machine built on biological computation 
+principles will be able to solve many of our hardest problems and will cause 
+many new hard problems. Once a computer can correctly simulate the intelligence 
+of 1 brain it can be quickly scaled to surpass the collective intelligence of 
+the 7+ billion human brains on Earth. Everything that is considered 
+impossible or unknowable will become <b>possible</b> and <b>knowable</b>.
+Technology has always been used to do great good and great evil and it is scary 
+to imagine the great evil this technology brings. I incredibly, 
+desperately want to help build a technology that solves our hardest problems
+where everything's happiness is considered. 
 
-If you are interested in becoming a researcher/developer, the only requirement 
-is interest in understanding how the brain really works. Please e-mail me at 
-quinnliu@vt.edu to talk about how you can get involved!
+If you are interested in becoming a researcher/developer we would absolutely 
+love your collaboration as we cannot do this alone. The only requirement we ask 
+for is that you are someone that is not "all talk" and understands that progress
+is made by not making excuses. Please e-mail me at quinnliu@vt.edu to talk 
+about how you can get involved!
 
 Most importantly, this research is made possible by everyone at 
 [Numenta](http://numenta.org/). Numenta has theorized and tested algorithms 
-that model layers 3 & 4 of the human neocortex. They have generously released 
+that model layers 2/3 & 4 of the human neocortex. They have generously released 
 the pseudocode for their learning algorithms, and this repository is an extended
-implementation of their algorithms using object-oriented programming. For more 
-information please:
+implementation of their algorithms using object-oriented programming with a 
+focus on understandabiliy. Numenta's implementation of their algorithms can be 
+found [here](https://github.com/numenta/nupic). For more information please:
 
 - Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f) to become 
   familiar with the neuroscience behind this repository.
 - Read Numenta's great explanation of their research in this [white paper](https://db.tt/FuQWQuwE) 
   to better understand the theory behind this repository.
+
+Thank you,  
+Quinn Liu
 
 ## Install in Linux/Mac/Windows with Eclipse
 1. [Install Eclipse Standard 4.3.2](https://www.eclipse.org/downloads/) or use
