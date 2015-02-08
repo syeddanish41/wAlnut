@@ -42,7 +42,7 @@ public class SynapseTest extends TestCase {
             fail("should've thrown an exception!");
         } catch (IllegalArgumentException expected) {
             assertEquals(
-                    "cellXPosition and cellYPosition in Synapse class constructor must be > 0",
+                    "cellColumn and cellRow in Synapse class constructor must be > 0",
                     expected.getMessage());
         }
 
