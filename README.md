@@ -9,9 +9,8 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*Jim's freedom means more to Huck than the money he would
-  get from turning him in. So it is a good lie.*" 
-~ Mamere
+"*Success is not final, failure is not fatal: it is the courage to continue that counts.*"
+~ Winston Churchill
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
