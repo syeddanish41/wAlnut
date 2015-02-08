@@ -44,8 +44,8 @@ public class Synapse<CellType extends Cell> {
      */
     private Cell cell;
     private double permanenceValue;
-    private int cellXPosition;
-    private int cellYPosition;
+    private int cellColumn;
+    private int cellRow;
 
     // class level variables that can be changed for all synapses
     /**
@@ -69,27 +69,27 @@ public class Synapse<CellType extends Cell> {
      * Create a new Synapse object with an Cell object and INITIAL_PERMANENCE
      * value.
      */
-    public Synapse(Cell cell, int cellXPosition, int cellYPosition) {
+    public Synapse(Cell cell, int cellColumn, int cellRow) {
         if (cell == null) {
             throw new IllegalArgumentException(
                     "cell in Synapse class constructor cannot be null");
-        } else if (cellXPosition < 0 || cellYPosition < 0) {
+        } else if (cellColumn < 0 || cellRow < 0) {
             throw new IllegalArgumentException(
-                    "cellXPosition and cellYPosition in Synapse class constructor must be > 0");
+                    "cellColumn and cellRow in Synapse class constructor must be > 0");
         }
         this.cell = cell;
         this.permanenceValue = INITIAL_PERMANENCE;
-        this.cellXPosition = cellXPosition;
-        this.cellYPosition = cellYPosition;
+        this.cellColumn = cellColumn;
+        this.cellRow = cellRow;
     }
 
     /**
      * Create a new synapse object with an Cell object and given permanence
      * value.
      */
-    public Synapse(Cell cell, double initialPermanence, int cellXPosition,
-                   int cellYPosition) {
-        this(cell, cellXPosition, cellYPosition);
+    public Synapse(Cell cell, double initialPermanence, int cellColumn,
+                   int cellRow) {
+        this(cell, cellColumn, cellRow);
 
         if (initialPermanence < 0.0 || initialPermanence > 1.0) {
             throw new IllegalArgumentException(
@@ -144,12 +144,12 @@ public class Synapse<CellType extends Cell> {
                 - PERMANENCE_DECREASE);
     }
 
-    public int getCellXPosition() {
-        return this.cellXPosition;
+    public int getCellColumn() {
+        return this.cellColumn;
     }
 
-    public int getCellYPosition() {
-        return this.cellYPosition;
+    public int getCellRow() {
+        return this.cellRow;
     }
 
     @Override
@@ -160,9 +160,9 @@ public class Synapse<CellType extends Cell> {
         stringBuilder.append("\n----Synapse Information----");
         stringBuilder.append("\n Connected to a: ");
         stringBuilder.append(this.cell.toString());
-        stringBuilder.append("\n     Located at: ");
-        stringBuilder.append("(" + this.cellXPosition + ", ");
-        stringBuilder.append(this.cellYPosition + ")");
+        stringBuilder.append("\n     Located at (row, column): ");
+        stringBuilder.append("(" + this.cellRow + ", ");
+        stringBuilder.append(this.cellColumn + ")");
         stringBuilder.append("\npermanenceValue: ");
         stringBuilder.append(this.permanenceValue);
         stringBuilder.append("\n    isConnected: ");
@@ -181,8 +181,8 @@ public class Synapse<CellType extends Cell> {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + cellXPosition;
-        result = prime * result + cellYPosition;
+        result = prime * result + cellColumn;
+        result = prime * result + cellRow;
         return result;
     }
 
@@ -195,9 +195,9 @@ public class Synapse<CellType extends Cell> {
         if (getClass() != obj.getClass())
             return false;
         Synapse other = (Synapse) obj;
-        if (cellXPosition != other.cellXPosition)
+        if (cellColumn != other.cellColumn)
             return false;
-        if (cellYPosition != other.cellYPosition)
+        if (cellRow != other.cellRow)
             return false;
         if (Double.doubleToLongBits(permanenceValue) != Double
                 .doubleToLongBits(other.permanenceValue))
@@ -207,30 +207,7 @@ public class Synapse<CellType extends Cell> {
         }
         return true;
     }
-
-//    @Override
-//    public boolean equals(Object obj) {
-//	if (this == obj)
-//	    return true;
-//	if (obj == null)
-//	    return false;
-//	if (getClass() != obj.getClass())
-//	    return false;
-//	Synapse other = (Synapse) obj;
-//	if (cell == null) {
-//	    if (other.cell != null)
-//		return false;
-//	} else if (!cell.equals(other.cell))
-//	    return false;
-//	if (cellXPosition != other.cellXPosition)
-//	    return false;
-//	if (cellYPosition != other.cellYPosition)
-//	    return false;
-//	if (Double.doubleToLongBits(permanenceValue) != Double
-//		.doubleToLongBits(other.permanenceValue))
-//	    return false;
-//	return true;
-//    }
+    
 
     public double getPermanenceValue() {
         return this.permanenceValue;
