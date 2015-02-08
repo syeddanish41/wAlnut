@@ -9,9 +9,11 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*Jim's freedom means more to Huck than the money he would
-  get from turning him in. So it is a good lie.*" 
-~ Mamere
+"*I'm going to tell you something that I've got perspective
+  on recently. You can't keep putting aside what you want
+  for some imaginary future. You just gotta suck it up and
+  go with your gut.*"  
+  ~ Megan
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
