@@ -9,8 +9,8 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*Success is not final, failure is not fatal: it is the courage to continue that counts.*"
-~ Winston Churchill
+"*Worry is like a rocking chair.  It gives ya something to do, but takes you nowhere*"
+~ Erma Bombeck
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
