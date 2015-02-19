@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
- * @version 1/9/2015
+ * @version 2/19/2015
  */
 public class SDRStatistics {
     // notes on below variables @ https://github.com/WalnutiQ/WalnutiQ/issues/152
@@ -17,27 +17,6 @@ public class SDRStatistics {
         this.numberOfNeurons = numberOfNeurons;
         this.numberOfActiveNeurons = numberOfActiveNeurons;
         this.minimumNumberOfOverlapNeuronsForMatch = minimumNumberOfOverlapNeuronsForMatch;
-    }
-
-//    public double percentageOfFalsePositiveMatch() {
-//        double favorableOutcomes = 0;
-//        int theta = minimumNumberOfOverlapNeuronsForMatch;
-//        int w = numberOfActiveNeurons;
-//        int n = numberOfNeurons;
-//        for (int b = theta; b <= w; b++) {
-//            favorableOutcomes += overlap(n, w, b);
-//        }
-//
-//        double totalOutcomes = combination(n, w);
-//        return favorableOutcomes / totalOutcomes;
-//    }
-//
-    BigInteger overlap(int n, int w, int b) {
-        if (b > w) {
-            throw new IllegalArgumentException("b cannot be greater" +
-                    "than w when computing overlap");
-        }
-        return combination(w, b).multiply(combination(n - w, w - b));
     }
 
     /**
