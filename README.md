@@ -89,16 +89,29 @@ Quinn Liu
 7. Right click your folder `WalnutiQ` `=>` Run As `=>` JUnit Test `=>` 
    ALL TESTS PASS!
 
+
 ## Install in Linux/Mac/Windows with IntelliJ
-1. [Install IntelliJ IDEA 13.1 FREE Community Edition](http://www.jetbrains.com/idea/download/).
+1. [Install IntelliJ IDEA FREE Community Edition](http://www.jetbrains.com/idea/download/).
+     - Note where you choose to install this and choose a folder that is easy to access
+       (I stored it in Documents)
 
-2. Go to the top right of this page and hit the `Fork` button. Then clone your 
-   forked WalnutiQ repository locally.  
+2. Once IntelliJ is installed, open it.  Go to "File" `=>` "Import Project...". This should
+   open up a new window and you should easily be able to select the "WalnutiQ" folder. Click "ok".
 
-3. Open up IntelliJ and click "Import Project" `=>` Select "Gradle" `=>` Next 
-   `=>` Select "Use default gradle wrapper (recommended)" `=>` Finish
+3. Now, the project should be imported.  You should now add JDK.  Go back to "File"
+   `=>` "Project Structure".
 
-4. In IntelliJ right-click the `WalnutiQ/` folder and select "Run 'All Tests'". 
+4. A new window should popup.  Under "Platform Settings" `=>` "SDKs".  At the upper
+   lefthand, select the "+" `=>` "JDK".
+
+5. On Mac, In the "Finder" window, enter SHIFT + command + G.  Type in "/System/Library/Java".
+   Navigate to the JDK folder and once you have done so, click "choose". On Windows,
+   navigate to the JDK folder in "C:\Program Files\Java". On Linux, good luck finding it.
+   
+6. If this was successfully done, a list of SDKs should now appear under SDKs.
+   In the same window, navigate to the lefthand side and under "Project Settings" `=>`
+   "Project".  Under "Project SDK", it should say "<No SDK>".  In that bar, select the new
+   Java version which you added.  At the bottom righthand corner, select "Apply".
   
 ## Install in Linux/Mac/Windows with Gradle
 1. Make sure you have java version 1.6, 1.7 or 1.8. To check open up a new terminal 
