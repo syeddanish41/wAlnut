@@ -9,11 +9,9 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*I'm going to tell you something that I've got perspective
-  on recently. You can't keep putting aside what you want
-  for some imaginary future. You just gotta suck it up and
-  go with your gut.*"  
-  ~ Megan
+"*One of most compelling reasons to create intelligent machines is that they 
+  will help us discover the secrets of the universe.*"  
+  ~ Jeff Hawkins
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
