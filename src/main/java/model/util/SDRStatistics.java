@@ -1,6 +1,7 @@
 package model.util;
 
 import java.math.BigInteger;
+import java.text.DecimalFormat;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
@@ -19,9 +20,13 @@ public class SDRStatistics {
         this.theta = minimumNumberOfOverlapNeuronsForMatch;
     }
 
-    BigInteger probabilityOfFalsePositive() {
-        if (this.n > this.w || this.n < this.theta) {
-            throw new IllegalArgumentException("n must be <= than w and n must be >= theta");
+    /**
+     * @return a double value between 0 and 100 of the probability of
+     * a false positive.
+     */
+    String probabilityOfFalsePositive() {
+        if (this.n < this.w || this.n <= this.theta) {
+            throw new IllegalArgumentException("n must be >= than w and n must be >= theta");
         }
 
         BigInteger numerator = new BigInteger("0");
@@ -29,10 +34,20 @@ public class SDRStatistics {
             numerator = numerator.add(overlapSet(b));
         }
 
-        BigInteger deminator = combination(this.n, this.w);
+        BigInteger denominator = combination(this.n, this.w);
 
-        // TODO: make sure return is not between 0 and 1. Read paper
-        return numerator.divide(deminator);
+        double probabilityOfFalsePositive = (numerator.floatValue() /
+                denominator.floatValue()) * 100;
+
+        double percentageOfNoise = (Double.valueOf(this.theta) / Double.valueOf(this.w)) * 100;
+
+        DecimalFormat df = new DecimalFormat("#.000000");
+        String statistics = "With " + df.format(percentageOfNoise) + " % noise there " +
+                "is a " + df.format(probabilityOfFalsePositive) + " % of false positive " +
+                "= The chance of SDR Y matching SDR X with noise bound but " +
+                "not representing the same image. We want this to be small.";
+
+        return statistics;
     }
 
     BigInteger overlapSet(int b) {

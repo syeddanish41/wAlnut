@@ -15,11 +15,22 @@ public class SDRStatisticsTest extends TestCase {
         this.SDR_statistics = new SDRStatistics(1024, 40, 20);
     }
 
-    // TODO: test remaining methods after finding a way to find large
-    // factorials
+    public void test_probabilityOfFalsePositive() {
+        SDRStatistics SDR_statistics2 = new SDRStatistics(1024, 4, 2);
+        assertEquals("With 50.000000 % noise there is a .006855 % of false " +
+                "positive = The chance of SDR Y matching SDR X with noise " +
+                "bound but not representing the same image. We want this to " +
+                "be small.", SDR_statistics2.probabilityOfFalsePositive());
+    }
 
     public void test_overlapSet() {
+        // NOTE: 3rd parameter theta isn't used in overlap set calculation
+        SDRStatistics SDR_statistics2 = new SDRStatistics(1024, 2, -1);
+        assertEquals(new BigInteger("521731"), SDR_statistics2.overlapSet(0));
 
+        // NOTE: the set size increases extremely rapidly as w increases
+        SDRStatistics SDR_statistics3 = new SDRStatistics(1024, 5, -1);
+        assertEquals(new BigInteger("9066119080578"), SDR_statistics3.overlapSet(0));
     }
 
     public void test_combination() {
