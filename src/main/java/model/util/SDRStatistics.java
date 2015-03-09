@@ -41,11 +41,11 @@ public class SDRStatistics {
 
         double percentageOfNoise = (Double.valueOf(this.theta) / Double.valueOf(this.w)) * 100;
 
-        DecimalFormat df = new DecimalFormat("#.000000");
-        String statistics = "With " + df.format(percentageOfNoise) + " % noise there " +
-                "is a " + df.format(probabilityOfFalsePositive) + " % of false positive " +
-                "= The chance of SDR Y matching SDR X with noise bound but " +
-                "not representing the same image. We want this to be small.";
+        DecimalFormat df1 = new DecimalFormat("#.00");
+        DecimalFormat df2 = new DecimalFormat("#.000000");
+        String statistics = "With " + df1.format(percentageOfNoise) + "% " +
+                "noise there is a " + df2.format(probabilityOfFalsePositive)
+                + "% of false positive";
 
         return statistics;
     }

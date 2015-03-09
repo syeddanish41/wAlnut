@@ -17,10 +17,8 @@ public class SDRStatisticsTest extends TestCase {
 
     public void test_probabilityOfFalsePositive() {
         SDRStatistics SDR_statistics2 = new SDRStatistics(1024, 4, 2);
-        assertEquals("With 50.000000 % noise there is a .006855 % of false " +
-                "positive = The chance of SDR Y matching SDR X with noise " +
-                "bound but not representing the same image. We want this to " +
-                "be small.", SDR_statistics2.probabilityOfFalsePositive());
+        assertEquals("With 50.00% noise there is a .006855% of false positive",
+                SDR_statistics2.probabilityOfFalsePositive());
     }
 
     public void test_overlapSet() {
