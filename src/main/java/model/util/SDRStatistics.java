@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
- * @version 2/19/2015
+ * @version 3/10/2015
  */
 public class SDRStatistics {
     // notes on below variables @ https://github.com/WalnutiQ/WalnutiQ/issues/152
@@ -18,6 +18,14 @@ public class SDRStatistics {
         this.n = numberOfNeurons;
         this.w = numberOfActiveNeurons;
         this.theta = minimumNumberOfOverlapNeuronsForMatch;
+
+        if (this.n < 0) {
+            throw new IllegalArgumentException("n must be >= 0");
+        }
+        if (this.n < this.w || this.n <= this.theta) {
+            throw new IllegalArgumentException("n must be >= than w and n " +
+                    "must be >= theta");
+        }
     }
 
     /**
@@ -28,24 +36,18 @@ public class SDRStatistics {
      * calculates the probability of false positive when SDR set M gets too
      * large for exact matches between SDR x and SDRs within M where theta = w.
      *
-     * @param s Percentage of ON bits in all SDRs x and in M.
      * @param SDRSetMSize Number of SDRs in M.
-     * @param w Number of active "bits" in all SDRs.
      *
      * @return Probability of false positive for SDR x "matching" with
      *         SDR set M.
      */
-    double probabilityOfFalsePositiveForSDRxIntersectSDRSetM(double s, int SDRSetMSize, int w) {
-        if (s <= 0 || s >= 1) {
-            throw new IllegalArgumentException("s is a percentage and must be between 0 and 100");
-        } else if (SDRSetMSize < 2) {
-            throw new IllegalArgumentException("M is a SDR set and must have a size >= 2");
-        } else if (w < 0) {
-            throw new IllegalArgumentException("w must be >= 0");
-        }
-
+    double probabilityOfFalsePositiveForSDRxIntersectSDRSetM(int SDRSetMSize) {
+        // s = Percentage of ON bits in all SDRs x and in M.
+        double s = (double) this.w / (double) this.n;
         double probabilityAGivenBitIsStill0 = Math.pow(1 - s, SDRSetMSize);
-        double answer = Math.pow(1 - probabilityAGivenBitIsStill0, w);
+
+        // In this case w = Number of active "bits" in all SDRs.
+        double answer = Math.pow(1 - probabilityAGivenBitIsStill0, this.w);
         return answer;
     }
 
@@ -54,10 +56,6 @@ public class SDRStatistics {
      * a false positive.
      */
     String probabilityOfFalsePositive() {
-        if (this.n < this.w || this.n <= this.theta) {
-            throw new IllegalArgumentException("n must be >= than w and n must be >= theta");
-        }
-
         BigInteger numerator = new BigInteger("0");
         for (int b = this.theta; b <= this.w; b++) {
             numerator = numerator.add(overlapSet(b));
