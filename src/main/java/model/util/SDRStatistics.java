@@ -36,7 +36,7 @@ public class SDRStatistics {
      * calculates the probability of false positive when SDR set M gets too
      * large for exact matches between SDR x and SDRs within M where theta = w.
      *
-     * @param SDRSetMSize Number of SDRs in M.
+     * @param SDRSetMSize Number of SDRs in M. In HTM's SDRSetMSize usually > 1024.
      *
      * @return Probability of false positive for SDR x "matching" with
      *         SDR set M.
