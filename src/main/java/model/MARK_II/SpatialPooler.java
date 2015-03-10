@@ -412,9 +412,9 @@ public class SpatialPooler extends Pooler {
                 for (Synapse<?> connectedSynapse : connectedSynapes) {
 
                     double dx = Math.abs(columnX
-                            - connectedSynapse.getCellXPosition());
+                            - connectedSynapse.getCellColumn());
                     double dy = Math.abs(columnY
-                            - connectedSynapse.getCellYPosition());
+                            - connectedSynapse.getCellRow());
                     double connectedSynapseDistance = Math.sqrt(dx * dx + dy
                             * dy);
                     totalSynapseDistanceFromOriginColumn += connectedSynapseDistance;

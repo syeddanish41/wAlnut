@@ -177,11 +177,11 @@ public class Region {
         int greatestSynapseXIndex = 0;
         int greatestSynapseYIndex = 0;
         for (Synapse synapse : synapses) {
-            if (synapse.getCellXPosition() > greatestSynapseXIndex) {
-                greatestSynapseXIndex = synapse.getCellXPosition();
+            if (synapse.getCellColumn() > greatestSynapseXIndex) {
+                greatestSynapseXIndex = synapse.getCellColumn();
             }
-            if (synapse.getCellYPosition() > greatestSynapseYIndex) {
-                greatestSynapseYIndex = synapse.getCellYPosition();
+            if (synapse.getCellRow() > greatestSynapseYIndex) {
+                greatestSynapseYIndex = synapse.getCellRow();
             }
         }
         // you + 1 to each dimension because in the array the index begins at 0

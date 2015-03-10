@@ -79,14 +79,14 @@ public class RegionConsoleViewer {
 
                 for (Synapse<Cell> synapse : synapses) {
                     if (synapse.getPermanenceValue() < 0.2) {
-                        synapsePermanences[synapse.getCellXPosition()][synapse
-                                .getCellYPosition()] = 0;
+                        synapsePermanences[synapse.getCellColumn()][synapse
+                                .getCellRow()] = 0;
                     } else {
                         // permanenceTimesTen = round((0.9999 - 0.05555) * 10)
                         int permanenceTimesTen = (int) Math.round(((synapse
                                 .getPermanenceValue() - 0.055555) * 10));
-                        synapsePermanences[synapse.getCellXPosition()][synapse
-                                .getCellYPosition()] = permanenceTimesTen;
+                        synapsePermanences[synapse.getCellColumn()][synapse
+                                .getCellRow()] = permanenceTimesTen;
                     }
                 }
             }
