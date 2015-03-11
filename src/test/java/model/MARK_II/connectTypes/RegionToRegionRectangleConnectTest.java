@@ -45,13 +45,13 @@ public class RegionToRegionRectangleConnectTest extends TestCase{
         for(int rowT = 0; rowT < topRowLength; rowT++) {
             for (int colT = 0; colT < topColLength; colT++) {
                 Segment proximalSegment = topRegion.getColumn(rowT, colT).getProximalSegment();
-                //System.out.println("Column at (row, column) = (" + rowT + ", " + colT + ")");
+                System.out.println("Column at (row, column) = (" + rowT + ", " + colT + ")");
                 for(Synapse<Cell> synapse : proximalSegment.getSynapses()) {
                     for (int i = 0; i < bottomRegionColumnLength; i++) {
                         Point3D neuronPosition = new Point3D(synapse.getCellColumn(), synapse.getCellRow(), i);
                         actualConnectedNeuronPositions.add(neuronPosition);
-                        //System.out.println("added neuronPosition (r, c, i) = ("
-                        //        + synapse.getCellColumn() + ", " + synapse.getCellRow() + ", " + i + ")");
+                        System.out.println("added neuronPosition (r, c, i) = ("
+                                + synapse.getCellColumn() + ", " + synapse.getCellRow() + ", " + i + ")");
                     }
                 }
 
