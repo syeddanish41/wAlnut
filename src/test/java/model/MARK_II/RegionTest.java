@@ -101,7 +101,9 @@ public class RegionTest extends TestCase {
         }
 
         Region parent = new Region("parent", 6, 8, 4, 20, 3); // 6 rows 8 columns
+        //                                                                  x1, y1           x2, y2
         Column[][] partialParent = parent.getColumns(new Rectangle(new Point(2, 2), new Point(6, 5)));
+        // NOTE: column at partialParent[5][6] is not included
         int numberOfRows = partialParent.length;
         int numberOfColumns = partialParent[0].length;
         assertEquals(3, numberOfRows);

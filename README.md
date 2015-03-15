@@ -9,9 +9,12 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
 # [WalnutiQ](http://walnutiq.com)
-"*One of most compelling reasons to create intelligent machines is that they 
-  will help us discover the secrets of the universe.*"  
-  ~ Jeff Hawkins
+
+"*No matter where you are, or what you are doing, or who you are with, I will
+always honestly, truly, completely, love you like a sister loves a brother 
+and a friend loves a friend. I will always stand guard over your dreams Alex
+no matter how weird or twisted they get.*"  
+~ Rosie
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
@@ -55,7 +58,7 @@ Thank you,
 Q Liu
 
 ## Install in Linux/Mac/Windows with Eclipse
-1. [Install Eclipse Standard 4.3.2](https://www.eclipse.org/downloads/) or use
+1. [Install Eclipse IDE](https://www.eclipse.org/downloads/) or use
    any other version of Eclipse if you already have it installed.
 
 2. Go to the top right of this page and hit the `Fork` button. Then clone your 

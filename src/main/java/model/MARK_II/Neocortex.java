@@ -87,7 +87,7 @@ public class Neocortex {
         return null;
     }
 
-    public boolean addToCurrentRegion(Rectangle rectanglePartOfParentRegionToConnectTo, Region childRegion,
+    public void addToCurrentRegion(Rectangle rectanglePartOfParentRegionToConnectTo, Region childRegion,
                                       int numberOfColumnsToOverlapAlongNumberOfRows,
                                       int numberOfColumnsToOverlapAlongNumberOfColumns) {
         if (childRegion == null) {
@@ -96,8 +96,12 @@ public class Neocortex {
         }
 
         Region regionAlreadyInNeocortex = this.getRegion(childRegion.getBiologicalName());
+
+        // NOTE: although the first if and else if statement are not necessary
+        //       it is important to understand why nothing should be done
         if (regionAlreadyInNeocortex == null) {
-            // childRegion is new so we can add
+            // ChildRegion is new so we can add given childRegion to current
+            // region. Note this is not an error.
         } else if (regionAlreadyInNeocortex.equals(childRegion)) {
             // the user is trying to make a cycle connection within regions in
             // the Neocortex which is allowed
@@ -108,15 +112,13 @@ public class Neocortex {
                             "with the same name");
         }
 
-        // TODO: connect specific parts of top Region to bottom Region
-
         this.currentRegion.addChildRegion(childRegion);
         this.totalNumberOfRegions++;
         // connect currentRegion to childRegion
-        this.connectType.connect(childRegion.getColumns(), this.currentRegion.getColumns(), // .getColumns(rectanglePartOfParentRegionToConnectTo),
+        this.connectType.connect(childRegion.getColumns(),
+                this.currentRegion.getColumns(rectanglePartOfParentRegionToConnectTo),
                 numberOfColumnsToOverlapAlongNumberOfRows,
                 numberOfColumnsToOverlapAlongNumberOfColumns);
-        return false;
     }
 
     public Region getCurrentRegion() {
