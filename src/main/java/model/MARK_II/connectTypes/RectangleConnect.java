@@ -11,7 +11,7 @@ public class RectangleConnect {
 
     Point updateReceptiveFieldDimensionLength (int topLength, int botLength, int topIndex) {
         if (topLength > botLength) {
-            throw new IllegalStateException("In class NewRegionToRegionRectangleConnect" +
+            throw new IllegalStateException("In class RegionToRegionRectangleConnect" +
                     " method updateReceptiveFieldDimensionLength() topLength must be <= botLength");
         }
 

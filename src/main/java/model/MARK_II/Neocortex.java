@@ -96,6 +96,9 @@ public class Neocortex {
         }
 
         Region regionAlreadyInNeocortex = this.getRegion(childRegion.getBiologicalName());
+
+        // NOTE: although the first if and else if statement are not necessary
+        //       it is important to understand why nothing should be done
         if (regionAlreadyInNeocortex == null) {
             // ChildRegion is new so we can add given childRegion to current
             // region. Note this is not an error.
@@ -112,7 +115,8 @@ public class Neocortex {
         this.currentRegion.addChildRegion(childRegion);
         this.totalNumberOfRegions++;
         // connect currentRegion to childRegion
-        this.connectType.connect(childRegion.getColumns(), this.currentRegion.getColumns(), // .getColumns(rectanglePartOfParentRegionToConnectTo),
+        this.connectType.connect(childRegion.getColumns(),
+                this.currentRegion.getColumns(rectanglePartOfParentRegionToConnectTo),
                 numberOfColumnsToOverlapAlongNumberOfRows,
                 numberOfColumnsToOverlapAlongNumberOfColumns);
     }
