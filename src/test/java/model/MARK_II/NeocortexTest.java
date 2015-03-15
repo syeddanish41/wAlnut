@@ -23,7 +23,7 @@ public class NeocortexTest extends junit.framework.TestCase {
     }
 
     public void test_addToCurrentRegion() {
-
+        // TODO:
     }
 
     public void test_getRegionWithoutCycle() {
