@@ -10,11 +10,8 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 
 # [WalnutiQ](http://walnutiq.com)
 
-"*No matter where you are, or what you are doing, or who you are with, I will
-always honestly, truly, completely, love you like a sister loves a brother 
-and a friend loves a friend. I will always stand guard over your dreams Alex
-no matter how weird or twisted they get.*"  
-~ Rosie
+"*If you love something. Set it free.*"  
+~ Someone at Unreal Engine
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
@@ -163,7 +160,9 @@ Q Liu
 2. For now we are using the Git workflow model described 
    [here](https://github.com/quinnliu/WalnutiQ/issues/62) to contribute to this
    repository effectively. Make sure you understand this model before 
-   trying to merge into the master branch. 
+   trying to merge into the master branch. Additionally, before merging your
+   feature branch to master make sure to change the quote at the top of this 
+   README.md to another quote. 
 
 3. View our [issue tracker](https://github.com/quinnliu/WalnutiQ/issues?state=open) 
    and create a new issue with a question if you are confused. Otherwise, 
