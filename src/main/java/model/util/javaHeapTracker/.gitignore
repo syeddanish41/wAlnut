@@ -2,6 +2,4 @@
 # the remote Git repository but to keep in your local
 # WalnutiQ folder
 
-heaptrace  
-heaptrace.dat  
-heaptrace.gclog  
+heaptrace*
