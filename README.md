@@ -10,8 +10,7 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 
 # [WalnutiQ](http://walnutiq.com)
 
-"*If you love something. Set it free.*"  
-~ Someone at Unreal Engine
+"*If you love something. Set it free.*" ~ Unreal Engine
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
@@ -28,9 +27,9 @@ of 1 brain it can be quickly scaled to surpass the collective intelligence of
 the 7+ billion human brains on Earth. Everything that is considered 
 impossible or unknowable will become <b>possible</b> and <b>knowable</b>.
 Technology has always been used to do great good and great evil and it is scary 
-to imagine the great evil this technology brings. I incredibly, 
-desperately want to help build a technology that solves our hardest problems
-where everything's happiness is considered. 
+to imagine the great evil this technology brings. I desperately want to help 
+build a technology that solves our hardest problems where everything's happiness 
+is considered. 
 
 If you are interested in becoming a researcher/developer we would absolutely 
 love your collaboration as we cannot do this alone. The only requirement we ask 
@@ -46,13 +45,13 @@ implementation of their algorithms using object-oriented programming with a
 focus on understandability. Numenta's implementation of their algorithms can be
 found [here](https://github.com/numenta/nupic). For more information please:
 
-- Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f) to become 
-  familiar with the neuroscience behind this repository.
+- Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f) 
+  to become familiar with the neuroscience behind this repository.
 - Read Numenta's great explanation of their research in this [white paper](https://db.tt/FuQWQuwE) 
   to better understand the theory behind this repository.
 
-Thank you,  
-Q Liu
+Thanks for reading,  
+Q
 
 ## Install in Linux/Mac/Windows with Eclipse
 1. [Install Eclipse IDE](https://www.eclipse.org/downloads/) or use
