@@ -14,17 +14,17 @@ import java.util.List;
 public class HeaptrackerDataToJavascriptArray {
     public static void main(String []av) throws Exception {
         HeaptrackerDataToJavascriptArray
-                .printToConsole("./src/main/java/model/util/javaHeapTracker/heaptrace.csv");
+                .printToConsole("./src/main/java/model/util/javaHeapTracker/heaptrace.dat");
     }
 
     /**
-     * The purpose is to print to console the contents of the heaptrace.csv file
+     * The purpose is to print to console the contents of the heaptrace.dat file
      * into a Javascript array of the following format:
      *
-     * Example input heaptrace.csv:
+     * Example input heaptrace.dat:
      *
-     * 0.190750, 229960
-     * 0.194708, 429976
+     * 0.190750 229960
+     * 0.194708 429976
      *
      * The first column is seconds and the second column is MB used by heap.
      *
@@ -49,9 +49,11 @@ public class HeaptrackerDataToJavascriptArray {
         int numberOfValuesEachLine = 3;
         int currentElement = 1;
         for (String line : linesWithCommas) {
-            String[] rowValues = line.split(",");
+            String[] rowValues = line.split(" ");
 
             double rowValueInSeconds = Double.valueOf(rowValues[0]);
+            // NOTE: if code is not working remove trailing spaces and lines
+            //       in heaptrace.dat
             double rowValueInMilliseconds = rowValueInSeconds * 1000;
 
             javascriptArray += "[" + df1.format(rowValueInMilliseconds) + "," + rowValues[1] + "]";
@@ -70,6 +72,6 @@ public class HeaptrackerDataToJavascriptArray {
         }
 
         javascriptArray += "\n\t\t\t  ];";
-        System.out.print(javascriptArray);
+        //System.out.print(javascriptArray);
     }
 }
