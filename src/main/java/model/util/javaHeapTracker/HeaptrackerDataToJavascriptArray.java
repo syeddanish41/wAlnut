@@ -72,6 +72,6 @@ public class HeaptrackerDataToJavascriptArray {
         }
 
         javascriptArray += "\n\t\t\t  ];";
-        //System.out.print(javascriptArray);
+        System.out.print(javascriptArray);
     }
 }

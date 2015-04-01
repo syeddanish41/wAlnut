@@ -35,7 +35,7 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
     private TemporalPooler temporalPooler;
 
     public void setUp() throws IOException {
-        //this.partialNervousSystem = this.buildNervousSystem();
+        this.partialNervousSystem = this.buildNervousSystem();
 
         this.gson = new Gson();
     }
@@ -67,84 +67,103 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
      *    ImageRetinaIsLookingAt
      */
     private NervousSystem buildNervousSystem() {
+        // HeapTracker.startTrace(); // start tracing
+        // HeapTracker.takeLiveHeapSample();
         int fourNeurons = 4; // = neocortex layer 3 with 4 neurons per column
         int oneNeuron = 1; // = neocortex layer 4 with 1 neuron per column
         double PMO = 20; // = percent minimum overlap
         int DLA = 3; // = desired local activity
 
+        // HeapTracker.takeLiveHeapSample();
         // regions
         Region root = new Region("root", 60, 60, fourNeurons, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region A = new Region("A", 60, 60, fourNeurons, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region B = new Region("B", 60, 60, fourNeurons, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region C = new Region("C", 125, 125, oneNeuron, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region D = new Region("D", 125, 125, oneNeuron, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region E = new Region("E", 125, 125, fourNeurons, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region F = new Region("F", 125, 125, fourNeurons, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region G = new Region("G", 125, 125, fourNeurons, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region H = new Region("H", 125, 125, fourNeurons, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region M = new Layer5Region("M", 125, 125, oneNeuron, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region I = new Region("I", 250, 250, oneNeuron, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region J = new Region("J", 250, 250, oneNeuron, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region K = new Region("K", 250, 250, oneNeuron, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
         Region L = new Region("L", 250, 250, oneNeuron, PMO, DLA);
+        // HeapTracker.takeLiveHeapSample();
 
         // connecting all regions together
-        Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(30, 60)), A, 4, 4);
-        neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new Point(60, 60)), B, 4, 4);
+//        Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(30, 60)), A, 4, 4);
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new Point(60, 60)), B, 4, 4);
+//
+//        neocortex.changeCurrentRegionTo("A");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), C, 4, 4);
+//
+//        neocortex.changeCurrentRegionTo("B");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), D, 4, 4);
+//
+//        neocortex.changeCurrentRegionTo("C");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), E, 4, 4);
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), F, 4, 4);
+//
+//        neocortex.changeCurrentRegionTo("D");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), G, 4, 4);
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), H, 4, 4);
+//
+//        neocortex.changeCurrentRegionTo("E");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), I, 4, 4);
+//
+//        neocortex.changeCurrentRegionTo("F");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), J, 4, 4);
+//
+//        neocortex.changeCurrentRegionTo("G");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), K, 4, 4);
+//
+//        neocortex.changeCurrentRegionTo("H");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 4, 4);
+//
+//        // connecting layer 5 region M
+//        neocortex.changeCurrentRegionTo("I");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        neocortex.changeCurrentRegionTo("J");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        neocortex.changeCurrentRegionTo("K");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        neocortex.changeCurrentRegionTo("L");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//
+//        neocortex.changeCurrentRegionTo("M");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), F, 4, 4);
+//
+//        // NOTE: I, J, K, & L are connected to different parts of the same Retina
+//        Retina retina = new Retina(1000, 1000);
+//
+//        AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
+//        // now we can overlap
+//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 0), new Point(500, 500))), I.getColumns(), 8, 8); // .getVisionCells(topLeftPoint, bottomRightPoint)
+//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 0), new Point(1000, 500))), J.getColumns(), 8, 8);
+//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 500), new Point(500, 1000))), K.getColumns(), 8, 8);
+//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 500), new Point(1000, 1000))), L.getColumns(), 8, 8);
 
-        neocortex.changeCurrentRegionTo("A");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), C, 4, 4);
+//        NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
 
-        neocortex.changeCurrentRegionTo("B");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), D, 4, 4);
-
-        neocortex.changeCurrentRegionTo("C");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), E, 4, 4);
-        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), F, 4, 4);
-
-        neocortex.changeCurrentRegionTo("D");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), G, 4, 4);
-        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), H, 4, 4);
-
-        neocortex.changeCurrentRegionTo("E");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), I, 4, 4);
-
-        neocortex.changeCurrentRegionTo("F");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), J, 4, 4);
-
-        neocortex.changeCurrentRegionTo("G");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), K, 4, 4);
-
-        neocortex.changeCurrentRegionTo("H");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 4, 4);
-
-        // connecting layer 5 region M
-        neocortex.changeCurrentRegionTo("I");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-        neocortex.changeCurrentRegionTo("J");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-        neocortex.changeCurrentRegionTo("K");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-        neocortex.changeCurrentRegionTo("L");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-
-        neocortex.changeCurrentRegionTo("M");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), F, 4, 4);
-
-        // NOTE: I, J, K, & L are connected to different parts of the same Retina
-        Retina retina = new Retina(1000, 1000);
-
-        AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
-        // now we can overlap
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 0), new Point(500, 500))), I.getColumns(), 8, 8); // .getVisionCells(topLeftPoint, bottomRightPoint)
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 0), new Point(1000, 500))), J.getColumns(), 8, 8);
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 500), new Point(500, 1000))), K.getColumns(), 8, 8);
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 500), new Point(1000, 1000))), L.getColumns(), 8, 8);
-
-        NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
-
-        return nervousSystem;
+        // HeapTracker.stopTrace();
+        return null;
+        //return nervousSystem;
     }
 
     /*
