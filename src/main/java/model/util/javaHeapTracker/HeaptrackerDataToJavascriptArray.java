@@ -25,6 +25,7 @@ public class HeaptrackerDataToJavascriptArray {
      *
      * 0.190750 229960
      * 0.194708 429976
+     * time (seconds) heap size (bytes)
      *
      * The first column is seconds and the second column is MB used by heap.
      *
@@ -46,7 +47,7 @@ public class HeaptrackerDataToJavascriptArray {
 
         String javascriptArray = "var dataset = [\n\t\t\t";
 
-        int numberOfValuesEachLine = 3;
+        //int numberOfValuesEachLine = 3;
         int currentElement = 1;
         for (String line : linesWithCommas) {
             String[] rowValues = line.split(" ");
@@ -56,19 +57,23 @@ public class HeaptrackerDataToJavascriptArray {
             //       in heaptrace.dat
             double rowValueInMilliseconds = rowValueInSeconds * 1000;
 
-            javascriptArray += "[" + df1.format(rowValueInMilliseconds) + "," + rowValues[1] + "]";
+            //Convert the heap size into megabytes to pass into heap_util_visualization (toph repo)
+            double rowValueInBytes = Double.valueOf(rowValues[1]);
+            double rowValueInMegaBytes = rowValueInBytes / 1000000;
+
+            javascriptArray += "[" + df1.format(rowValueInMilliseconds) + "," + df1.format(rowValueInMegaBytes) + "]";
 
             if (currentElement < linesWithCommas.size()) {
                 javascriptArray += ", ";
                 currentElement++;
             } // else don't add comma
 
-            if (numberOfValuesEachLine == 1) {
-                javascriptArray += "\n\t\t\t";
-                numberOfValuesEachLine = 3;
-            } else {
-                numberOfValuesEachLine--;
-            }
+//            if (numberOfValuesEachLine == 1) {
+//                javascriptArray += "\n\t\t\t";
+//                numberOfValuesEachLine = 3;
+//            } else {
+//                numberOfValuesEachLine--;
+//            }
         }
 
         javascriptArray += "\n\t\t\t  ];";
