@@ -33,6 +33,20 @@ clustor provided to all of their computer science students.
    ```javac -cp /home/courses/cs3214/bin/heaptracker/heapTracker.jar:. 
    	    TrackerSample.java runtracker TrackerSample
    ```
-4. Create plot of use of heap with:
+4. Use the `HeapTracker` class as shown in in a file where you 
+   want to check the heap utilization.
+5. After you run that file 3 files will be generated for you:
+   ```
+   heaptrace
+   heaptrace.dat
+   heaptrace.gclog
+   ```
+6. Make sure the heaptrace.dat file you want to graph is in the 
+   current folder `javaHeapTracker`. Create an javascript
+   array format of the data by running main() function in 
+   `HeaptraceDataToJavaScriptArray`.
+
+7. Now follow instructions [here](https://github.com/WalnutiQ/toph/tree/master/MARK_II/vision/experiment_1)
+   to quickly generate heap utilization plot.
 	   
 

@@ -1,3 +1,5 @@
+package model.util.javaHeapTracker;
+
 /*
  * Example of how to use the Java live heap tracker
  *
