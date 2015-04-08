@@ -8,7 +8,7 @@ package model.util.javaHeapTracker;
 public class TrackerSample
 {
     public static void main(String []av) throws Exception {
-	
+	/*
 	int [][] a = new int[4][];
 	HeapTracker.startTrace(); // start tracing
 	HeapTracker.takeLiveHeapSample(); // take sample
@@ -24,6 +24,6 @@ public class TrackerSample
 	a[3] = new int[5000];
 	HeapTracker.takeLiveHeapSample(); // take sample
 	HeapTracker.stopTrace(); // stop tracing
-       
+    */
     }
 }

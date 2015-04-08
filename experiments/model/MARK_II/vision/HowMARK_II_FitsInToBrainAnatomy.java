@@ -24,7 +24,7 @@ import java.io.IOException;
  * @author Nathan Waggoner(nwagg14@vt.edu)
  * @version 3/14/2015
  */
-public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
+public class HowMARK_II_FitsInToBrainAnatomy {
     private NervousSystem partialNervousSystem;
 
     /**
@@ -34,11 +34,15 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
     private SpatialPooler spatialPooler;
     private TemporalPooler temporalPooler;
 
-    public void setUp() throws IOException {
-        this.partialNervousSystem = this.buildNervousSystem();
-
-        this.gson = new Gson();
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
     }
+
+//    public void setUp() throws IOException {
+//        this.partialNervousSystem = this.buildNervousSystem();
+//
+//        this.gson = new Gson();
+//    }
 
     /**
      * The following is a BIRDS EYE VIEW of a connected partial nervous system with a 3D drawing here:
@@ -185,9 +189,9 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
     }
     */
 
-    public void test_FillerTest() {
-        assertEquals("TODO: write test", "TODO: write test");
-    }
+//    public void test_FillerTest() {
+//        assertEquals("TODO: write test", "TODO: write test");
+//    }
 
     public void runForreal(Neocortex neocortex, ImageViewer imageViewer) throws IOException {
         this.spatialPooler = new SpatialPooler(neocortex.getRegion("I"));
