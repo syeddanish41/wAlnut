@@ -1,43 +1,38 @@
 package model.MARK_II.vision;
 
 import com.google.gson.Gson;
-import junit.framework.TestCase;
 import model.ImageViewer;
 import model.Layer5Region;
 import model.MARK_II.Neocortex;
 import model.MARK_II.Region;
 import model.MARK_II.SpatialPooler;
 import model.MARK_II.TemporalPooler;
-import model.MARK_II.connectTypes.*;
-import model.Retina;
 import model.unimplementedBiology.NervousSystem;
-import model.util.JsonFileInputOutput;
 import model.util.Point3D;
-import model.util.Rectangle;
 
-import java.awt.*;
-import java.awt.geom.Point2D;
 import java.io.IOException;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
  * @author Nathan Waggoner(nwagg14@vt.edu)
- * @version 3/14/2015
+ * @version 4/8/2015
  */
-public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
-    private NervousSystem partialNervousSystem;
+public class HowMARK_II_FitsInToBrainAnatomy {
+    private static NervousSystem partialNervousSystem;
 
     /**
      * For saving the Java NervousSystem object as a JSON file later on.
      */
-    private Gson gson;
+    private static Gson gson;
     private SpatialPooler spatialPooler;
     private TemporalPooler temporalPooler;
 
-    public void setUp() throws IOException {
-        this.partialNervousSystem = this.buildNervousSystem();
+    public static void main(String[] args) {
+        System.out.println("Running HowMARK_II_FitsIntoBrainAnatomy.main() ...");
 
-        this.gson = new Gson();
+        partialNervousSystem = buildNervousSystem();
+        gson = new Gson();
+        System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
     }
 
     /**
@@ -66,7 +61,7 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
      *    |                    |
      *    ImageRetinaIsLookingAt
      */
-    private NervousSystem buildNervousSystem() {
+    private static NervousSystem buildNervousSystem() {
         // HeapTracker.startTrace(); // start tracing
         // HeapTracker.takeLiveHeapSample();
         int fourNeurons = 4; // = neocortex layer 3 with 4 neurons per column
@@ -184,10 +179,6 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
                         "./experiments/model/MARK_II/vision/PartialNervousSystem_MARK_II.json");
     }
     */
-
-    public void test_FillerTest() {
-        assertEquals("TODO: write test", "TODO: write test");
-    }
 
     public void runForreal(Neocortex neocortex, ImageViewer imageViewer) throws IOException {
         this.spatialPooler = new SpatialPooler(neocortex.getRegion("I"));
