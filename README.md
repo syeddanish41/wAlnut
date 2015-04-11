@@ -173,12 +173,6 @@ Q
    ![alt text](https://dl.dropboxusercontent.com/u/106853306/WalnutiQ%20Gallery/labeled_MARK%20NULLA_version2.jpg)
    
 ## What are all the files here for
-  - experiments  
-      + model
-          - MARK_I 
-            + [vision](./experiments/model/MARK_I/vision) = experiments with 
-              partial visual pathway models on a popular handwritten digit data
-              set called MNIST
   - gradle = the actual Gradle code for building our Java code
   - images = images used in training & testing the partial brain model
   - referencedLibraries = contains .jar files(of other people's code) needed to 
@@ -187,6 +181,8 @@ Q
       + main
         - java
           + model
+            - experiments
+              + vision = experiments with partial visual pathway models                 
             - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the 
               partial brain model. Includes abstract data types for basic brain 
               structures and learning algorithms that simulate how the brain learns.
