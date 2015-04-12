@@ -84,6 +84,6 @@ public class HowMARK_I_FitsInToBrainAnatomy extends TestCase {
                 .toJson(this.partialNervousSystem);
         JsonFileInputOutput
                 .saveObjectToTextFile(partialNervousSystemObject,
-                        "./src/main/java/model/experiments/vision/MARK_I/PartialNervousSystem_MARK_I.json");
+                        "./src/test/java/model/experiments/vision/MARK_I/PartialNervousSystem_MARK_I.json");
     }
 }
