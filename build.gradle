@@ -29,7 +29,6 @@ sourceSets {
 dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile files('referencedLibraries/mnist-tools.jar')
-    compile files('referencedLibraries/heapTracker.jar')
     runtime fileTree(dir: 'referencedLibraries', include: '*.jar')
 
     testCompile 'junit:junit:4.11'

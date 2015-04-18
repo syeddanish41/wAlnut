@@ -62,43 +62,26 @@ public class HowMARK_II_FitsInToBrainAnatomy {
      *    ImageRetinaIsLookingAt
      */
     private static NervousSystem buildNervousSystem() {
-//        HeapTracker.startTrace(); // start tracing
-//        HeapTracker.takeLiveHeapSample();
-//        int fourNeurons = 4; // = neocortex layer 3 with 4 neurons per column
-//        int oneNeuron = 1; // = neocortex layer 4 with 1 neuron per column
-//        double PMO = 20; // = percent minimum overlap
-//        int DLA = 3; // = desired local activity
-//
-//        HeapTracker.takeLiveHeapSample();
-//        // regions
-//        Region root = new Region("root", 60, 60, fourNeurons, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region A = new Region("A", 60, 60, fourNeurons, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region B = new Region("B", 60, 60, fourNeurons, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region C = new Region("C", 125, 125, oneNeuron, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region D = new Region("D", 125, 125, oneNeuron, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region E = new Region("E", 125, 125, fourNeurons, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region F = new Region("F", 125, 125, fourNeurons, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region G = new Region("G", 125, 125, fourNeurons, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region H = new Region("H", 125, 125, fourNeurons, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region M = new Layer5Region("M", 125, 125, oneNeuron, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region I = new Region("I", 250, 250, oneNeuron, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region J = new Region("J", 250, 250, oneNeuron, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region K = new Region("K", 250, 250, oneNeuron, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
-//        Region L = new Region("L", 250, 250, oneNeuron, PMO, DLA);
-//        HeapTracker.takeLiveHeapSample();
+        int fourNeurons = 4; // = neocortex layer 3 with 4 neurons per column
+        int oneNeuron = 1; // = neocortex layer 4 with 1 neuron per column
+        double PMO = 20; // = percent minimum overlap
+        int DLA = 3; // = desired local activity
+
+        // regions
+        Region root = new Region("root", 60, 60, fourNeurons, PMO, DLA);
+        Region A = new Region("A", 60, 60, fourNeurons, PMO, DLA);
+        Region B = new Region("B", 60, 60, fourNeurons, PMO, DLA);
+        Region C = new Region("C", 125, 125, oneNeuron, PMO, DLA);
+        Region D = new Region("D", 125, 125, oneNeuron, PMO, DLA);
+        Region E = new Region("E", 125, 125, fourNeurons, PMO, DLA);
+        Region F = new Region("F", 125, 125, fourNeurons, PMO, DLA);
+        Region G = new Region("G", 125, 125, fourNeurons, PMO, DLA);
+        Region H = new Region("H", 125, 125, fourNeurons, PMO, DLA);
+        Region M = new Layer5Region("M", 125, 125, oneNeuron, PMO, DLA);
+        Region I = new Region("I", 250, 250, oneNeuron, PMO, DLA);
+        Region J = new Region("J", 250, 250, oneNeuron, PMO, DLA);
+        Region K = new Region("K", 250, 250, oneNeuron, PMO, DLA);
+        Region L = new Region("L", 250, 250, oneNeuron, PMO, DLA);
 
         // connecting all regions together
 //        Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
