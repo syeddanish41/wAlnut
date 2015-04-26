@@ -1,4 +1,4 @@
-package model.MARK_I.vision;
+package model.experiments.vision.MARK_I;
 
 import com.google.gson.Gson;
 import junit.framework.TestCase;
@@ -70,6 +70,6 @@ public class TemporalPoolingSaccadingRetinaExperiment extends TestCase {
 //                .getActiveColumnPositions();
 //
 //        assertEquals(11, LGNNeuronActivity.size());
-        assertEquals(1, 2 - 1);
+        TestCase.assertEquals(1, 2 - 1);
     }
 }

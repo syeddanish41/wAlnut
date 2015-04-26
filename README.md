@@ -10,8 +10,7 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 
 # [WalnutiQ](http://walnutiq.com)
 
-"*If you love something. Set it free.*"  
-~ Someone at Unreal Engine
+"*If you love something. Set it free.*" ~ Unreal Engine
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
@@ -28,9 +27,9 @@ of 1 brain it can be quickly scaled to surpass the collective intelligence of
 the 7+ billion human brains on Earth. Everything that is considered 
 impossible or unknowable will become <b>possible</b> and <b>knowable</b>.
 Technology has always been used to do great good and great evil and it is scary 
-to imagine the great evil this technology brings. I incredibly, 
-desperately want to help build a technology that solves our hardest problems
-where everything's happiness is considered. 
+to imagine the great evil this technology brings. I desperately want to help 
+build a technology that solves our hardest problems where everything's happiness 
+is considered. 
 
 If you are interested in becoming a researcher/developer we would absolutely 
 love your collaboration as we cannot do this alone. The only requirement we ask 
@@ -46,16 +45,18 @@ implementation of their algorithms using object-oriented programming with a
 focus on understandability. Numenta's implementation of their algorithms can be
 found [here](https://github.com/numenta/nupic). For more information please:
 
-- Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f) to become 
-  familiar with the neuroscience behind this repository.
+- Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f) 
+  to become familiar with the neuroscience behind this repository.
 - Read Numenta's great explanation of their research in this [white paper](https://db.tt/FuQWQuwE) 
   to better understand the theory behind this repository.
 
-Thank you,  
-Q Liu
+Thanks for reading,  
+Q
 
 ## Install in Linux/Mac/Windows with Eclipse
-1. [Install Eclipse IDE](https://www.eclipse.org/downloads/) or use
+1. If you have any problems with the following instructions please e-mail 
+   quinnliu@vt.edu and I will try to help the best I can. First
+   [install Eclipse IDE](https://www.eclipse.org/downloads/) or use
    any other version of Eclipse if you already have it installed.
 
 2. Go to the top right of this page and hit the `Fork` button. Then clone your 
@@ -92,30 +93,44 @@ Q Liu
 
 
 ## Install in Linux/Mac/Windows with IntelliJ
-1. [Install IntelliJ IDEA FREE Community Edition](http://www.jetbrains.com/idea/download/).
+1. If you have any problems with the following instructions please e-mail 
+   quinnliu@vt.edu and I will try to help the best I can. First
+   [install IntelliJ IDEA FREE Community Edition](http://www.jetbrains.com/idea/download/).
      - Note where you choose to install this and choose a folder that is easy to access
        (I stored it in Documents)
 
-2. Once IntelliJ is installed, open it.  Go to "File" `=>` "Import Project...". This should
+2. Go to the top right of this page and hit the `Fork` button. Then clone your forked WalnutiQ
+   repository locally.
+
+3. Once IntelliJ is installed, open it.  Go to "File" `=>` "Import Project...". This should
    open up a new window and you should easily be able to select the "WalnutiQ" folder. Click "ok".
 
-3. Now, the project should be imported.  You should now add JDK.  Go back to "File"
+4. Now, the project should be imported.  You should now add JDK.  Go back to "File"
    `=>` "Project Structure".
 
-4. A new window should popup.  Under "Platform Settings" `=>` "SDKs".  At the upper
+5. A new window should popup.  Under "Platform Settings" `=>` "SDKs".  At the upper
    lefthand, select the "+" `=>` "JDK".
 
-5. On Mac, In the "Finder" window, enter SHIFT + command + G.  Type in "/System/Library/Java".
+6. On Mac, In the "Finder" window, enter SHIFT + command + G.  Type in "/System/Library/Java".
    Navigate to the JDK folder and once you have done so, click "choose". On Windows,
    navigate to the JDK folder in "C:\Program Files\Java". On Linux, good luck finding it.
    
-6. If this was successfully done, a list of SDKs should now appear under SDKs.
+7. If this was successfully done, a list of SDKs should now appear under SDKs.
    In the same window, navigate to the lefthand side and under "Project Settings" `=>`
    "Project".  Under "Project SDK", it should say "<No SDK>".  In that bar, select the new
-   Java version which you added.  At the bottom righthand corner, select "Apply".
+   Java version which you added.  At the bottom righthand corner, select "Apply". Click
+   "OK".
+   
+8. Now click "File" `=>` "New" `=>` "Project from Existing Sources..." `=>` Navigate to "WalnutiQ" folder
+   and click "OK" `=>` Select "Gradle" `=>` Next `=>` Select "Use default gradle wrapper (recommended)" `=>` Finish
+   
+9. In the left side file viewer right-click the folder "WalnutiQ" and select `Run 'Tests in WalnutiQ''`. Hopefully
+   they all pass.
   
 ## Install in Linux/Mac/Windows with Gradle
-1. Make sure you have java version 1.6, 1.7 or 1.8. To check open up a new terminal 
+1. If you have any problems with the following instructions please e-mail 
+   quinnliu@vt.edu and I will try to help the best I can. First
+   make sure you have java version 1.6, 1.7 or 1.8. To check open up a new terminal 
    and type:
    ```sh
    prompt> java -version
@@ -171,15 +186,9 @@ Q Liu
 
 4. While reading through the code base it will be very helpful to refer to the 
    following labeled model:
-   ![alt text](https://dl.dropboxusercontent.com/u/106853306/WalnutiQ%20Gallery/labeled_MARK%20NULLA_version2.jpg)
+   ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/MARK_NULLA/labeled_MARK%20NULLA_version2.jpg)
    
 ## What are all the files here for
-  - experiments  
-      + model
-          - MARK_I 
-            + [vision](./experiments/model/MARK_I/vision) = experiments with 
-              partial visual pathway models on a popular handwritten digit data
-              set called MNIST
   - gradle = the actual Gradle code for building our Java code
   - images = images used in training & testing the partial brain model
   - referencedLibraries = contains .jar files(of other people's code) needed to 
@@ -188,6 +197,8 @@ Q Liu
       + main
         - java
           + model
+            - experiments
+              + vision = experiments with partial visual pathway models                 
             - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the 
               partial brain model. Includes abstract data types for basic brain 
               structures and learning algorithms that simulate how the brain learns.
@@ -724,7 +735,7 @@ contributions to this repository but it is a beautiful summary of how columns
 of neurons in your brain are probably working to encode what you see. The 
 following are the three images the retina will be looking at:
 
-![alt text](https://db.tt/8ZAdcAbM)
+![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/presentations/three_images_of_digit_2.jpg)
 
 ```java
 retina.seeBMPImage("2.bmp");
