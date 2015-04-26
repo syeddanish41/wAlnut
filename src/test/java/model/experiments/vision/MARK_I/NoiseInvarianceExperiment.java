@@ -1,4 +1,4 @@
-package model.MARK_I.vision;
+package model.experiments.vision.MARK_I;
 
 import junit.framework.TestCase;
 import model.MARK_II.ColumnPosition;
@@ -74,17 +74,17 @@ public class NoiseInvarianceExperiment extends TestCase {
         this.retina.seeBMPImage("2.bmp");
         this.spatialPooler.performPooling();
         // set1 = ((6, 5), (6, 2), (2, 5), (1, 5))
-        assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
+        TestCase.assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
         this.retina.seeBMPImage("2_with_some_noise.bmp");
         this.spatialPooler.performPooling();
         // set1 = ((6, 5), (6, 2), (2, 5), (1, 5))
-        assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
+        TestCase.assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
         this.retina.seeBMPImage("2_with_a_lot_of_noise.bmp");
         this.spatialPooler.performPooling();
         // when there is a lot of noise notice how the active columns are no longer the same?
         // set2 = ((2, 5), (1, 5))
-        assertEquals(set2, this.spatialPooler.getActiveColumnPositions());
+        TestCase.assertEquals(set2, this.spatialPooler.getActiveColumnPositions());
     }
 }

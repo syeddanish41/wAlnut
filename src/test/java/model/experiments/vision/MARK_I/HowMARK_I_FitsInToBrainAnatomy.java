@@ -1,4 +1,4 @@
-package model.MARK_I.vision;
+package model.experiments.vision.MARK_I;
 
 import com.google.gson.Gson;
 import junit.framework.TestCase;
@@ -77,13 +77,13 @@ public class HowMARK_I_FitsInToBrainAnatomy extends TestCase {
         Set<ColumnPosition> LGNNeuronActivity = spatialPooler
                 .getActiveColumnPositions();
 
-        assertEquals(10, LGNNeuronActivity.size());
+        TestCase.assertEquals(10, LGNNeuronActivity.size());
 
         // save partialNervousSystemObject object in JSON format
         String partialNervousSystemObject = this.gson
                 .toJson(this.partialNervousSystem);
         JsonFileInputOutput
                 .saveObjectToTextFile(partialNervousSystemObject,
-                        "./experiments/model/MARK_I/vision/PartialNervousSystem_MARK_I.json");
+                        "./src/test/java/model/experiments/vision/MARK_I/PartialNervousSystem_MARK_I.json");
     }
 }

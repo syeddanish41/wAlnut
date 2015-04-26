@@ -1,43 +1,38 @@
-package model.MARK_II.vision;
+package model.experiments.vision.MARK_II;
 
 import com.google.gson.Gson;
-import junit.framework.TestCase;
 import model.ImageViewer;
 import model.Layer5Region;
 import model.MARK_II.Neocortex;
 import model.MARK_II.Region;
 import model.MARK_II.SpatialPooler;
 import model.MARK_II.TemporalPooler;
-import model.MARK_II.connectTypes.*;
-import model.Retina;
 import model.unimplementedBiology.NervousSystem;
-import model.util.JsonFileInputOutput;
 import model.util.Point3D;
-import model.util.Rectangle;
 
-import java.awt.*;
-import java.awt.geom.Point2D;
 import java.io.IOException;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
  * @author Nathan Waggoner(nwagg14@vt.edu)
- * @version 3/14/2015
+ * @version 4/8/2015
  */
-public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
-    private NervousSystem partialNervousSystem;
+public class HowMARK_II_FitsInToBrainAnatomy {
+    private static NervousSystem partialNervousSystem;
 
     /**
      * For saving the Java NervousSystem object as a JSON file later on.
      */
-    private Gson gson;
+    private static Gson gson;
     private SpatialPooler spatialPooler;
     private TemporalPooler temporalPooler;
 
-    public void setUp() throws IOException {
-        this.partialNervousSystem = this.buildNervousSystem();
+    public static void main(String[] args) {
+        System.out.println("Running HowMARK_II_FitsIntoBrainAnatomy.main() ...");
 
-        this.gson = new Gson();
+        partialNervousSystem = buildNervousSystem();
+        gson = new Gson();
+        System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
     }
 
     /**
@@ -66,44 +61,27 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
      *    |                    |
      *    ImageRetinaIsLookingAt
      */
-    private NervousSystem buildNervousSystem() {
-        // HeapTracker.startTrace(); // start tracing
-        // HeapTracker.takeLiveHeapSample();
+    private static NervousSystem buildNervousSystem() {
         int fourNeurons = 4; // = neocortex layer 3 with 4 neurons per column
         int oneNeuron = 1; // = neocortex layer 4 with 1 neuron per column
         double PMO = 20; // = percent minimum overlap
         int DLA = 3; // = desired local activity
 
-        // HeapTracker.takeLiveHeapSample();
         // regions
         Region root = new Region("root", 60, 60, fourNeurons, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region A = new Region("A", 60, 60, fourNeurons, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region B = new Region("B", 60, 60, fourNeurons, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region C = new Region("C", 125, 125, oneNeuron, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region D = new Region("D", 125, 125, oneNeuron, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region E = new Region("E", 125, 125, fourNeurons, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region F = new Region("F", 125, 125, fourNeurons, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region G = new Region("G", 125, 125, fourNeurons, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region H = new Region("H", 125, 125, fourNeurons, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region M = new Layer5Region("M", 125, 125, oneNeuron, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region I = new Region("I", 250, 250, oneNeuron, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region J = new Region("J", 250, 250, oneNeuron, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region K = new Region("K", 250, 250, oneNeuron, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
         Region L = new Region("L", 250, 250, oneNeuron, PMO, DLA);
-        // HeapTracker.takeLiveHeapSample();
 
         // connecting all regions together
 //        Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
@@ -161,7 +139,7 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
 
 //        NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
 
-        // HeapTracker.stopTrace();
+        //HeapTracker.stopTrace();
         return null;
         //return nervousSystem;
     }
@@ -184,10 +162,6 @@ public class HowMARK_II_FitsInToBrainAnatomy extends junit.framework.TestCase {
                         "./experiments/model/MARK_II/vision/PartialNervousSystem_MARK_II.json");
     }
     */
-
-    public void test_FillerTest() {
-        assertEquals("TODO: write test", "TODO: write test");
-    }
 
     public void runForreal(Neocortex neocortex, ImageViewer imageViewer) throws IOException {
         this.spatialPooler = new SpatialPooler(neocortex.getRegion("I"));
