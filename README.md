@@ -186,7 +186,7 @@ Q
 
 4. While reading through the code base it will be very helpful to refer to the 
    following labeled model:
-   ![alt text](https://dl.dropboxusercontent.com/u/106853306/WalnutiQ%20Gallery/labeled_MARK%20NULLA_version2.jpg)
+   ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/MARK_NULLA/labeled_MARK%20NULLA_version2.jpg)
    
 ## What are all the files here for
   - gradle = the actual Gradle code for building our Java code
@@ -735,7 +735,7 @@ contributions to this repository but it is a beautiful summary of how columns
 of neurons in your brain are probably working to encode what you see. The 
 following are the three images the retina will be looking at:
 
-![alt text](https://db.tt/8ZAdcAbM)
+![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/presentations/three_images_of_digit_2.jpg)
 
 ```java
 retina.seeBMPImage("2.bmp");
