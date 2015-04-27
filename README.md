@@ -186,7 +186,7 @@ Q
 
 4. While reading through the code base it will be very helpful to refer to the 
    following labeled model:
-   ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/MARK_NULLA/labeled_MARK%20NULLA_version2.jpg)
+   ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/MARK_I/labeled_MARK_I_version_2_high_contrast.jpg)
    
 ## What are all the files here for
   - gradle = the actual Gradle code for building our Java code
