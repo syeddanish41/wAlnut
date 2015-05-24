@@ -9,6 +9,7 @@ import model.MARK_II.SpatialPooler;
 import model.MARK_II.TemporalPooler;
 import model.unimplementedBiology.NervousSystem;
 import model.util.Point3D;
+import java.lang.Runtime;
 
 import java.io.IOException;
 
@@ -29,10 +30,29 @@ public class HowMARK_II_FitsInToBrainAnatomy {
 
     public static void main(String[] args) {
         System.out.println("Running HowMARK_II_FitsIntoBrainAnatomy.main() ...");
+        long heapMaxSizeInMB = Runtime.getRuntime().maxMemory() / 1000000;
+        System.out.println("heapMaxSize = " + heapMaxSizeInMB + " MB");
 
         partialNervousSystem = buildNervousSystem();
         gson = new Gson();
         System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
+    }
+
+    /**
+     * @return Used heap size in megabytes.
+     */
+    static void printUsedHeapSize() {
+        //long heapMaxSize = Runtime.getRuntime().maxMemory();
+        //System.out.println("heapMaxSize = " + heapMaxSize/1000000 + " MB");
+
+        long heapFreeSize = Runtime.getRuntime().freeMemory();
+        //System.out.println("heapFreeSize = " + heapFreeSize/1000000 + " MB");
+
+        long heapSize = Runtime.getRuntime().totalMemory();
+        //System.out.println("heapSize = " + heapSize/1000000 + " MB");
+
+        long usedHeapSizeInMB = (heapSize - heapFreeSize) / 1000000;
+        System.out.println("usedHeapSize = " + usedHeapSizeInMB + " MB");
     }
 
     /**
@@ -68,7 +88,9 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         int DLA = 3; // = desired local activity
 
         // regions
+        printUsedHeapSize();
         Region root = new Region("root", 60, 60, fourNeurons, PMO, DLA);
+        printUsedHeapSize();
         Region A = new Region("A", 60, 60, fourNeurons, PMO, DLA);
         Region B = new Region("B", 60, 60, fourNeurons, PMO, DLA);
         Region C = new Region("C", 125, 125, oneNeuron, PMO, DLA);
@@ -82,6 +104,9 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         Region J = new Region("J", 250, 250, oneNeuron, PMO, DLA);
         Region K = new Region("K", 250, 250, oneNeuron, PMO, DLA);
         Region L = new Region("L", 250, 250, oneNeuron, PMO, DLA);
+        printUsedHeapSize();
+
+
 
         // connecting all regions together
 //        Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
@@ -139,7 +164,6 @@ public class HowMARK_II_FitsInToBrainAnatomy {
 
 //        NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
 
-        //HeapTracker.stopTrace();
         return null;
         //return nervousSystem;
     }
