@@ -1,22 +1,9 @@
 package model.experiments.vision.MARK_I;
 
-import com.google.gson.Gson;
 import junit.framework.TestCase;
-import model.MARK_II.ColumnPosition;
-import model.MARK_II.Neocortex;
-import model.MARK_II.Region;
-import model.MARK_II.SpatialPooler;
-import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
-import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
-import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
-import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.Retina;
-import model.unimplementedBiology.LGN;
 import model.unimplementedBiology.NervousSystem;
-import model.util.JsonFileInputOutput;
 
 import java.io.IOException;
-import java.util.Set;
 
 /**
  * Created by qliu on 6/30/14.

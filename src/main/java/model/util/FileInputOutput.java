@@ -3,9 +3,6 @@ package model.util;
 import java.io.*;
 
 /**
- * Objects are saved as JSON files because JSON files are human readable and
- * it is very efficient.
- *
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version June 26, 2013
  */

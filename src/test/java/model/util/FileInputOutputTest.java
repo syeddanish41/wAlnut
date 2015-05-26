@@ -45,12 +45,12 @@ public class FileInputOutputTest extends TestCase {
         Region trainedLGNRegion = spatialPooler.getRegion();
         String regionObject = gson2.toJson(trainedLGNRegion);
 
-        JsonFileInputOutput.saveObjectToTextFile(regionObject,
+        FileInputOutput.saveObjectToTextFile(regionObject,
                 "./src/test/java/model/util/test_saveRegionObject.txt");
     }
 
     public void test_openRegionObject() throws IOException {
-        String regionAsString = JsonFileInputOutput
+        String regionAsString = FileInputOutput
                 .openObjectInTextFile("./src/test/java/model/util/test_saveRegionObject.txt");
 
         Gson gson2 = new Gson();
