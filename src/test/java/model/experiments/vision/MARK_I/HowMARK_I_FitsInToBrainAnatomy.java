@@ -13,7 +13,7 @@ import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.unimplementedBiology.NervousSystem;
 import model.Retina;
-import model.util.JsonFileInputOutput;
+import model.util.FileInputOutput;
 
 import java.io.IOException;
 import java.util.Set;
@@ -82,7 +82,7 @@ public class HowMARK_I_FitsInToBrainAnatomy extends TestCase {
         // save partialNervousSystemObject object in JSON format
         String partialNervousSystemObject = this.gson
                 .toJson(this.partialNervousSystem);
-        JsonFileInputOutput
+        FileInputOutput
                 .saveObjectToTextFile(partialNervousSystemObject,
                         "./src/test/java/model/experiments/vision/MARK_I/PartialNervousSystem_MARK_I.json");
     }
