@@ -7,15 +7,23 @@ import model.MARK_II.Neocortex;
 import model.MARK_II.Region;
 import model.MARK_II.SpatialPooler;
 import model.MARK_II.TemporalPooler;
+import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
+import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
+import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
+import model.Retina;
 import model.unimplementedBiology.NervousSystem;
+import model.util.FileInputOutput;
 import model.util.Point3D;
+import model.util.Rectangle;
 
+import java.awt.*;
+import java.lang.Runtime;
 import java.io.IOException;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
  * @author Nathan Waggoner(nwagg14@vt.edu)
- * @version 4/8/2015
+ * @version 5/26/2015
  */
 public class HowMARK_II_FitsInToBrainAnatomy {
     private static NervousSystem partialNervousSystem;
@@ -26,13 +34,42 @@ public class HowMARK_II_FitsInToBrainAnatomy {
     private static Gson gson;
     private SpatialPooler spatialPooler;
     private TemporalPooler temporalPooler;
+    private static String allHeapData;
+    private static long startTime;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Running HowMARK_II_FitsIntoBrainAnatomy.main() ...");
+
+        allHeapData = new String();
+        startTime = System.currentTimeMillis();
+
+        long heapMaxSizeInMB = Runtime.getRuntime().maxMemory() / 1000000;
+        System.out.println("heapMaxSize = " + heapMaxSizeInMB + " MB");
 
         partialNervousSystem = buildNervousSystem();
         gson = new Gson();
+
+        System.out.println(allHeapData);
+        // save all heap size data into a file
+        FileInputOutput.saveObjectToTextFile(allHeapData,
+                "./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData.txt");
+
         System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
+    }
+
+    static void updateHeapData() {
+        long heapFreeSizeInBytes = Runtime.getRuntime().freeMemory();
+        long heapSizeInBytes = Runtime.getRuntime().totalMemory();
+        long usedHeapSizeInBytes = heapSizeInBytes - heapFreeSizeInBytes;
+
+        long usedHeapSizeInMB = (heapSizeInBytes - heapFreeSizeInBytes) / 1000000;
+        System.out.println("usedHeapSize = " + usedHeapSizeInMB + " MB");
+
+        double currentRunTimeInMilliseconds = System.currentTimeMillis() - startTime;
+        double currentRunTimeInSeconds = currentRunTimeInMilliseconds / 1000;
+
+        String addToFile = Double.toString(currentRunTimeInSeconds) + " " + usedHeapSizeInBytes + "\n";
+        allHeapData += addToFile;
     }
 
     /**
@@ -68,7 +105,9 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         int DLA = 3; // = desired local activity
 
         // regions
+        updateHeapData();
         Region root = new Region("root", 60, 60, fourNeurons, PMO, DLA);
+        updateHeapData();
         Region A = new Region("A", 60, 60, fourNeurons, PMO, DLA);
         Region B = new Region("B", 60, 60, fourNeurons, PMO, DLA);
         Region C = new Region("C", 125, 125, oneNeuron, PMO, DLA);
@@ -82,66 +121,85 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         Region J = new Region("J", 250, 250, oneNeuron, PMO, DLA);
         Region K = new Region("K", 250, 250, oneNeuron, PMO, DLA);
         Region L = new Region("L", 250, 250, oneNeuron, PMO, DLA);
+        updateHeapData();
 
         // connecting all regions together
-//        Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(30, 60)), A, 4, 4);
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new Point(60, 60)), B, 4, 4);
-//
-//        neocortex.changeCurrentRegionTo("A");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), C, 4, 4);
-//
-//        neocortex.changeCurrentRegionTo("B");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), D, 4, 4);
-//
-//        neocortex.changeCurrentRegionTo("C");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), E, 4, 4);
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), F, 4, 4);
-//
-//        neocortex.changeCurrentRegionTo("D");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), G, 4, 4);
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), H, 4, 4);
-//
-//        neocortex.changeCurrentRegionTo("E");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), I, 4, 4);
-//
-//        neocortex.changeCurrentRegionTo("F");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), J, 4, 4);
-//
-//        neocortex.changeCurrentRegionTo("G");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), K, 4, 4);
-//
-//        neocortex.changeCurrentRegionTo("H");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 4, 4);
-//
-//        // connecting layer 5 region M
+        Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(30, 60)), A, 4, 4);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new Point(60, 60)), B, 4, 4);
+        updateHeapData();
+
+        neocortex.changeCurrentRegionTo("A");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), C, 4, 4);
+        updateHeapData();
+
+        neocortex.changeCurrentRegionTo("B");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), D, 4, 4);
+        updateHeapData();
+
+        neocortex.changeCurrentRegionTo("C");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), E, 4, 4);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), F, 4, 4);
+        updateHeapData();
+
+        neocortex.changeCurrentRegionTo("D");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), G, 4, 4);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), H, 4, 4);
+        updateHeapData();
+
+        neocortex.changeCurrentRegionTo("E");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), I, 4, 4);
+        updateHeapData();
+
+        neocortex.changeCurrentRegionTo("F");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), J, 4, 4);
+        updateHeapData();
+
+        neocortex.changeCurrentRegionTo("G");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), K, 4, 4);
+
+        neocortex.changeCurrentRegionTo("H");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 4, 4);
+        updateHeapData();
+
+        // connecting layer 5 region M
 //        neocortex.changeCurrentRegionTo("I");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        updateHeapData();
 //        neocortex.changeCurrentRegionTo("J");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        updateHeapData();
 //        neocortex.changeCurrentRegionTo("K");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        updateHeapData();
 //        neocortex.changeCurrentRegionTo("L");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        updateHeapData();
 //
 //        neocortex.changeCurrentRegionTo("M");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), F, 4, 4);
+//        updateHeapData();
 //
 //        // NOTE: I, J, K, & L are connected to different parts of the same Retina
 //        Retina retina = new Retina(1000, 1000);
+//        updateHeapData();
 //
 //        AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
 //        // now we can overlap
 //        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 0), new Point(500, 500))), I.getColumns(), 8, 8); // .getVisionCells(topLeftPoint, bottomRightPoint)
+//        updateHeapData();
 //        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 0), new Point(1000, 500))), J.getColumns(), 8, 8);
+//        updateHeapData();
 //        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 500), new Point(500, 1000))), K.getColumns(), 8, 8);
+//        updateHeapData();
 //        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 500), new Point(1000, 1000))), L.getColumns(), 8, 8);
-
+//        updateHeapData();
+//
 //        NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
-
-        //HeapTracker.stopTrace();
+//        updateHeapData();
+//
+//        return nervousSystem;
         return null;
-        //return nervousSystem;
     }
 
     /*
@@ -157,7 +215,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         // save partialNervousSystemObject object in JSON format
         String partialNervousSystemObject = this.gson
                 .toJson(this.partialNervousSystem);
-        JsonFileInputOutput
+        FileInputOutput
                 .saveObjectToTextFile(partialNervousSystemObject,
                         "./experiments/model/MARK_II/vision/PartialNervousSystem_MARK_II.json");
     }

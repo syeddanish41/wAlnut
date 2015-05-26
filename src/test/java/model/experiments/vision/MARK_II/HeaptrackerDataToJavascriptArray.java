@@ -1,4 +1,4 @@
-package model.util.javaHeapTracker;
+package model.experiments.vision.MARK_II;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.List;
 public class HeaptrackerDataToJavascriptArray {
     public static void main(String []av) throws Exception {
         HeaptrackerDataToJavascriptArray
-                .printToConsole("./src/main/java/model/util/javaHeapTracker/heaptrace.dat");
+                .printToConsole("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData.txt");
     }
 
     /**
@@ -57,7 +57,7 @@ public class HeaptrackerDataToJavascriptArray {
             //       in heaptrace.dat
             double rowValueInMilliseconds = rowValueInSeconds * 1000;
 
-            //Convert the heap size into megabytes to pass into heap_util_visualization (toph repo)
+            //Convert the heap size into megabytes
             double rowValueInBytes = Double.valueOf(rowValues[1]);
             double rowValueInMegaBytes = rowValueInBytes / 1000000;
 
