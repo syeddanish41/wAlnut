@@ -163,42 +163,43 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         updateHeapData();
 
         // connecting layer 5 region M
-        neocortex.changeCurrentRegionTo("I");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-        updateHeapData();
-        neocortex.changeCurrentRegionTo("J");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-        updateHeapData();
-        neocortex.changeCurrentRegionTo("K");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-        updateHeapData();
-        neocortex.changeCurrentRegionTo("L");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-        updateHeapData();
-
-        neocortex.changeCurrentRegionTo("M");
-        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), F, 4, 4);
-        updateHeapData();
-
-        // NOTE: I, J, K, & L are connected to different parts of the same Retina
-        Retina retina = new Retina(1000, 1000);
-        updateHeapData();
-
-        AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
-        // now we can overlap
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 0), new Point(500, 500))), I.getColumns(), 8, 8); // .getVisionCells(topLeftPoint, bottomRightPoint)
-        updateHeapData();
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 0), new Point(1000, 500))), J.getColumns(), 8, 8);
-        updateHeapData();
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 500), new Point(500, 1000))), K.getColumns(), 8, 8);
-        updateHeapData();
-        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 500), new Point(1000, 1000))), L.getColumns(), 8, 8);
-        updateHeapData();
-
-        NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
-        updateHeapData();
-
-        return nervousSystem;
+//        neocortex.changeCurrentRegionTo("I");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        updateHeapData();
+//        neocortex.changeCurrentRegionTo("J");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        updateHeapData();
+//        neocortex.changeCurrentRegionTo("K");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        updateHeapData();
+//        neocortex.changeCurrentRegionTo("L");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+//        updateHeapData();
+//
+//        neocortex.changeCurrentRegionTo("M");
+//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), F, 4, 4);
+//        updateHeapData();
+//
+//        // NOTE: I, J, K, & L are connected to different parts of the same Retina
+//        Retina retina = new Retina(1000, 1000);
+//        updateHeapData();
+//
+//        AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
+//        // now we can overlap
+//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 0), new Point(500, 500))), I.getColumns(), 8, 8); // .getVisionCells(topLeftPoint, bottomRightPoint)
+//        updateHeapData();
+//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 0), new Point(1000, 500))), J.getColumns(), 8, 8);
+//        updateHeapData();
+//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 500), new Point(500, 1000))), K.getColumns(), 8, 8);
+//        updateHeapData();
+//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 500), new Point(1000, 1000))), L.getColumns(), 8, 8);
+//        updateHeapData();
+//
+//        NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
+//        updateHeapData();
+//
+//        return nervousSystem;
+        return null;
     }
 
     /*
