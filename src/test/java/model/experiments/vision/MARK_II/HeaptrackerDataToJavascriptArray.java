@@ -14,7 +14,7 @@ import java.util.List;
 public class HeaptrackerDataToJavascriptArray {
     public static void main(String []av) throws Exception {
         HeaptrackerDataToJavascriptArray
-                .printToConsole("./src/main/java/model/util/javaHeapTracker/heapSizeLogData.txt");
+                .printToConsole("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData.txt");
     }
 
     /**
