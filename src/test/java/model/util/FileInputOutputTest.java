@@ -16,7 +16,7 @@ import java.util.Set;
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version Feb 1, 2014
  */
-public class JsonFileInputOutputTest extends TestCase {
+public class FileInputOutputTest extends TestCase {
     private Gson gson;
 
     public void setUp() {

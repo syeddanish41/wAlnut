@@ -7,16 +7,21 @@ import model.MARK_II.Neocortex;
 import model.MARK_II.Region;
 import model.MARK_II.SpatialPooler;
 import model.MARK_II.TemporalPooler;
+import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.unimplementedBiology.NervousSystem;
+import model.util.FileInputOutput;
 import model.util.Point3D;
-import java.lang.Runtime;
+import model.util.Rectangle;
 
+import java.awt.Point;
+import java.io.PrintWriter;
+import java.lang.Runtime;
 import java.io.IOException;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
  * @author Nathan Waggoner(nwagg14@vt.edu)
- * @version 4/8/2015
+ * @version 5/26/2015
  */
 public class HowMARK_II_FitsInToBrainAnatomy {
     private static NervousSystem partialNervousSystem;
@@ -27,9 +32,16 @@ public class HowMARK_II_FitsInToBrainAnatomy {
     private static Gson gson;
     private SpatialPooler spatialPooler;
     private TemporalPooler temporalPooler;
+    private static PrintWriter printWriter;
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         System.out.println("Running HowMARK_II_FitsIntoBrainAnatomy.main() ...");
+
+        // create file heapSizeLogData.txt to write data to
+        FileInputOutput.saveObjectToTextFile("TESTSSSSSSSSSSS",
+                "./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData.txt");
+
         long heapMaxSizeInMB = Runtime.getRuntime().maxMemory() / 1000000;
         System.out.println("heapMaxSize = " + heapMaxSizeInMB + " MB");
 
@@ -106,38 +118,46 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         Region L = new Region("L", 250, 250, oneNeuron, PMO, DLA);
         printUsedHeapSize();
 
-
-
         // connecting all regions together
 //        Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(30, 60)), A, 4, 4);
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new Point(60, 60)), B, 4, 4);
+//        printUsedHeapSize();
 //
 //        neocortex.changeCurrentRegionTo("A");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), C, 4, 4);
+//        System.out.println("neocortex.changeCurrentRegionTo(\"A\");");
+//        System.out.println("neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), C, 4, 4);");
+//        printUsedHeapSize();
 //
 //        neocortex.changeCurrentRegionTo("B");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), D, 4, 4);
+//        printUsedHeapSize();
 //
 //        neocortex.changeCurrentRegionTo("C");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), E, 4, 4);
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), F, 4, 4);
+//        printUsedHeapSize();
 //
 //        neocortex.changeCurrentRegionTo("D");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), G, 4, 4);
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), H, 4, 4);
+//        printUsedHeapSize();
 //
 //        neocortex.changeCurrentRegionTo("E");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), I, 4, 4);
+//        printUsedHeapSize();
 //
 //        neocortex.changeCurrentRegionTo("F");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), J, 4, 4);
+//        printUsedHeapSize();
 //
 //        neocortex.changeCurrentRegionTo("G");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), K, 4, 4);
 //
 //        neocortex.changeCurrentRegionTo("H");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 4, 4);
+//        printUsedHeapSize();
 //
 //        // connecting layer 5 region M
 //        neocortex.changeCurrentRegionTo("I");
@@ -181,7 +201,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         // save partialNervousSystemObject object in JSON format
         String partialNervousSystemObject = this.gson
                 .toJson(this.partialNervousSystem);
-        JsonFileInputOutput
+        FileInputOutput
                 .saveObjectToTextFile(partialNervousSystemObject,
                         "./experiments/model/MARK_II/vision/PartialNervousSystem_MARK_II.json");
     }
