@@ -165,10 +165,13 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         // connecting layer 5 region M
         neocortex.changeCurrentRegionTo("I");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+        updateHeapData();
         neocortex.changeCurrentRegionTo("J");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+        updateHeapData();
         neocortex.changeCurrentRegionTo("K");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+        updateHeapData();
         neocortex.changeCurrentRegionTo("L");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
         updateHeapData();
@@ -195,8 +198,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
         updateHeapData();
 
-        return null;
-        //return nervousSystem;
+        return nervousSystem;
     }
 
     /*

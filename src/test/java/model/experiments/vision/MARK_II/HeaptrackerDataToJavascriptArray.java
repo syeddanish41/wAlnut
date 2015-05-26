@@ -57,7 +57,7 @@ public class HeaptrackerDataToJavascriptArray {
             //       in heaptrace.dat
             double rowValueInMilliseconds = rowValueInSeconds * 1000;
 
-            //Convert the heap size into megabytes to pass into heap_util_visualization (toph repo)
+            //Convert the heap size into megabytes
             double rowValueInBytes = Double.valueOf(rowValues[1]);
             double rowValueInMegaBytes = rowValueInBytes / 1000000;
 
