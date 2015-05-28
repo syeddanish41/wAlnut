@@ -18,7 +18,7 @@ public class BigNervousSystem {
 
     private int maxSizeOfAnyObjectInMB;
 
-    public BigNervousSystem(int maxSizeOfARegionInMB, Dimension retinaDimension) {
+    public BigNervousSystem(int maxSizeOfARegionInMB, BigNeocortex bigNeocortex, Dimension retinaDimension) {
 
     }
 

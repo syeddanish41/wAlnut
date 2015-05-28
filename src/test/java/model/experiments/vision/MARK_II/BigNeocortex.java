@@ -15,17 +15,17 @@ import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 public class BigNeocortex {
 
     private int maxSizeOfARegionInMB;
-    private String[] regionListDetails;
+    private String[] regionParameterListInOrder;
     private AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion;
-    private String[] connectionPattern;
+    private String[] connectionParameterListInOrder;
 
-    public BigNeocortex(int maxSizeOfARegionInMB, String[] regionListDetails,
+    public BigNeocortex(int maxSizeOfARegionInMB, String[] regionParameterListInOrder,
                         AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion,
-                        String[] connectionPattern) {
+                        String[] connectionParameterListInOrder) {
         this.maxSizeOfARegionInMB = maxSizeOfARegionInMB;
-        this.regionListDetails = regionListDetails;
+        this.regionParameterListInOrder = regionParameterListInOrder;
         this.neocortexRegionToNeocortexRegion = neocortexRegionToNeocortexRegion;
-        this.connectionPattern = connectionPattern;
+        this.connectionParameterListInOrder = connectionParameterListInOrder;
 
         this.saveConnectedNeocortexInFolder("VisionExperiment_1_brain_model");
 
