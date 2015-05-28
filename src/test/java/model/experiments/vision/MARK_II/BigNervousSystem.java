@@ -1,6 +1,7 @@
 package model.experiments.vision.MARK_II;
 
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
+import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 
 import java.awt.*;
 
@@ -18,7 +19,9 @@ public class BigNervousSystem {
 
     private int maxSizeOfAnyObjectInMB;
 
-    public BigNervousSystem(int maxSizeOfARegionInMB, BigNeocortex bigNeocortex, Dimension retinaDimension) {
+    public BigNervousSystem(int maxSizeOfARegionInMB, BigNeocortex bigNeocortex, Dimension retinaDimension,
+                            AbstractSensorCellsToRegionConnect opticNerve,
+                            String[] retinaConnectionParameterListInOrder) {
 
     }
 

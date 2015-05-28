@@ -1,6 +1,10 @@
 package model.experiments.vision.MARK_II;
 
+import model.MARK_II.Region;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
+import model.util.Rectangle;
+
+import java.io.File;
 
 /**
  * PROBLEM: When a user wants to create a Neocortex object that is too large for
@@ -14,24 +18,54 @@ import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
  */
 public class BigNeocortex {
 
-    private int maxSizeOfARegionInMB;
+    private final int MAX_SIZE_OF_A_REGION_IN_MB;
     private String[] regionParameterListInOrder;
     private AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion;
     private String[] connectionParameterListInOrder;
 
+    private String currentRegionName;
+    private String rootRegionName;
+
     public BigNeocortex(int maxSizeOfARegionInMB, String[] regionParameterListInOrder,
                         AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion,
                         String[] connectionParameterListInOrder) {
-        this.maxSizeOfARegionInMB = maxSizeOfARegionInMB;
+        this.MAX_SIZE_OF_A_REGION_IN_MB = maxSizeOfARegionInMB;
         this.regionParameterListInOrder = regionParameterListInOrder;
         this.neocortexRegionToNeocortexRegion = neocortexRegionToNeocortexRegion;
         this.connectionParameterListInOrder = connectionParameterListInOrder;
 
-        this.saveConnectedNeocortexInFolder("VisionExperiment_1_brain_model");
+        this.currentRegionName = regionParameterListInOrder[0];
+        this.rootRegionName = currentRegionName;
+    }
 
+    public void changeCurrentRegionTo(String newCurrentRegionBiologicalName) {
+        // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
+    }
+
+    public Region getRegion(String regionBiologicalName) {
+        // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
+        return null;
+    }
+
+    public void addToCurrentRegion(Rectangle rectanglePartOfParentRegionToConnectTo, Region childRegion,
+                                   int numberOfColumnsToOverlapAlongNumberOfRows,
+                                   int numberOfColumnsToOverlapAlongNumberOfColumns) {
+        // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
+    }
+
+    public Region getCurrentRegion() {
+        // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
+        return null;
     }
 
     boolean saveConnectedNeocortexInFolder(String folderName) {
+        File file = new File("./src/test/java/model/experiments/vision/MARK_II/" + folderName);
+
+        if (file.mkdir() == false) {
+            throw new IllegalArgumentException(folderName + " is a file that already" +
+                    "exists");
+        }
+
         // TODO:
         return false;
     }
