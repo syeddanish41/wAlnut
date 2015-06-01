@@ -1,6 +1,6 @@
 Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[IntelliJ](#install-in-linuxmacwindows-with-intellij),** or
-**[Gradle](#install-in-linuxmacwindows-with-gradle) |**
+**[Gradle](#install-in-linuxmacwindows-with-gradle) for Linux/Mac/Windows |**
 **[How to contribute](#how-to-contribute) |**
 **[What are all the files here for?](#what-are-all-the-files-here-for) |**
 **[Important brain theories in use](#important-brain-theories-in-use) |**
@@ -47,7 +47,8 @@ found [here](https://github.com/numenta/nupic). For more information please:
 
 - Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f) 
   to become familiar with the neuroscience behind this repository.
-- Read Numenta's great explanation of their research in this [white paper](https://db.tt/FuQWQuwE) 
+- Read Numenta's great explanation of their research in this 
+  [white paper](https://github.com/WalnutiQ/papers/blob/master/HTM_CorticalLearningAlgorithms.pdf) 
   to better understand the theory behind this repository.
 
 Thanks for reading,  
@@ -238,7 +239,8 @@ Q
 
 1. **Theory:** 1 common learning/predicting algorithm in the neocortex of the brain
    - Supportive: 
-     + 1992 Paper [here](https://db.tt/dXTDFAVe) from Department of Brain and 
+     + 1992 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualProjectionsRouted.pdf) 
+       from Department of Brain and 
        Cognitive Sciences at MIT.
        - Summary: A portion of wires of the optic nerve are routed to the auditory 
          cortex in ferrets. The neurons of this primary auditory cortex(A1) with 
@@ -251,8 +253,8 @@ Q
          + implies "*significant implications for possible commonalities in 
            intracortical processing circuits between sensory cortices*".
 
-     + 1988 Paper [here](https://db.tt/RXAOVwfa) from
-       Laboratoire des Neuroscience de la Vision at Universite de Paris.
+     + 1988 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualResponses.pdf) 
+       from Laboratoire des Neuroscience de la Vision at Universite de Paris.
        - Summary: Wires of the optic nerve were routed permanently to the
          main thalamic somatosensory nucleus in hamsters. After the hamsters 
          grew up the neurons in the somatosensory cortex were recorded.
@@ -269,16 +271,16 @@ Q
            similar transformations on their inputs*".
      
    - Not supportive:
-     + 2002 Paper [here](https://db.tt/NJxHdObc) from Vision, Touch and Hearing
-        Research Centre at The University of Queensland.
+     + 2002 Paper [here](https://github.com/WalnutiQ/papers/blob/master/CorticalHeterogeneity.pdf) 
+       from Vision, Touch and Hearing Research Centre at The University of Queensland.
           - "*recent studies have revealed substantial variation in pyramidal
             cell structure in different cortical areas*".
           - Some of these variations like increase in dendritic arbor size(
             dendritic branching) can be resolved with the idea of a common 
             algorithm.
 
-     + 2008 PhD thesis [here](https://db.tt/I2Fi03DS) by Dileep George from 
-        Stanford University
+     + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf) 
+       by Dileep George from Stanford University
           - "*Until we understand and explain the computational reason behind
             a large majority of such variations, the common cortical algorithm
             will have to be considered as a working hypothesis*".
