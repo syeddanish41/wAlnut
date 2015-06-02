@@ -11,8 +11,8 @@ public class NervousSystem {
     private CNS CNS;
     private model.unimplementedBiology.PNS PNS;
 
-    public NervousSystem(Neocortex neocortex, LGN LGN, Retina retina) {
-        this.CNS = new CNS(neocortex, LGN);
+    public NervousSystem(Neocortex neocortex, LGN lgn, Retina retina) {
+        this.CNS = new CNS(neocortex, lgn);
         this.PNS = new PNS(retina);
     }
 
