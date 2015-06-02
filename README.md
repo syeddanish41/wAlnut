@@ -1,6 +1,6 @@
 Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 **[IntelliJ](#install-in-linuxmacwindows-with-intellij),** or
-**[Gradle](#install-in-linuxmacwindows-with-gradle) for Linux/Mac/Windows |**
+**[Gradle](#install-in-linuxmacwindows-with-gradle)** for Linux/Mac/Windows **|**
 **[How to contribute](#how-to-contribute) |**
 **[What are all the files here for?](#what-are-all-the-files-here-for) |**
 **[Important brain theories in use](#important-brain-theories-in-use) |**
@@ -17,7 +17,7 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 Welcome! WalnutiQ is a human brain model simulation in Java. The long term goal 
 of this repository is to store code that can simulate a full sized human brain 
 in real-time. The current short term goal is to simulate a simplified visual 
-pathway from an eye that is able to move to hierarchical regions in layer 3, 4, 
+pathway from an eye that is able to move to hierarchical regions in layer 2/3, 4, 
 & 5 of the neocortex (70+% of the brain).
 
 I believe that a real intelligence machine built on biological computation 

@@ -24,11 +24,12 @@ public class BigNeocortex {
     private String[] connectionParameterListInOrder;
 
     private String currentRegionName;
+    private Region currentRegion; 
     private String rootRegionName;
 
     public BigNeocortex(int maxSizeOfARegionInMB, String[] regionParameterListInOrder,
                         AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion,
-                        String[] connectionParameterListInOrder) {
+                        String[] connectionParameterListInOrder, String pathAndFolderName) {
         this.MAX_SIZE_OF_A_REGION_IN_MB = maxSizeOfARegionInMB;
         this.regionParameterListInOrder = regionParameterListInOrder;
         this.neocortexRegionToNeocortexRegion = neocortexRegionToNeocortexRegion;
@@ -36,6 +37,20 @@ public class BigNeocortex {
 
         this.currentRegionName = regionParameterListInOrder[0];
         this.rootRegionName = currentRegionName;
+
+        this.saveConnectedNeocortexInFolder(pathAndFolderName);
+    } 
+
+    boolean saveConnectedNeocortexInFolder(String pathAndFolderName) {
+        File file = new File(pathAndFolderName);
+
+        if (file.mkdir() == false) {
+            throw new IllegalArgumentException(pathAndFolderName + " is a file that already" +
+                    "exists");
+        }
+
+        // TODO:
+        return false;
     }
 
     public void changeCurrentRegionTo(String newCurrentRegionBiologicalName) {
@@ -47,7 +62,8 @@ public class BigNeocortex {
         return null;
     }
 
-    public void addToCurrentRegion(Rectangle rectanglePartOfParentRegionToConnectTo, Region childRegion,
+    public void addToCurrentRegion(Rectangle rectanglePartOfParentRegionToConnectTo,
+                                   Region childRegion,
                                    int numberOfColumnsToOverlapAlongNumberOfRows,
                                    int numberOfColumnsToOverlapAlongNumberOfColumns) {
         // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
@@ -56,17 +72,5 @@ public class BigNeocortex {
     public Region getCurrentRegion() {
         // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
         return null;
-    }
-
-    boolean saveConnectedNeocortexInFolder(String folderName) {
-        File file = new File("./src/test/java/model/experiments/vision/MARK_II/" + folderName);
-
-        if (file.mkdir() == false) {
-            throw new IllegalArgumentException(folderName + " is a file that already" +
-                    "exists");
-        }
-
-        // TODO:
-        return false;
     }
 }

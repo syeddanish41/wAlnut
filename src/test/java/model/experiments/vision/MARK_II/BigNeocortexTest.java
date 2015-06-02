@@ -28,7 +28,8 @@ public class BigNeocortexTest extends TestCase {
 
         this.bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
                 regionParameterListInOrder, new RegionToRegionRectangleConnect(),
-                regionConnectionParameterListInOrder);
+                regionConnectionParameterListInOrder,
+                "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest");
     }
 
     public void test_saveConnectedNeocortexInFolder() {
