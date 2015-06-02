@@ -31,7 +31,6 @@ public class HowMARK_II_FitsInToBrainAnatomy {
     /**
      * For saving the Java NervousSystem object as a JSON file later on.
      */
-    private static Gson gson;
     private SpatialPooler spatialPooler;
     private TemporalPooler temporalPooler;
     private static String allHeapData;
@@ -47,7 +46,6 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         System.out.println("heapMaxSize = " + heapMaxSizeInMB + " MB");
 
         partialNervousSystem = buildNervousSystem();
-        gson = new Gson();
 
         System.out.println(allHeapData);
         // save all heap size data into a file
@@ -195,31 +193,12 @@ public class HowMARK_II_FitsInToBrainAnatomy {
 //        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 500), new Point(1000, 1000))), L.getColumns(), 8, 8);
 //        updateHeapData();
 //
-//        NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
+//        NervousSystem nervousSystem = new NervousSystem(neocortex, retina); // no LGN with circle surround input for now
 //        updateHeapData();
 //
 //        return nervousSystem;
         return null;
     }
-
-    /*
-    public void test_HowToRunSingleLearningAlgorithmOnNervousSystem() throws IOException {
-        Neocortex neocortex = this.partialNervousSystem.getCNS().getBrain()
-                .getCerebrum().getCerebralCortex().getNeocortex();
-
-        //ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
-        //        this.partialNervousSystem.getPNS().getSNS().getRetina());
-
-        //runForreal(neocortex, imageViewer);
-
-        // save partialNervousSystemObject object in JSON format
-        String partialNervousSystemObject = this.gson
-                .toJson(this.partialNervousSystem);
-        FileInputOutput
-                .saveObjectToTextFile(partialNervousSystemObject,
-                        "./experiments/model/MARK_II/vision/PartialNervousSystem_MARK_II.json");
-    }
-    */
 
     public void runForreal(Neocortex neocortex, ImageViewer imageViewer) throws IOException {
         this.spatialPooler = new SpatialPooler(neocortex.getRegion("I"));
