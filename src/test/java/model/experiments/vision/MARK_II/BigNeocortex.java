@@ -27,42 +27,72 @@ public class BigNeocortex {
     private Region currentRegion; 
     private String rootRegionName;
 
+    /**
+     * @param maxSizeOfARegionInMB
+     * @param regionParameterListInOrder
+     * @param neocortexRegionToNeocortexRegion
+     * @param connectionParameterListInOrder
+     * @param pathAndFolderName Must not contain any numbers in folderName
+     */
     public BigNeocortex(int maxSizeOfARegionInMB, String[] regionParameterListInOrder,
                         AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion,
                         String[] connectionParameterListInOrder, String pathAndFolderName) {
         this.MAX_SIZE_OF_A_REGION_IN_MB = maxSizeOfARegionInMB;
         this.regionParameterListInOrder = regionParameterListInOrder;
-        this.neocortexRegionToNeocortexRegion = neocortexRegionToNeocortexRegion;
+        this.neocortexRegionToNeocortexRegion =
+                neocortexRegionToNeocortexRegion;
         this.connectionParameterListInOrder = connectionParameterListInOrder;
 
         this.currentRegionName = regionParameterListInOrder[0];
         this.rootRegionName = currentRegionName;
 
-        this.saveConnectedNeocortexInFolder(pathAndFolderName);
-    } 
+        //this.saveConnectedNeocortexInFolder(pathAndFolderName);
+    }
 
-    boolean saveConnectedNeocortexInFolder(String pathAndFolderName) {
-        String path = "./src/test/java/model/experiments/vision/MARK_II";
-        File file = new File(path);
+    void saveConnectedNeocortexInFolder(String pathAndFolderName) {
+        // TODO: fix inifinite loop somewhere in here
+        File file = new File(pathAndFolderName);
+        File path = new File(extractPath(pathAndFolderName));
+
+        String newFolderName = extractFolderName(pathAndFolderName);
 
         if (file.mkdir() == false) {
-            // TODO: if there is already a folder/file with the same name add
-            // a number to the folder name
+            // if there is already a folder/file with the same name add
+            // a number to the folder name to be created
+            boolean foundUniqueName = false;
+            int i = 0;
+            while (foundUniqueName == false) {
+                if (i == 0) {
+                    // this is the first time in while loop so no need to remove
+                    // old concatenated number
+                    newFolderName += "_" + String.valueOf(i);
+                } else {
+                    foundUniqueName = true;
+                    // remove old concatenation before doing new concatenation
+                    CharSequence oldNumber = String.valueOf(i);
+                    CharSequence newNumber = String.valueOf(++i);
+                    newFolderName.replace(oldNumber, newNumber);
+                }
 
-            File folder = new File(path);
-            File[] listOfFiles = folder.listFiles();
-
-            for (int i = 0; i < listOfFiles.length; i++) {
-                if (listOfFiles[i].isFile()) {
-                    System.out.println("File " + listOfFiles[i].getName());
-                } else if (listOfFiles[i].isDirectory()) {
-                    System.out.println("Directory " + listOfFiles[i].getName());
+                if (!isFolderInList(newFolderName, path.listFiles())) {
+                    foundUniqueName = true;
                 }
             }
-
+            // now newFolderName is a unique name every time the program is run
         }
 
-        // TODO:
+        // create a new folder to store BigNeocortex object
+        File whereToSaveBigNeocortex = new File(path + newFolderName);
+        whereToSaveBigNeocortex.mkdir();
+    }
+
+    boolean isFolderInList(String folderName, File[] listOfFilesAndFolders) {
+        for (int i = 0; i < listOfFilesAndFolders.length; i++) {
+            if (listOfFilesAndFolders[i].isDirectory() &&
+                    folderName.equals(listOfFilesAndFolders[i])) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -85,5 +115,17 @@ public class BigNeocortex {
     public Region getCurrentRegion() {
         // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
         return null;
+    }
+
+    String extractFolderName(String pathAndFolderName) {
+        // example: String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/FolderName";
+        String[] parts = pathAndFolderName.split("/");
+        String folderName = parts[parts.length - 1];
+        return folderName;
+    }
+
+    String extractPath(String pathAndFolderName) {
+        int lengthOfFolderName = extractFolderName(pathAndFolderName).length();
+        return pathAndFolderName.substring(0, pathAndFolderName.length() - lengthOfFolderName);
     }
 }

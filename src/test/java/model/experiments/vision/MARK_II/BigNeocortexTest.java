@@ -3,6 +3,8 @@ package model.experiments.vision.MARK_II;
 import junit.framework.TestCase;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 
+import java.io.File;
+
 /**
  * @author Q Liu (quinnliu@vt.edu)
  * @date 5/28/2015.
@@ -36,8 +38,10 @@ public class BigNeocortexTest extends TestCase {
     public void test_saveConnectedNeocortexInFolder() {
         assertEquals(1 + 1, 2);
 
-        String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest_1";
-        this.bigNeocortex.saveConnectedNeocortexInFolder(pathAndFolderName);
+        //String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/test_saveConnectedNeocortexInFolder";
+
+        //this.bigNeocortex.saveConnectedNeocortexInFolder(pathAndFolderName);
+
 
 
         // TODO: remove created folder so next time we can recreate folder
