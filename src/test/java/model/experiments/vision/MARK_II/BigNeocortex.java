@@ -38,7 +38,7 @@ public class BigNeocortex {
         this.currentRegionName = regionParameterListInOrder[0];
         this.rootRegionName = currentRegionName;
 
-        this.saveConnectedNeocortexInFolder(pathAndFolderName);
+        //this.saveConnectedNeocortexInFolder(pathAndFolderName);
     } 
 
     boolean saveConnectedNeocortexInFolder(String pathAndFolderName) {
