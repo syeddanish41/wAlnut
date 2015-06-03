@@ -190,37 +190,34 @@ Q
    ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/MARK_I/labeled_MARK_I_version_2_high_contrast.jpg)
    
 ## What are all the files here for
-  - gradle = the actual Gradle code for building our Java code
+  - gradle/wrapper = the actual Gradle code for building our Java code
   - images = images used in training & testing the partial brain model
   - referencedLibraries = contains .jar files(of other people's code) needed to 
                           run WalnutiQ
   - src
-      + main
-        - java
-          + model
-            - experiments
-              + vision = experiments with partial visual pathway models                 
-            - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the 
-              partial brain model. Includes abstract data types for basic brain 
-              structures and learning algorithms that simulate how the brain learns.
-              + [connectTypes](./src/main/java/model/MARK_II/connectTypes) = 
-                allow the different brain structures to connect to each other in
-                a variety of ways
-              + [parameters](./src/main/java/model/MARK_II/parameters) = allows 
-                construction of different WalnutiQ models from command line for 
-                this repo https://github.com/quinnliu/CallWalnutiQ
-              + **[SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java) 
-                = models the sparse & distributed spiking activity of neurons 
-                  seen in the neocortex and models long term potentiation and 
-                  depression on synapses of proximal dendrites**
-              + **[TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java) 
-                = models neocortex's ability to predict future input using long 
-                  term potentiation and depression on synapses of distal dendrites**
-            - [util](./src/main/java/model/util) = classes that enable the brain
-              model properties to be viewed graphically and efficiently saved 
-              and opened  
-      + test = test classes for important classes in the `src/main/java/model` 
-               folder
+      + main/java/model               
+        - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the 
+          partial brain model. Includes abstract data types for basic brain 
+          structures and learning algorithms that simulate how the brain learns.
+          + [connectTypes](./src/main/java/model/MARK_II/connectTypes) = 
+            allow the different brain structures to connect to each other in
+            a variety of ways
+          + [parameters](./src/main/java/model/MARK_II/parameters) = allows 
+            construction of different WalnutiQ models from command line for 
+            this repo https://github.com/quinnliu/CallWalnutiQ
+          + **[SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java) 
+            = models the sparse & distributed spiking activity of neurons 
+              seen in the neocortex and models long term potentiation and 
+              depression on synapses of proximal dendrites**
+          + **[TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java) 
+            = models neocortex's ability to predict future input using long 
+              term potentiation and depression on synapses of distal dendrites**
+        - [util](./src/main/java/model/util) = classes that enable the brain
+          model properties to be viewed graphically and efficiently saved 
+          and opened  
+      + test/java/model = test classes for important classes in the 
+                          `src/main/java/model` folder
+        - experiments/vision = experiments with partial visual pathway models  
   - .gitignore = contains names of files/folders not to add to this repository 
                  but keep in your local WalnutiQ folder
   - .project = when writing your code using Eclipse this file will allow all of

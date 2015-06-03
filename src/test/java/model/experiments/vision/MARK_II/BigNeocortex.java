@@ -38,15 +38,28 @@ public class BigNeocortex {
         this.currentRegionName = regionParameterListInOrder[0];
         this.rootRegionName = currentRegionName;
 
-        //this.saveConnectedNeocortexInFolder(pathAndFolderName);
+        this.saveConnectedNeocortexInFolder(pathAndFolderName);
     } 
 
     boolean saveConnectedNeocortexInFolder(String pathAndFolderName) {
-        File file = new File(pathAndFolderName);
+        String path = "./src/test/java/model/experiments/vision/MARK_II";
+        File file = new File(path);
 
         if (file.mkdir() == false) {
-            throw new IllegalArgumentException(pathAndFolderName + " is a file that already" +
-                    "exists");
+            // TODO: if there is already a folder/file with the same name add
+            // a number to the folder name
+
+            File folder = new File(path);
+            File[] listOfFiles = folder.listFiles();
+
+            for (int i = 0; i < listOfFiles.length; i++) {
+                if (listOfFiles[i].isFile()) {
+                    System.out.println("File " + listOfFiles[i].getName());
+                } else if (listOfFiles[i].isDirectory()) {
+                    System.out.println("Directory " + listOfFiles[i].getName());
+                }
+            }
+
         }
 
         // TODO:

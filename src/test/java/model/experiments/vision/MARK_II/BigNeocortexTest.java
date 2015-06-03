@@ -26,15 +26,18 @@ public class BigNeocortexTest extends TestCase {
         String[] regionConnectionParameterListInOrder = {"0", "0", "30", "60", "A", "4", "4",
                                                          "change to region A"};
 
+        String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest_1";
         this.bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
                 regionParameterListInOrder, new RegionToRegionRectangleConnect(),
                 regionConnectionParameterListInOrder,
-                "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest");
+                pathAndFolderName);
     }
 
     public void test_saveConnectedNeocortexInFolder() {
-        //this.bigNeocortex.saveConnectedNeocortexInFolder("test_saveConnectedNeocortexInFolder_output");
         assertEquals(1 + 1, 2);
+
+        String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest_1";
+        this.bigNeocortex.saveConnectedNeocortexInFolder(pathAndFolderName);
 
 
         // TODO: remove created folder so next time we can recreate folder
