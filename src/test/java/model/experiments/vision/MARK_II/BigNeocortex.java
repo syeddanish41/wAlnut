@@ -49,8 +49,20 @@ public class BigNeocortex {
         //this.saveConnectedNeocortexInFolder(pathAndFolderName);
     }
 
+    public static void main(String[] args) {
+        CharSequence oldNumber = "0";
+        CharSequence newNumber = "1";
+        String example = "folderName_0";
+        System.out.println("example = " + example);
+        example = example.replace(oldNumber, newNumber);
+        System.out.println("example.replace(oldNumber, newNumber);");
+        System.out.println("example = " + example);
+    }
+
+
     void saveConnectedNeocortexInFolder(String pathAndFolderName) {
-        // TODO: fix inifinite loop somewhere in here
+        // TODO: fix inifinite loop somewhere in here after i > 1
+        System.out.println(">>> starting saveConnectedNeocortexInFolder ...");
         File file = new File(pathAndFolderName);
         File path = new File(extractPath(pathAndFolderName));
 
@@ -66,12 +78,12 @@ public class BigNeocortex {
                     // this is the first time in while loop so no need to remove
                     // old concatenated number
                     newFolderName += "_" + String.valueOf(i);
+                    i++;
                 } else {
-                    foundUniqueName = true;
                     // remove old concatenation before doing new concatenation
-                    CharSequence oldNumber = String.valueOf(i);
+                    CharSequence oldNumber = String.valueOf(--i);
                     CharSequence newNumber = String.valueOf(++i);
-                    newFolderName.replace(oldNumber, newNumber);
+                    newFolderName = newFolderName.replace(oldNumber, newNumber);
                 }
 
                 if (!isFolderInList(newFolderName, path.listFiles())) {
@@ -82,7 +94,7 @@ public class BigNeocortex {
         }
 
         // create a new folder to store BigNeocortex object
-        File whereToSaveBigNeocortex = new File(path + newFolderName);
+        File whereToSaveBigNeocortex = new File(path + "/" + newFolderName);
         whereToSaveBigNeocortex.mkdir();
     }
 

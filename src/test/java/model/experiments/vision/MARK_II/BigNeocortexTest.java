@@ -38,9 +38,8 @@ public class BigNeocortexTest extends TestCase {
     public void test_saveConnectedNeocortexInFolder() {
         assertEquals(1 + 1, 2);
 
-        //String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/test_saveConnectedNeocortexInFolder";
-
-        //this.bigNeocortex.saveConnectedNeocortexInFolder(pathAndFolderName);
+        String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/test_saveConnectedNeocortexInFolder";
+        this.bigNeocortex.saveConnectedNeocortexInFolder(pathAndFolderName);
 
 
 
