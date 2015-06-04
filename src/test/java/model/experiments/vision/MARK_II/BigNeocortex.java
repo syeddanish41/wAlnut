@@ -88,8 +88,9 @@ public class BigNeocortex {
 
     boolean isFolderInList(String folderName, File[] listOfFilesAndFolders) {
         for (int i = 0; i < listOfFilesAndFolders.length; i++) {
+
             if (listOfFilesAndFolders[i].isDirectory() &&
-                    folderName.equals(listOfFilesAndFolders[i])) {
+                    folderName.equals(listOfFilesAndFolders[i].getName())) {
                 return true;
             }
         }

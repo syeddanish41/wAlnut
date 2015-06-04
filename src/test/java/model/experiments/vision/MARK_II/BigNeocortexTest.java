@@ -46,4 +46,12 @@ public class BigNeocortexTest extends TestCase {
 
         // TODO: remove created folder so next time we can recreate folder
     }
+
+    public void test_isFolderInList() {
+        File path = new File("./src/test/java/model/experiments/vision/MARK_II/");
+
+        assertFalse(this.bigNeocortex.isFolderInList("fakeFolder", path.listFiles()));
+        assertTrue(this.bigNeocortex.isFolderInList
+                ("test_saveConnectedNeocortexInFolder", path.listFiles()));
+    }
 }
