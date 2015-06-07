@@ -50,15 +50,23 @@ public class BigNeocortex {
     }
 
     public static void main(String[] args) {
-        CharSequence oldNumber = "0";
-        CharSequence newNumber = "1";
-        String example = "folderName_0";
+        CharSequence oldNumber = "123";
+        CharSequence newNumber = "124";
+        String example = "folderName__123";
         System.out.println("example = " + example);
-        example = example.replace(oldNumber, newNumber);
-        System.out.println("example.replace(oldNumber, newNumber);");
+
+        int indexOf__ = example.indexOf("__");
+        System.out.println("indexOf__ = " + indexOf__);
+        String folderNumber = example.substring(indexOf__ + 2);
+        System.out.println("folderNumber = " + folderNumber);
+        int folderNum = Integer.valueOf(folderNumber) + 1;
+        System.out.println("folderNum = " + folderNum);
+        String strFolderNumber = String.valueOf(folderNum);
+        System.out.println("strFolderNumber = " + strFolderNumber);
+        example = example.replace(oldNumber, strFolderNumber);
+
         System.out.println("example = " + example);
     }
-
 
     void saveConnectedNeocortexInFolder(String pathAndFolderName) {
         // TODO: fix inifinite loop somewhere in here after i > 1
@@ -74,28 +82,37 @@ public class BigNeocortex {
             boolean foundUniqueName = false;
             int i = 0;
             while (foundUniqueName == false) {
-                if (i == 0) {
-                    // this is the first time in while loop so no need to remove
-                    // old concatenated number
-                    newFolderName += "_" + String.valueOf(i);
-                    i++;
-                } else {
-                    // remove old concatenation before doing new concatenation
-                    CharSequence oldNumber = String.valueOf(--i);
-                    CharSequence newNumber = String.valueOf(++i);
-                    newFolderName = newFolderName.replace(oldNumber, newNumber);
-                }
+                if (isFolderInList(newFolderName, path.listFiles())) {
+                    // we need to change newFolderName to something unique
+                    CharSequence twoUnderscores = "__";
+                    if (newFolderName.contains(twoUnderscores)) {
+                        // this is not the first time this folder has been
+                        // created so increment number after 2 underscores
+                        int indexOf2Underscores = newFolderName.indexOf("__");
+                        int indexOfFolderNumber = indexOf2Underscores + 2;
+                        String folderNumber = newFolderName.substring(indexOfFolderNumber);
+                        int folderNumberPlusOne = Integer.valueOf(folderNumber) + 1;
 
-                if (!isFolderInList(newFolderName, path.listFiles())) {
+                        String newFolderNumber = String.valueOf(folderNumberPlusOne);
+                        newFolderName = newFolderName.replace(folderNumber, newFolderNumber);
+                    } else {
+                        // this is the 2nd time this folder will be created
+                        // with an extra number 0 at the end
+                        newFolderName += "__" + String.valueOf(i);
+                        foundUniqueName = true;
+                    }
+                } else {
                     foundUniqueName = true;
                 }
             }
             // now newFolderName is a unique name every time the program is run
-        }
 
-        // create a new folder to store BigNeocortex object
-        File whereToSaveBigNeocortex = new File(path + "/" + newFolderName);
-        whereToSaveBigNeocortex.mkdir();
+            // create a new folder to store BigNeocortex object
+            File whereToSaveBigNeocortex = new File(path + "/" + newFolderName);
+            whereToSaveBigNeocortex.mkdir();
+        } else {
+            // file.mkdir() worked so there is no need to create a unique folder name
+        }
     }
 
     boolean isFolderInList(String folderName, File[] listOfFilesAndFolders) {
