@@ -53,6 +53,9 @@ public class HeapTracker {
      * @return True if used_heap/max_heap > percentage; otherwise return false.
      */
     public boolean isUsedHeapPercentageOver(double percentage) {
+        if (percentage < 0 || percentage > 1) {
+            throw new IllegalArgumentException("percentage must be between 0 and 1");
+        }
         double used = (double) this.getUsedHeapInBytes();
         double max = (double) this.getHeapMaxSizeInBytes();
         return (used/max) > percentage;

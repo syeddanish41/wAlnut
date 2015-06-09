@@ -47,7 +47,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         System.out.println(heapTracker.getAllHeapData());
 
         // save all heap size data into a file
-        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData.txt");
+        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
 
         System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
     }

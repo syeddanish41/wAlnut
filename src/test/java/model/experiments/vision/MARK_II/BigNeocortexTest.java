@@ -15,7 +15,7 @@ public class BigNeocortexTest extends TestCase {
     private BigNeocortex bigNeocortex;
 
     public void setUp() throws IOException {
-        int maxSizeOfARegionInMB = 1024;
+        int maxSizeOfARegionInMB = 256;
         // pass it an array of all Region names
         // Example List:
         // index_0 = root, 60, 60, 4, 20, 3
@@ -42,6 +42,7 @@ public class BigNeocortexTest extends TestCase {
 
     public void test_instantiateAndSaveAllUnconnectedRegions() {
         assertEquals(1, 2-1);
+        // TODO: fully test if JSON files are in 2 different folders
     }
 
     public void test_createUniqueFolderToSaveBigNeocortex() {

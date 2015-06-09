@@ -26,7 +26,7 @@ import java.io.IOException;
  */
 public class BigNeocortex {
 
-    private final int MAX_SIZE_OF_A_REGION_IN_MB;
+    private final double MAX_HEAP_USE_PERCENTAGE;
     private String rootRegionName;
     private Region currentRegion;
     private AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion;
@@ -60,7 +60,6 @@ public class BigNeocortex {
                                 neocortexRegionToNeocortexRegion,
                         String[] connectionParameterListInOrder, String
                                 pathAndFolderName) throws IOException {
-        this.MAX_SIZE_OF_A_REGION_IN_MB = maxSizeOfARegionInMB;
         this.rootRegionName = regionParameterListInOrder[0];
         this.neocortexRegionToNeocortexRegion =
                 neocortexRegionToNeocortexRegion;
@@ -69,15 +68,23 @@ public class BigNeocortex {
 
         this.gson = new Gson();
         this.heapTracker = new HeapTracker();
-        this.instantiateAndSaveAllUnconnectedRegions(regionParameterListInOrder);
+        double maxHeapSizeInMB = (double) this.heapTracker.getHeapMaxSizeInBytes() / 1000000;
+        this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfARegionInMB / maxHeapSizeInMB;
+
+        this.instantiateAndSaveAllUnconnectedRegions
+                (regionParameterListInOrder);
+
+        this.heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData_BigNeocortex.txt");
     }
 
     /**
      * Sets root Region as currentRegion after completion.
+     *
      * @param regionParameterListInOrder
      * @throws IOException
      */
-    void instantiateAndSaveAllUnconnectedRegions(String[] regionParameterListInOrder) throws IOException {
+    void instantiateAndSaveAllUnconnectedRegions(String[]
+                                                         regionParameterListInOrder) throws IOException {
         for (int i = 0; i < regionParameterListInOrder.length; i = i + 6) {
             // NOTE: new region every 6 elements
 
@@ -100,10 +107,21 @@ public class BigNeocortex {
                     cellsPerColumn, percentMinimumOverlapScore,
                     desiredLocalActivity);
 
+            // 30% because we want enough room for 2 Regions and later for
+            // each Region to grow in size for all new synapses and
+            // dendrites created
+            if (this.heapTracker.isUsedHeapPercentageOver(this.MAX_HEAP_USE_PERCENTAGE)) {
+                throw new IllegalArgumentException("your parameters for " +
+                        "Region " + region.getBiologicalName() +
+                        " are using too much of the heap and must be decreased");
+            }
+
             // save Region as JSON file
             String regionAsJSON = this.gson.toJson(region);
-            String finalPathAndFile = this.pathAndFolderName + "/" + biologicalName + ".json";
-            FileInputOutput.saveObjectToTextFile(regionAsJSON, finalPathAndFile);
+            String finalPathAndFile = this.pathAndFolderName + "/" +
+                    biologicalName + ".json";
+            FileInputOutput.saveObjectToTextFile(regionAsJSON,
+                    finalPathAndFile);
 
             if (i == 0) {
                 // this is the root region's parameters

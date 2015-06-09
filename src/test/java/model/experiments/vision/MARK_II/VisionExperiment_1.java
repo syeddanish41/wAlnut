@@ -23,7 +23,7 @@ public class VisionExperiment_1 extends TestCase {
         System.out.println("Running VisionExperiment_1.main() ...");
 
         // ===================== Build Nervous System ==========================
-        int maxSizeOfARegionInMB = 1024;
+        int maxSizeOfARegionInMB = 256;
         // pass it an array of all Region names
         // Example List:
         // index_0 = root, 60, 60, 4, 20, 3
