@@ -26,13 +26,9 @@ import java.io.IOException;
 public class BigNeocortex {
 
     private final int MAX_SIZE_OF_A_REGION_IN_MB;
-    private String[] regionParameterListInOrder;
-    private AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion;
-    private String[] connectionParameterListInOrder;
-
-    private String currentRegionName;
-    private Region currentRegion;
     private String rootRegionName;
+    private Region currentRegion;
+    private AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion;
     private String pathAndFolderName; // BigNeocortex is saved as JSON file
 
     private Gson gson;
@@ -63,39 +59,37 @@ public class BigNeocortex {
                         String[] connectionParameterListInOrder, String
                                 pathAndFolderName) throws IOException {
         this.MAX_SIZE_OF_A_REGION_IN_MB = maxSizeOfARegionInMB;
-        this.regionParameterListInOrder = regionParameterListInOrder;
+        this.rootRegionName = regionParameterListInOrder[0];
         this.neocortexRegionToNeocortexRegion =
                 neocortexRegionToNeocortexRegion;
-        this.connectionParameterListInOrder = connectionParameterListInOrder;
-
-        this.currentRegionName = regionParameterListInOrder[0];
-        this.rootRegionName = currentRegionName;
         this.pathAndFolderName = this
                 .createUniqueFolderToSaveBigNeocortex(pathAndFolderName);
 
         this.gson = new Gson();
-        this.instantiateAndSaveAllUnconnectedRegions();
+        this.instantiateAndSaveAllUnconnectedRegions(regionParameterListInOrder);
     }
 
-    void instantiateAndSaveAllUnconnectedRegions() throws IOException {
-        // TODO: instantiate and save all regions
-        // NOTE: new connection pattern every 7 elements
-
-        for (int i = 0; i < this.regionParameterListInOrder.length; i = i + 6) {
+    /**
+     * Sets root Region as currentRegion after completion.
+     * @param regionParameterListInOrder
+     * @throws IOException
+     */
+    void instantiateAndSaveAllUnconnectedRegions(String[] regionParameterListInOrder) throws IOException {
+        for (int i = 0; i < regionParameterListInOrder.length; i = i + 6) {
             // NOTE: new region every 6 elements
 
             // convert String parameters into correct type
-            String biologicalName = this.regionParameterListInOrder[i];
-            int numberOfColumnsAlongRowsDimension = Integer.valueOf(this
-                    .regionParameterListInOrder[i + 1]);
-            int numberOfColumnsAlongColumnsDimension = Integer.valueOf(this
-                    .regionParameterListInOrder[i + 2]);
-            int cellsPerColumn = Integer.valueOf(this
-                    .regionParameterListInOrder[i + 3]);
-            double percentMinimumOverlapScore = Double.valueOf(this
-                    .regionParameterListInOrder[i + 4]);
-            int desiredLocalActivity = Integer.valueOf(this
-                    .regionParameterListInOrder[i + 5]);
+            String biologicalName = regionParameterListInOrder[i];
+            int numberOfColumnsAlongRowsDimension = Integer.valueOf(
+                    regionParameterListInOrder[i + 1]);
+            int numberOfColumnsAlongColumnsDimension = Integer.valueOf(
+                    regionParameterListInOrder[i + 2]);
+            int cellsPerColumn = Integer.valueOf(
+                    regionParameterListInOrder[i + 3]);
+            double percentMinimumOverlapScore = Double.valueOf(
+                    regionParameterListInOrder[i + 4]);
+            int desiredLocalActivity = Integer.valueOf(
+                    regionParameterListInOrder[i + 5]);
 
             Region region = new Region(biologicalName,
                     numberOfColumnsAlongRowsDimension,
@@ -107,6 +101,11 @@ public class BigNeocortex {
             String regionAsJSON = this.gson.toJson(region);
             String finalPathAndFile = this.pathAndFolderName + "/" + biologicalName + ".json";
             FileInputOutput.saveObjectToTextFile(regionAsJSON, finalPathAndFile);
+
+            if (i == 0) {
+                // this is the root region's parameters
+                this.currentRegion = region;
+            }
         }
     }
 

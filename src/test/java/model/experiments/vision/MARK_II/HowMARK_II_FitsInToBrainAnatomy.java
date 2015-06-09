@@ -13,6 +13,7 @@ import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.Retina;
 import model.unimplementedBiology.NervousSystem;
 import model.util.FileInputOutput;
+import model.util.HeapTracker;
 import model.util.Point3D;
 import model.util.Rectangle;
 
@@ -33,41 +34,22 @@ public class HowMARK_II_FitsInToBrainAnatomy {
      */
     private SpatialPooler spatialPooler;
     private TemporalPooler temporalPooler;
-    private static String allHeapData;
-    private static long startTime;
+
+    private static HeapTracker heapTracker;
 
     public static void main(String[] args) throws IOException {
         System.out.println("Running HowMARK_II_FitsIntoBrainAnatomy.main() ...");
 
-        allHeapData = new String();
-        startTime = System.currentTimeMillis();
-
-        long heapMaxSizeInMB = Runtime.getRuntime().maxMemory() / 1000000;
-        System.out.println("heapMaxSize = " + heapMaxSizeInMB + " MB");
+        heapTracker = new HeapTracker();
 
         partialNervousSystem = buildNervousSystem();
 
-        System.out.println(allHeapData);
+        System.out.println(heapTracker.getAllHeapData());
+
         // save all heap size data into a file
-        FileInputOutput.saveObjectToTextFile(allHeapData,
-                "./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData.txt");
+        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData.txt");
 
         System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
-    }
-
-    static void updateHeapData() {
-        long heapFreeSizeInBytes = Runtime.getRuntime().freeMemory();
-        long heapSizeInBytes = Runtime.getRuntime().totalMemory();
-        long usedHeapSizeInBytes = heapSizeInBytes - heapFreeSizeInBytes;
-
-        long usedHeapSizeInMB = (heapSizeInBytes - heapFreeSizeInBytes) / 1000000;
-        System.out.println("usedHeapSize = " + usedHeapSizeInMB + " MB");
-
-        double currentRunTimeInMilliseconds = System.currentTimeMillis() - startTime;
-        double currentRunTimeInSeconds = currentRunTimeInMilliseconds / 1000;
-
-        String addToFile = Double.toString(currentRunTimeInSeconds) + " " + usedHeapSizeInBytes + "\n";
-        allHeapData += addToFile;
     }
 
     /**
@@ -103,9 +85,9 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         int DLA = 3; // = desired local activity
 
         // regions
-        updateHeapData();
+        heapTracker.updateHeapData();
         Region root = new Region("root", 60, 60, fourNeurons, PMO, DLA);
-        updateHeapData();
+        heapTracker.updateHeapData();
         Region A = new Region("A", 60, 60, fourNeurons, PMO, DLA);
         Region B = new Region("B", 60, 60, fourNeurons, PMO, DLA);
         Region C = new Region("C", 125, 125, oneNeuron, PMO, DLA);
@@ -119,46 +101,46 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         Region J = new Region("J", 250, 250, oneNeuron, PMO, DLA);
         Region K = new Region("K", 250, 250, oneNeuron, PMO, DLA);
         Region L = new Region("L", 250, 250, oneNeuron, PMO, DLA);
-        updateHeapData();
+        heapTracker.updateHeapData();
 
         // connecting all regions together
         Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(30, 60)), A, 4, 4);
         neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new Point(60, 60)), B, 4, 4);
-        updateHeapData();
+        heapTracker.updateHeapData();
 
         neocortex.changeCurrentRegionTo("A");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), C, 4, 4);
-        updateHeapData();
+        heapTracker.updateHeapData();
 
         neocortex.changeCurrentRegionTo("B");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(60, 60)), D, 4, 4);
-        updateHeapData();
+        heapTracker.updateHeapData();
 
         neocortex.changeCurrentRegionTo("C");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), E, 4, 4);
         neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), F, 4, 4);
-        updateHeapData();
+        heapTracker.updateHeapData();
 
         neocortex.changeCurrentRegionTo("D");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), G, 4, 4);
         neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), H, 4, 4);
-        updateHeapData();
+        heapTracker.updateHeapData();
 
         neocortex.changeCurrentRegionTo("E");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), I, 4, 4);
-        updateHeapData();
+        heapTracker.updateHeapData();
 
         neocortex.changeCurrentRegionTo("F");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), J, 4, 4);
-        updateHeapData();
+        heapTracker.updateHeapData();
 
         neocortex.changeCurrentRegionTo("G");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), K, 4, 4);
 
         neocortex.changeCurrentRegionTo("H");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 4, 4);
-        updateHeapData();
+        heapTracker.updateHeapData();
 
         // connecting layer 5 region M
 //        neocortex.changeCurrentRegionTo("I");
