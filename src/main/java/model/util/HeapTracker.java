@@ -47,4 +47,14 @@ public class HeapTracker {
     public long getHeapMaxSizeInBytes() {
         return Runtime.getRuntime().maxMemory();
     }
+
+    /**
+     * @param percentage a number between 0 and 1 representing percentage.
+     * @return True if used_heap/max_heap > percentage; otherwise return false.
+     */
+    public boolean isUsedHeapPercentageOver(double percentage) {
+        double used = (double) this.getUsedHeapInBytes();
+        double max = (double) this.getHeapMaxSizeInBytes();
+        return (used/max) > percentage;
+    }
 }
