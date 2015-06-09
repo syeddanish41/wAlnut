@@ -39,7 +39,7 @@ public class VisionExperiment_1 extends TestCase {
 
         BigNeocortex bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
                 regionParameterListInOrder, new RegionToRegionRectangleConnect(),
-                regionConnectionParameterListInOrder);
+                regionConnectionParameterListInOrder, "VisionExperiment_1");
 
         Dimension retinaDimension = new Dimension(1000, 1000);
         AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
