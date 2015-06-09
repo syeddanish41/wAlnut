@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import model.MARK_II.Region;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.util.FileInputOutput;
+import model.util.HeapTracker;
 import model.util.Rectangle;
 
 import java.io.File;
@@ -32,6 +33,7 @@ public class BigNeocortex {
     private String pathAndFolderName; // BigNeocortex is saved as JSON file
 
     private Gson gson;
+    private HeapTracker heapTracker;
 
     /**
      * @param maxSizeOfARegionInMB
@@ -66,6 +68,7 @@ public class BigNeocortex {
                 .createUniqueFolderToSaveBigNeocortex(pathAndFolderName);
 
         this.gson = new Gson();
+        this.heapTracker = new HeapTracker();
         this.instantiateAndSaveAllUnconnectedRegions(regionParameterListInOrder);
     }
 

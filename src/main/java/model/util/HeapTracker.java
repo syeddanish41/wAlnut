@@ -19,18 +19,13 @@ public class HeapTracker {
     }
 
     public void updateHeapData() {
-        long heapFreeSizeInBytes = Runtime.getRuntime().freeMemory();
-        long heapSizeInBytes = Runtime.getRuntime().totalMemory();
-        long usedHeapSizeInBytes = heapSizeInBytes - heapFreeSizeInBytes;
-
-        long usedHeapSizeInMB = (heapSizeInBytes - heapFreeSizeInBytes) / 1000000;
-        System.out.println("usedHeapSize = " + usedHeapSizeInMB + " MB");
+        System.out.println("usedHeapSize = " + this.getUsedHeapInBytes() / 1000000 + " MB");
 
         double currentRunTimeInMilliseconds = System.currentTimeMillis() - this.START_TIME;
         double currentRunTimeInSeconds = currentRunTimeInMilliseconds / 1000;
         System.out.println("currentRunTimeInSeconds = " + currentRunTimeInSeconds);
 
-        String addToFile = Double.toString(currentRunTimeInSeconds) + " " + usedHeapSizeInBytes + "\n";
+        String addToFile = Double.toString(currentRunTimeInSeconds) + " " + this.getUsedHeapInBytes() + "\n";
         allHeapData += addToFile;
     }
 
@@ -40,5 +35,16 @@ public class HeapTracker {
 
     public void printAllHeapDataToFile(String pathAndFileName) throws IOException {
         FileInputOutput.saveObjectToTextFile(this.allHeapData, pathAndFileName);
+    }
+
+    public long getUsedHeapInBytes() {
+        long heapFreeSizeInBytes = Runtime.getRuntime().freeMemory();
+        long heapSizeInBytes = Runtime.getRuntime().totalMemory();
+        long usedHeapSizeInBytes = heapSizeInBytes - heapFreeSizeInBytes;
+        return usedHeapSizeInBytes;
+    }
+
+    public long getHeapMaxSizeInBytes() {
+        return Runtime.getRuntime().maxMemory();
     }
 }
