@@ -4,10 +4,12 @@ import junit.framework.TestCase;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * @author Q Liu (quinnliu@vt.edu)
- * @date 5/28/2015.
+ * @date 6/9/2015.
  */
 public class BigNeocortexTest extends TestCase {
 
@@ -21,35 +23,86 @@ public class BigNeocortexTest extends TestCase {
         // index_1 = A   , 60, 60, 4, 20, 3
 
         // NOTE: new region every 6 elements
-        String[] regionParameterListInOrder = {"root", "60", "60", "4", "20", "3",
-                                               "A", "60", "60", "4", "20", "3"};
+        String[] regionParameterListInOrder = {"root", "60", "60", "4", "20",
+                "3",
+                "A", "60", "60", "4", "20", "3"};
 
         // NOTE: new connection pattern every 7 elements
-        String[] regionConnectionParameterListInOrder = {"0", "0", "30", "60", "A", "4", "4",
-                                                         "change to region A"};
+        String[] regionConnectionParameterListInOrder = {"0", "0", "30",
+                "60", "A", "4", "4",
+                "change to region A"};
 
-        String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest_1";
+        String pathAndFolderName = "" +
+                "./src/test/java/model/experiments/vision/MARK_II" +
+                "/BigNeocortexTest_1";
         this.bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
-                regionParameterListInOrder, new RegionToRegionRectangleConnect(),
+                regionParameterListInOrder, new
+                RegionToRegionRectangleConnect(),
                 regionConnectionParameterListInOrder,
                 pathAndFolderName);
     }
 
     public void test_saveConnectedNeocortexInFolder() {
-        assertEquals(1 + 1, 2);
+//        assertEquals(1 + 1, 2);
+//
+        File path = new File("" +
+                "./src/test/java/model/experiments/vision/MARK_II/");
+        // currently there is no folder by that name in the folder MARK_II
+        assertFalse(this.bigNeocortex.isFolderInList
+                ("test_saveConnectedNeocortexInFolder", path.listFiles()));
 
-        String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/test_saveConnectedNeocortexInFolder";
+        String pathAndFolderName = "" +
+                "./src/test/java/model/experiments/vision/MARK_II" +
+                "/test_saveConnectedNeocortexInFolder";
+        this.bigNeocortex.saveConnectedNeocortexInFolder(pathAndFolderName);
+        assertTrue(this.bigNeocortex.isFolderInList
+                ("test_saveConnectedNeocortexInFolder", path.listFiles()));
+
+        assertFalse(this.bigNeocortex.isFolderInList
+                ("test_saveConnectedNeocortexInFolder__0", path.listFiles()));
         this.bigNeocortex.saveConnectedNeocortexInFolder(pathAndFolderName);
 
+        assertTrue(this.bigNeocortex.isFolderInList
+                ("test_saveConnectedNeocortexInFolder__0", path.listFiles()));
 
+        assertFalse(this.bigNeocortex.isFolderInList
+                ("test_saveConnectedNeocortexInFolder__1", path.listFiles()));
+        this.bigNeocortex.saveConnectedNeocortexInFolder(pathAndFolderName);
+        assertTrue(this.bigNeocortex.isFolderInList
+                ("test_saveConnectedNeocortexInFolder__1", path.listFiles()));
 
-        // TODO: remove created folder so next time we can recreate folder
+        assertFalse(this.bigNeocortex.isFolderInList
+                ("test_saveConnectedNeocortexInFolder__2", path.listFiles()));
+        this.bigNeocortex.saveConnectedNeocortexInFolder(pathAndFolderName);
+        assertTrue(this.bigNeocortex.isFolderInList
+                ("test_saveConnectedNeocortexInFolder__2", path.listFiles()));
+
+        File folder = new File(pathAndFolderName);
+        deleteFolder(folder);
+        File folder__0 = new File(pathAndFolderName + "__0");
+        deleteFolder(folder__0);
+        File folder__1 = new File(pathAndFolderName + "__1");
+        deleteFolder(folder__1);
+        File folder__2 = new File(pathAndFolderName + "__2");
+        deleteFolder(folder__2);
+    }
+
+    void deleteFolder(File file){
+        File[] contents = file.listFiles();
+        if (contents != null) {
+            for (File f : contents) {
+                deleteFolder(f);
+            }
+        }
+        file.delete();
     }
 
     public void test_isFolderInList() {
-        File path = new File("./src/test/java/model/experiments/vision/MARK_II/");
+        File path = new File("" +
+                "./src/test/java/model/experiments/vision/MARK_II/");
 
-        assertFalse(this.bigNeocortex.isFolderInList("fakeFolder", path.listFiles()));
+        assertFalse(this.bigNeocortex.isFolderInList("fakeFolder", path
+                .listFiles()));
         assertTrue(this.bigNeocortex.isFolderInList
                 ("test_saveConnectedNeocortexInFolder", path.listFiles()));
     }

@@ -8,13 +8,15 @@ import java.io.File;
 
 /**
  * PROBLEM: When a user wants to create a Neocortex object that is too large for
- * the Java Heap. This is usually when you want to build a Neocortex with 0.5+ million Neurons.
- *
- * SOLUTION: This class provides a easy to use API for creating your Neocortex as separately
+ * the Java Heap. This is usually when you want to build a Neocortex with 0
+ * .5+ million Neurons.
+ * <p/>
+ * SOLUTION: This class provides a easy to use API for creating your
+ * Neocortex as separately
  * saved JSON files.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @date 5/27/2015.
+ * @date 6/9/2015.
  */
 public class BigNeocortex {
 
@@ -24,19 +26,15 @@ public class BigNeocortex {
     private String[] connectionParameterListInOrder;
 
     private String currentRegionName;
-    private Region currentRegion; 
+    private Region currentRegion;
     private String rootRegionName;
 
-    /**
-     * @param maxSizeOfARegionInMB
-     * @param regionParameterListInOrder
-     * @param neocortexRegionToNeocortexRegion
-     * @param connectionParameterListInOrder
-     * @param pathAndFolderName Must not contain any numbers in folderName
-     */
-    public BigNeocortex(int maxSizeOfARegionInMB, String[] regionParameterListInOrder,
-                        AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion,
-                        String[] connectionParameterListInOrder, String pathAndFolderName) {
+    public BigNeocortex(int maxSizeOfARegionInMB, String[]
+            regionParameterListInOrder,
+                        AbstractRegionToRegionConnect
+                                neocortexRegionToNeocortexRegion,
+                        String[] connectionParameterListInOrder, String
+                                pathAndFolderName) {
         this.MAX_SIZE_OF_A_REGION_IN_MB = maxSizeOfARegionInMB;
         this.regionParameterListInOrder = regionParameterListInOrder;
         this.neocortexRegionToNeocortexRegion =
@@ -49,28 +47,7 @@ public class BigNeocortex {
         //this.saveConnectedNeocortexInFolder(pathAndFolderName);
     }
 
-    public static void main(String[] args) {
-        CharSequence oldNumber = "123";
-        CharSequence newNumber = "124";
-        String example = "folderName__123";
-        System.out.println("example = " + example);
-
-        int indexOf__ = example.indexOf("__");
-        System.out.println("indexOf__ = " + indexOf__);
-        String folderNumber = example.substring(indexOf__ + 2);
-        System.out.println("folderNumber = " + folderNumber);
-        int folderNum = Integer.valueOf(folderNumber) + 1;
-        System.out.println("folderNum = " + folderNum);
-        String strFolderNumber = String.valueOf(folderNum);
-        System.out.println("strFolderNumber = " + strFolderNumber);
-        example = example.replace(oldNumber, strFolderNumber);
-
-        System.out.println("example = " + example);
-    }
-
     void saveConnectedNeocortexInFolder(String pathAndFolderName) {
-        // TODO: fix inifinite loop somewhere in here after i > 1
-        System.out.println(">>> starting saveConnectedNeocortexInFolder ...");
         File file = new File(pathAndFolderName);
         File path = new File(extractPath(pathAndFolderName));
 
@@ -90,11 +67,15 @@ public class BigNeocortex {
                         // created so increment number after 2 underscores
                         int indexOf2Underscores = newFolderName.indexOf("__");
                         int indexOfFolderNumber = indexOf2Underscores + 2;
-                        String folderNumber = newFolderName.substring(indexOfFolderNumber);
-                        int folderNumberPlusOne = Integer.valueOf(folderNumber) + 1;
+                        String folderNumber = newFolderName.substring
+                                (indexOfFolderNumber);
+                        int folderNumberPlusOne = Integer.valueOf
+                                (folderNumber) + 1;
 
-                        String newFolderNumber = String.valueOf(folderNumberPlusOne);
-                        newFolderName = newFolderName.replace(folderNumber, newFolderNumber);
+                        String newFolderNumber = String.valueOf
+                                (folderNumberPlusOne);
+                        newFolderName = newFolderName.replace(folderNumber,
+                                newFolderNumber);
                     } else {
                         // this is the 2nd time this folder will be created
                         // with an extra number 0 at the end
@@ -110,7 +91,8 @@ public class BigNeocortex {
             File whereToSaveBigNeocortex = new File(path + "/" + newFolderName);
             whereToSaveBigNeocortex.mkdir();
         } else {
-            // file.mkdir() worked so there is no need to create a unique folder name
+            // file.mkdir() worked so there is no need to create a unique
+            // folder name
         }
     }
 
@@ -126,28 +108,34 @@ public class BigNeocortex {
     }
 
     public void changeCurrentRegionTo(String newCurrentRegionBiologicalName) {
-        // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
+        // TODO: implement this method with total used heap size <
+        // MAX_SIZE_OF_A_REGION_IN_MB
     }
 
     public Region getRegion(String regionBiologicalName) {
-        // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
+        // TODO: implement this method with total used heap size <
+        // MAX_SIZE_OF_A_REGION_IN_MB
         return null;
     }
 
-    public void addToCurrentRegion(Rectangle rectanglePartOfParentRegionToConnectTo,
+    public void addToCurrentRegion(Rectangle
+                                           rectanglePartOfParentRegionToConnectTo,
                                    Region childRegion,
                                    int numberOfColumnsToOverlapAlongNumberOfRows,
                                    int numberOfColumnsToOverlapAlongNumberOfColumns) {
-        // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
+        // TODO: implement this method with total used heap size <
+        // MAX_SIZE_OF_A_REGION_IN_MB
     }
 
     public Region getCurrentRegion() {
-        // TODO: implement this method with total used heap size < MAX_SIZE_OF_A_REGION_IN_MB
+        // TODO: implement this method with total used heap size <
+        // MAX_SIZE_OF_A_REGION_IN_MB
         return null;
     }
 
     String extractFolderName(String pathAndFolderName) {
-        // example: String pathAndFolderName = "./src/test/java/model/experiments/vision/MARK_II/FolderName";
+        // example: String pathAndFolderName = "
+        // ./src/test/java/model/experiments/vision/MARK_II/FolderName";
         String[] parts = pathAndFolderName.split("/");
         String folderName = parts[parts.length - 1];
         return folderName;
@@ -155,6 +143,7 @@ public class BigNeocortex {
 
     String extractPath(String pathAndFolderName) {
         int lengthOfFolderName = extractFolderName(pathAndFolderName).length();
-        return pathAndFolderName.substring(0, pathAndFolderName.length() - lengthOfFolderName);
+        return pathAndFolderName.substring(0, pathAndFolderName.length() -
+                lengthOfFolderName);
     }
 }
