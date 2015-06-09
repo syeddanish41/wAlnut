@@ -99,7 +99,6 @@ public class BigNeocortex {
                         // this is the 2nd time this folder will be created
                         // with an extra number 0 at the end
                         newFolderName += "__" + String.valueOf(i);
-                        foundUniqueName = true;
                     }
                 } else {
                     foundUniqueName = true;
