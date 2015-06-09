@@ -100,11 +100,11 @@ public class BigNeocortexTest extends TestCase {
 
     public void test_isFolderInList() {
         File path = new File("" +
-                "./src/test/java/model/experiments/vision/MARK_II/");
+                "./src/test/java/model/experiments/vision/");
 
         assertFalse(this.bigNeocortex.isFolderInList("fakeFolder", path
                 .listFiles()));
         assertTrue(this.bigNeocortex.isFolderInList
-                ("test_saveConnectedNeocortexInFolder", path.listFiles()));
+                ("MARK_II", path.listFiles()));
     }
 }

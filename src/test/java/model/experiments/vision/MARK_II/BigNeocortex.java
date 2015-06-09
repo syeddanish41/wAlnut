@@ -74,6 +74,8 @@ public class BigNeocortex {
         this.instantiateAndSaveAllUnconnectedRegions
                 (regionParameterListInOrder);
 
+        // TODO: connect all Regions using parameter
+
         this.heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData_BigNeocortex.txt");
     }
 
