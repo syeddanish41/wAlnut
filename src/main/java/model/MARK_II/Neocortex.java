@@ -4,7 +4,7 @@ import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.util.Rectangle;
 
 /**
- * Neocortex is a tree(undirected graph) of Regions. Each Region in the Neocortex
+ * Neocortex is a directed graph of Regions. Each Region in the Neocortex
  * can have as many children Regions as necessary. Each Region can receive
  * input from input SensorCellLayers, a lower Region, or a higher Region.
  *
