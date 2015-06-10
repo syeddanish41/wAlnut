@@ -115,6 +115,10 @@ public class BigNeocortexTest extends TestCase {
         deleteFolder(folder__1);
         File folder__2 = new File(pathAndFolderName + "__2");
         deleteFolder(folder__2);
+
+        // delete folder created by constructor
+        File firstPath = new File(this.pathAndFolderName);
+        deleteFolder(firstPath);
     }
 
     void deleteFolder(File file){
@@ -135,5 +139,18 @@ public class BigNeocortexTest extends TestCase {
                 .listFiles()));
         assertTrue(this.bigNeocortex.isFolderInList
                 ("MARK_II", path.listFiles()));
+
+        // delete folder created by constructor
+        File firstPath = new File(this.pathAndFolderName);
+        deleteFolder(firstPath);
+    }
+
+    public void test_changeCurrentRegionTo() throws IOException {
+        this.bigNeocortex.changeCurrentRegionTo("A");
+        assertEquals("A", this.bigNeocortex.getCurrentRegion().getBiologicalName());
+
+        // delete folder created by constructor
+        File firstPath = new File(this.pathAndFolderName);
+        deleteFolder(firstPath);
     }
 }

@@ -4,7 +4,6 @@ import junit.framework.TestCase;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.Retina;
 
 import java.awt.*;
 import java.io.IOException;
