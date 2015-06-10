@@ -46,6 +46,13 @@ public class BigNeocortexTest extends TestCase {
                 pathAndFolderName);
     }
 
+//    public void test_connectAllRegions() {
+//
+//        // delete folder created by constructor
+//        File firstPath = new File(this.pathAndFolderName);
+//        deleteFolder(firstPath);
+//    }
+
     public void test_instantiateAndSaveAllUnconnectedRegions() throws IOException {
         // make sure root.json and A.json are in MARK_II/BigNeocortexTest__0
         File path__0 = new File("" +

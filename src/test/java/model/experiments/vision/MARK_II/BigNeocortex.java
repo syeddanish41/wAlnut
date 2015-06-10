@@ -86,11 +86,6 @@ public class BigNeocortex {
                 "/heapSizeLogData_BigNeocortex.txt");
     }
 
-    public static void main(String[] args) {
-        String arg = "change to region ABC";
-        System.out.println(arg.substring(17));
-    }
-
     void connectAllRegions(String[] connectionParameterListInOrder) throws IOException {
         // TODO: test
         for (int i = 0; i < connectionParameterListInOrder.length; i = i + 7) {
