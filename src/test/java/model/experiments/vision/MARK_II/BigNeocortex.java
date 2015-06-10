@@ -205,21 +205,21 @@ public class BigNeocortex {
     }
 
     public void changeCurrentRegionTo(String newCurrentRegionBiologicalName) throws IOException {
+        this.currentRegion = this.getRegion(newCurrentRegionBiologicalName);
+    }
+
+    public Region getRegion(String regionBiologicalName) throws IOException {
         String finalPathAndFile = this.pathAndFolderName + "/" +
-                newCurrentRegionBiologicalName + ".json";
+                regionBiologicalName + ".json";
         String regionAsJSON = FileInputOutput.openObjectInTextFile(finalPathAndFile);
-        this.currentRegion = this.gson.fromJson(regionAsJSON, Region.class);
+        Region region = this.gson.fromJson(regionAsJSON, Region.class);
 
         if (this.heapTracker.isUsedHeapPercentageOver(this.MAX_HEAP_USE_PERCENTAGE)) {
             throw new IllegalStateException("the region you are trying" +
-                    "to change to is taking too much space in the Java heap");
+                    "get is taking too much space in the Java heap");
         }
-    }
 
-    public Region getRegion(String regionBiologicalName) {
-        // TODO: implement this method with total used heap size <
-        // MAX_SIZE_OF_A_REGION_IN_MB
-        return null;
+        return region;
     }
 
     public void addToCurrentRegion(Rectangle

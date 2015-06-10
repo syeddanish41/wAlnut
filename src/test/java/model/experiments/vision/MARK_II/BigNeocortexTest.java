@@ -1,6 +1,7 @@
 package model.experiments.vision.MARK_II;
 
 import junit.framework.TestCase;
+import model.MARK_II.Region;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 
 import java.io.File;
@@ -145,9 +146,9 @@ public class BigNeocortexTest extends TestCase {
         deleteFolder(firstPath);
     }
 
-    public void test_changeCurrentRegionTo() throws IOException {
-        this.bigNeocortex.changeCurrentRegionTo("A");
-        assertEquals("A", this.bigNeocortex.getCurrentRegion().getBiologicalName());
+    public void test_getRegion() throws IOException {
+        Region A = this.bigNeocortex.getRegion("A");
+        assertEquals("A", A.getBiologicalName());
 
         // delete folder created by constructor
         File firstPath = new File(this.pathAndFolderName);
