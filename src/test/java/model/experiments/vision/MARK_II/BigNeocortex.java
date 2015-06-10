@@ -7,6 +7,7 @@ import model.util.FileInputOutput;
 import model.util.HeapTracker;
 import model.util.Rectangle;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -51,7 +52,10 @@ public class BigNeocortex {
      *                                         for
      *                                         1 directed connection between the
      *                                         currentRegion and the region
-     *                                         provided in the list.
+     *                                         provided in the list. When changing
+     *                                         the current region the element
+     *                                         MUST be in the format
+     *                                         "change to region REGION_NAME"
      * @param pathAndFolderName
      */
     public BigNeocortex(int maxSizeOfARegionInMB, String[]
@@ -82,9 +86,41 @@ public class BigNeocortex {
                 "/heapSizeLogData_BigNeocortex.txt");
     }
 
-    void connectAllRegions(String[] connectionParameterListInOrder) {
-        // TODO:
+    public static void main(String[] args) {
+        String arg = "change to region ABC";
+        System.out.println(arg.substring(17));
+    }
 
+    void connectAllRegions(String[] connectionParameterListInOrder) throws IOException {
+        // TODO: test
+        for (int i = 0; i < connectionParameterListInOrder.length; i = i + 7) {
+            // NOTE: new connection pattern every 7 elements
+            // with 1 extra command in the following format: "change to region REGION_NAME"
+            if (connectionParameterListInOrder[i].contains("change to region")) {
+                // extract region name to change currentRegion to
+                int numberOfCharIn_change_to_region = 17;
+                String regionName = connectionParameterListInOrder[i].substring(numberOfCharIn_change_to_region);
+                i++;
+
+                this.changeCurrentRegionTo(regionName);
+            } else {
+                // the next 7 elements specify a connection pattern between the
+                // currentRegion and the given region name
+
+                Rectangle rectanglePartOfParentRegionToConnectTo = new Rectangle(
+                        new Point(Integer.valueOf(connectionParameterListInOrder[i]),
+                                  Integer.valueOf(connectionParameterListInOrder[i+1])),
+                        new Point(Integer.valueOf(connectionParameterListInOrder[i+2]),
+                                  Integer.valueOf(connectionParameterListInOrder[i+3])));
+
+                Region childRegion = this.getRegion(connectionParameterListInOrder[i+4]);
+                int numberOfColumnsToOverlapAlongNumberOfRows = Integer.valueOf(connectionParameterListInOrder[i+5]);
+                int numberOfColumnsToOverlapAlongNumberOfColumns = Integer.valueOf(connectionParameterListInOrder[i+6]);
+
+                this.addToCurrentRegion(rectanglePartOfParentRegionToConnectTo, childRegion,
+                        numberOfColumnsToOverlapAlongNumberOfRows, numberOfColumnsToOverlapAlongNumberOfColumns);
+            }
+        }
     }
 
     /**
