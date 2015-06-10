@@ -3,7 +3,9 @@ package model.experiments.vision.MARK_II;
 import junit.framework.TestCase;
 import model.MARK_II.Region;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
+import model.util.Rectangle;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -149,7 +151,18 @@ public class BigNeocortexTest extends TestCase {
         deleteFolder(firstPath);
     }
 
-//    public void test_addToCurrentRegion() {
-//        // TODO: test
-//    }
+    public void test_addToCurrentRegion() throws IOException {
+        Region A_BeforeAddingB = this.bigNeocortex.getRegion("A");
+        Rectangle connectionLocation = new Rectangle(new Point(0, 0), new Point(9, 9));
+        Region B = new Region("B", 10, 10, 4, 20, 3);
+        this.bigNeocortex.addToCurrentRegion(connectionLocation, B, 0, 0);
+
+        Region A_AfterAddingB = this.bigNeocortex.getRegion("A");
+
+        assertNotSame(A_BeforeAddingB, A_AfterAddingB);
+
+        // delete folder created by constructor
+        File firstPath = new File(this.pathAndFolderName);
+        deleteFolder(firstPath);
+    }
 }
