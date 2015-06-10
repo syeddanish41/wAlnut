@@ -148,4 +148,8 @@ public class BigNeocortexTest extends TestCase {
         File firstPath = new File(this.pathAndFolderName);
         deleteFolder(firstPath);
     }
+
+//    public void test_addToCurrentRegion() {
+//        // TODO: test
+//    }
 }

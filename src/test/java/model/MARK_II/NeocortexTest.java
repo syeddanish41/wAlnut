@@ -22,10 +22,6 @@ public class NeocortexTest extends junit.framework.TestCase {
         this.neocortex = new Neocortex(new Region("root", 10, 10, L3NPM, PMO, DLA), new RegionToRegionRectangleConnect());
     }
 
-    public void test_addToCurrentRegion() {
-        // TODO:
-    }
-
     public void test_getRegionWithoutCycle() {
         this.connectionLocation = new Rectangle(new Point(0, 0), new Point(9, 9));
 

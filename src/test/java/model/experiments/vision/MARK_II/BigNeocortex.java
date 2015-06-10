@@ -129,11 +129,7 @@ public class BigNeocortex {
             }
 
             // save Region as JSON file
-            String regionAsJSON = this.gson.toJson(region);
-            String finalPathAndFile = this.pathAndFolderName + "/" +
-                    biologicalName + ".json";
-            FileInputOutput.saveObjectToTextFile(regionAsJSON,
-                    finalPathAndFile);
+            this.saveRegion(region);
 
             if (i == 0) {
                 // this is the root region's parameters
@@ -266,12 +262,6 @@ public class BigNeocortex {
                             "addToCurrentRegion cannot be null");
         }
 
-        if (this.heapTracker.isUsedHeapPercentageOver(this
-                .MAX_HEAP_USE_PERCENTAGE)) {
-            throw new IllegalArgumentException("The current region and child region" +
-                    "you are adding is taking too much space in the heap");
-        }
-
         File path = new File(this.pathAndFolderName);
         boolean regionInNeocortex = this.isFileInList(childRegion.getBiologicalName() + ".json"
                 , path.listFiles());
@@ -281,7 +271,7 @@ public class BigNeocortex {
                             " already exists within the BigNeocortex as another region " +
                             "with the same name");
         }
-        
+
         this.currentRegion.addChildRegion(childRegion);
 
         this.connectType.connect(childRegion.getColumns(),
@@ -289,6 +279,18 @@ public class BigNeocortex {
                         (rectanglePartOfParentRegionToConnectTo),
                 numberOfColumnsToOverlapAlongNumberOfRows,
                 numberOfColumnsToOverlapAlongNumberOfColumns);
+
+        if (this.heapTracker.isUsedHeapPercentageOver(this
+                .MAX_HEAP_USE_PERCENTAGE)) {
+            throw new IllegalArgumentException("The current region and child region" +
+                    "you are adding is taking too much space in the heap");
+        }
+
+        // We just changed currentRegion so resave it
+        File pathToRegionFile = new File(this.pathAndFolderName + "/" +
+                this.currentRegion.getBiologicalName() + ".json");
+        pathToRegionFile.delete();
+        this.saveRegion(this.currentRegion);
     }
 
     public Region getCurrentRegion() {
@@ -307,5 +309,13 @@ public class BigNeocortex {
         int lengthOfFolderName = extractFolderName(pathAndFolderName).length();
         return pathAndFolderName.substring(0, pathAndFolderName.length() -
                 lengthOfFolderName);
+    }
+
+    void saveRegion(Region region) throws IOException {
+        String regionAsJSON = this.gson.toJson(region);
+        String finalPathAndFile = this.pathAndFolderName + "/" +
+                region.getBiologicalName() + ".json";
+        FileInputOutput.saveObjectToTextFile(regionAsJSON,
+                finalPathAndFile);
     }
 }
