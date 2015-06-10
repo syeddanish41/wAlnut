@@ -44,7 +44,7 @@ public class Neocortex {
      * Traverses the regions within this neocortex to find the region the desired biological name
      * and changes the currentRegion to point to this region.
      *
-     * @param newCurrentRegionBiologicalName
+     * @param newCurrentRegionBiologicalName name of Region in Neocortex
      */
     public void changeCurrentRegionTo(String newCurrentRegionBiologicalName) {
         if (newCurrentRegionBiologicalName == null) {
@@ -99,13 +99,15 @@ public class Neocortex {
 
         // NOTE: although the first if and else if statement are not necessary
         //       it is important to understand why nothing should be done
+        /**
         if (regionAlreadyInNeocortex == null) {
             // childRegion is new so we can add given childRegion to current
             // region. Note this is not an error.
         } else if (regionAlreadyInNeocortex.equals(childRegion)) {
             // the user is trying to make a cycle connection within regions in
             // the Neocortex which is allowed
-        } else if (regionAlreadyInNeocortex != null) {
+        } else **/
+        if (regionAlreadyInNeocortex != null) {
             throw new IllegalArgumentException(
                     "childRegion in class Neocortex method addToCurrentRegion" +
                             " already exists within the Neocortex as another region " +

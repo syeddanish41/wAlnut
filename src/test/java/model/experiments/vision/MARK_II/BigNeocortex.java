@@ -29,7 +29,7 @@ public class BigNeocortex {
     private final double MAX_HEAP_USE_PERCENTAGE;
     private String rootRegionName;
     private Region currentRegion;
-    private AbstractRegionToRegionConnect neocortexRegionToNeocortexRegion;
+    private AbstractRegionToRegionConnect connectType;
     private String pathAndFolderName; // BigNeocortex is saved as JSON file
 
     private Gson gson;
@@ -61,7 +61,7 @@ public class BigNeocortex {
                         String[] connectionParameterListInOrder, String
                                 pathAndFolderName) throws IOException {
         this.rootRegionName = regionParameterListInOrder[0];
-        this.neocortexRegionToNeocortexRegion =
+        this.connectType =
                 neocortexRegionToNeocortexRegion;
         this.createUniqueFolderToSaveBigNeocortex(pathAndFolderName);
 
@@ -259,7 +259,7 @@ public class BigNeocortex {
                                            rectanglePartOfParentRegionToConnectTo,
                                    Region childRegion,
                                    int numberOfColumnsToOverlapAlongNumberOfRows,
-                                   int numberOfColumnsToOverlapAlongNumberOfColumns) {
+                                   int numberOfColumnsToOverlapAlongNumberOfColumns) throws IOException {
         if (childRegion == null) {
             throw new IllegalArgumentException(
                     "childRegion in class BigNeocortex method " +
@@ -273,15 +273,22 @@ public class BigNeocortex {
         }
 
         File path = new File(this.pathAndFolderName);
-        boolean regionAlreadyInNeocortex = this.isFileInList(childRegion
-                .getBiologicalName(), path.listFiles());
+        boolean regionInNeocortex = this.isFileInList(childRegion.getBiologicalName() + ".json"
+                , path.listFiles());
+        if (regionInNeocortex) {
+            throw new IllegalArgumentException(
+                    "childRegion in class BigNeocortex method addToCurrentRegion" +
+                            " already exists within the BigNeocortex as another region " +
+                            "with the same name");
+        }
+        
+        this.currentRegion.addChildRegion(childRegion);
 
-        // NOTE: although the first if and else if statement are not necessary
-        //       it is important to understand why nothing should be done
-        if (regionAlreadyInNeocortex == false) {
-            // childRegion is new so we can add given childRegion to current
-            // region. Note this is not an error.
-        } // else if ()
+        this.connectType.connect(childRegion.getColumns(),
+                this.currentRegion.getColumns
+                        (rectanglePartOfParentRegionToConnectTo),
+                numberOfColumnsToOverlapAlongNumberOfRows,
+                numberOfColumnsToOverlapAlongNumberOfColumns);
     }
 
     public Region getCurrentRegion() {
