@@ -63,8 +63,7 @@ public class BigNeocortex {
         this.rootRegionName = regionParameterListInOrder[0];
         this.neocortexRegionToNeocortexRegion =
                 neocortexRegionToNeocortexRegion;
-        this.pathAndFolderName = this
-                .createUniqueFolderToSaveBigNeocortex(pathAndFolderName);
+        this.createUniqueFolderToSaveBigNeocortex(pathAndFolderName);
 
         this.gson = new Gson();
         this.heapTracker = new HeapTracker();
@@ -109,8 +108,8 @@ public class BigNeocortex {
                     cellsPerColumn, percentMinimumOverlapScore,
                     desiredLocalActivity);
 
-            // 30% because we want enough room for 2 Regions and later for
-            // each Region to grow in size for all new synapses and
+            // 30% because we want enough room for at least 2 Regions and later
+            // for each Region to grow in size for all new synapses and
             // dendrites created
             if (this.heapTracker.isUsedHeapPercentageOver(this.MAX_HEAP_USE_PERCENTAGE)) {
                 throw new IllegalArgumentException("your parameters for " +
@@ -137,7 +136,7 @@ public class BigNeocortex {
      * @return The old path and new folder name the BigNeocortex object will
      * be saved in.
      */
-    String createUniqueFolderToSaveBigNeocortex(String pathAndFolderName) {
+    void createUniqueFolderToSaveBigNeocortex(String pathAndFolderName) {
         File file = new File(pathAndFolderName);
         File path = new File(extractPath(pathAndFolderName));
 
@@ -186,7 +185,7 @@ public class BigNeocortex {
             // file.mkdir() worked so there is no need to create a unique
             // folder name
         }
-        return pathAndNewFolderName;
+        this.pathAndFolderName = pathAndNewFolderName;
     }
 
     boolean isFolderInList(String folderName, File[] listOfFilesAndFolders) {

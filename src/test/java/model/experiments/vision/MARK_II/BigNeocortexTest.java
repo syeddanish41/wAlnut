@@ -13,6 +13,9 @@ import java.io.IOException;
 public class BigNeocortexTest extends TestCase {
 
     private BigNeocortex bigNeocortex;
+    private String[] regionParameterListInOrder;
+    private String[] regionConnectionParameterListInOrder;
+    private String pathAndFolderName;
 
     public void setUp() throws IOException {
         int maxSizeOfARegionInMB = 256;
@@ -22,15 +25,15 @@ public class BigNeocortexTest extends TestCase {
         // index_1 = A   , 60, 60, 4, 20, 3
 
         // NOTE: new region every 6 elements
-        String[] regionParameterListInOrder = {"root", "60", "60", "4", "20", "3",
+        this.regionParameterListInOrder = new String[] {"root", "60", "60", "4", "20", "3",
                                                "A", "60", "60", "4", "20", "3"};
 
         // NOTE: new connection pattern every 7 elements
-        String[] regionConnectionParameterListInOrder = {
+        this.regionConnectionParameterListInOrder = new String[] {
                 "0", "0", "30", "60", "A", "4", "4",
                 "change to region A"};
 
-        String pathAndFolderName = "" +
+        this.pathAndFolderName = "" +
                 "./src/test/java/model/experiments/vision/MARK_II" +
                 "/BigNeocortexTest__0";
         this.bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
@@ -40,9 +43,35 @@ public class BigNeocortexTest extends TestCase {
                 pathAndFolderName);
     }
 
-    public void test_instantiateAndSaveAllUnconnectedRegions() {
-        assertEquals(1, 2-1);
-        // TODO: fully test if JSON files are in 2 different folders
+    public void test_instantiateAndSaveAllUnconnectedRegions() throws IOException {
+        // make sure root.json and A.json are in MARK_II/BigNeocortexTest__0
+        File path__0 = new File("" +
+                "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest__0");
+        assertTrue(this.isFileInList("root.json", path__0.listFiles()));
+        assertTrue(this.isFileInList("A.json", path__0.listFiles()));
+
+        this.bigNeocortex.createUniqueFolderToSaveBigNeocortex(this.pathAndFolderName);
+        this.bigNeocortex.instantiateAndSaveAllUnconnectedRegions(this.regionParameterListInOrder);
+
+        // make sure root.json and A.json are in MARK_II/BigNeocortexTest__1
+        File path__1 = new File("" +
+                "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest__1");
+        assertTrue(this.isFileInList("root.json", path__1.listFiles()));
+        assertTrue(this.isFileInList("A.json", path__1.listFiles()));
+
+        deleteFolder(path__0);
+        deleteFolder(path__1);
+    }
+
+    boolean isFileInList(String fileName, File[] listOfFilesAndFolders) {
+        for (int i = 0; i < listOfFilesAndFolders.length; i++) {
+
+            if (listOfFilesAndFolders[i].isFile() &&
+                    fileName.equals(listOfFilesAndFolders[i].getName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void test_createUniqueFolderToSaveBigNeocortex() {
