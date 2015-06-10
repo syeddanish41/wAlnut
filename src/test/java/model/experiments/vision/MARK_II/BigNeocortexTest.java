@@ -48,8 +48,10 @@ public class BigNeocortexTest extends TestCase {
         // make sure root.json and A.json are in MARK_II/BigNeocortexTest__0
         File path__0 = new File("" +
                 "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest__0");
-        assertTrue(this.isFileInList("root.json", path__0.listFiles()));
-        assertTrue(this.isFileInList("A.json", path__0.listFiles()));
+        assertTrue(this.bigNeocortex.isFileInList("root.json", path__0
+                .listFiles()));
+        assertTrue(this.bigNeocortex.isFileInList("A.json", path__0.listFiles
+                ()));
 
         this.bigNeocortex.createUniqueFolderToSaveBigNeocortex(this.pathAndFolderName);
         this.bigNeocortex.instantiateAndSaveAllUnconnectedRegions(this.regionParameterListInOrder);
@@ -57,22 +59,12 @@ public class BigNeocortexTest extends TestCase {
         // make sure root.json and A.json are in MARK_II/BigNeocortexTest__1
         File path__1 = new File("" +
                 "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest__1");
-        assertTrue(this.isFileInList("root.json", path__1.listFiles()));
-        assertTrue(this.isFileInList("A.json", path__1.listFiles()));
+        assertTrue(this.bigNeocortex.isFileInList("root.json", path__1
+                .listFiles()));
+        assertTrue(this.bigNeocortex.isFileInList("A.json", path__1.listFiles()));
 
         deleteFolder(path__0);
         deleteFolder(path__1);
-    }
-
-    boolean isFileInList(String fileName, File[] listOfFilesAndFolders) {
-        for (int i = 0; i < listOfFilesAndFolders.length; i++) {
-
-            if (listOfFilesAndFolders[i].isFile() &&
-                    fileName.equals(listOfFilesAndFolders[i].getName())) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public void test_createUniqueFolderToSaveBigNeocortex() {
@@ -149,6 +141,8 @@ public class BigNeocortexTest extends TestCase {
     public void test_getRegion() throws IOException {
         Region A = this.bigNeocortex.getRegion("A");
         assertEquals("A", A.getBiologicalName());
+
+        assertNull(this.bigNeocortex.getRegion("B"));
 
         // delete folder created by constructor
         File firstPath = new File(this.pathAndFolderName);

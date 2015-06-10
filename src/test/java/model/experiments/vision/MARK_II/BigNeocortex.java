@@ -67,15 +67,19 @@ public class BigNeocortex {
 
         this.gson = new Gson();
         this.heapTracker = new HeapTracker();
-        double maxHeapSizeInMB = (double) this.heapTracker.getHeapMaxSizeInBytes() / 1000000;
-        this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfARegionInMB / maxHeapSizeInMB;
+        double maxHeapSizeInMB = (double) this.heapTracker
+                .getHeapMaxSizeInBytes() / 1000000;
+        this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfARegionInMB /
+                maxHeapSizeInMB;
 
         this.instantiateAndSaveAllUnconnectedRegions
                 (regionParameterListInOrder);
 
         // TODO: connect all Regions using parameter
 
-        this.heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData_BigNeocortex.txt");
+        this.heapTracker.printAllHeapDataToFile("" +
+                "./src/test/java/model/experiments/vision/MARK_II" +
+                "/heapSizeLogData_BigNeocortex.txt");
     }
 
     void connectAllRegions(String[] connectionParameterListInOrder) {
@@ -116,10 +120,12 @@ public class BigNeocortex {
             // 30% because we want enough room for at least 2 Regions and later
             // for each Region to grow in size for all new synapses and
             // dendrites created
-            if (this.heapTracker.isUsedHeapPercentageOver(this.MAX_HEAP_USE_PERCENTAGE)) {
+            if (this.heapTracker.isUsedHeapPercentageOver(this
+                    .MAX_HEAP_USE_PERCENTAGE)) {
                 throw new IllegalArgumentException("your parameters for " +
                         "Region " + region.getBiologicalName() +
-                        " are using too much of the heap and must be decreased");
+                        " are using too much of the heap and must be " +
+                        "decreased");
             }
 
             // save Region as JSON file
@@ -204,17 +210,44 @@ public class BigNeocortex {
         return false;
     }
 
-    public void changeCurrentRegionTo(String newCurrentRegionBiologicalName) throws IOException {
+    boolean isFileInList(String fileName, File[] listOfFilesAndFolders) {
+        for (int i = 0; i < listOfFilesAndFolders.length; i++) {
+
+            if (listOfFilesAndFolders[i].isFile() &&
+                    fileName.equals(listOfFilesAndFolders[i].getName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void changeCurrentRegionTo(String newCurrentRegionBiologicalName)
+            throws IOException {
         this.currentRegion = this.getRegion(newCurrentRegionBiologicalName);
     }
 
     public Region getRegion(String regionBiologicalName) throws IOException {
+        if (regionBiologicalName == null) {
+            throw new IllegalArgumentException(
+                    "newCurrentRegionBiologicalName in class Neocortex method" +
+                            " getRegion() cannot be null");
+        }
+
+        File path = new File(this.pathAndFolderName);
+        boolean regionInNeocortex = this.isFileInList(regionBiologicalName + ".json"
+                , path.listFiles());
+        if (regionInNeocortex == false) {
+            return null;
+        }
+
         String finalPathAndFile = this.pathAndFolderName + "/" +
                 regionBiologicalName + ".json";
-        String regionAsJSON = FileInputOutput.openObjectInTextFile(finalPathAndFile);
+        String regionAsJSON = FileInputOutput.openObjectInTextFile
+                (finalPathAndFile);
         Region region = this.gson.fromJson(regionAsJSON, Region.class);
 
-        if (this.heapTracker.isUsedHeapPercentageOver(this.MAX_HEAP_USE_PERCENTAGE)) {
+        if (this.heapTracker.isUsedHeapPercentageOver(this
+                .MAX_HEAP_USE_PERCENTAGE)) {
             throw new IllegalStateException("the region you are trying" +
                     "get is taking too much space in the Java heap");
         }
@@ -227,8 +260,28 @@ public class BigNeocortex {
                                    Region childRegion,
                                    int numberOfColumnsToOverlapAlongNumberOfRows,
                                    int numberOfColumnsToOverlapAlongNumberOfColumns) {
-        // TODO: implement this method with total used heap size <
-        // MAX_SIZE_OF_A_REGION_IN_MB
+        if (childRegion == null) {
+            throw new IllegalArgumentException(
+                    "childRegion in class BigNeocortex method " +
+                            "addToCurrentRegion cannot be null");
+        }
+
+        if (this.heapTracker.isUsedHeapPercentageOver(this
+                .MAX_HEAP_USE_PERCENTAGE)) {
+            throw new IllegalArgumentException("The current region and child region" +
+                    "you are adding is taking too much space in the heap");
+        }
+
+        File path = new File(this.pathAndFolderName);
+        boolean regionAlreadyInNeocortex = this.isFileInList(childRegion
+                .getBiologicalName(), path.listFiles());
+
+        // NOTE: although the first if and else if statement are not necessary
+        //       it is important to understand why nothing should be done
+        if (regionAlreadyInNeocortex == false) {
+            // childRegion is new so we can add given childRegion to current
+            // region. Note this is not an error.
+        } // else if ()
     }
 
     public Region getCurrentRegion() {
