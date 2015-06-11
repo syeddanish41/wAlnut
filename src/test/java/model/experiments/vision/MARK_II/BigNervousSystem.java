@@ -1,9 +1,16 @@
 package model.experiments.vision.MARK_II;
 
+import com.google.gson.Gson;
+import model.MARK_II.Column;
+import model.MARK_II.SensorCell;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
+import model.Retina;
+import model.util.*;
+import model.util.Rectangle;
 
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * PROBLEM: When a user wants to create a NervousSystem object that is too large for
@@ -13,20 +20,56 @@ import java.awt.*;
  * saved JSON files.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @date 5/27/2015.
+ * @date 6/11/2015.
  */
 public class BigNervousSystem {
 
-    private int maxSizeOfAnyObjectInMB;
+    private final double MAX_HEAP_USE_PERCENTAGE;
+    private BigNeocortex bigNeocortex;
+    private String retinaFileLocation;
 
-    public BigNervousSystem(int maxSizeOfARegionInMB, BigNeocortex bigNeocortex, Dimension retinaDimension,
+    private Gson gson;
+    private HeapTracker heapTracker;
+
+    public BigNervousSystem(int maxSizeOfBigNervousSystemInMB, BigNeocortex bigNeocortex, Dimension retinaDimension,
                             AbstractSensorCellsToRegionConnect opticNerve,
-                            String[] retinaConnectionParameterListInOrder) {
+                            String[] connectionParameterListInOrder) throws IOException {
+        double maxHeapSizeInMB = (double) this.heapTracker
+                .getHeapMaxSizeInBytes() / 1000000;
+        this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfBigNervousSystemInMB
+                / maxHeapSizeInMB;
+        if (this.MAX_HEAP_USE_PERCENTAGE > 1.0) {
+            throw new IllegalArgumentException("maxSizeOfBigNervousSystemInMB" +
+                    " is too large making MAX_HEAP_USE_PERCENTAGE > 1.0");
+        }
+        this.bigNeocortex = bigNeocortex;
 
-    }
+        // create Retina
+        Retina retina = new Retina((int) retinaDimension.getHeight(), (int) retinaDimension.getWidth());
 
-    boolean saveConnectedNervousSystemInFolder(String folderName) {
-        // TODO:
-        return false;
+        // connect Retina
+        AbstractSensorCellsToRegionConnect opticNerveConnectType = opticNerve;
+
+        for (int i = 0; i < connectionParameterListInOrder.length; i = i+7) {
+            SensorCell[][] sensorCells = retina.getVisionCells(new Rectangle(
+                    new Point(
+                            Integer.valueOf(connectionParameterListInOrder[i]),
+                            Integer.valueOf(connectionParameterListInOrder[i+1])),
+                    new Point(
+                            Integer.valueOf(connectionParameterListInOrder[i+2]),
+                            Integer.valueOf(connectionParameterListInOrder[i+3]))));
+            Column[][] regionColumns = this.bigNeocortex.getRegion(
+                    connectionParameterListInOrder[i+4]).getColumns();
+            int numberOfColumnsToOverlapAlongXAxisOfSensorCells =
+                    Integer.valueOf(connectionParameterListInOrder[i+5]);
+            int numberOfColumnsToOverlapAlongYAxisOfSensorCells =
+                    Integer.valueOf(connectionParameterListInOrder[i+6]);
+
+            opticNerveConnectType.connect(sensorCells, regionColumns,
+                    numberOfColumnsToOverlapAlongXAxisOfSensorCells,
+                    numberOfColumnsToOverlapAlongYAxisOfSensorCells);
+        }
+
+        // TODO: save connected Retina
     }
 }

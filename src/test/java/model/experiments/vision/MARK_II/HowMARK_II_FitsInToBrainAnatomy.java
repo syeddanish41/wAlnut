@@ -1,24 +1,18 @@
 package model.experiments.vision.MARK_II;
 
-import com.google.gson.Gson;
 import model.ImageViewer;
 import model.Layer5Region;
 import model.MARK_II.Neocortex;
 import model.MARK_II.Region;
 import model.MARK_II.SpatialPooler;
 import model.MARK_II.TemporalPooler;
-import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
-import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.Retina;
 import model.unimplementedBiology.NervousSystem;
-import model.util.FileInputOutput;
 import model.util.HeapTracker;
 import model.util.Point3D;
 import model.util.Rectangle;
 
 import java.awt.*;
-import java.lang.Runtime;
 import java.io.IOException;
 
 /**

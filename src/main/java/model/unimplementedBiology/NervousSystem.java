@@ -9,7 +9,7 @@ import model.Retina;
  */
 public class NervousSystem {
     private CNS CNS;
-    private model.unimplementedBiology.PNS PNS;
+    private PNS PNS;
 
     public NervousSystem(Neocortex neocortex, LGN lgn, Retina retina) {
         this.CNS = new CNS(neocortex, lgn);

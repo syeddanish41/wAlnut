@@ -10,13 +10,9 @@ import java.io.IOException;
 
 /**
  * @author Q Liu (quinnliu@vt.edu)
- * @date 5/27/2015.
+ * @date 6/1/2015.
  */
-public class VisionExperiment_1 extends TestCase {
-
-    public void setUp() {
-
-    }
+public class VisionExperiment_1 {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Running VisionExperiment_1.main() ...");
