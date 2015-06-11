@@ -46,12 +46,16 @@ public class BigNeocortexTest extends TestCase {
                 pathAndFolderName);
     }
 
-//    public void test_connectAllRegions() {
-//
-//        // delete folder created by constructor
-//        File firstPath = new File(this.pathAndFolderName);
-//        deleteFolder(firstPath);
-//    }
+    public void test_connectAllRegions() throws IOException {
+        Region root = this.bigNeocortex.getRegion("root");
+        // now each Synapse should be attached to a Neuron
+        assertNotNull(root.getColumn(0, 0).getProximalSegment().getSynapse(0, 0).getCell());
+        assertEquals("A", this.bigNeocortex.getCurrentRegion().getBiologicalName());
+
+        // delete folder created by constructor
+        File firstPath = new File(this.pathAndFolderName);
+        deleteFolder(firstPath);
+    }
 
     public void test_instantiateAndSaveAllUnconnectedRegions() throws IOException {
         // make sure root.json and A.json are in MARK_II/BigNeocortexTest__0

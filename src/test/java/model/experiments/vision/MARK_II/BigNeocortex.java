@@ -73,13 +73,17 @@ public class BigNeocortex {
         this.heapTracker = new HeapTracker();
         double maxHeapSizeInMB = (double) this.heapTracker
                 .getHeapMaxSizeInBytes() / 1000000;
-        this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfARegionInMB /
+        this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfARegionInMB * 2 /
                 maxHeapSizeInMB;
+        if (this.MAX_HEAP_USE_PERCENTAGE > 1.0) {
+            throw new IllegalArgumentException("maxSizeOfARegionInMB is too " +
+                    "large making MAX_HEAP_USE_PERCENTAGE > 1.0");
+        }
 
         this.instantiateAndSaveAllUnconnectedRegions
                 (regionParameterListInOrder);
 
-        // TODO: connect all Regions using parameter
+        this.connectAllRegions(connectionParameterListInOrder);
 
         this.heapTracker.printAllHeapDataToFile("" +
                 "./src/test/java/model/experiments/vision/MARK_II" +
@@ -87,7 +91,6 @@ public class BigNeocortex {
     }
 
     void connectAllRegions(String[] connectionParameterListInOrder) throws IOException {
-        // TODO: test
         for (int i = 0; i < connectionParameterListInOrder.length; i = i + 7) {
             // NOTE: new connection pattern every 7 elements
             // with 1 extra command in the following format: "change to region REGION_NAME"
