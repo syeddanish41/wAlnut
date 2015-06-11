@@ -2,6 +2,7 @@ package model.experiments.vision.MARK_II;
 
 import com.google.gson.Gson;
 import model.MARK_II.Column;
+import model.MARK_II.Region;
 import model.MARK_II.SensorCell;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
@@ -26,14 +27,13 @@ public class BigNervousSystem {
 
     private final double MAX_HEAP_USE_PERCENTAGE;
     private BigNeocortex bigNeocortex;
-    private String retinaFileLocation;
 
-    private Gson gson;
     private HeapTracker heapTracker;
 
     public BigNervousSystem(int maxSizeOfBigNervousSystemInMB, BigNeocortex bigNeocortex, Dimension retinaDimension,
                             AbstractSensorCellsToRegionConnect opticNerve,
-                            String[] connectionParameterListInOrder) throws IOException {
+                            String[] connectionParameterListInOrder,
+                            String pathAndRetinaFileName) throws IOException {
         double maxHeapSizeInMB = (double) this.heapTracker
                 .getHeapMaxSizeInBytes() / 1000000;
         this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfBigNervousSystemInMB
@@ -43,6 +43,7 @@ public class BigNervousSystem {
                     " is too large making MAX_HEAP_USE_PERCENTAGE > 1.0");
         }
         this.bigNeocortex = bigNeocortex;
+        //this.pathAndRetinaFileName = pathAndRetinaFileName;
 
         // create Retina
         Retina retina = new Retina((int) retinaDimension.getHeight(), (int) retinaDimension.getWidth());
@@ -58,8 +59,10 @@ public class BigNervousSystem {
                     new Point(
                             Integer.valueOf(connectionParameterListInOrder[i+2]),
                             Integer.valueOf(connectionParameterListInOrder[i+3]))));
-            Column[][] regionColumns = this.bigNeocortex.getRegion(
-                    connectionParameterListInOrder[i+4]).getColumns();
+
+            Region region = this.bigNeocortex.getRegion(
+                    connectionParameterListInOrder[i+4]);
+            Column[][] regionColumns = region.getColumns();
             int numberOfColumnsToOverlapAlongXAxisOfSensorCells =
                     Integer.valueOf(connectionParameterListInOrder[i+5]);
             int numberOfColumnsToOverlapAlongYAxisOfSensorCells =
@@ -68,6 +71,9 @@ public class BigNervousSystem {
             opticNerveConnectType.connect(sensorCells, regionColumns,
                     numberOfColumnsToOverlapAlongXAxisOfSensorCells,
                     numberOfColumnsToOverlapAlongYAxisOfSensorCells);
+
+            // resave used regions in BigNeocortex since each Region has been changed
+            this.bigNeocortex.saveRegion(region);
         }
 
         // TODO: save connected Retina

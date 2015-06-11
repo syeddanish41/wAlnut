@@ -43,8 +43,12 @@ public class VisionExperiment_1 {
                                                          "0", "500", "500", "1000", "K", "8", "8",
                                                          "500", "500", "1000", "1000", "L", "8", "8"};
 
+        String pathAndRetinaFileName = "" +
+                "./src/test/java/model/experiments/vision/MARK_II" +
+                "/retina.json";
         BigNervousSystem bigNervousSystem = new BigNervousSystem(1024, bigNeocortex,
-                retinaDimension, opticNerve, retinaConnectionParameterListInOrder);
+                retinaDimension, opticNerve, retinaConnectionParameterListInOrder,
+                pathAndRetinaFileName);
 
 
         System.out.println("Finished VisionExperiment_1.main()");
