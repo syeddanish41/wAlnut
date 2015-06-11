@@ -1,9 +1,13 @@
 package model.experiments.vision.MARK_II;
 
 import com.google.gson.Gson;
+import model.MARK_II.Region;
+import model.MARK_II.VisionCell;
 import model.Retina;
 import model.util.FileInputOutput;
+import model.util.Rectangle;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -32,7 +36,6 @@ public class BigRetina {
         String retinaAsJSON = this.gson.toJson(retina);
         FileInputOutput.saveObjectToTextFile(retinaAsJSON, this
                 .pathAndRetinaFileName);
-
     }
 
     // TODO: other public API with saving to file

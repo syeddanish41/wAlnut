@@ -179,9 +179,9 @@ public class BigNeocortex {
      */
     void createUniqueFolderToSaveBigNeocortex(String pathAndFolderName) {
         File file = new File(pathAndFolderName);
-        File path = new File(extractPath(pathAndFolderName));
+        File path = new File(BigClassUtil.extractPath(pathAndFolderName));
 
-        String newFolderName = extractFolderName(pathAndFolderName);
+        String newFolderName = BigClassUtil.extractFolderName(pathAndFolderName);
 
         String pathAndNewFolderName = pathAndFolderName;
         if (file.mkdir() == false) {
@@ -190,7 +190,7 @@ public class BigNeocortex {
             boolean foundUniqueName = false;
             int i = 0;
             while (foundUniqueName == false) {
-                if (isFolderInList(newFolderName, path.listFiles())) {
+                if (BigClassUtil.isFolderInList(newFolderName, path.listFiles())) {
                     // we need to change newFolderName to something unique
                     CharSequence twoUnderscores = "__";
                     if (newFolderName.contains(twoUnderscores)) {
@@ -229,28 +229,6 @@ public class BigNeocortex {
         this.pathAndFolderName = pathAndNewFolderName;
     }
 
-    boolean isFolderInList(String folderName, File[] listOfFilesAndFolders) {
-        for (int i = 0; i < listOfFilesAndFolders.length; i++) {
-
-            if (listOfFilesAndFolders[i].isDirectory() &&
-                    folderName.equals(listOfFilesAndFolders[i].getName())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    boolean isFileInList(String fileName, File[] listOfFilesAndFolders) {
-        for (int i = 0; i < listOfFilesAndFolders.length; i++) {
-
-            if (listOfFilesAndFolders[i].isFile() &&
-                    fileName.equals(listOfFilesAndFolders[i].getName())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void changeCurrentRegionTo(String newCurrentRegionBiologicalName)
             throws IOException {
         this.currentRegion = this.getRegion(newCurrentRegionBiologicalName);
@@ -264,7 +242,7 @@ public class BigNeocortex {
         }
 
         File path = new File(this.pathAndFolderName);
-        boolean regionInNeocortex = this.isFileInList(regionBiologicalName + ".json"
+        boolean regionInNeocortex = BigClassUtil.isFileInList(regionBiologicalName + ".json"
                 , path.listFiles());
         if (regionInNeocortex == false) {
             return null;
@@ -337,20 +315,6 @@ public class BigNeocortex {
 
     public Region getCurrentRegion() {
         return this.currentRegion;
-    }
-
-    String extractFolderName(String pathAndFolderName) {
-        // example: String pathAndFolderName = "
-        // ./src/test/java/model/experiments/vision/MARK_II/FolderName";
-        String[] parts = pathAndFolderName.split("/");
-        String folderName = parts[parts.length - 1];
-        return folderName;
-    }
-
-    String extractPath(String pathAndFolderName) {
-        int lengthOfFolderName = extractFolderName(pathAndFolderName).length();
-        return pathAndFolderName.substring(0, pathAndFolderName.length() -
-                lengthOfFolderName);
     }
 
     void saveRegion(Region region) throws IOException {
