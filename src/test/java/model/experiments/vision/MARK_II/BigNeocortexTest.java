@@ -20,7 +20,7 @@ public class BigNeocortexTest extends TestCase {
     private String pathAndFolderName;
 
     public void setUp() throws IOException {
-        int maxSizeOfARegionInMB = 256;
+        int maxSizeOfARegionInMB = 350;
         // pass it an array of all Region names
         // Example List:
         // index_0 = root, 60, 60, 4, 20, 3

@@ -15,15 +15,15 @@ public class HeapTracker {
         this.START_TIME = System.currentTimeMillis();
 
         long heapMaxSizeInMB = Runtime.getRuntime().maxMemory() / 1000000;
-        System.out.println("heapMaxSize = " + heapMaxSizeInMB + " MB");
+        //System.out.println("heapMaxSize = " + heapMaxSizeInMB + " MB");
     }
 
     public void updateHeapData() {
-        System.out.println("usedHeapSize = " + this.getUsedHeapInBytes() / 1000000 + " MB");
+        //System.out.println("usedHeapSize = " + this.getUsedHeapInBytes() / 1000000 + " MB");
 
         double currentRunTimeInMilliseconds = System.currentTimeMillis() - this.START_TIME;
         double currentRunTimeInSeconds = currentRunTimeInMilliseconds / 1000;
-        System.out.println("currentRunTimeInSeconds = " + currentRunTimeInSeconds);
+        //System.out.println("currentRunTimeInSeconds = " + currentRunTimeInSeconds);
 
         String addToFile = Double.toString(currentRunTimeInSeconds) + " " + this.getUsedHeapInBytes() + "\n";
         allHeapData += addToFile;
