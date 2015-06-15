@@ -1,13 +1,11 @@
 package model.experiments.vision.MARK_II;
 
 import com.google.gson.Gson;
-import model.MARK_II.Region;
 import model.MARK_II.VisionCell;
 import model.Retina;
 import model.util.FileInputOutput;
 import model.util.Rectangle;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -20,12 +18,11 @@ import java.io.IOException;
  * be loaded into the heap only when needed.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @date 6/11/2015.
+ * @version 6/15/2015.
  */
 public class BigRetina {
     private String pathAndRetinaFileName; // where BigRetina is saved as JSON file
     private Gson gson;
-
 
     public BigRetina(int numberOfVisionCellsAlongYAxis, int numberOfVisionCellsAlongXAxis,
                      String pathAndRetinaFileName) throws IOException {
@@ -33,10 +30,36 @@ public class BigRetina {
 
         this.pathAndRetinaFileName = pathAndRetinaFileName;
         this.gson = new Gson();
-        String retinaAsJSON = this.gson.toJson(retina);
-        FileInputOutput.saveObjectToTextFile(retinaAsJSON, this
-                .pathAndRetinaFileName);
+        this.saveRetinaToDisk(retina);
     }
 
-    // TODO: other public API with saving to file
+    Retina getSavedRetinaFromDisk() throws IOException {
+        String retinaAsJSON = FileInputOutput.openObjectInTextFile(this.pathAndRetinaFileName);
+        return this.gson.fromJson(retinaAsJSON, Retina.class);
+    }
+
+    void saveRetinaToDisk(Retina retina) throws IOException {
+        String retinaAsJSON = this.gson.toJson(retina);
+        FileInputOutput.saveObjectToTextFile(retinaAsJSON, this.pathAndRetinaFileName);
+    }
+
+    public VisionCell[][] getVisionCells() throws IOException {
+        return this.getSavedRetinaFromDisk().getVisionCells();
+    }
+
+    public VisionCell[][] getVisionCells(Rectangle rectangle) throws IOException {
+        return this.getSavedRetinaFromDisk().getVisionCells(rectangle);
+    }
+
+    public void seeBMPImage(String BMPFileName) throws IOException {
+        Retina retina = this.getSavedRetinaFromDisk();
+        retina.seeBMPImage(BMPFileName);
+        this.saveRetinaToDisk(retina);
+    }
+
+    public void see2DIntArray(int[][] image) throws IOException {
+        Retina retina = this.getSavedRetinaFromDisk();
+        retina.see2DIntArray(image);
+        this.saveRetinaToDisk(retina);
+    }
 }

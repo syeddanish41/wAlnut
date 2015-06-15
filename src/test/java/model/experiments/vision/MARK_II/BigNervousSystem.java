@@ -43,9 +43,9 @@ public class BigNervousSystem {
                     " is too large making MAX_HEAP_USE_PERCENTAGE > 1.0");
         }
         this.bigNeocortex = bigNeocortex;
-        //this.pathAndRetinaFileName = pathAndRetinaFileName;
 
         // create Retina
+        // TODO: replace with BigRetina
         Retina retina = new Retina((int) retinaDimension.getHeight(), (int) retinaDimension.getWidth());
 
         // connect Retina
