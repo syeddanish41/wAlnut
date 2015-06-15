@@ -13,10 +13,10 @@ import java.io.IOException;
  * @author Q Liu (quinnliu@vt.edu)
  * @date 6/15/2015.
  */
-public class VisionExperiment_1 {
+public class Experiment_1 {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Running VisionExperiment_1.main() ...");
+        System.out.println("Running Experiment_1.main() ...");
 
         // ===================== Build Nervous System ==========================
         int maxSizeOfARegionInMB = 512;
@@ -43,7 +43,7 @@ public class VisionExperiment_1 {
                 "F"   , "125", "125", fourNeurons, PMO, DLA,
                 "G"   , "125", "125", fourNeurons, PMO, DLA,
                 "H"   , "125", "125", fourNeurons, PMO, DLA,
-                "Layer 5 M"   , "125", "125", fourNeurons, PMO, DLA,
+                "layer 5 M"   , "125", "125", fourNeurons, PMO, DLA,
                 "I"   , "250", "250", fourNeurons, PMO, DLA,
                 "J"   , "250", "250", fourNeurons, PMO, DLA,
                 "K"   , "250", "250", fourNeurons, PMO, DLA,
@@ -106,7 +106,7 @@ public class VisionExperiment_1 {
                 retinaDimension, opticNerve, retinaConnectionParameterListInOrder,
                 pathAndRetinaFileName);
 
-        System.out.println("Finished VisionExperiment_1.main()");
+        System.out.println("Finished Experiment_1.main()");
     }
 
     public void test_HowToRunAlgorithmOnceOnNervousSystem() {

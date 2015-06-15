@@ -70,7 +70,7 @@ public class BigNeocortex {
         this.createUniqueFolderToSaveBigNeocortex(pathAndFolderName);
 
         this.gson = new Gson();
-        this.heapTracker = new HeapTracker();
+        this.heapTracker = new HeapTracker(false);
         double maxHeapSizeInMB = (double) this.heapTracker
                 .getHeapMaxSizeInBytes() / 1000000;
         this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfARegionInMB * 2 /

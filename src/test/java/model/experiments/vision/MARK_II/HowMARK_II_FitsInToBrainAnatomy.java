@@ -34,14 +34,12 @@ public class HowMARK_II_FitsInToBrainAnatomy {
     public static void main(String[] args) throws IOException {
         System.out.println("Running HowMARK_II_FitsIntoBrainAnatomy.main() ...");
 
-        heapTracker = new HeapTracker();
+        heapTracker = new HeapTracker(true);
 
         partialNervousSystem = buildNervousSystem();
 
-        System.out.println(heapTracker.getAllHeapData());
-
         // save all heap size data into a file
-        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
+        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heaptracker/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
 
         System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
     }

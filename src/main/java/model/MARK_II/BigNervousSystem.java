@@ -28,7 +28,7 @@ public class BigNervousSystem {
                             AbstractSensorCellsToRegionConnect opticNerve,
                             String[] retinaConnectionParameterListInOrder,
                             String pathAndRetinaFileName) throws IOException {
-        this.heapTracker = new HeapTracker();
+        this.heapTracker = new HeapTracker(false);
         double maxHeapSizeInMB = (double) this.heapTracker
                 .getHeapMaxSizeInBytes() / 1000000;
         this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfBigNervousSystemInMB

@@ -9,24 +9,32 @@ import java.io.IOException;
 public class HeapTracker {
     private String allHeapData;
     private long START_TIME;
+    private boolean printDataToConsole;
 
-    public HeapTracker() {
+    public HeapTracker(boolean printDataToConsole) {
         this.allHeapData = new String();
         this.START_TIME = System.currentTimeMillis();
+        this.printDataToConsole = printDataToConsole;
 
-        long heapMaxSizeInMB = Runtime.getRuntime().maxMemory() / 1000000;
-        //System.out.println("heapMaxSize = " + heapMaxSizeInMB + " MB");
+        if (this.printDataToConsole) {
+            long heapMaxSizeInMB = Runtime.getRuntime().maxMemory() / 1000000;
+            System.out.println("heapMaxSize = " + heapMaxSizeInMB + " MB");
+        }
     }
 
     public void updateHeapData() {
-        //System.out.println("usedHeapSize = " + this.getUsedHeapInBytes() / 1000000 + " MB");
+        if (this.printDataToConsole) {
+            System.out.println("usedHeapSize = " + this.getUsedHeapInBytes() / 1000000 + " MB");
+        }
 
         double currentRunTimeInMilliseconds = System.currentTimeMillis() - this.START_TIME;
         double currentRunTimeInSeconds = currentRunTimeInMilliseconds / 1000;
-        //System.out.println("currentRunTimeInSeconds = " + currentRunTimeInSeconds);
+        if (this.printDataToConsole) {
+            System.out.println("currentRunTimeInSeconds = " + currentRunTimeInSeconds);
+        }
 
         String addToFile = Double.toString(currentRunTimeInSeconds) + " " + this.getUsedHeapInBytes() + "\n";
-        allHeapData += addToFile;
+        this.allHeapData += addToFile;
     }
 
     public String getAllHeapData() {
