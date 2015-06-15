@@ -1,9 +1,9 @@
-package model;
+package model.MARK_II;
 
 import junit.framework.TestCase;
-import model.util.ConvertToValidCode;
+import model.MARK_II.ImageViewer;
+import model.MARK_II.Retina;
 import model.util.Point3D;
-import model.util.RegionConsoleViewer;
 
 import java.io.IOException;
 import java.util.Arrays;

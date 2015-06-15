@@ -1,10 +1,5 @@
 package model.MARK_II;
 
-import model.BigRetina;
-import model.MARK_II.BigNeocortex;
-import model.MARK_II.Column;
-import model.MARK_II.Region;
-import model.MARK_II.SensorCell;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.util.HeapTracker;
 import model.util.Rectangle;

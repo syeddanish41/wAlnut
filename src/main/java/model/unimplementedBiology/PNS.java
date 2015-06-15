@@ -1,6 +1,6 @@
 package model.unimplementedBiology;
 
-import model.Retina;
+import model.MARK_II.Retina;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)

@@ -1,5 +1,7 @@
-package model.MARK_II;
+package model.MARK_I;
 
+import model.MARK_II.Neocortex;
+import model.MARK_II.Retina;
 import model.unimplementedBiology.CNS;
 import model.unimplementedBiology.LGN;
 import model.unimplementedBiology.PNS;

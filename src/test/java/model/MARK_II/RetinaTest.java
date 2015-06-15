@@ -1,11 +1,11 @@
-package model;
+package model.MARK_II;
 
 import junit.framework.TestCase;
+import model.MARK_II.Retina;
 import model.MARK_II.VisionCell;
 import model.util.Rectangle;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.io.IOException;
 
 /**

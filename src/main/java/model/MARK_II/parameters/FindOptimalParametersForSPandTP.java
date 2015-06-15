@@ -5,7 +5,7 @@ import model.MARK_II.SpatialPooler;
 import model.MARK_II.TemporalPooler;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.Retina;
+import model.MARK_II.Retina;
 
 import java.awt.*;
 import java.awt.geom.Point2D;

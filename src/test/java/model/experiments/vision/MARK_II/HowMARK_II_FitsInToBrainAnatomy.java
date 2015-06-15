@@ -1,7 +1,7 @@
 package model.experiments.vision.MARK_II;
 
-import model.ImageViewer;
-import model.Layer5Region;
+import model.MARK_II.ImageViewer;
+import model.MARK_II.Layer5Region;
 import model.MARK_II.Neocortex;
 import model.MARK_II.Region;
 import model.MARK_II.SpatialPooler;

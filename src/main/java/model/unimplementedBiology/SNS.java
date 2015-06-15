@@ -1,6 +1,6 @@
 package model.unimplementedBiology;
 
-import model.Retina;
+import model.MARK_II.Retina;
 
 /**
  * Nerves connecting to voluntary skeletal muscles and sensory receptors using

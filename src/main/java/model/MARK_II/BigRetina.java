@@ -1,7 +1,6 @@
-package model;
+package model.MARK_II;
 
 import com.google.gson.Gson;
-import model.MARK_II.VisionCell;
 import model.util.FileInputOutput;
 import model.util.Rectangle;
 

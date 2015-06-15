@@ -12,7 +12,7 @@ import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.MARK_II.NervousSystem;
-import model.Retina;
+import model.MARK_II.Retina;
 import model.util.FileInputOutput;
 
 import java.io.IOException;
