@@ -1,5 +1,3 @@
-# MARK II
-
 ## Heap Tracker Experiment 1
 
 ### Why
