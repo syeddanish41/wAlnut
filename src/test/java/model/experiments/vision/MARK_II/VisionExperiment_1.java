@@ -1,9 +1,10 @@
 package model.experiments.vision.MARK_II;
 
-import junit.framework.TestCase;
+import model.MARK_II.BigNeocortex;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
+import model.MARK_II.BigNervousSystem;
 
 import java.awt.*;
 import java.io.IOException;

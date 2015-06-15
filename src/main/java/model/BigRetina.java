@@ -1,8 +1,7 @@
-package model.experiments.vision.MARK_II;
+package model;
 
 import com.google.gson.Gson;
 import model.MARK_II.VisionCell;
-import model.Retina;
 import model.util.FileInputOutput;
 import model.util.Rectangle;
 

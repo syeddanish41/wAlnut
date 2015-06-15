@@ -1,8 +1,8 @@
-package model.experiments.vision.MARK_II;
+package model.MARK_II;
 
 import com.google.gson.Gson;
-import model.MARK_II.Region;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
+import model.util.BigClassUtil;
 import model.util.FileInputOutput;
 import model.util.HeapTracker;
 import model.util.Rectangle;
@@ -23,7 +23,7 @@ import java.io.IOException;
  * saved JSON files.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @date 6/9/2015.
+ * @version 6/9/2015.
  */
 public class BigNeocortex {
 

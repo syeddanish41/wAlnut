@@ -11,7 +11,7 @@ import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.unimplementedBiology.NervousSystem;
+import model.MARK_II.NervousSystem;
 import model.Retina;
 import model.util.FileInputOutput;
 
@@ -20,7 +20,6 @@ import java.util.Set;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
- * @author Danh Nguyen (danh0902@vt.edu)
  * @version April 12, 2014
  */
 public class HowMARK_I_FitsInToBrainAnatomy extends TestCase {

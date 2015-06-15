@@ -7,7 +7,7 @@ import model.MARK_II.Region;
 import model.MARK_II.SpatialPooler;
 import model.MARK_II.TemporalPooler;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
-import model.unimplementedBiology.NervousSystem;
+import model.MARK_II.NervousSystem;
 import model.util.HeapTracker;
 import model.util.Point3D;
 import model.util.Rectangle;

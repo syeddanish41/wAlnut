@@ -1,5 +1,7 @@
-package model.experiments.vision.MARK_II;
+package model.MARK_II;
 
+import model.BigRetina;
+import model.MARK_II.BigNeocortex;
 import model.MARK_II.Column;
 import model.MARK_II.Region;
 import model.MARK_II.SensorCell;

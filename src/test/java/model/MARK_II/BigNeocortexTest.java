@@ -1,8 +1,10 @@
-package model.experiments.vision.MARK_II;
+package model.MARK_II;
 
 import junit.framework.TestCase;
+import model.MARK_II.BigNeocortex;
 import model.MARK_II.Region;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
+import model.util.BigClassUtil;
 import model.util.Rectangle;
 
 import java.awt.*;
