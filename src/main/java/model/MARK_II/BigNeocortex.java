@@ -199,6 +199,8 @@ public class BigNeocortex {
             boolean foundUniqueName = false;
             int i = 0;
             while (foundUniqueName == false) {
+                System.out.println("newFoldername = " + newFolderName);
+                System.out.println("path = " + path.toString());
                 if (BigClassUtil.isFolderInList(newFolderName, path.listFiles())) {
                     // we need to change newFolderName to something unique
                     CharSequence twoUnderscores = "__";
