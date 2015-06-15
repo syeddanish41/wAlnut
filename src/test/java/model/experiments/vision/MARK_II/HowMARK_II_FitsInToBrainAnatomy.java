@@ -136,23 +136,23 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 4, 4);
         heapTracker.updateHeapData();
 
-        // connecting layer 5 region M
+//        // connecting layer 5 region M
 //        neocortex.changeCurrentRegionTo("I");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //        neocortex.changeCurrentRegionTo("J");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //        neocortex.changeCurrentRegionTo("K");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //        neocortex.changeCurrentRegionTo("L");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //
 //        neocortex.changeCurrentRegionTo("M");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), F, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //
 //        // NOTE: I, J, K, & L are connected to different parts of the same Retina
 //        Retina retina = new Retina(1000, 1000);

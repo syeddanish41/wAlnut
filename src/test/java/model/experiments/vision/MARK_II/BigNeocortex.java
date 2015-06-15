@@ -257,7 +257,7 @@ public class BigNeocortex {
         if (this.heapTracker.isUsedHeapPercentageOver(this
                 .MAX_HEAP_USE_PERCENTAGE)) {
             throw new IllegalStateException("the region you are trying" +
-                    "get is taking too much space in the Java heap");
+                    " to get is taking too much space in the Java heap");
         }
 
         return region;
