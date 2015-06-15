@@ -102,6 +102,9 @@ public class BigNeocortexTest extends TestCase {
         assertEquals(Layer5Region.class, this.bigNeocortex.getRegion("Layer 5 M")
                 .getClass());
 
+        File path__1 = new File(this.path + "BigNeocortexTest__1");
+        BigClassUtil.deleteFolder(path__1);
+
         // delete folder created by constructor
         File firstPath = new File(this.pathAndFolderName);
         BigClassUtil.deleteFolder(firstPath);

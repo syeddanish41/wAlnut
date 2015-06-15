@@ -23,7 +23,7 @@ import java.io.IOException;
  * saved JSON files.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @version 6/9/2015.
+ * @version 6/15/2015.
  */
 public class BigNeocortex {
 
