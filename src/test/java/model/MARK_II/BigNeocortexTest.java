@@ -16,13 +16,18 @@ import java.io.IOException;
  * @version 6/9/2015
  */
 public class BigNeocortexTest extends TestCase {
+    private int maxSizeOfARegionInMB;
+    private String path;
 
-    private BigNeocortex bigNeocortex;
     private String[] regionParameterListInOrder;
     private String pathAndFolderName;
 
+    private BigNeocortex bigNeocortex;
+
     public void setUp() throws IOException {
-        int maxSizeOfARegionInMB = 350;
+        this.maxSizeOfARegionInMB = 350;
+        this.path = "./src/test/java/model/MARK_II/";
+
         // pass it an array of all Region names
         // Example List:
         // index_0 = root, 60, 60, 4, 20, 3
@@ -38,13 +43,12 @@ public class BigNeocortexTest extends TestCase {
                 "change to region A"};
 
         this.pathAndFolderName = "" +
-                "./src/test/java/model/experiments/vision/MARK_II" +
-                "/BigNeocortexTest__0";
-        this.bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
-                regionParameterListInOrder, new
+                "./src/test/java/model/MARK_II/BigNeocortexTest__0";
+        this.bigNeocortex = new BigNeocortex(this.maxSizeOfARegionInMB,
+                this.regionParameterListInOrder, new
                 RegionToRegionRectangleConnect(),
                 regionConnectionParameterListInOrder,
-                pathAndFolderName);
+                this.pathAndFolderName);
     }
 
     public void test_connectAllRegions() throws IOException {
@@ -61,8 +65,7 @@ public class BigNeocortexTest extends TestCase {
 
     public void test_instantiateAndSaveAllUnconnectedRegions() throws IOException {
         // make sure root.json and A.json are in MARK_II/BigNeocortexTest__0
-        File path__0 = new File("" +
-                "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest__0");
+        File path__0 = new File(this.pathAndFolderName);
         assertTrue(BigClassUtil.isFileInList("root.json", path__0
                 .listFiles()));
         assertTrue(BigClassUtil.isFileInList("A.json", path__0.listFiles
@@ -72,8 +75,7 @@ public class BigNeocortexTest extends TestCase {
         this.bigNeocortex.instantiateAndSaveAllUnconnectedRegions(this.regionParameterListInOrder);
 
         // make sure root.json and A.json are in MARK_II/BigNeocortexTest__1
-        File path__1 = new File("" +
-                "./src/test/java/model/experiments/vision/MARK_II/BigNeocortexTest__1");
+        File path__1 = new File(this.path + "BigNeocortexTest__1");
         assertTrue(BigClassUtil.isFileInList("root.json", path__1
                 .listFiles()));
         assertTrue(BigClassUtil.isFileInList("A.json", path__1.listFiles()));
@@ -82,16 +84,37 @@ public class BigNeocortexTest extends TestCase {
         BigClassUtil.deleteFolder(path__1);
     }
 
+    public void test_instantiateAndSaveLayer5Region() throws IOException {
+        String[] regionParameterListInOrder = new String[] {
+                "Layer 5 M", "60", "60", "4", "20", "3",
+                "A", "60", "60", "4", "20", "3"};
+
+        // NOTE: new connection pattern every 7 elements
+        String[] regionConnectionParameterListInOrder = new String[]{
+                "0", "0", "30", "60", "A", "4", "4"};
+
+        this.bigNeocortex = new BigNeocortex(this.maxSizeOfARegionInMB,
+                regionParameterListInOrder, new
+                RegionToRegionRectangleConnect(),
+                regionConnectionParameterListInOrder,
+                this.pathAndFolderName);
+
+        assertEquals(Layer5Region.class, this.bigNeocortex.getRegion("Layer 5 M")
+                .getClass());
+
+        // delete folder created by constructor
+        File firstPath = new File(this.pathAndFolderName);
+        BigClassUtil.deleteFolder(firstPath);
+    }
+
     public void test_createUniqueFolderToSaveBigNeocortex() {
-        File path = new File("" +
-                "./src/test/java/model/experiments/vision/MARK_II/");
+        File path = new File(this.path);
         // currently there is no folder by that name in the folder MARK_II
         assertFalse(BigClassUtil.isFolderInList
                 ("test_createUniqueFolderToSaveBigNeocortex", path.listFiles()));
 
-        String pathAndFolderName = "" +
-                "./src/test/java/model/experiments/vision/MARK_II" +
-                "/test_createUniqueFolderToSaveBigNeocortex";
+        String pathAndFolderName = this.path +
+                "test_createUniqueFolderToSaveBigNeocortex";
         this.bigNeocortex.createUniqueFolderToSaveBigNeocortex(pathAndFolderName);
         assertTrue(BigClassUtil.isFolderInList
                 ("test_createUniqueFolderToSaveBigNeocortex", path.listFiles()));

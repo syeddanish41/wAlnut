@@ -43,7 +43,7 @@ public class VisionExperiment_1 {
                 "F"   , "125", "125", fourNeurons, PMO, DLA,
                 "G"   , "125", "125", fourNeurons, PMO, DLA,
                 "H"   , "125", "125", fourNeurons, PMO, DLA,
-                "Layer 5 M"   , "125", "125", fourNeurons, PMO, DLA, // TODO: PROBLEM!
+                "Layer 5 M"   , "125", "125", fourNeurons, PMO, DLA,
                 "I"   , "250", "250", fourNeurons, PMO, DLA,
                 "J"   , "250", "250", fourNeurons, PMO, DLA,
                 "K"   , "250", "250", fourNeurons, PMO, DLA,

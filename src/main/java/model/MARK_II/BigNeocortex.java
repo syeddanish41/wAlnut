@@ -94,7 +94,7 @@ public class BigNeocortex {
         for (int i = 0; i < connectionParameterListInOrder.length; i = i + 7) {
             // NOTE: new connection pattern every 7 elements
             // with 1 extra command in the following format: "change to region REGION_NAME"
-            if (connectionParameterListInOrder[i].contains("change to region")) {
+            if (connectionParameterListInOrder[i].toLowerCase().contains("change to region")) {
                 // extract region name to change currentRegion to
                 int numberOfCharIn_change_to_region = 17;
                 String regionName = connectionParameterListInOrder[i].substring(numberOfCharIn_change_to_region);
@@ -131,6 +131,7 @@ public class BigNeocortex {
                                                          regionParameterListInOrder) throws IOException {
         for (int i = 0; i < regionParameterListInOrder.length; i = i + 6) {
             // NOTE: new region every 6 elements
+            Region region = null;
 
             // convert String parameters into correct type
             String biologicalName = regionParameterListInOrder[i];
@@ -145,11 +146,19 @@ public class BigNeocortex {
             int desiredLocalActivity = Integer.valueOf(
                     regionParameterListInOrder[i + 5]);
 
-            Region region = new Region(biologicalName,
-                    numberOfColumnsAlongRowsDimension,
-                    numberOfColumnsAlongColumnsDimension,
-                    cellsPerColumn, percentMinimumOverlapScore,
-                    desiredLocalActivity);
+            if (biologicalName.toLowerCase().contains("layer 5")) {
+                region = new Layer5Region(biologicalName,
+                        numberOfColumnsAlongRowsDimension,
+                        numberOfColumnsAlongColumnsDimension,
+                        cellsPerColumn, percentMinimumOverlapScore,
+                        desiredLocalActivity);
+            } else {
+                region = new Region(biologicalName,
+                        numberOfColumnsAlongRowsDimension,
+                        numberOfColumnsAlongColumnsDimension,
+                        cellsPerColumn, percentMinimumOverlapScore,
+                        desiredLocalActivity);
+            }
 
             // 30% because we want enough room for at least 2 Regions and later
             // for each Region to grow in size for all new synapses and
@@ -252,7 +261,13 @@ public class BigNeocortex {
                 regionBiologicalName + ".json";
         String regionAsJSON = FileInputOutput.openObjectInTextFile
                 (finalPathAndFile);
-        Region region = this.gson.fromJson(regionAsJSON, Region.class);
+
+        Region region;
+        if (regionAsJSON.toLowerCase().contains("layer 5")) {
+            region = this.gson.fromJson(regionAsJSON, Layer5Region.class);
+        } else {
+            region = this.gson.fromJson(regionAsJSON, Region.class);
+        }
 
         if (this.heapTracker.isUsedHeapPercentageOver(this
                 .MAX_HEAP_USE_PERCENTAGE)) {
