@@ -22,14 +22,19 @@ To learn more read this [stackoverflow post](http://stackoverflow.com/questions/
 
 ### How to use above code
 
-`HowMARK_II_FitsInToBrainAnatomy.java` creates the `NervousSystem` 
- and stores the amount of the heap that is used each second in bytes
- and writes it into the file `heapSizeLogData.txt`. After you have
- run `HowMARK_II_FitsInToBrainAnatomy.java`, run 
- `HeaptrakerDataToJavascriptArray.java` to produce the data
- formatted into a Javascript array. 
+1. Refer to the file `HowMARK_II_FitsInToBrainAnatomy.java` as an example for
+   how to use the `HeapTracker` class. 
+   
+2. Run `HowMARK_II_FitsInToBrainAnatomy.java`. It
+   creates the `NervousSystem` and stores the amount of the heap that is used 
+   each time `heapTracker.updateHeapData();` is called in bytes and writes it 
+   into the file `heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt`. 
+   
+4. After you have run `HowMARK_II_FitsInToBrainAnatomy.java`, run 
+   `HeaptrakerDataToJavascriptArray.java` to produce the data formatted into 
+   a Javascript array. 
  
- Next paste your `dataset` variable into the file in the WalnutiQ/toph
- repo [here](https://github.com/WalnutiQ/toph/blob/master/MARK_II/vision/experiment_1/generic_scatter_plot.js)
- and open the file in a browser (only tested with Google Chrome) to 
- view your heap usage. 
+5. Next paste your `dataset` variable into the file in the WalnutiQ/toph
+   repo [here](https://github.com/WalnutiQ/toph/blob/master/MARK_II/vision/experiment_1/generic_scatter_plot.js)
+   and open the file in a browser (only tested with Google Chrome) to
+   view your heap usage. 
