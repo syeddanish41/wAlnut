@@ -5,6 +5,7 @@ import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.MARK_II.BigNervousSystem;
+import model.util.HeapTracker;
 
 import java.awt.*;
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class Experiment_1 {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Running Experiment_1.main() ...");
+        HeapTracker heapTracker = new HeapTracker(true);
 
         // ===================== Build Nervous System ==========================
         int maxSizeOfARegionInMB = 512;
@@ -49,6 +51,7 @@ public class Experiment_1 {
                 "K"   , "250", "250", fourNeurons, PMO, DLA,
                 "L"   , "250", "250", fourNeurons, PMO, DLA
         };
+        heapTracker.updateHeapData();
 
         // NOTE: new connection pattern every 7 elements or
         // change with 1 element with keywords "change to region REGION_NAME"
@@ -85,7 +88,9 @@ public class Experiment_1 {
                 "change to region M",
                 "0", "0", "125", "125", "F", "4", "4"
         };
+        heapTracker.updateHeapData();
 
+        /**
         String whereToSaveBigNeocortex = "./src/test/java/model/experiments/vision/MARK_II" +
                 "/BigNervousSystemTest_Neocortex__0";
         BigNeocortex bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
@@ -105,11 +110,12 @@ public class Experiment_1 {
         BigNervousSystem bigNervousSystem = new BigNervousSystem(2048, bigNeocortex,
                 retinaDimension, opticNerve, retinaConnectionParameterListInOrder,
                 pathAndRetinaFileName);
+         **/
 
         System.out.println("Finished Experiment_1.main()");
     }
 
-    public void test_HowToRunAlgorithmOnceOnNervousSystem() {
+//    public void test_HowToRunAlgorithmOnceOnNervousSystem() {
 //        Neocortex neocortex = this.partialNervousSystem.getCNS().getBrain()
 //                .getCerebrum().getCerebralCortex().getNeocortex();
 //
@@ -124,5 +130,5 @@ public class Experiment_1 {
 //        FileInputOutput
 //                .saveObjectToTextFile(partialNervousSystemObject,
 //                        "./experiments/model/MARK_II/vision/PartialNervousSystem_MARK_II.json");
-    }
+//    }
 }
