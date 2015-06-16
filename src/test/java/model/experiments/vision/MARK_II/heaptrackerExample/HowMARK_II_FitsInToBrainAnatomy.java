@@ -1,4 +1,4 @@
-package model.experiments.vision.MARK_II;
+package model.experiments.vision.MARK_II.heaptrackerExample;
 
 import model.MARK_II.ImageViewer;
 import model.MARK_II.Layer5Region;
@@ -39,7 +39,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         partialNervousSystem = buildNervousSystem();
 
         // save all heap size data into a file
-        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heaptracker/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
+        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heaptrackerExample/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
 
         System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
     }

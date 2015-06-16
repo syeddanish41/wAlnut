@@ -29,7 +29,8 @@ public class BigNeocortex {
 
     private final double MAX_HEAP_USE_PERCENTAGE;
     private String rootRegionName;
-    private Region currentRegion;
+    //private Region currentRegion;
+    private String currentRegionName;
     private AbstractRegionToRegionConnect connectType;
     private String pathAndFolderNameWithoutEndingBacklash; // BigNeocortex is saved as JSON file
 
@@ -192,8 +193,8 @@ public class BigNeocortex {
             this.saveRegion(region);
 
             if (i == 0) {
-                // this is the root region's parameters
-                this.currentRegion = region;
+                // this is the root region's parameters since i == 0
+                this.currentRegionName = region.getBiologicalName();
             }
         }
     }
@@ -257,7 +258,7 @@ public class BigNeocortex {
 
     public void changeCurrentRegionTo(String newCurrentRegionBiologicalName)
             throws IOException {
-        this.currentRegion = this.getRegion(newCurrentRegionBiologicalName);
+        this.currentRegionName = newCurrentRegionBiologicalName;
     }
 
     public Region getRegion(String regionBiologicalName) throws IOException {
@@ -324,10 +325,11 @@ public class BigNeocortex {
                             "with the same name");
         }
 
-        this.currentRegion.addChildRegion(childRegion);
+        Region currentRegion = this.getRegion(this.currentRegionName);
+        currentRegion.addChildRegion(childRegion);
 
         this.connectType.connect(childRegion.getColumns(),
-                this.currentRegion.getColumns
+                currentRegion.getColumns
                         (rectanglePartOfParentRegionToConnectTo),
                 numberOfColumnsToOverlapAlongNumberOfRows,
                 numberOfColumnsToOverlapAlongNumberOfColumns);
@@ -340,13 +342,13 @@ public class BigNeocortex {
 
         // We just changed currentRegion so resave it
         File pathToRegionFile = new File(this.pathAndFolderNameWithoutEndingBacklash + "/" +
-                this.currentRegion.getBiologicalName() + ".json");
+                this.currentRegionName + ".json");
         pathToRegionFile.delete();
-        this.saveRegion(this.currentRegion);
+        this.saveRegion(currentRegion);
     }
 
-    public Region getCurrentRegion() {
-        return this.currentRegion;
+    public Region getCurrentRegion() throws IOException {
+        return this.getRegion(this.currentRegionName);
     }
 
     void saveRegion(Region region) throws IOException {

@@ -1,4 +1,4 @@
-package model.experiments.vision.MARK_II.heaptracker;
+package model.experiments.vision.MARK_II.heaptrackerExample;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.List;
 public class HeaptrackerDataToJavascriptArray {
     public static void main(String []av) throws Exception {
         HeaptrackerDataToJavascriptArray
-                .printToConsole("./src/test/java/model/experiments/vision/MARK_II/heaptracker/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
+                .printToConsole("./src/test/java/model/experiments/vision/MARK_II/heaptrackerExample/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
     }
 
     /**

@@ -38,17 +38,17 @@ public class Experiment_1 {
                 "root", "60", "60", fourNeurons, PMO, DLA,
                 "A"   , "60", "60", fourNeurons, PMO, DLA,
                 "B"   , "60", "60", fourNeurons, PMO, DLA,
-                "C"   , "125", "125", fourNeurons, PMO, DLA,
-                "D"   , "125", "125", fourNeurons, PMO, DLA,
+                "C"   , "125", "125", oneNeuron, PMO, DLA,
+                "D"   , "125", "125", oneNeuron, PMO, DLA,
                 "E"   , "125", "125", fourNeurons, PMO, DLA,
                 "F"   , "125", "125", fourNeurons, PMO, DLA,
                 "G"   , "125", "125", fourNeurons, PMO, DLA,
                 "H"   , "125", "125", fourNeurons, PMO, DLA,
-                "layer 5 M"   , "125", "125", fourNeurons, PMO, DLA,
-                "I"   , "250", "250", fourNeurons, PMO, DLA,
-                "J"   , "250", "250", fourNeurons, PMO, DLA,
-                "K"   , "250", "250", fourNeurons, PMO, DLA,
-                "L"   , "250", "250", fourNeurons, PMO, DLA
+                "layer 5 M"   , "125", "125", oneNeuron, PMO, DLA,
+                "I"   , "250", "250", oneNeuron, PMO, DLA,
+                "J"   , "250", "250", oneNeuron, PMO, DLA,
+                "K"   , "250", "250", oneNeuron, PMO, DLA,
+                "L"   , "250", "250", oneNeuron, PMO, DLA
         };
 
         // NOTE: new connection pattern every 7 elements or
