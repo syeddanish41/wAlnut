@@ -31,7 +31,7 @@ public class BigNeocortex {
     private String rootRegionName;
     private Region currentRegion;
     private AbstractRegionToRegionConnect connectType;
-    private String pathAndFolderName; // BigNeocortex is saved as JSON file
+    private String pathAndFolderNameWithoutEndingBacklash; // BigNeocortex is saved as JSON file
 
     private Gson gson;
     private HeapTracker heapTracker;
@@ -56,21 +56,22 @@ public class BigNeocortex {
      *                                         the current region the element
      *                                         MUST be in the format
      *                                         "change to region REGION_NAME"
-     * @param pathAndFolderName
+     * @param pathAndFolderNameWithoutEndingBacklash
      */
     public BigNeocortex(int maxSizeOfARegionInMB, String[]
             regionParameterListInOrder,
                         AbstractRegionToRegionConnect
                                 neocortexRegionToNeocortexRegion,
                         String[] connectionParameterListInOrder, String
-                                pathAndFolderName) throws IOException {
+                                pathAndFolderNameWithoutEndingBacklash) throws IOException {
         this.rootRegionName = regionParameterListInOrder[0];
         this.connectType =
                 neocortexRegionToNeocortexRegion;
-        this.createUniqueFolderToSaveBigNeocortex(pathAndFolderName);
+        this.createUniqueFolderToSaveBigNeocortex(pathAndFolderNameWithoutEndingBacklash);
 
         this.gson = new Gson();
-        this.heapTracker = new HeapTracker(false);
+        this.heapTracker = new HeapTracker(true);
+        this.heapTracker.updateHeapData();
         double maxHeapSizeInMB = (double) this.heapTracker
                 .getHeapMaxSizeInBytes() / 1000000;
         this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfARegionInMB * 2 /
@@ -82,11 +83,15 @@ public class BigNeocortex {
 
         this.instantiateAndSaveAllUnconnectedRegions
                 (regionParameterListInOrder);
+        this.heapTracker.updateHeapData();
+        System.out.println("AFTER: instantiateAndSaveAllUnconnectedRegions\n" +
+                "                (regionParameterListInOrder);");
 
         this.connectAllRegions(connectionParameterListInOrder);
+        this.heapTracker.updateHeapData();
+        System.out.println("AFTER: connectAllRegions(connectionParameterListInOrder);");
 
-        this.heapTracker.printAllHeapDataToFile("" +
-                "./src/test/java/model/experiments/vision/MARK_II" +
+        this.heapTracker.printAllHeapDataToFile(this.pathAndFolderNameWithoutEndingBacklash +
                 "/heapSizeLogData_BigNeocortex.txt");
     }
 
@@ -112,11 +117,21 @@ public class BigNeocortex {
                                   Integer.valueOf(connectionParameterListInOrder[i+3])));
 
                 Region childRegion = this.getRegion(connectionParameterListInOrder[i+4]);
+                this.heapTracker.updateHeapData();
+                System.out.println("AFTER: Region childRegion = this.getRegion(connectionParameterListInOrder[i+4]);");
+
                 int numberOfColumnsToOverlapAlongNumberOfRows = Integer.valueOf(connectionParameterListInOrder[i+5]);
                 int numberOfColumnsToOverlapAlongNumberOfColumns = Integer.valueOf(connectionParameterListInOrder[i+6]);
 
                 this.addToCurrentRegion(rectanglePartOfParentRegionToConnectTo, childRegion,
                         numberOfColumnsToOverlapAlongNumberOfRows, numberOfColumnsToOverlapAlongNumberOfColumns);
+                this.heapTracker.updateHeapData();
+                System.out.println("AFTER: addToCurrentRegion" +
+                        "(rectanglePartOfParentRegionToConnectTo, " +
+                        "childRegion,\n" +
+                        "                        " +
+                        "numberOfColumnsToOverlapAlongNumberOfRows, " +
+                        "numberOfColumnsToOverlapAlongNumberOfColumns);");
             }
         }
     }
@@ -235,7 +250,7 @@ public class BigNeocortex {
             // file.mkdir() worked so there is no need to create a unique
             // folder name
         }
-        this.pathAndFolderName = pathAndNewFolderName;
+        this.pathAndFolderNameWithoutEndingBacklash = pathAndNewFolderName;
     }
 
     public void changeCurrentRegionTo(String newCurrentRegionBiologicalName)
@@ -250,14 +265,14 @@ public class BigNeocortex {
                             " getRegion() cannot be null");
         }
 
-        File path = new File(this.pathAndFolderName);
+        File path = new File(this.pathAndFolderNameWithoutEndingBacklash);
         boolean regionInNeocortex = BigClassUtil.isFileInList(regionBiologicalName + ".json"
                 , path.listFiles());
         if (regionInNeocortex == false) {
             return null;
         }
 
-        String finalPathAndFile = this.pathAndFolderName + "/" +
+        String finalPathAndFile = this.pathAndFolderNameWithoutEndingBacklash + "/" +
                 regionBiologicalName + ".json";
         String regionAsJSON = FileInputOutput.openObjectInTextFile
                 (finalPathAndFile);
@@ -322,7 +337,7 @@ public class BigNeocortex {
         }
 
         // We just changed currentRegion so resave it
-        File pathToRegionFile = new File(this.pathAndFolderName + "/" +
+        File pathToRegionFile = new File(this.pathAndFolderNameWithoutEndingBacklash + "/" +
                 this.currentRegion.getBiologicalName() + ".json");
         pathToRegionFile.delete();
         this.saveRegion(this.currentRegion);
@@ -334,7 +349,7 @@ public class BigNeocortex {
 
     void saveRegion(Region region) throws IOException {
         String regionAsJSON = this.gson.toJson(region);
-        String finalPathAndFile = this.pathAndFolderName + "/" +
+        String finalPathAndFile = this.pathAndFolderNameWithoutEndingBacklash + "/" +
                 region.getBiologicalName() + ".json";
         FileInputOutput.saveObjectToTextFile(regionAsJSON,
                 finalPathAndFile);

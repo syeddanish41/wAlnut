@@ -18,10 +18,9 @@ public class Experiment_1 {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Running Experiment_1.main() ...");
-        HeapTracker heapTracker = new HeapTracker(true);
 
         // ===================== Build Nervous System ==========================
-        int maxSizeOfARegionInMB = 512;
+        int maxSizeOfARegionInMB = 1024;
         // pass it an array of all Region names
         // Example List:
         // index_0 = root, 60, 60, 4, 20, 3
@@ -51,7 +50,6 @@ public class Experiment_1 {
                 "K"   , "250", "250", fourNeurons, PMO, DLA,
                 "L"   , "250", "250", fourNeurons, PMO, DLA
         };
-        heapTracker.updateHeapData();
 
         // NOTE: new connection pattern every 7 elements or
         // change with 1 element with keywords "change to region REGION_NAME"
@@ -88,15 +86,14 @@ public class Experiment_1 {
                 "change to region M",
                 "0", "0", "125", "125", "F", "4", "4"
         };
-        heapTracker.updateHeapData();
 
-        /**
         String whereToSaveBigNeocortex = "./src/test/java/model/experiments/vision/MARK_II" +
-                "/BigNervousSystemTest_Neocortex__0";
+                "/Experiment_1_Neocortex__0";
         BigNeocortex bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
                 regionParameterListInOrder, new RegionToRegionRectangleConnect(),
                 regionConnectionParameterListInOrder, whereToSaveBigNeocortex);
 
+        /**
         Dimension retinaDimension = new Dimension(1000, 1000);
         AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
         String[] retinaConnectionParameterListInOrder = {"0", "0", "500", "500", "I", "8", "8",
