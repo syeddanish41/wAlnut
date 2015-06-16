@@ -83,6 +83,8 @@ public class BigNeocortex {
 
         this.instantiateAndSaveAllUnconnectedRegions
                 (regionParameterListInOrder);
+
+        // TODO: why is usedHeapSize = 963MB now? Hypothesis: currentRegion is != null
         this.heapTracker.updateHeapData();
         System.out.println("AFTER: instantiateAndSaveAllUnconnectedRegions\n" +
                 "                (regionParameterListInOrder);");
@@ -128,7 +130,7 @@ public class BigNeocortex {
                 this.heapTracker.updateHeapData();
                 System.out.println("AFTER: addToCurrentRegion" +
                         "(rectanglePartOfParentRegionToConnectTo, " +
-                        "childRegion,\n" +
+                        childRegion.getBiologicalName() + ",\n" +
                         "                        " +
                         "numberOfColumnsToOverlapAlongNumberOfRows, " +
                         "numberOfColumnsToOverlapAlongNumberOfColumns);");

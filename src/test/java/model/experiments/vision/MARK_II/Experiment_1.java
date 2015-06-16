@@ -20,7 +20,7 @@ public class Experiment_1 {
         System.out.println("Running Experiment_1.main() ...");
 
         // ===================== Build Nervous System ==========================
-        int maxSizeOfARegionInMB = 1024;
+        int maxSizeOfARegionInMB = 1024 + 512;
         // pass it an array of all Region names
         // Example List:
         // index_0 = root, 60, 60, 4, 20, 3
