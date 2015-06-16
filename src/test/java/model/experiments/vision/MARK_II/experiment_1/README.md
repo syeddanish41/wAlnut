@@ -20,7 +20,7 @@ run instructions refer to initial outline on issue [here](https://github.com/Wal
 5. Type: `javac -cp "c:\users\huanqing\workspaceJava\walnutiq\referencedlibraries\gson-2.2.4.jar;c:\users\huanqing\workspaceJava\walnutiq\build\libs\WalnutiQ.jar;." Experiment_1.java`
 6. Now we need to run the file. Type `cd ..\..\..\..` or navigate to folder immediately above "model/"
 7. Make sure to insert your own unique path from "C:\". For example mine will be:
-   `java -cp "c:\users\huanqing\workspaceJava\walnutiq\referencedlibraries\gson-2.2.4.jar;c:\users\huanqing\workspaceJava\walnutiq\build\libs\WalnutiQ.jar;." model.experiments.vision.MARK_II.Experiment_1`
+   `java -cp "c:\users\huanqing\workspaceJava\walnutiq\referencedlibraries\gson-2.2.4.jar;c:\users\huanqing\workspaceJava\walnutiq\build\libs\WalnutiQ.jar;." model.experiments.vision.MARK_II.experiment_1.Experiment_1`
 
 8. To recompile and run everything together copy and paste the following command
    when you are in the `walnutiq\src\test\java` folder:
@@ -30,6 +30,6 @@ run instructions refer to initial outline on issue [here](https://github.com/Wal
    cd src\test\java\model\experiments\vision\MARK_II\&
    javac -cp "c:\users\huanqing\workspaceJava\walnutiq\referencedlibraries\gson-2.2.4.jar;c:\users\huanqing\workspaceJava\walnutiq\build\libs\WalnutiQ.jar;." Experiment_1.java&
    cd ..\..\..\..&
-   java -cp "c:\users\huanqing\workspaceJava\walnutiq\referencedlibraries\gson-2.2.4.jar;c:\users\huanqing\workspaceJava\walnutiq\build\libs\WalnutiQ.jar;." model.experiments.vision.MARK_II.Experiment_1
+   java -cp "c:\users\huanqing\workspaceJava\walnutiq\referencedlibraries\gson-2.2.4.jar;c:\users\huanqing\workspaceJava\walnutiq\build\libs\WalnutiQ.jar;." model.experiments.vision.MARK_II.experiment_1.Experiment_1
    ```
    

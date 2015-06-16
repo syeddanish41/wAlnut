@@ -1,4 +1,4 @@
-package model.experiments.vision.MARK_II;
+package model.experiments.vision.MARK_II.experiment_1;
 
 import model.MARK_II.BigNeocortex;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
@@ -88,12 +88,11 @@ public class Experiment_1 {
         };
 
         String whereToSaveBigNeocortex = "./src/test/java/model/experiments/vision/MARK_II" +
-                "/Experiment_1_Neocortex__0";
+                "/experiment_1/Experiment_1_Neocortex__0";
         BigNeocortex bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
                 regionParameterListInOrder, new RegionToRegionRectangleConnect(),
                 regionConnectionParameterListInOrder, whereToSaveBigNeocortex);
 
-        /**
         Dimension retinaDimension = new Dimension(1000, 1000);
         AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
         String[] retinaConnectionParameterListInOrder = {"0", "0", "500", "500", "I", "8", "8",
@@ -102,12 +101,11 @@ public class Experiment_1 {
                 "500", "500", "1000", "1000", "L", "8", "8"};
 
         String pathAndRetinaFileName = "" +
-                "./src/test/java/model/experiments/vision/MARK_II" +
+                "./src/test/java/model/experiments/vision/MARK_II/experiment_1" +
                 "/retina.json";
         BigNervousSystem bigNervousSystem = new BigNervousSystem(2048, bigNeocortex,
                 retinaDimension, opticNerve, retinaConnectionParameterListInOrder,
                 pathAndRetinaFileName);
-         **/
 
         System.out.println("Finished Experiment_1.main()");
     }

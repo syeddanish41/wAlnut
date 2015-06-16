@@ -29,7 +29,6 @@ public class BigNeocortex {
 
     private final double MAX_HEAP_USE_PERCENTAGE;
     private String rootRegionName;
-    //private Region currentRegion;
     private String currentRegionName;
     private AbstractRegionToRegionConnect connectType;
     private String pathAndFolderNameWithoutEndingBacklash; // BigNeocortex is saved as JSON file
@@ -85,7 +84,6 @@ public class BigNeocortex {
         this.instantiateAndSaveAllUnconnectedRegions
                 (regionParameterListInOrder);
 
-        // TODO: why is usedHeapSize = 963MB now? Hypothesis: currentRegion is != null
         this.heapTracker.updateHeapData();
         System.out.println("AFTER: instantiateAndSaveAllUnconnectedRegions\n" +
                 "                (regionParameterListInOrder);");

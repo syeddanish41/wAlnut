@@ -28,16 +28,24 @@ public class BigNervousSystem {
                             AbstractSensorCellsToRegionConnect opticNerve,
                             String[] retinaConnectionParameterListInOrder,
                             String pathAndRetinaFileName) throws IOException {
-        this.heapTracker = new HeapTracker(false);
+        this.heapTracker = new HeapTracker(true);
         double maxHeapSizeInMB = (double) this.heapTracker
                 .getHeapMaxSizeInBytes() / 1000000;
         this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfBigNervousSystemInMB
                 / maxHeapSizeInMB;
+        if (this.MAX_HEAP_USE_PERCENTAGE > 1.0) {
+            throw new IllegalArgumentException("maxSizeOfBigNervousSystemInMB " +
+                    "is too large making MAX_HEAP_USE_PERCENTAGE > 1.0");
+        }
 
         this.bigNeocortex = bigNeocortex;
+        this.heapTracker.updateHeapData();
+        System.out.println("AFTER: this.bigNeocortex = bigNeocortex;");
 
         // create Retina
         BigRetina bigRetina = new BigRetina((int) retinaDimension.getHeight(), (int) retinaDimension.getWidth(), pathAndRetinaFileName);
+        this.heapTracker.updateHeapData();
+        System.out.println("AFTER: BigRetina bigRetina = new BigRetina((int) retinaDimension.getHeight(), (int) retinaDimension.getWidth(), pathAndRetinaFileName);");
 
         // connect Retina
         AbstractSensorCellsToRegionConnect opticNerveConnectType = opticNerve;
@@ -53,6 +61,11 @@ public class BigNervousSystem {
 
             Region region = this.bigNeocortex.getRegion(
                     retinaConnectionParameterListInOrder[i+4]);
+            this.heapTracker.updateHeapData();
+            System.out.println("AFTER: Region region = this.bigNeocortex" +
+                    ".getRegion(\n" +
+                    "                    " +
+                    "retinaConnectionParameterListInOrder[i+4]);");
             Column[][] regionColumns = region.getColumns();
             int numberOfColumnsToOverlapAlongXAxisOfSensorCells =
                     Integer.valueOf(retinaConnectionParameterListInOrder[i+5]);
@@ -63,13 +76,23 @@ public class BigNervousSystem {
                     numberOfColumnsToOverlapAlongXAxisOfSensorCells,
                     numberOfColumnsToOverlapAlongYAxisOfSensorCells);
 
+            if (this.heapTracker.isUsedHeapPercentageOver(this
+                    .MAX_HEAP_USE_PERCENTAGE)) {
+                throw new IllegalArgumentException("your parameters for " +
+                        "optic nerve connect type are using too much of the " +
+                        "heap and must be decreased");
+            }
+
+            this.heapTracker.updateHeapData();
+            System.out.println("AFTER: opticNerveConnectType.connect" +
+                    "(sensorCells, regionColumns,\n" +
+                    "                    " +
+                    "numberOfColumnsToOverlapAlongXAxisOfSensorCells,\n" +
+                    "                    " +
+                    "numberOfColumnsToOverlapAlongYAxisOfSensorCells);");
+
             // resave used regions in BigNeocortex since each Region has been changed
             this.bigNeocortex.saveRegion(region);
-        }
-
-        if (this.MAX_HEAP_USE_PERCENTAGE > 1.0) {
-            throw new IllegalArgumentException("maxSizeOfBigNervousSystemInMB" +
-                    " is too large making MAX_HEAP_USE_PERCENTAGE > 1.0");
         }
     }
 }
