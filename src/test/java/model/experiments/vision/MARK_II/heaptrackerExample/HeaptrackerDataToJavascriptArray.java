@@ -15,7 +15,7 @@ public class HeaptrackerDataToJavascriptArray {
     public static void main(String []av) throws Exception {
         HeaptrackerDataToJavascriptArray
                 .printToConsole("./src/test/java/model/experiments/vision/MARK_II/" +
-                        "experiment_1/Experiment_1_Neocortex__1/" +
+                        "experiment_1/Experiment_1_Neocortex__0/" +
                         "heapSizeLogData_BigNeocortex.txt");
     }
 

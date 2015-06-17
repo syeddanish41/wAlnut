@@ -5,7 +5,6 @@ import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.MARK_II.BigNervousSystem;
-import model.util.HeapTracker;
 
 import java.awt.*;
 import java.io.IOException;
@@ -15,6 +14,9 @@ import java.io.IOException;
  * @date 6/15/2015.
  */
 public class Experiment_1 {
+
+    private static String pathToExperiment_1_folder = "./src/test/java/model/experiments/vision/MARK_II" +
+            "/experiment_1/";
 
     public static void main(String[] args) throws IOException {
         System.out.println("Running Experiment_1.main() ...");
@@ -87,8 +89,7 @@ public class Experiment_1 {
                 "0", "0", "125", "125", "F", "4", "4"
         };
 
-        String whereToSaveBigNeocortex = "./src/test/java/model/experiments/vision/MARK_II" +
-                "/experiment_1/Experiment_1_Neocortex__0";
+        String whereToSaveBigNeocortex = pathToExperiment_1_folder + "Experiment_1_Neocortex__0";
         BigNeocortex bigNeocortex = new BigNeocortex(maxSizeOfARegionInMB,
                 regionParameterListInOrder, new RegionToRegionRectangleConnect(),
                 regionConnectionParameterListInOrder, whereToSaveBigNeocortex);
@@ -100,9 +101,7 @@ public class Experiment_1 {
                 "0", "500", "500", "1000", "K", "0", "0",
                 "500", "500", "1000", "1000", "L", "0", "0"};
 
-        String pathAndRetinaFileName = "" +
-                "./src/test/java/model/experiments/vision/MARK_II/experiment_1" +
-                "/retina.json";
+        String pathAndRetinaFileName = pathToExperiment_1_folder + "retina.json";
         BigNervousSystem bigNervousSystem = new BigNervousSystem(1024 + 512, bigNeocortex,
                 retinaDimension, opticNerve, retinaConnectionParameterListInOrder,
                 pathAndRetinaFileName);
