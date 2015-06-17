@@ -76,6 +76,12 @@ public class BigNervousSystem {
                     numberOfColumnsToOverlapAlongXAxisOfSensorCells,
                     numberOfColumnsToOverlapAlongYAxisOfSensorCells);
 
+            // resave used regions in BigNeocortex since each Region has been changed
+            this.bigNeocortex.saveRegion(region);
+            sensorCells = null;
+            region = null;
+            regionColumns = null;
+
             if (this.heapTracker.isUsedHeapPercentageOver(this
                     .MAX_HEAP_USE_PERCENTAGE)) {
                 throw new IllegalArgumentException("your parameters for " +
@@ -90,9 +96,6 @@ public class BigNervousSystem {
                     "numberOfColumnsToOverlapAlongXAxisOfSensorCells,\n" +
                     "                    " +
                     "numberOfColumnsToOverlapAlongYAxisOfSensorCells);");
-
-            // resave used regions in BigNeocortex since each Region has been changed
-            this.bigNeocortex.saveRegion(region);
         }
     }
 }

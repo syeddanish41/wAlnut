@@ -14,7 +14,9 @@ import java.util.List;
 public class HeaptrackerDataToJavascriptArray {
     public static void main(String []av) throws Exception {
         HeaptrackerDataToJavascriptArray
-                .printToConsole("./src/test/java/model/experiments/vision/MARK_II/heaptrackerExample/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
+                .printToConsole("./src/test/java/model/experiments/vision/MARK_II/" +
+                        "experiment_1/Experiment_1_Neocortex__1/" +
+                        "heapSizeLogData_BigNeocortex.txt");
     }
 
     /**
@@ -36,13 +38,13 @@ public class HeaptrackerDataToJavascriptArray {
      *              [190.75, 229960], [194.71, 429976]
     *                ];
      *
-     * @param CSV_filename
+     * @param pathAndFileName
      * @throws IOException
      */
-    public static void printToConsole(String CSV_filename) throws IOException {
+    public static void printToConsole(String pathAndFileName) throws IOException {
         DecimalFormat df1 = new DecimalFormat("#.00");
-        File CSV_file = new File(CSV_filename);
-        List<String> linesWithCommas = Files.readAllLines(CSV_file.toPath(),
+        File file = new File(pathAndFileName);
+        List<String> linesWithCommas = Files.readAllLines(file.toPath(),
                 StandardCharsets.UTF_8);
 
         String javascriptArray = "var dataset = [\n\t\t\t";
@@ -53,8 +55,6 @@ public class HeaptrackerDataToJavascriptArray {
             String[] rowValues = line.split(" ");
 
             double rowValueInSeconds = Double.valueOf(rowValues[0]);
-            // NOTE: if code is not working remove trailing spaces and lines
-            //       in heaptrace.dat
             double rowValueInMilliseconds = rowValueInSeconds * 1000;
 
             //Convert the heap size into megabytes

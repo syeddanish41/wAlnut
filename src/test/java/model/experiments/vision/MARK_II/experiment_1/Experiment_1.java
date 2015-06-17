@@ -95,15 +95,15 @@ public class Experiment_1 {
 
         Dimension retinaDimension = new Dimension(1000, 1000);
         AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
-        String[] retinaConnectionParameterListInOrder = {"0", "0", "500", "500", "I", "8", "8",
-                "500", "0", "1000", "500", "J", "8", "8",
-                "0", "500", "500", "1000", "K", "8", "8",
-                "500", "500", "1000", "1000", "L", "8", "8"};
+        String[] retinaConnectionParameterListInOrder = {"0", "0", "500", "500", "I", "0", "0",
+                "500", "0", "1000", "500", "J", "0", "0",
+                "0", "500", "500", "1000", "K", "0", "0",
+                "500", "500", "1000", "1000", "L", "0", "0"};
 
         String pathAndRetinaFileName = "" +
                 "./src/test/java/model/experiments/vision/MARK_II/experiment_1" +
                 "/retina.json";
-        BigNervousSystem bigNervousSystem = new BigNervousSystem(2048, bigNeocortex,
+        BigNervousSystem bigNervousSystem = new BigNervousSystem(1024 + 512, bigNeocortex,
                 retinaDimension, opticNerve, retinaConnectionParameterListInOrder,
                 pathAndRetinaFileName);
 
