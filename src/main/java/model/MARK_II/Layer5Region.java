@@ -1,4 +1,4 @@
-package model;
+package model.MARK_II;
 
 import model.MARK_II.Neuron;
 import model.MARK_II.Region;

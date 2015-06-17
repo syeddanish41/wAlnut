@@ -1,24 +1,18 @@
-package model.experiments.vision.MARK_II;
+package model.experiments.vision.MARK_II.heaptrackerExample;
 
-import com.google.gson.Gson;
-import model.ImageViewer;
-import model.Layer5Region;
+import model.MARK_II.ImageViewer;
+import model.MARK_II.Layer5Region;
 import model.MARK_II.Neocortex;
 import model.MARK_II.Region;
 import model.MARK_II.SpatialPooler;
 import model.MARK_II.TemporalPooler;
-import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
-import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.Retina;
-import model.unimplementedBiology.NervousSystem;
-import model.util.FileInputOutput;
+import model.MARK_II.NervousSystem;
 import model.util.HeapTracker;
 import model.util.Point3D;
 import model.util.Rectangle;
 
 import java.awt.*;
-import java.lang.Runtime;
 import java.io.IOException;
 
 /**
@@ -40,14 +34,12 @@ public class HowMARK_II_FitsInToBrainAnatomy {
     public static void main(String[] args) throws IOException {
         System.out.println("Running HowMARK_II_FitsIntoBrainAnatomy.main() ...");
 
-        heapTracker = new HeapTracker();
+        heapTracker = new HeapTracker(true);
 
         partialNervousSystem = buildNervousSystem();
 
-        System.out.println(heapTracker.getAllHeapData());
-
         // save all heap size data into a file
-        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
+        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heaptrackerExample/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
 
         System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
     }
@@ -142,23 +134,23 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 4, 4);
         heapTracker.updateHeapData();
 
-        // connecting layer 5 region M
+//        // connecting layer 5 region M
 //        neocortex.changeCurrentRegionTo("I");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //        neocortex.changeCurrentRegionTo("J");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //        neocortex.changeCurrentRegionTo("K");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //        neocortex.changeCurrentRegionTo("L");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //
 //        neocortex.changeCurrentRegionTo("M");
 //        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), F, 4, 4);
-//        updateHeapData();
+//        heapTracker.updateHeapData();
 //
 //        // NOTE: I, J, K, & L are connected to different parts of the same Retina
 //        Retina retina = new Retina(1000, 1000);
