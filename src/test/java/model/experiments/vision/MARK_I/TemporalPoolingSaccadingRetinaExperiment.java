@@ -1,7 +1,7 @@
 package model.experiments.vision.MARK_I;
 
 import junit.framework.TestCase;
-import model.unimplementedBiology.NervousSystem;
+import model.MARK_II.NervousSystem;
 
 import java.io.IOException;
 

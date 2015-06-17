@@ -2,8 +2,6 @@ package model.MARK_II;
 
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.Retina;
-import model.util.Formatter;
 
 import java.io.IOException;
 import java.util.ArrayList;

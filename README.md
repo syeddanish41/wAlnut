@@ -10,7 +10,8 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 
 # [WalnutiQ](http://walnutiq.com)
 
-"*If you love something. Set it free.*" ~ Unreal Engine
+"*When it's darkest, we can see the stars. They are always there. You just have
+to remember to tip your head back and look up.*" ~ Ted Morgan
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 

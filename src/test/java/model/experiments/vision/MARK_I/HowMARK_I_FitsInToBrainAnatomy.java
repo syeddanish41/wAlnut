@@ -2,17 +2,13 @@ package model.experiments.vision.MARK_I;
 
 import com.google.gson.Gson;
 import junit.framework.TestCase;
-import model.unimplementedBiology.LGN;
-import model.MARK_II.ColumnPosition;
-import model.MARK_II.Neocortex;
-import model.MARK_II.Region;
-import model.MARK_II.SpatialPooler;
+import model.MARK_II.*;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.unimplementedBiology.NervousSystem;
-import model.Retina;
+import model.unimplementedBiology.LGN;
+
 import model.util.FileInputOutput;
 
 import java.io.IOException;
@@ -20,7 +16,6 @@ import java.util.Set;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
- * @author Danh Nguyen (danh0902@vt.edu)
  * @version April 12, 2014
  */
 public class HowMARK_I_FitsInToBrainAnatomy extends TestCase {
