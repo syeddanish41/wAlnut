@@ -78,9 +78,6 @@ public class BigNervousSystem {
 
             // resave used regions in BigNeocortex since each Region has been changed
             this.bigNeocortex.saveRegion(region);
-            sensorCells = null;
-            region = null;
-            regionColumns = null;
 
             if (this.heapTracker.isUsedHeapPercentageOver(this
                     .MAX_HEAP_USE_PERCENTAGE)) {
@@ -96,6 +93,11 @@ public class BigNervousSystem {
                     "numberOfColumnsToOverlapAlongXAxisOfSensorCells,\n" +
                     "                    " +
                     "numberOfColumnsToOverlapAlongYAxisOfSensorCells);");
+
+            String pathToExperiment_1_folder = "./src/test/java/model/experiments/vision/MARK_II" +
+                    "/experiment_1/";
+            this.heapTracker.printAllHeapDataToFile(pathToExperiment_1_folder
+                + "heapSizeLogData_BigNervousSystem.txt");
         }
     }
 }

@@ -101,7 +101,7 @@ public class Experiment_1 {
                 "0", "500", "500", "1000", "K", "0", "0",
                 "500", "500", "1000", "1000", "L", "0", "0"};
 
-        String pathAndRetinaFileName = pathToExperiment_1_folder + "retina.json";
+        String pathAndRetinaFileName = pathToExperiment_1_folder + "retina__0.json";
         BigNervousSystem bigNervousSystem = new BigNervousSystem(1024 + 512, bigNeocortex,
                 retinaDimension, opticNerve, retinaConnectionParameterListInOrder,
                 pathAndRetinaFileName);
