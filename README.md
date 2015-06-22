@@ -539,7 +539,7 @@ understand the temporal pooling algorithm explained in detail in this
 [white paper](https://db.tt/FuQWQuwE). This algorithm postulates that the only
 way to learn invariant representations of any type is by using when things
 happen across time. It hypothesizes the brain makes no assumptions about 
-the different transformations the world has(shits, rotations, etc.). The brain
+the different transformations the world has(shifts, rotations, etc.). The algorithm
 ONLY says if patterns follow each other in time in a predictable way they are
 causally related and should have the same representation. This is a incredibly
 simple and powerful idea.

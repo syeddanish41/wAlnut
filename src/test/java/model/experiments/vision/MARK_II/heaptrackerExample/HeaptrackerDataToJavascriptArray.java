@@ -14,9 +14,10 @@ import java.util.List;
 public class HeaptrackerDataToJavascriptArray {
     public static void main(String []av) throws Exception {
         HeaptrackerDataToJavascriptArray
-                .printToConsole("./src/test/java/model/experiments/vision/MARK_II/" +
-                        "experiment_1/" +
-                        "heapSizeLogData_BigNervousSystem.txt");
+                .printToConsole("" +
+                        "./src/test/java/model/experiments/vision/MARK_II/" +
+                        "heaptrackerExample/" +
+                        "heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
     }
 
     /**

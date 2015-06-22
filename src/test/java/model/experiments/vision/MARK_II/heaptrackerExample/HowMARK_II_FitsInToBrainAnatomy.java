@@ -1,13 +1,9 @@
 package model.experiments.vision.MARK_II.heaptrackerExample;
 
-import model.MARK_II.ImageViewer;
-import model.MARK_II.Layer5Region;
-import model.MARK_II.Neocortex;
-import model.MARK_II.Region;
-import model.MARK_II.SpatialPooler;
-import model.MARK_II.TemporalPooler;
+import model.MARK_II.*;
+import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
-import model.MARK_II.NervousSystem;
+import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.util.HeapTracker;
 import model.util.Point3D;
 import model.util.Rectangle;
@@ -39,7 +35,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         partialNervousSystem = buildNervousSystem();
 
         // save all heap size data into a file
-        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heaptrackerExample/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
+        //heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heaptrackerExample/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
 
         System.out.println("Finished HowMARK_II_FitsIntoBrainAnatomy.main()");
     }
@@ -70,7 +66,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
      *    |                    |
      *    ImageRetinaIsLookingAt
      */
-    private static NervousSystem buildNervousSystem() {
+    private static NervousSystem buildNervousSystem() throws IOException {
         int fourNeurons = 4; // = neocortex layer 3 with 4 neurons per column
         int oneNeuron = 1; // = neocortex layer 4 with 1 neuron per column
         double PMO = 20; // = percent minimum overlap
@@ -98,7 +94,8 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         // connecting all regions together
         Neocortex neocortex = new Neocortex(root, new RegionToRegionRectangleConnect());
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(30, 60)), A, 4, 4);
-        neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new Point(60, 60)), B, 4, 4);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(30, 0), new
+                Point(60, 60)), B, 4, 4);
         heapTracker.updateHeapData();
 
         neocortex.changeCurrentRegionTo("A");
@@ -111,7 +108,8 @@ public class HowMARK_II_FitsInToBrainAnatomy {
 
         neocortex.changeCurrentRegionTo("C");
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(63, 125)), E, 4, 4);
-        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new Point(125, 125)), F, 4, 4);
+        neocortex.addToCurrentRegion(new Rectangle(new Point(63, 0), new
+                Point(125, 125)), F, 4, 4);
         heapTracker.updateHeapData();
 
         neocortex.changeCurrentRegionTo("D");
@@ -134,44 +132,52 @@ public class HowMARK_II_FitsInToBrainAnatomy {
         neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), L, 4, 4);
         heapTracker.updateHeapData();
 
-//        // connecting layer 5 region M
-//        neocortex.changeCurrentRegionTo("I");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        heapTracker.updateHeapData();
-//        neocortex.changeCurrentRegionTo("J");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        heapTracker.updateHeapData();
-//        neocortex.changeCurrentRegionTo("K");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        heapTracker.updateHeapData();
-//        neocortex.changeCurrentRegionTo("L");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
-//        heapTracker.updateHeapData();
-//
-//        neocortex.changeCurrentRegionTo("M");
-//        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), F, 4, 4);
-//        heapTracker.updateHeapData();
-//
-//        // NOTE: I, J, K, & L are connected to different parts of the same Retina
-//        Retina retina = new Retina(1000, 1000);
-//        updateHeapData();
-//
-//        AbstractSensorCellsToRegionConnect opticNerve = new SensorCellsToRegionRectangleConnect();
-//        // now we can overlap
-//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 0), new Point(500, 500))), I.getColumns(), 8, 8); // .getVisionCells(topLeftPoint, bottomRightPoint)
-//        updateHeapData();
-//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 0), new Point(1000, 500))), J.getColumns(), 8, 8);
-//        updateHeapData();
-//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 500), new Point(500, 1000))), K.getColumns(), 8, 8);
-//        updateHeapData();
-//        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 500), new Point(1000, 1000))), L.getColumns(), 8, 8);
-//        updateHeapData();
-//
-//        NervousSystem nervousSystem = new NervousSystem(neocortex, retina); // no LGN with circle surround input for now
-//        updateHeapData();
-//
-//        return nervousSystem;
-        return null;
+        heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heaptrackerExample/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
+        // NOTE: comment out below code in this method to successfully run this
+        // method on a computer with 1GB of heap size set.
+
+        // connecting layer 5 region M
+        neocortex.changeCurrentRegionTo("I");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+        heapTracker.updateHeapData();
+        neocortex.changeCurrentRegionTo("J");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+        heapTracker.updateHeapData();
+        neocortex.changeCurrentRegionTo("K");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+        heapTracker.updateHeapData();
+        neocortex.changeCurrentRegionTo("L");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), M, 4, 4);
+        heapTracker.updateHeapData();
+
+        neocortex.changeCurrentRegionTo("M");
+        neocortex.addToCurrentRegion(new Rectangle(new Point(0, 0), new Point(125, 125)), F, 4, 4);
+        heapTracker.updateHeapData();
+
+        // NOTE: I, J, K, & L are connected to different parts of the same Retina
+        Retina retina = new Retina(1000, 1000);
+        heapTracker.updateHeapData();
+
+        AbstractSensorCellsToRegionConnect opticNerve = new
+                SensorCellsToRegionRectangleConnect();
+        // now we can overlap
+        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0,
+                0), new Point(500, 500))), I.getColumns(), 8, 8); //
+                // .getVisionCells(topLeftPoint, bottomRightPoint)
+        heapTracker.updateHeapData();
+        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500,
+                0), new Point(1000, 500))), J.getColumns(), 8, 8);
+        heapTracker.updateHeapData();
+        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(0, 500), new Point(500, 1000))), K.getColumns(), 8, 8);
+        heapTracker.updateHeapData();
+        opticNerve.connect(retina.getVisionCells(new Rectangle(new Point(500, 500), new Point(1000, 1000))), L.getColumns(), 8, 8);
+        heapTracker.updateHeapData();
+
+        NervousSystem nervousSystem = new NervousSystem(neocortex, null, retina); // no LGN with circle surround input for now
+        heapTracker.updateHeapData();
+
+        return nervousSystem;
+        //return null;
     }
 
     public void runForreal(Neocortex neocortex, ImageViewer imageViewer) throws IOException {
