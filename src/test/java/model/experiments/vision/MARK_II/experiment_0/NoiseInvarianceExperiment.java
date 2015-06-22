@@ -1,4 +1,4 @@
-package model.experiments.vision.MARK_I;
+package model.experiments.vision.MARK_II.experiment_0;
 
 import junit.framework.TestCase;
 import model.MARK_II.ColumnPosition;
