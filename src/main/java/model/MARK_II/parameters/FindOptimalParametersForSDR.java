@@ -1,12 +1,12 @@
 package model.MARK_II.parameters;
 
 import mnist.tools.MnistManager;
-import model.MARK_II.ColumnPosition;
-import model.MARK_II.Region;
-import model.MARK_II.SpatialPooler;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
+import model.MARK_II.generalAlgorithm.ColumnPosition;
+import model.MARK_II.region.Region;
+import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.MARK_II.Retina;
+import model.MARK_II.sensory.Retina;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -18,7 +18,7 @@ import java.util.Set;
 /**
  * Why: There are about a dozen parameters that are very important to how the
  * neurons in the model interact with each other. We need to find the best value
- * for these parameters to allow the brain algorithms to work efficiently.
+ * for these parameters to allow the brain generalAlgorithm to work efficiently.
  * <p/>
  * What: This class contains many different ways a partial brain model can be
  * constructed.

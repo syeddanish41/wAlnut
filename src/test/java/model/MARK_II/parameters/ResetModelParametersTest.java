@@ -1,8 +1,8 @@
 package model.MARK_II.parameters;
 
-import model.MARK_II.Cell;
-import model.MARK_II.Synapse;
-import model.MARK_II.VisionCell;
+import model.MARK_II.region.Cell;
+import model.MARK_II.region.Synapse;
+import model.MARK_II.sensory.VisionCell;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)

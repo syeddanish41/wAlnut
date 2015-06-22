@@ -1,16 +1,17 @@
 package model.MARK_II;
 
-import model.unimplementedBiology.CNS;
-import model.unimplementedBiology.LGN;
-import model.unimplementedBiology.PNS;
+import model.MARK_II.sensory.Retina;
+import model.MARK_II.unimplementedBiology.CNS;
+import model.MARK_II.unimplementedBiology.LGN;
+import model.MARK_II.unimplementedBiology.PNS;
 
 /**
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version June 5, 2013
  */
 public class NervousSystem {
-    private model.unimplementedBiology.CNS CNS;
-    private model.unimplementedBiology.PNS PNS;
+    private model.MARK_II.unimplementedBiology.CNS CNS;
+    private model.MARK_II.unimplementedBiology.PNS PNS;
 
     public NervousSystem(Neocortex neocortex, LGN lgn, Retina retina) {
         this.CNS = new CNS(neocortex, lgn);
