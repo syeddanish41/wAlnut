@@ -41,18 +41,34 @@ public class TemporalSequenceMemory extends Pooler {
         this.currentLearningNeurons = new ArrayList<Neuron>();
 
         this.learningAlgorithmsStatistics = new LearningAlgorithmsStatistics();
-    } 
+    }
 
-    public void runOnce() {
+    public void compute() {
         Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
+
+        this.phase1_activateCorrectlyPredictiveCells();
+        this.phase2_burstColumns();
+
         if (super.getLearningState()) {
-            this.phaseOne(activeColumns);
-            this.phaseTwo(activeColumns);
-            this.phaseThree(activeColumns);
-        } else {
-            this.computeActiveStateOfAllNeuronsInActiveColumn(activeColumns);
-            this.computePredictiveStateOfAllNeurons(activeColumns);
+            this.phase3_learnOnSegments();
         }
+        this.phase4_computePredictiveCells();
+    }
+
+    void phase1_activateCorrectlyPredictiveCells() {
+        // TODO:
+    }
+
+    void phase2_burstColumns() {
+        // TODO:
+    }
+
+    void phase3_learnOnSegments() {
+        // TODO:
+    }
+
+    void phase4_computePredictiveCells() {
+        // TODO:
     }
 
     public void nextTimeStep() {
