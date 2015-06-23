@@ -3,10 +3,7 @@ package model.MARK_II.generalAlgorithm;
 import model.MARK_II.region.*;
 import model.MARK_II.util.LearningAlgorithmsStatistics;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Idea behind temporal sequence memory: TODO:
@@ -43,10 +40,12 @@ public class TemporalSequenceMemory extends Pooler {
         this.learningAlgorithmsStatistics = new LearningAlgorithmsStatistics();
     }
 
-    public void compute() {
+    public void computeFn() {
         Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
 
-        this.phase1_activateCorrectlyPredictiveCells();
+        ComputeCycle cycle = new ComputeCycle();
+
+        this.phase1_activateCorrectlyPredictiveCells(activeColumns);
         this.phase2_burstColumns();
 
         if (super.getLearningState()) {
@@ -55,8 +54,28 @@ public class TemporalSequenceMemory extends Pooler {
         this.phase4_computePredictiveCells();
     }
 
-    void phase1_activateCorrectlyPredictiveCells() {
+    /**
+     * Phase 1: Activate the correctly predictive cells.
+     *
+     * Pseudocode:
+     *
+     * - for each previous predictive cell
+     *   - if in active column
+     *
+     */
+    void phase1_activateCorrectlyPredictiveCells(Set<Column> activeColumns) {
         // TODO:
+        /// for c in activeColumns(t)
+        for (Column column : activeColumns) {
+            Neuron[] neurons = column.getNeurons();
+            /// for i = 0 to cellsPerColumn - 1
+            for (int i = 0; i < neurons.length; i++) {
+                /// predictiveState(c, i, t-1) == true then
+                if (neurons[i].getPreviousActiveState() == true) {
+
+                }
+            }
+        }
     }
 
     void phase2_burstColumns() {
