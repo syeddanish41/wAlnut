@@ -86,18 +86,18 @@ public class TemporalSequenceMemory extends Pooler {
     }
 
     /**
-     * Phase 2: Burst unpredicted columns. TODO: ??? Explain...
+     * Phase 2: Burst unpredicted columns. 
      *
      * Pseudocode:
      *
      * - for each unpredicted active column
      *   - mark all cells as active
      *   - mark the best matching cell as winner cell
-     *     - TODO: (learning)
-     *       - TODO: if it has no matching segment
-     *         - TODO: (optimization) if there are prev winner cells
-     *           - TODO: add a segment to it
-     *       - TODO: mark the segment as learning
+     *     - (learning)
+     *       - if it has no matching segment
+     *         - (optimization) if there are prev winner cells
+     *           - add a segment to it
+     *       - mark the segment as learning
      *
      */
     void phase2_burstColumns(Set<Column> activeColumns, ComputeCycle computeCycle) {
