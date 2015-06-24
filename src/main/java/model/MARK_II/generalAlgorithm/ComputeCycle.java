@@ -1,6 +1,7 @@
 package model.MARK_II.generalAlgorithm;
 
 import model.MARK_II.region.Cell;
+import model.MARK_II.region.Column;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -16,11 +17,24 @@ import java.util.Set;
  * @version 6/23/2015
  */
 public class ComputeCycle {
-    private Set<Cell> activeCells, winnerCells, successfullyPredictedColumns;
+    private Set<Cell> activeCells, winnerCells;
+    private Set<Column> successfullyPredictedColumns;
 
     public ComputeCycle() {
         this.activeCells = new LinkedHashSet<Cell>();
         this.winnerCells = new LinkedHashSet<Cell>();
-        this.successfullyPredictedColumns = new LinkedHashSet<Cell>();
+        this.successfullyPredictedColumns = new LinkedHashSet<Column>();
+    }
+
+    public Set<Cell> getActiveCells() {
+        return activeCells;
+    }
+
+    public Set<Cell> getWinnerCells() {
+        return winnerCells;
+    }
+
+    public Set<Column> getSuccessfullyPredictedColumns() {
+        return successfullyPredictedColumns;
     }
 }

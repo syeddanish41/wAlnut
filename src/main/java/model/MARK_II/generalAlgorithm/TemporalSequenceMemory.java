@@ -19,34 +19,30 @@ import java.util.*;
 public class TemporalSequenceMemory extends Pooler {
     private SpatialPooler spatialPooler;
     private SegmentUpdateList segmentUpdateList;
-
     private final int newSynapseCount;
-
     // TODO: double check this list doesn't just keep getting bigger and bigger
     private List<Neuron> currentLearningNeurons;
-
     private LearningAlgorithmsStatistics learningAlgorithmsStatistics;
+    private List<DistalSegment> learningSegments;
 
     public TemporalSequenceMemory(SpatialPooler spatialPooler, int
             newSynapseCount) {
         this.spatialPooler = spatialPooler;
         super.region = spatialPooler.getRegion();
         this.segmentUpdateList = new SegmentUpdateList();
-
         this.newSynapseCount = newSynapseCount;
-
-        this.currentLearningNeurons = new ArrayList<Neuron>();
-
+        this.currentLearningNeurons = new LinkedList<Neuron>();
         this.learningAlgorithmsStatistics = new LearningAlgorithmsStatistics();
+        this.learningSegments = new LinkedList<DistalSegment>();
     }
 
     public void computeFn() {
         Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
 
-        ComputeCycle cycle = new ComputeCycle();
+        ComputeCycle computeCycle = new ComputeCycle();
 
-        this.phase1_activateCorrectlyPredictiveCells(activeColumns);
-        this.phase2_burstColumns();
+        this.phase1_activateCorrectlyPredictiveCells(activeColumns, computeCycle);
+        this.phase2_burstColumns(activeColumns, computeCycle);
 
         if (super.getLearningState()) {
             this.phase3_learnOnSegments();
@@ -61,10 +57,13 @@ public class TemporalSequenceMemory extends Pooler {
      *
      * - for each previous predictive cell
      *   - if in active column
-     *
+     *     - mark it as active
+     *     - mark it as winner cell
+     *     - mark column as predicted
+     *   - TODO: if not in active column
+     *     - TODO: mark it as an predicted but inactive cell
      */
-    void phase1_activateCorrectlyPredictiveCells(Set<Column> activeColumns) {
-        // TODO:
+    void phase1_activateCorrectlyPredictiveCells(Set<Column> activeColumns, ComputeCycle computeCycle) {
         /// for c in activeColumns(t)
         for (Column column : activeColumns) {
             Neuron[] neurons = column.getNeurons();
@@ -72,14 +71,70 @@ public class TemporalSequenceMemory extends Pooler {
             for (int i = 0; i < neurons.length; i++) {
                 /// predictiveState(c, i, t-1) == true then
                 if (neurons[i].getPreviousActiveState() == true) {
+                    /// activeState(c, i, t) = 1
+                    neurons[i].setActiveState(true);
 
+                    /// learnState(c, i, t) = 1
+                    this.currentLearningNeurons.add(neurons[i]);
+
+                    /// successfullyPredictedColumns(c, t) = 1
+                    // TODO: make private boolean field for Column.java
+                    computeCycle.getSuccessfullyPredictedColumns().add(column);
                 }
             }
         }
     }
 
-    void phase2_burstColumns() {
+    /**
+     * Phase 2: Burst unpredicted columns. TODO: ??? Explain...
+     *
+     * Pseudocode:
+     *
+     * - for each unpredicted active column
+     *   - mark all cells as active
+     *   - mark the best matching cell as winner cell
+     *     - TODO: (learning)
+     *       - TODO: if it has no matching segment
+     *         - TODO: (optimization) if there are prev winner cells
+     *           - TODO: add a segment to it
+     *       - TODO: mark the segment as learning
+     *
+     */
+    void phase2_burstColumns(Set<Column> activeColumns, ComputeCycle computeCycle) {
         // TODO:
+        Set<Column> successfullyPredictedColumns = computeCycle.getSuccessfullyPredictedColumns();
+        activeColumns.removeAll(successfullyPredictedColumns);
+
+        Set<Column> unpredictedActiveColumns = activeColumns;
+
+        for (Column column : unpredictedActiveColumns) {
+            Neuron[] neurons = column.getNeurons();
+            /// for i = 0 to cellsPerColumn - 1
+            for (int i = 0; i < neurons.length; i++) {
+                /// activeState(c, i, t) = 1
+                neurons[i].setActiveState(true);
+
+                /// l,s = getBestMatchingCell(c, t-1)
+                int bestNeuronIndex = this.getBestMatchingNeuronIndex(column);
+                /// learnState(c, i, t) = 1
+                column.setLearningNeuronPosition(bestNeuronIndex);
+                this.currentLearningNeurons.add(column
+                        .getNeuron(bestNeuronIndex));
+
+                // NOTE: 4 '/' means this is python code from nupic/research
+                // @ https://github.com/numenta/nupic/blob/master/nupic/research/temporal_memory.py
+                //// if bestSegment is None and len(prevWinnerCells):
+                ////   bestSegment = connections.createSegment(bestCell)
+                // NOTE: .getBestPreviousActiveSegment will create a new
+                // distal segment if none exist
+                DistalSegment bestSegment = neurons[bestNeuronIndex]
+                        .getBestPreviousActiveSegment();
+
+                //// if bestSegment is not None:
+                ////  learningSegments.add(bestSegment)
+                this.learningSegments.add(bestSegment);
+            }
+        }
     }
 
     void phase3_learnOnSegments() {
