@@ -1,7 +1,8 @@
 package model.MARK_II;
 
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
-import model.util.Rectangle;
+import model.MARK_II.region.Region;
+import model.MARK_II.util.Rectangle;
 
 /**
  * Neocortex is a directed graph of Regions. Each Region in the Neocortex
@@ -41,7 +42,7 @@ public class Neocortex {
     }
 
     /**
-     * Traverses the regions within this neocortex to find the region the desired biological name
+     * Traverses the region within this neocortex to find the region the desired biological name
      * and changes the currentRegion to point to this region.
      *
      * @param newCurrentRegionBiologicalName name of Region in Neocortex
@@ -103,7 +104,7 @@ public class Neocortex {
             // childRegion is new so we can add given childRegion to current
             // region. Note this is not an error.
         } else if (regionAlreadyInNeocortex.equals(childRegion)) {
-            // the user is trying to make a cycle connection within regions in
+            // the user is trying to make a cycle connection within region in
             // the Neocortex which is allowed
         } else if (regionAlreadyInNeocortex != null) {
             throw new IllegalArgumentException(

@@ -2,10 +2,11 @@ package model.MARK_II;
 
 import com.google.gson.Gson;
 import model.MARK_II.connectTypes.AbstractRegionToRegionConnect;
-import model.util.BigClassUtil;
-import model.util.FileInputOutput;
-import model.util.HeapTracker;
-import model.util.Rectangle;
+import model.MARK_II.region.Layer5Region;
+import model.MARK_II.region.Region;
+import model.MARK_II.util.*;
+import model.MARK_II.util.BigClassUtil;
+import model.MARK_II.util.Rectangle;
 
 import java.awt.*;
 import java.io.File;
@@ -70,7 +71,7 @@ public class BigNeocortex {
         this.createUniqueFolderToSaveBigNeocortex(pathAndFolderNameWithoutEndingBacklash);
 
         this.gson = new Gson();
-        this.heapTracker = new HeapTracker(true);
+        this.heapTracker = new HeapTracker(false);
         this.heapTracker.updateHeapData();
         double maxHeapSizeInMB = (double) this.heapTracker
                 .getHeapMaxSizeInBytes() / 1000000;
@@ -111,7 +112,7 @@ public class BigNeocortex {
                 // the next 7 elements specify a connection pattern between the
                 // currentRegion and the given region name
 
-                Rectangle rectanglePartOfParentRegionToConnectTo = new Rectangle(
+                model.MARK_II.util.Rectangle rectanglePartOfParentRegionToConnectTo = new Rectangle(
                         new Point(Integer.valueOf(connectionParameterListInOrder[i]),
                                   Integer.valueOf(connectionParameterListInOrder[i+1])),
                         new Point(Integer.valueOf(connectionParameterListInOrder[i+2]),
@@ -314,7 +315,7 @@ public class BigNeocortex {
             // childRegion is new so we can add given childRegion to current
             // region. Note this is not an error.
         } else if (regionAlreadyInNeocortex.equals(childRegion)) {
-            // the user is trying to make a cycle connection within regions in
+            // the user is trying to make a cycle connection within region in
             // the Neocortex which is allowed
         } else if (regionAlreadyInNeocortex != null) {
             throw new IllegalArgumentException(

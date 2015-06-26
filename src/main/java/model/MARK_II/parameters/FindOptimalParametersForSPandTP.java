@@ -1,11 +1,11 @@
 package model.MARK_II.parameters;
 
-import model.MARK_II.Region;
-import model.MARK_II.SpatialPooler;
-import model.MARK_II.TemporalPooler;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
+import model.MARK_II.region.Region;
+import model.MARK_II.generalAlgorithm.SpatialPooler;
+import model.MARK_II.generalAlgorithm.TemporalPooler;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.MARK_II.Retina;
+import model.MARK_II.sensory.Retina;
 
 import java.awt.*;
 import java.awt.geom.Point2D;

@@ -1,8 +1,11 @@
 package model.MARK_II;
 
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
-import model.util.HeapTracker;
-import model.util.Rectangle;
+import model.MARK_II.region.Column;
+import model.MARK_II.region.Region;
+import model.MARK_II.sensory.BigRetina;
+import model.MARK_II.sensory.SensorCell;
+import model.MARK_II.util.HeapTracker;
 
 import java.awt.*;
 import java.io.IOException;
@@ -28,7 +31,7 @@ public class BigNervousSystem {
                             AbstractSensorCellsToRegionConnect opticNerve,
                             String[] retinaConnectionParameterListInOrder,
                             String pathAndRetinaFileName) throws IOException {
-        this.heapTracker = new HeapTracker(true);
+        this.heapTracker = new HeapTracker(false);
         double maxHeapSizeInMB = (double) this.heapTracker
                 .getHeapMaxSizeInBytes() / 1000000;
         this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfBigNervousSystemInMB
@@ -51,7 +54,7 @@ public class BigNervousSystem {
         AbstractSensorCellsToRegionConnect opticNerveConnectType = opticNerve;
 
         for (int i = 0; i < retinaConnectionParameterListInOrder.length; i = i+7) {
-            SensorCell[][] sensorCells = bigRetina.getVisionCells(new Rectangle(
+            SensorCell[][] sensorCells = bigRetina.getVisionCells(new model.MARK_II.util.Rectangle(
                     new Point(
                             Integer.valueOf(retinaConnectionParameterListInOrder[i]),
                             Integer.valueOf(retinaConnectionParameterListInOrder[i+1])),
@@ -76,7 +79,7 @@ public class BigNervousSystem {
                     numberOfColumnsToOverlapAlongXAxisOfSensorCells,
                     numberOfColumnsToOverlapAlongYAxisOfSensorCells);
 
-            // resave used regions in BigNeocortex since each Region has been changed
+            // resave used region in BigNeocortex since each Region has been changed
             this.bigNeocortex.saveRegion(region);
 
             if (this.heapTracker.isUsedHeapPercentageOver(this
