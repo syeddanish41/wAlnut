@@ -1,18 +1,14 @@
 package model.MARK_II.experiments.heaptrackerExample;
 
-import model.MARK_II.region.Region;
-import model.MARK_II.sensory.ImageViewer;
 import model.MARK_II.Neocortex;
 import model.MARK_II.NervousSystem;
-import model.MARK_II.generalAlgorithm.SpatialPooler;
-import model.MARK_II.generalAlgorithm.TemporalPooler;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.RegionToRegionRectangleConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.MARK_II.region.Layer5Region;
+import model.MARK_II.region.Region;
 import model.MARK_II.sensory.Retina;
 import model.MARK_II.util.HeapTracker;
-import model.MARK_II.util.Point3D;
 import model.MARK_II.util.Rectangle;
 
 import java.awt.*;
@@ -24,13 +20,6 @@ import java.io.IOException;
  * @version 5/26/2015
  */
 public class HowMARK_II_FitsInToBrainAnatomy {
-    private static NervousSystem partialNervousSystem;
-
-    /**
-     * For saving the Java NervousSystem object as a JSON file later on.
-     */
-    private SpatialPooler spatialPooler;
-    private TemporalPooler temporalPooler;
 
     private static HeapTracker heapTracker;
 
@@ -39,7 +28,7 @@ public class HowMARK_II_FitsInToBrainAnatomy {
 
         heapTracker = new HeapTracker(true);
 
-        partialNervousSystem = buildNervousSystem();
+        NervousSystem partialNervousSystem = buildNervousSystem();
 
         // save all heap size data into a file
         //heapTracker.printAllHeapDataToFile("./src/test/java/model/experiments/vision/MARK_II/heaptrackerExample/heapSizeLogData_HowMARK_II_FitsInToBrainAnatomy.txt");
@@ -185,63 +174,5 @@ public class HowMARK_II_FitsInToBrainAnatomy {
 
         return nervousSystem;
         //return null;
-    }
-
-    public void runForreal(Neocortex neocortex, ImageViewer imageViewer) throws IOException {
-        this.spatialPooler = new SpatialPooler(neocortex.getRegion("I"));
-        this.spatialPooler.setLearningState(true);
-
-        this.temporalPooler = new TemporalPooler(this.spatialPooler, 25);
-        this.temporalPooler.setLearningState(true);
-
-        // initialize view
-        imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(new Point3D(500, 500, 500));
-
-        String[] secondLayer3RegionNames = {"A", "B"};
-        String[] secondLayer4RegionNames = {"C", "D"};
-        String[] firstLayer3RegionNames = {"E", "F", "G", "H"};
-        String[] firstLayer4RegionNames = {"I", "J", "K", "L"};
-
-        final int NUMBER_OF_TIMES_TO_RUN_LEARNING_ALGORITHM = 1000;
-        for (int i = 0; i < NUMBER_OF_TIMES_TO_RUN_LEARNING_ALGORITHM; i++) {
-
-            for(String regionName : firstLayer4RegionNames){
-                Region currRegion = neocortex.getRegion(regionName);
-                this.spatialPooler.changeRegion(currRegion);
-                this.spatialPooler.performPooling();
-            }
-            for(String regionName : firstLayer3RegionNames){
-                Region currRegion = neocortex.getRegion(regionName);
-                this.spatialPooler.changeRegion(currRegion);
-                this.spatialPooler.performPooling();
-
-                this.temporalPooler.performPooling();
-                this.temporalPooler.nextTimeStep();
-            }
-
-            Layer5Region layer5Region = (Layer5Region) neocortex.getRegion("M");
-            Point3D nextRetinaPosition = layer5Region
-                    .getMotorOutput(imageViewer.getBoxRetinaIsStuckIn());
-
-            imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
-
-            for(String regionName : secondLayer4RegionNames){
-                Region currRegion = neocortex.getRegion(regionName);
-                this.spatialPooler.changeRegion(currRegion);
-                this.spatialPooler.performPooling();
-            }
-            for(String regionName : secondLayer3RegionNames){
-                Region currRegion = neocortex.getRegion(regionName);
-                this.spatialPooler.changeRegion(currRegion);
-                this.spatialPooler.performPooling();
-
-                this.temporalPooler.performPooling();
-                this.temporalPooler.nextTimeStep();
-            }
-
-           this.spatialPooler.changeRegion(neocortex.getRegion("root"));
-           this.temporalPooler.performPooling();
-           this.temporalPooler.nextTimeStep();
-       }
     }
 }
