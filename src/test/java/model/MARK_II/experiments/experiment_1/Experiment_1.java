@@ -30,15 +30,22 @@ public class Experiment_1 {
     /**
      * For saving the Java NervousSystem object as a JSON file later on.
      */
-    private SpatialPooler spatialPooler;
-    private TemporalPooler temporalPooler;
+    private static SpatialPooler spatialPooler;
+    private static TemporalPooler temporalPooler;
 
     public static void main(String[] args) throws IOException {
         System.out.println("Running Experiment_1.main() ...");
 
         bigNervousSystem = buildNervousSystem();
 
+        BigNeocortex bigNeocortex = bigNervousSystem.getBigNeocortex();
 
+        ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
+                bigNervousSystem.getBigRetina().getSavedRetinaFromDisk());
+        // NOTE: retina saved to disk will not be the most up to date state
+        // the current retina as the new bits it sees will not be saved
+
+        runForreal(bigNeocortex, imageViewer);
 
         System.out.println("Finished Experiment_1.main()");
     }
@@ -132,24 +139,12 @@ public class Experiment_1 {
         return bigNervousSystem;
     }
 
+    public static void runForreal(BigNeocortex neocortex, ImageViewer imageViewer) throws IOException {
+        spatialPooler = new SpatialPooler(neocortex.getRegion("I"));
+        spatialPooler.setLearningState(true);
 
-    public void test_HowToRunAlgorithmOnceOnNervousSystem() throws IOException {
-        BigNeocortex bigNeocortex = this.bigNervousSystem.getBigNeocortex();
-
-        ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
-                this.bigNervousSystem.getBigRetina().getSavedRetinaFromDisk());
-        // NOTE: retina saved to disk will not be the most up to date state
-        // the current retina as the new bits it sees will not be saved
-
-        runForreal(bigNeocortex, imageViewer);
-    }
-
-    public void runForreal(BigNeocortex neocortex, ImageViewer imageViewer) throws IOException {
-        this.spatialPooler = new SpatialPooler(neocortex.getRegion("I"));
-        this.spatialPooler.setLearningState(true);
-
-        this.temporalPooler = new TemporalPooler(this.spatialPooler, 25);
-        this.temporalPooler.setLearningState(true);
+        temporalPooler = new TemporalPooler(spatialPooler, 25);
+        temporalPooler.setLearningState(true);
 
         // initialize view
         imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(new Point3D(500, 500, 500));
@@ -159,21 +154,21 @@ public class Experiment_1 {
         String[] firstLayer3RegionNames = {"E", "F", "G", "H"};
         String[] firstLayer4RegionNames = {"I", "J", "K", "L"};
 
-        final int NUMBER_OF_TIMES_TO_RUN_LEARNING_ALGORITHM = 1000;
+        final int NUMBER_OF_TIMES_TO_RUN_LEARNING_ALGORITHM = 1;
         for (int i = 0; i < NUMBER_OF_TIMES_TO_RUN_LEARNING_ALGORITHM; i++) {
 
             for(String regionName : firstLayer4RegionNames){
                 Region currRegion = neocortex.getRegion(regionName);
-                this.spatialPooler.changeRegion(currRegion);
-                this.spatialPooler.performPooling();
+                spatialPooler.changeRegion(currRegion);
+                spatialPooler.performPooling();
             }
             for(String regionName : firstLayer3RegionNames){
                 Region currRegion = neocortex.getRegion(regionName);
-                this.spatialPooler.changeRegion(currRegion);
-                this.spatialPooler.performPooling();
+                spatialPooler.changeRegion(currRegion);
+                spatialPooler.performPooling();
 
-                this.temporalPooler.performPooling();
-                this.temporalPooler.nextTimeStep();
+                temporalPooler.performPooling();
+                temporalPooler.nextTimeStep();
             }
 
             Layer5Region layer5Region = (Layer5Region) neocortex.getRegion("M");
@@ -184,21 +179,21 @@ public class Experiment_1 {
 
             for(String regionName : secondLayer4RegionNames){
                 Region currRegion = neocortex.getRegion(regionName);
-                this.spatialPooler.changeRegion(currRegion);
-                this.spatialPooler.performPooling();
+                spatialPooler.changeRegion(currRegion);
+                spatialPooler.performPooling();
             }
             for(String regionName : secondLayer3RegionNames){
                 Region currRegion = neocortex.getRegion(regionName);
-                this.spatialPooler.changeRegion(currRegion);
-                this.spatialPooler.performPooling();
+                spatialPooler.changeRegion(currRegion);
+                spatialPooler.performPooling();
 
-                this.temporalPooler.performPooling();
-                this.temporalPooler.nextTimeStep();
+                temporalPooler.performPooling();
+                temporalPooler.nextTimeStep();
             }
 
-            this.spatialPooler.changeRegion(neocortex.getRegion("root"));
-            this.temporalPooler.performPooling();
-            this.temporalPooler.nextTimeStep();
+            spatialPooler.changeRegion(neocortex.getRegion("root"));
+            temporalPooler.performPooling();
+            temporalPooler.nextTimeStep();
         }
     }
 }
