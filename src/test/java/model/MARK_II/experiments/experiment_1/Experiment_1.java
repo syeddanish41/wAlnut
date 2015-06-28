@@ -11,6 +11,7 @@ import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.TemporalPooler;
 import model.MARK_II.region.Layer5Region;
 import model.MARK_II.region.Region;
+import model.MARK_II.sensory.BigRetina;
 import model.MARK_II.sensory.ImageViewer;
 import model.MARK_II.util.Point3D;
 
@@ -132,16 +133,18 @@ public class Experiment_1 {
     }
 
 
-    public void test_HowToRunAlgorithmOnceOnNervousSystem() {
-        BigNeocortex bigNeocortex = bigNervousSystem.getBigNeocortex();
+    public void test_HowToRunAlgorithmOnceOnNervousSystem() throws IOException {
+        BigNeocortex bigNeocortex = this.bigNervousSystem.getBigNeocortex();
 
-//        ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
-//                bigNervousSystem.getBigRetina());
+        ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
+                this.bigNervousSystem.getBigRetina().getSavedRetinaFromDisk());
+        // NOTE: retina saved to disk will not be the most up to date state
+        // the current retina as the new bits it sees will not be saved
 
-        //runForreal(neocortex, imageViewer);
+        runForreal(bigNeocortex, imageViewer);
     }
 
-    public void runForreal(Neocortex neocortex, ImageViewer imageViewer) throws IOException {
+    public void runForreal(BigNeocortex neocortex, ImageViewer imageViewer) throws IOException {
         this.spatialPooler = new SpatialPooler(neocortex.getRegion("I"));
         this.spatialPooler.setLearningState(true);
 
