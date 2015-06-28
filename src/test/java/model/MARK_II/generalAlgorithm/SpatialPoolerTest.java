@@ -164,6 +164,8 @@ public class SpatialPoolerTest extends TestCase {
         cell_00.setActiveState(true);
         assertEquals(0.3f, synapse_00.getPermanenceValue(), 0.001);
         this.spatialPooler.modelLongTermPotentiationAndDepression();
+
+        // TODO: Why did this fail on Travis CI but passed locally?
         assertEquals(0.32f, synapse_00.getPermanenceValue(), 0.001);
 
         // now the Synapse permanenceValue is decreased

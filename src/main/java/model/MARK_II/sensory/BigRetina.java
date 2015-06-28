@@ -31,12 +31,12 @@ public class BigRetina {
         this.saveRetinaToDisk(retina);
     }
 
-    Retina getSavedRetinaFromDisk() throws IOException {
+    public Retina getSavedRetinaFromDisk() throws IOException {
         String retinaAsJSON = FileInputOutput.openObjectInTextFile(this.pathAndRetinaFileName);
         return this.gson.fromJson(retinaAsJSON, Retina.class);
     }
 
-    void saveRetinaToDisk(Retina retina) throws IOException {
+    public void saveRetinaToDisk(Retina retina) throws IOException {
         String retinaAsJSON = this.gson.toJson(retina);
         FileInputOutput.saveObjectToTextFile(retinaAsJSON, this.pathAndRetinaFileName);
     }
