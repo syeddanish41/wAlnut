@@ -27,6 +27,8 @@ public class BigNervousSystem {
 
     private HeapTracker heapTracker;
 
+    private BigRetina bigRetina;
+
     public BigNervousSystem(int maxSizeOfBigNervousSystemInMB, BigNeocortex bigNeocortex, Dimension retinaDimension,
                             AbstractSensorCellsToRegionConnect opticNerve,
                             String[] retinaConnectionParameterListInOrder,
@@ -46,7 +48,7 @@ public class BigNervousSystem {
         System.out.println("AFTER: this.bigNeocortex = bigNeocortex;");
 
         // create Retina
-        BigRetina bigRetina = new BigRetina((int) retinaDimension.getHeight(), (int) retinaDimension.getWidth(), pathAndRetinaFileName);
+        this.bigRetina = new BigRetina((int) retinaDimension.getHeight(), (int) retinaDimension.getWidth(), pathAndRetinaFileName);
         this.heapTracker.updateHeapData();
         System.out.println("AFTER: BigRetina bigRetina = new BigRetina((int) retinaDimension.getHeight(), (int) retinaDimension.getWidth(), pathAndRetinaFileName);");
 
@@ -54,7 +56,7 @@ public class BigNervousSystem {
         AbstractSensorCellsToRegionConnect opticNerveConnectType = opticNerve;
 
         for (int i = 0; i < retinaConnectionParameterListInOrder.length; i = i+7) {
-            SensorCell[][] sensorCells = bigRetina.getVisionCells(new model.MARK_II.util.Rectangle(
+            SensorCell[][] sensorCells = this.bigRetina.getVisionCells(new model.MARK_II.util.Rectangle(
                     new Point(
                             Integer.valueOf(retinaConnectionParameterListInOrder[i]),
                             Integer.valueOf(retinaConnectionParameterListInOrder[i+1])),
@@ -102,5 +104,13 @@ public class BigNervousSystem {
             this.heapTracker.printAllHeapDataToFile(pathToExperiment_1_folder
                 + "heapSizeLogData_BigNervousSystem.txt");
         }
+    }
+
+    public BigNeocortex getBigNeocortex() {
+        return this.bigNeocortex;
+    }
+
+    public BigRetina getBigRetina() {
+        return this.bigRetina;
     }
 }

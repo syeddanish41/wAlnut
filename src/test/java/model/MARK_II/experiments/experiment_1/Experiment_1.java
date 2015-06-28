@@ -132,15 +132,14 @@ public class Experiment_1 {
     }
 
 
-//    public void test_HowToRunAlgorithmOnceOnNervousSystem() {
-//        Neocortex neocortex = bigNervousSystem.getCNS().getBrain()
-//                .getCerebrum().getCerebralCortex().getNeocortex();
-//
+    public void test_HowToRunAlgorithmOnceOnNervousSystem() {
+        BigNeocortex bigNeocortex = bigNervousSystem.getBigNeocortex();
+
 //        ImageViewer imageViewer = new ImageViewer("imageOfHumanFace1000x1000pixels.bmp",
-//                bigNervousSystem.getPNS().getSNS().getRetina());
-//
-//        //runForreal(neocortex, imageViewer);
-//    }
+//                bigNervousSystem.getBigRetina());
+
+        //runForreal(neocortex, imageViewer);
+    }
 
     public void runForreal(Neocortex neocortex, ImageViewer imageViewer) throws IOException {
         this.spatialPooler = new SpatialPooler(neocortex.getRegion("I"));
