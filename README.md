@@ -10,8 +10,8 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 
 # [WalnutiQ](http://walnutiq.com)
 
-"*When it's darkest, we can see the stars. They are always there. You just have
-to remember to tip your head back and look up.*" ~ Ted Morgan
+"*Who's the friend who likes to play? Bing Bong Bing Bong. 
+Take her to the moon Joy!*" ~ Bing Bong
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
@@ -43,16 +43,21 @@ you 10,000 hours but it will NOT have emotions like you. However, it is possible
 that the general learning algorithm will discover how human emotions work and
 once they are inevitably implemented into themselves we as a collective human 
 family will need to become the super intelligent machines if we are not to go 
-extinct. Whew, hopefully you can see why I am so obsessed with making sure this
-project goes well. 
+extinct. Just look at how we treat pigs and chicken today. We are super 
+intelligent compared to them and the future super intelligent machines will
+be super intelligent compared to us. This is just one possible route of how the 
+future will play out of many options mostly unknown to us. I am most likely 
+wrong. However, hopefully you can see why I am so obsessed with making sure 
+this project goes well. 
 
 If you are interested in becoming a researcher/developer I would absolutely 
 love your collaboration as I cannot do this alone. The <b>only</b> requirement 
 I ask for is that you are someone that is not "all talk" and understands that
 progress is made by not making excuses. If you rely on habits and a "no excuses"
 attitude for getting shit done please e-mail me at quinnliu@vt.edu 
-to talk about how you can get involved! This project has a long journey ahead
-so sustainability will take precedence over crunch. 
+to talk about how you can get involved. This project has a long journey ahead
+so sustainability will take precedence over crunch. Currently I have no funding
+for paying for any of your help. 
 
 Most importantly, this research is made possible by everyone at 
 [Numenta](http://numenta.org/). Numenta has theorized and tested algorithms 
