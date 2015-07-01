@@ -1,7 +1,7 @@
 package model.MARK_II.experiments.experiment_2;
 
+import junit.framework.TestCase;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
-import model.MARK_II.connectTypes.SensorCellsToRegionRandomConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.TemporalPooler;
@@ -15,16 +15,15 @@ import java.io.IOException;
  * @author Q Liu (quinnliu@vt.edu)
  * @date 7/1/2015.
  */
-public class Experiment_2 {
+public class Experiment_2 extends TestCase {
     private static String pathToExperiment_2_folder = "./src/test/java/model/experiments/vision/MARK_II" +
             "/experiment_2/";
 
-    private static SpatialPooler spatialPooler;
-    private static TemporalPooler temporalPooler;
+    private Retina retina;
+    private SpatialPooler spatialPooler;
+    private TemporalPooler temporalPooler;
 
-    public static void main(String[] args) throws IOException {
-        System.out.println("Running Experiment_2.main() ...");
-
+    public void setUp() {
         // NOTE: the following parameters are borrowed from numenta/nupic TP example
         // here: https://github.com/numenta/nupic/blob/master/examples/tp/hello_tp.py
 
@@ -51,49 +50,53 @@ public class Experiment_2 {
         Synapse.PERMANENCE_DECREASE = permanenceDec;
 
         // Step 1: create Temporal Pooler instance with appropriate parameters
-        Retina retina = new Retina(10, 10);
+        this.retina = new Retina(10, 10);
         Region region = new Region("root", 6, 8, cellsPerColumn, minThreshold, 3);
         region.setInhibitionRadius(3);
 
         AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
-        retinaToRegion.connect(retina.getVisionCells(), region.getColumns(),
+        retinaToRegion.connect(this.retina.getVisionCells(), region.getColumns(),
                 0, 0);
 
-        spatialPooler = new SpatialPooler(region);
-        spatialPooler.setLearningState(true);
+        this.spatialPooler = new SpatialPooler(region);
+        this.spatialPooler.setLearningState(true);
 
-        temporalPooler = new TemporalPooler(spatialPooler, newSynapseCount);
-        temporalPooler.setLearningState(true);
+        this.temporalPooler = new TemporalPooler(this.spatialPooler, newSynapseCount);
+        this.temporalPooler.setLearningState(true);
 
         // Step 2: create input images to feed to the temporal pooler. Here we
         // create a simple sequence of 5 images of letters: A -> B -> C -> D -> E
+        // NOTE: images are in folder WalnutiQ/images/model/MARK_II/experiments/experiment_2
+    }
 
+    public void test_CLA() throws IOException {
         // Step 3: send this simple sequence to the temporal pooler for learning
         // we repeat the sequence 10 times
 
+        // TODO: visualize region statistics
         for (int i = 0; i < 10; i++) {
-            retina.seeBMPImage("A.bmp");
+            this.retina.seeBMPImage("A.bmp");
             runCLA();
 
-            retina.seeBMPImage("B.bmp");
+            this.retina.seeBMPImage("B.bmp");
             runCLA();
 
-            retina.seeBMPImage("C.bmp");
+            this.retina.seeBMPImage("C.bmp");
             runCLA();
 
-            retina.seeBMPImage("D.bmp");
+            this.retina.seeBMPImage("D.bmp");
             runCLA();
 
-            retina.seeBMPImage("E.bmp");
+            this.retina.seeBMPImage("E.bmp");
             runCLA();
         }
 
-        System.out.println("Finished Experiment_2.main()");
+        assertEquals(1, 2-1);
     }
 
-    public static void runCLA() {
-        spatialPooler.performPooling();
-        temporalPooler.performPooling();
-        temporalPooler.nextTimeStep();
+    public void runCLA() {
+        this.spatialPooler.performPooling();
+        this.temporalPooler.performPooling();
+        this.temporalPooler.nextTimeStep();
     }
 }
