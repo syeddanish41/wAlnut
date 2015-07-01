@@ -6,6 +6,7 @@ import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.TemporalPooler;
 import model.MARK_II.region.Region;
+import model.MARK_II.region.Synapse;
 import model.MARK_II.sensory.Retina;
 
 import java.io.IOException;
@@ -25,19 +26,29 @@ public class Experiment_2 {
         // here: https://github.com/numenta/nupic/blob/master/examples/tp/hello_tp.py
 
         //    NUPIC                                     WalnutiQ
-        // =========================================================
-        // numberOfCols = 50                            6*8 = 48
-        // cellsPerColumn = 2                               2
-        // initialPerm = 0.5
-        // connectedPerm = 0.5
-        // minThreshold = 10
-        // newSynapseCount = 10
-        // permanenceInc = 0.1
-        // permanenceDec = 0.0
+        // ==============================================================
+        // numberOfCols =    50                         6*8 = 48
+        int cellsPerColumn =   2; //                    rest all the same
+        double initialPerm =   0.5;
+        double connectedPerm = 0.5;
+        int minThreshold =    10;
+        int newSynapseCount = 10;
+        double permanenceInc =   0.1;
+        double permanenceDec =   0.0;
+        // activationThreshold = 8?
+        // globalDecay = 0?
+        // burnIn = 1?
+        // checkSynapseConsistency = False?
+        // pamLength = 10?
+
+        Synapse.INITIAL_PERMANENCE = initialPerm;
+        Synapse.MINIMAL_CONNECTED_PERMANENCE = connectedPerm;
+        Synapse.PERMANENCE_INCREASE = permanenceInc;
+        Synapse.PERMANENCE_DECREASE = permanenceDec;
 
         // Step 1: create Temporal Pooler instance with appropriate parameters
         Retina retina = new Retina(10, 10);
-        Region region = new Region("root", 6, 8, 2, 10, 3);
+        Region region = new Region("root", 6, 8, cellsPerColumn, minThreshold, 3);
         region.setInhibitionRadius(3);
 
         AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
@@ -47,7 +58,7 @@ public class Experiment_2 {
         SpatialPooler spatialPooler = new SpatialPooler(region);
         spatialPooler.setLearningState(true);
 
-        TemporalPooler temporalPooler = new TemporalPooler(spatialPooler, 10);
+        TemporalPooler temporalPooler = new TemporalPooler(spatialPooler, newSynapseCount);
 
 //        this.retina.seeBMPImage("2.bmp");
 //        this.spatialPooler.performPooling();
