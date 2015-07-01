@@ -19,6 +19,9 @@ public class Experiment_2 {
     private static String pathToExperiment_2_folder = "./src/test/java/model/experiments/vision/MARK_II" +
             "/experiment_2/";
 
+    private static SpatialPooler spatialPooler;
+    private static TemporalPooler temporalPooler;
+
     public static void main(String[] args) throws IOException {
         System.out.println("Running Experiment_2.main() ...");
 
@@ -56,25 +59,41 @@ public class Experiment_2 {
         retinaToRegion.connect(retina.getVisionCells(), region.getColumns(),
                 0, 0);
 
-        SpatialPooler spatialPooler = new SpatialPooler(region);
+        spatialPooler = new SpatialPooler(region);
         spatialPooler.setLearningState(true);
 
-        TemporalPooler temporalPooler = new TemporalPooler(spatialPooler, newSynapseCount);
+        temporalPooler = new TemporalPooler(spatialPooler, newSynapseCount);
         temporalPooler.setLearningState(true);
 
         // Step 2: create input images to feed to the temporal pooler. Here we
         // create a simple sequence of 5 images of letters: A -> B -> C -> D -> E
-        // TODO:
 
         // Step 3: send this simple sequence to the temporal pooler for learning
         // we repeat the sequence 10 times
 
-//        this.retina.seeBMPImage("2.bmp");
-//        this.spatialPooler.performPooling();
-//        this.temporalPooler.performPooling();
-//        this.temporalPooler.nextTimeStep();
+        for (int i = 0; i < 10; i++) {
+            retina.seeBMPImage("A.bmp");
+            runCLA();
 
+            retina.seeBMPImage("B.bmp");
+            runCLA();
+
+            retina.seeBMPImage("C.bmp");
+            runCLA();
+
+            retina.seeBMPImage("D.bmp");
+            runCLA();
+
+            retina.seeBMPImage("E.bmp");
+            runCLA();
+        }
 
         System.out.println("Finished Experiment_2.main()");
+    }
+
+    public static void runCLA() {
+        spatialPooler.performPooling();
+        temporalPooler.performPooling();
+        temporalPooler.nextTimeStep();
     }
 }
