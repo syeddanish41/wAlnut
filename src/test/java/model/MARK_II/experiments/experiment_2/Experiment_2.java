@@ -35,6 +35,7 @@ public class Experiment_2 {
         int newSynapseCount = 10;
         double permanenceInc =   0.1;
         double permanenceDec =   0.0;
+        // TODO: understand below parameters
         // activationThreshold = 8?
         // globalDecay = 0?
         // burnIn = 1?
@@ -59,6 +60,14 @@ public class Experiment_2 {
         spatialPooler.setLearningState(true);
 
         TemporalPooler temporalPooler = new TemporalPooler(spatialPooler, newSynapseCount);
+        temporalPooler.setLearningState(true);
+
+        // Step 2: create input images to feed to the temporal pooler. Here we
+        // create a simple sequence of 5 images of letters: A -> B -> C -> D -> E
+        // TODO:
+
+        // Step 3: send this simple sequence to the temporal pooler for learning
+        // we repeat the sequence 10 times
 
 //        this.retina.seeBMPImage("2.bmp");
 //        this.spatialPooler.performPooling();
