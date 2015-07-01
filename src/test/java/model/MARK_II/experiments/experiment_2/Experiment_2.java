@@ -24,6 +24,17 @@ public class Experiment_2 {
         // NOTE: the following parameters are borrowed from numenta/nupic TP example
         // here: https://github.com/numenta/nupic/blob/master/examples/tp/hello_tp.py
 
+        //    NUPIC                                     WalnutiQ
+        // =========================================================
+        // numberOfCols = 50                            6*8 = 48
+        // cellsPerColumn = 2                               2
+        // initialPerm = 0.5
+        // connectedPerm = 0.5
+        // minThreshold = 10
+        // newSynapseCount = 10
+        // permanenceInc = 0.1
+        // permanenceDec = 0.0
+
         // Step 1: create Temporal Pooler instance with appropriate parameters
         Retina retina = new Retina(10, 10);
         Region region = new Region("root", 6, 8, 2, 10, 3);

@@ -24,6 +24,18 @@ public class SynapseTest extends TestCase {
         this.synapse_2 = new Synapse<Cell>(this.visionCell_1, 0.19, 1, 1);
     }
 
+    public void test_SynapseStaticFields() {
+        Synapse<Cell> synapse = new Synapse<Cell>(this.visionCell_1, 1, 1);
+        assertEquals(Synapse.INITIAL_PERMANENCE, synapse.getPermanenceValue());
+        synapse.increasePermanence();
+        double newPermanence = Synapse.INITIAL_PERMANENCE + Synapse.PERMANENCE_INCREASE;
+        assertEquals(newPermanence, synapse.getPermanenceValue(), 0.0001);
+
+        Synapse.PERMANENCE_INCREASE = 0.2;
+        synapse.increasePermanence();
+        assertEquals(newPermanence + Synapse.PERMANENCE_INCREASE, synapse.getPermanenceValue(), 0.0001);
+    }
+
     public void test_Synapse() {
         assertEquals(Synapse.INITIAL_PERMANENCE,
                 this.synapse_1.getPermanenceValue(), 0.001);
