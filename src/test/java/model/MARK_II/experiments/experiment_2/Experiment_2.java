@@ -3,6 +3,7 @@ package model.MARK_II.experiments.experiment_2;
 import junit.framework.TestCase;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
+import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.TemporalPooler;
 import model.MARK_II.region.Region;
@@ -12,6 +13,7 @@ import model.MARK_II.sensory.Retina;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Set;
 
 /**
  * @author Q Liu (quinnliu@vt.edu)
@@ -99,7 +101,18 @@ public class Experiment_2 extends TestCase {
 
     public void runCLA() {
         this.spatialPooler.performPooling();
+        System.out.println("SP Active Columns = ");
+        printColumnPositions(this.spatialPooler.getActiveColumnPositions());
+
         this.temporalPooler.performPooling();
         this.temporalPooler.nextTimeStep();
+    }
+
+    void printColumnPositions(Set<ColumnPosition> columnPositions) {
+        System.out.print("(row, column)");
+
+        for (ColumnPosition cp : columnPositions) {
+            System.out.print(",(" + cp.getRow() + "," + cp.getColumn() + ") ");
+        }
     }
 }
