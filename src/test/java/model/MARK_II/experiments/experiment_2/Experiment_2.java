@@ -22,6 +22,7 @@ public class Experiment_2 extends TestCase {
             "/experiment_2/";
 
     private Retina retina;
+    private Region region;
     private SpatialPooler spatialPooler;
     private TemporalPooler temporalPooler;
 
@@ -53,14 +54,14 @@ public class Experiment_2 extends TestCase {
 
         // Step 1: create Temporal Pooler instance with appropriate parameters
         this.retina = new Retina(10, 10);
-        Region region = new Region("root", 6, 8, cellsPerColumn, minThreshold, 3);
+        this.region = new Region("root", 6, 8, cellsPerColumn, minThreshold, 3);
         region.setInhibitionRadius(3);
 
         AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
-        retinaToRegion.connect(this.retina.getVisionCells(), region.getColumns(),
+        retinaToRegion.connect(this.retina.getVisionCells(), this.region.getColumns(),
                 0, 0);
 
-        this.spatialPooler = new SpatialPooler(region);
+        this.spatialPooler = new SpatialPooler(this.region);
         this.spatialPooler.setLearningState(true);
 
         this.temporalPooler = new TemporalPooler(this.spatialPooler, newSynapseCount);
