@@ -24,6 +24,15 @@ public class SpatialPoolerTest extends TestCase {
     private SpatialPooler spatialPooler;
 
     public void setUp() {
+        // TODO: update tests with generic permanence checks
+        // NOTE: when first testing this class I used preset values for MARK I
+        //       model without realizing I would want to change them in the
+        //       future. The following are the preset values:
+        Synapse.INITIAL_PERMANENCE = 0.3;
+        Synapse.MINIMAL_CONNECTED_PERMANENCE = 0.2;
+        Synapse.PERMANENCE_INCREASE = 0.02;
+        Synapse.PERMANENCE_DECREASE = 0.005;
+
         this.parentRegion = new Region("parentRegion", 8, 8, 4, 20, 3);
         Region childRegion = new Region("childRegion", 66, 66, 4, 20, 3);
         AbstractRegionToRegionConnect connectType = new RegionToRegionRectangleConnect();

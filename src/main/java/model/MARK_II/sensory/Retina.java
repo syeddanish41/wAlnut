@@ -76,7 +76,13 @@ public class Retina {
      * @throws IOException
      */
     public void seeBMPImage(String BMPFileName) throws IOException {
-        BufferedImage image = ImageIO.read(getClass().getResource(BMPFileName));
+
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(getClass().getResource(BMPFileName));
+        } catch (IOException e) {
+            // nothing
+        }
 
         int numberOfRows = this.visionCells.length;
         int numberOfColumns = this.visionCells[0].length;

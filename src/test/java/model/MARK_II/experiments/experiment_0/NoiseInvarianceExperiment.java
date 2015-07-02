@@ -69,7 +69,7 @@ public class NoiseInvarianceExperiment extends TestCase {
         set2.add(cp3);
         set2.add(cp4);
 
-        // View all three images of digit 2 @ https://db.tt/ElvG0WLM
+        // View all three images of digit 2 @ https://github.com/WalnutiQ/WalnutiQ#noise-invariance-experiment
         this.retina.seeBMPImage("2.bmp");
         this.spatialPooler.performPooling();
         // set1 = ((6, 5), (6, 2), (2, 5), (1, 5))

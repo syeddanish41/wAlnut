@@ -9,6 +9,8 @@ import model.MARK_II.region.Region;
 import model.MARK_II.region.Synapse;
 import model.MARK_II.sensory.Retina;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
