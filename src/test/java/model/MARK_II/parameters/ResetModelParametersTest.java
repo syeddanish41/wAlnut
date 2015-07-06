@@ -21,7 +21,7 @@ public class ResetModelParametersTest extends junit.framework.TestCase {
         Synapse.MINIMAL_CONNECTED_PERMANENCE = 0.2;
         Synapse.PERMANENCE_INCREASE = 0.02;
         Synapse.PERMANENCE_DECREASE = 0.005;
-        
+
         this.synapse = new Synapse<Cell>(new VisionCell(), 0, 0);
     }
 

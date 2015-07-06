@@ -9,6 +9,7 @@ import model.MARK_II.generalAlgorithm.TemporalPooler;
 import model.MARK_II.region.Region;
 import model.MARK_II.region.Synapse;
 import model.MARK_II.sensory.Retina;
+import model.MARK_II.util.RegionConsoleViewer;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -96,13 +97,23 @@ public class Experiment_2 extends TestCase {
             runCLA();
         }
 
-        assertEquals(1, 2-1);
+        assertEquals(1, 2 - 1);
+
+        this.retina.seeBMPImage("A.bmp");
+
+        System.out.println("Expect to see 'A'");
+        RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
+                .getColumnActiveStatesCharArray(this.region));
+
+        System.out.println("Expect to see 'B'");
+        RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
+                .getColumnPredictiveStatesCharArray(this.region));
     }
 
     public void runCLA() {
         this.spatialPooler.performPooling();
-        System.out.println("SP Active Columns = ");
-        printColumnPositions(this.spatialPooler.getActiveColumnPositions());
+        //System.out.println("SP Active Columns = " + this.spatialPooler.getActiveColumnPositions().size() + " columns = ");
+        //printColumnPositions(this.spatialPooler.getActiveColumnPositions());
 
         this.temporalPooler.performPooling();
         this.temporalPooler.nextTimeStep();
@@ -112,7 +123,9 @@ public class Experiment_2 extends TestCase {
         System.out.print("(row, column)");
 
         for (ColumnPosition cp : columnPositions) {
-            System.out.print(",(" + cp.getRow() + "," + cp.getColumn() + ") ");
+            System.out.print(", (" + cp.getRow() + "," + cp.getColumn() + ")");
         }
+
+        System.out.print("\n\n");
     }
 }
