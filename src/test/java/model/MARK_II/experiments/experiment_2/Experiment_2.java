@@ -100,12 +100,13 @@ public class Experiment_2 extends TestCase {
         assertEquals(1, 2 - 1);
 
         this.retina.seeBMPImage("A.bmp");
+        runCLA();
 
         System.out.println("Expect to see 'A'");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnActiveStatesCharArray(this.region));
 
-        System.out.println("Expect to see 'B'");
+        System.out.println("\n\nExpect to see 'B'\n");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnPredictiveStatesCharArray(this.region));
     }
