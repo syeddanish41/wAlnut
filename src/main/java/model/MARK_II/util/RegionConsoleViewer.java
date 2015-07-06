@@ -1,9 +1,6 @@
 package model.MARK_II.util;
 
-import model.MARK_II.region.Cell;
-import model.MARK_II.region.Column;
-import model.MARK_II.region.Region;
-import model.MARK_II.region.Synapse;
+import model.MARK_II.region.*;
 
 import java.awt.*;
 import java.util.Set;
@@ -20,7 +17,7 @@ public class RegionConsoleViewer {
      * time step.
      *
      * @param region
-     * @return A 2-D char array of Columns' overlapScores.
+     * @return A 2-D char array of Columns' active states.
      */
     public static char[][] getColumnActiveStatesCharArray(Region region) {
         char[][] columnActiveStates = new char[region.getNumberOfRowsAlongRegionYAxis()][region
@@ -38,6 +35,36 @@ public class RegionConsoleViewer {
             }
         }
         return columnActiveStates;
+    }
+
+    /**
+     * Returns a 2-D array of chars representing each Column's activeState
+     * within a Region inside of a SpatialPooler object. 'a' represents an
+     * active Column while 'i' represents an inactive Column for the current
+     * time step.
+     *
+     * @param region
+     * @return A 2-D char array of Columns' predictive states.
+     */
+    public static char[][] getColumnPredictiveStatesCharArray(Region region) {
+        char[][] columnPredictiveStates = new char[region.getNumberOfRowsAlongRegionYAxis()][region
+                .getNumberOfColumnsAlongRegionXAxis()];
+        Column[][] columns = region.getColumns();
+        for (int row = 0; row < columnPredictiveStates.length; row++) {
+            for (int column = 0; column < columnPredictiveStates[row].length; column++) {
+                Neuron[] neurons = columns[row][column].getNeurons();
+                for (Neuron neuron : neurons) {
+                    if (neuron.getPredictingState()) {
+                        // 'p' represents an Column with a Neuron that has predictive state on
+                        columnPredictiveStates[row][column] = 'p';
+                    } else {
+                        // 'n' represents an Column with a Neuron that does NOTE havehas predictive state on
+                        columnPredictiveStates[row][column] = 'n';
+                    }
+                }
+            }
+        }
+        return columnPredictiveStates;
     }
 
     /**
@@ -123,10 +150,10 @@ public class RegionConsoleViewer {
     }
 
     /**
-     * Prints a char 2-D array to the console.
+     * Returns a char 2-D array to the console.
      *
      * @param doubleCharArray The 2-D char array to be printed.
-     * @return The printed 2-D char array as a String.
+     * @return The 2-D char array as a String.
      */
     public static String doubleCharArrayAsString(char[][] doubleCharArray) {
         String doubleCharArrayAsString = "";
@@ -144,5 +171,9 @@ public class RegionConsoleViewer {
             }
         }
         return doubleCharArrayAsString;
+    }
+
+    public static void printDoubleCharArray(char[][] doubleCharArray) {
+        System.out.print(doubleCharArrayAsString(doubleCharArray));
     }
 }
