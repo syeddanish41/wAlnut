@@ -1,6 +1,6 @@
 package model.MARK_II.generalAlgorithm;
 
-import model.MARK_II.util.LearningAlgorithmsStatistics;
+import model.MARK_II.util.algorithmStatistics;
 import model.MARK_II.region.*;
 
 import java.util.*;
@@ -29,8 +29,6 @@ public class TemporalPooler extends Pooler {
 
     private List<Neuron> currentLearningNeurons;
 
-    private LearningAlgorithmsStatistics learningAlgorithmsStatistics;
-
     public TemporalPooler(SpatialPooler spatialPooler, int newSynapseCount) {
         this.spatialPooler = spatialPooler;
         super.region = spatialPooler.getRegion();
@@ -39,8 +37,6 @@ public class TemporalPooler extends Pooler {
         this.newSynapseCount = newSynapseCount;
 
         this.currentLearningNeurons = new ArrayList<Neuron>();
-
-        this.learningAlgorithmsStatistics = new LearningAlgorithmsStatistics();
     }
 
     public void performPooling() {
@@ -73,8 +69,6 @@ public class TemporalPooler extends Pooler {
         this.currentLearningNeurons.clear();
 
         this.segmentUpdateList.clear();
-
-        this.learningAlgorithmsStatistics.resetForNextTimeStep();
     }
 
     /**
@@ -464,10 +458,6 @@ public class TemporalPooler extends Pooler {
         return this.newSynapseCount;
     }
 
-    public LearningAlgorithmsStatistics getLearningAlgorithmStatistics() {
-        return this.learningAlgorithmsStatistics;
-    }
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -477,9 +467,6 @@ public class TemporalPooler extends Pooler {
         stringBuilder.append(this.region.getBiologicalName());
         stringBuilder.append("\n     segmentUpdateList size: ");
         stringBuilder.append(this.segmentUpdateList.size());
-        stringBuilder.append("\n temporal pooler statistics: ");
-        this.learningAlgorithmsStatistics.updateModelLearningMetrics(super.region);
-        stringBuilder.append(this.learningAlgorithmsStatistics.toString());
         stringBuilder.append("\n            newSynapseCount: ");
         stringBuilder.append(this.newSynapseCount);
         stringBuilder.append("\ncurrentLearningNeurons size: ");

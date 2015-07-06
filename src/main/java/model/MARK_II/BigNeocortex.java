@@ -86,12 +86,9 @@ public class BigNeocortex {
                 (regionParameterListInOrder);
 
         this.heapTracker.updateHeapData();
-        System.out.println("AFTER: instantiateAndSaveAllUnconnectedRegions\n" +
-                "                (regionParameterListInOrder);");
 
         this.connectAllRegions(connectionParameterListInOrder);
         this.heapTracker.updateHeapData();
-        System.out.println("AFTER: connectAllRegions(connectionParameterListInOrder);");
 
         this.heapTracker.printAllHeapDataToFile(this.pathAndFolderNameWithoutEndingBacklash +
                 "/heapSizeLogData_BigNeocortex.txt");
@@ -120,7 +117,6 @@ public class BigNeocortex {
 
                 Region childRegion = this.getRegion(connectionParameterListInOrder[i+4]);
                 this.heapTracker.updateHeapData();
-                System.out.println("AFTER: Region childRegion = this.getRegion(connectionParameterListInOrder[i+4]);");
 
                 int numberOfColumnsToOverlapAlongNumberOfRows = Integer.valueOf(connectionParameterListInOrder[i+5]);
                 int numberOfColumnsToOverlapAlongNumberOfColumns = Integer.valueOf(connectionParameterListInOrder[i+6]);
@@ -128,12 +124,6 @@ public class BigNeocortex {
                 this.addToCurrentRegion(rectanglePartOfParentRegionToConnectTo, childRegion,
                         numberOfColumnsToOverlapAlongNumberOfRows, numberOfColumnsToOverlapAlongNumberOfColumns);
                 this.heapTracker.updateHeapData();
-                System.out.println("AFTER: addToCurrentRegion" +
-                        "(rectanglePartOfParentRegionToConnectTo, " +
-                        childRegion.getBiologicalName() + ",\n" +
-                        "                        " +
-                        "numberOfColumnsToOverlapAlongNumberOfRows, " +
-                        "numberOfColumnsToOverlapAlongNumberOfColumns);");
             }
         }
     }
