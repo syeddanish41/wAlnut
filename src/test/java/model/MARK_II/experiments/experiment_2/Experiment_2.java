@@ -106,27 +106,15 @@ public class Experiment_2 extends TestCase {
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnActiveStatesCharArray(this.region));
 
-        System.out.println("\n\nExpect to see 'B'\n");
+        System.out.println("\n\nExpect to see 'B'");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnPredictiveStatesCharArray(this.region));
     }
 
     public void runCLA() {
         this.spatialPooler.performPooling();
-        //System.out.println("SP Active Columns = " + this.spatialPooler.getActiveColumnPositions().size() + " columns = ");
-        //printColumnPositions(this.spatialPooler.getActiveColumnPositions());
 
         this.temporalPooler.performPooling();
         this.temporalPooler.nextTimeStep();
-    }
-
-    void printColumnPositions(Set<ColumnPosition> columnPositions) {
-        System.out.print("(row, column)");
-
-        for (ColumnPosition cp : columnPositions) {
-            System.out.print(", (" + cp.getRow() + "," + cp.getColumn() + ")");
-        }
-
-        System.out.print("\n\n");
     }
 }
