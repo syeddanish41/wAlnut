@@ -1,4 +1,4 @@
-package model.MARK_II.util;
+package model.MARK_II.generalAlgorithm;
 
 import java.math.BigInteger;
 import java.text.DecimalFormat;
