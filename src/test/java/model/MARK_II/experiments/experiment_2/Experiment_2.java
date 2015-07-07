@@ -18,7 +18,7 @@ import java.util.Set;
 
 /**
  * @author Q Liu (quinnliu@vt.edu)
- * @date 7/1/2015.
+ * @date 7/7/2015.
  */
 public class Experiment_2 extends TestCase {
     private static String pathToExperiment_2_folder = "./src/test/java/model/experiments/vision/MARK_II" +
@@ -97,7 +97,7 @@ public class Experiment_2 extends TestCase {
             runCLA();
         }
 
-        assertEquals(1, 2 - 1); // TODO: assert equals for each expected image
+        // TODO: assert equals for each expected image
 
         this.retina.seeBMPImage("A.bmp");
         runCLA();
@@ -105,6 +105,12 @@ public class Experiment_2 extends TestCase {
         System.out.println("Expect to see active columns for 'A' ");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnActiveStatesCharArray(this.region));
+
+        char[][] columnActiveStates = RegionConsoleViewer
+                .getColumnActiveStatesCharArray(this.region);
+        assertEquals("iaaaaiii\niaiiaiii\niaaaaaii\niaiiaaii\niaiiiaii\n"
+                        + "iiiiiiii",
+                RegionConsoleViewer.doubleCharArrayAsString(columnActiveStates));
 
         System.out.println("\n\nExpect to see predictive columns for 'B'");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
