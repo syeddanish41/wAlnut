@@ -11,6 +11,7 @@ import model.MARK_II.region.Region;
 public abstract class Pooler {
     protected Region region;
     private boolean learningState;
+    private AlgorithmStatistics algorithmStatistics;
 
     public void changeRegion(Region newRegion) {
         if (newRegion == null) {
@@ -19,6 +20,7 @@ public abstract class Pooler {
         }
         this.learningState = false;
         this.region = newRegion;
+        this.algorithmStatistics = new AlgorithmStatistics();
     }
 
     public boolean getLearningState() {
@@ -31,5 +33,9 @@ public abstract class Pooler {
 
     public Region getRegion() {
         return this.region;
+    }
+
+    public AlgorithmStatistics getAlgorithmStatistics() {
+        return this.algorithmStatistics;
     }
 }

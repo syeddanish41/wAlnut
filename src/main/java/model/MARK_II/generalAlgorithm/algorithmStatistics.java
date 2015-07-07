@@ -1,5 +1,8 @@
 package model.MARK_II.generalAlgorithm;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @author Q Liu (quinnliu@vt.edu)
  * @version 7/7/2015
@@ -9,72 +12,76 @@ public class AlgorithmStatistics {
     //       for 1 time step of running the general learning algorithm.
 
     // NOTE: Most important statistics at top
-    // spatial pooler statistics:
-    private int[] activeSynapsesHistory;
-    private int[] activeColumnsHistory;
-    private int[] inhibitionRadiusHistory;
+    // spatial pooler (SP) statistics:
+    private List<Integer> SP_activeSynapsesHistory,
+            SP_activeColumnsHistory;
+    private List<Double>  SP_inhibitionRadiusHistory;
     // Consider adding SDRStatistic probabilityOfFalsePositive later since
     // y-axis would be a different scale
 
-    // temporal pooler statistics:
-    private int[] synapsesHistory;
-    private int[] distalSegmentsHistory;
+    // temporal pooler (TP) statistics:
+    private List<Integer> TP_synapsesHistory,
+            TP_distalSegmentsHistory,
+            TP_activeDistalSegmentsHistory,
+            TP_sequenceSegmentsHistory,
+            TP_learningNeuronsHistory;
     // distribution of new synapses somehow?
-    private double[] rawAnomalyScore;
-    private int[] activeDistalSegmentsHistory;
-    private int[] sequenceSegmentsHistory;
-    private int[] learningNeuronsHistory;
+    private List<Double> TP_rawAnomalyScore;
 
-    public AlgorithmStatistics(int arraySize) {
-        this.resetForNextTimeStep(arraySize);
+    public AlgorithmStatistics() {
+        this.clearAllData();
     }
 
-    public void resetForNextTimeStep(int arraySize) {
-        this.activeSynapsesHistory = new int[arraySize];
-        this.activeColumnsHistory = new int[arraySize];
-        this.inhibitionRadiusHistory = new int[arraySize];
-
-        this.synapsesHistory = new int[arraySize];
-        this.distalSegmentsHistory = new int[arraySize];
-        this.rawAnomalyScore = new double[arraySize];
-        this.activeDistalSegmentsHistory = new int[arraySize];
-        this.sequenceSegmentsHistory = new int[arraySize];
-        this.learningNeuronsHistory = new int[arraySize];
+    public void saveAllData() {
+        // TODO: save all lists into a file
     }
 
-    public int[] getActiveSynapsesHistory() {
-        return activeSynapsesHistory;
+    public void clearAllData() {
+        this.SP_activeSynapsesHistory = new LinkedList<Integer>();
+        this.SP_activeColumnsHistory = new LinkedList<Integer>();
+        this.SP_inhibitionRadiusHistory = new LinkedList<Double>();
+
+        this.TP_synapsesHistory = new LinkedList<Integer>();
+        this.TP_distalSegmentsHistory = new LinkedList<Integer>();
+        this.TP_activeDistalSegmentsHistory = new LinkedList<Integer>();
+        this.TP_sequenceSegmentsHistory = new LinkedList<Integer>();
+        this.TP_learningNeuronsHistory = new LinkedList<Integer>();
+        this.TP_rawAnomalyScore = new LinkedList<Double>();
     }
 
-    public int[] getActiveColumnsHistory() {
-        return activeColumnsHistory;
+    public List<Integer> getSP_activeSynapsesHistory() {
+        return SP_activeSynapsesHistory;
     }
 
-    public int[] getInhibitionRadiusHistory() {
-        return inhibitionRadiusHistory;
+    public List<Integer> getSP_activeColumnsHistory() {
+        return SP_activeColumnsHistory;
     }
 
-    public int[] getSynapsesHistory() {
-        return synapsesHistory;
+    public List<Double> getSP_inhibitionRadiusHistory() {
+        return SP_inhibitionRadiusHistory;
     }
 
-    public int[] getDistalSegmentsHistory() {
-        return distalSegmentsHistory;
+    public List<Integer> getTP_synapsesHistory() {
+        return TP_synapsesHistory;
     }
 
-    public double[] getRawAnomalyScore() {
-        return rawAnomalyScore;
+    public List<Integer> getTP_distalSegmentsHistory() {
+        return TP_distalSegmentsHistory;
     }
 
-    public int[] getActiveDistalSegmentsHistory() {
-        return activeDistalSegmentsHistory;
+    public List<Integer> getTP_activeDistalSegmentsHistory() {
+        return TP_activeDistalSegmentsHistory;
     }
 
-    public int[] getSequenceSegmentsHistory() {
-        return sequenceSegmentsHistory;
+    public List<Integer> getTP_sequenceSegmentsHistory() {
+        return TP_sequenceSegmentsHistory;
     }
 
-    public int[] getLearningNeuronsHistory() {
-        return learningNeuronsHistory;
+    public List<Integer> getTP_learningNeuronsHistory() {
+        return TP_learningNeuronsHistory;
+    }
+
+    public List<Double> getTP_rawAnomalyScore() {
+        return TP_rawAnomalyScore;
     }
 }

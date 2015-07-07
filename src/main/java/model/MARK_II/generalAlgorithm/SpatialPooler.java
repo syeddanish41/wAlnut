@@ -99,6 +99,8 @@ public class SpatialPooler extends Pooler {
             ///     overlap(c) = overlap(c) + input(t, s.sourceInput)
             .getNumberOfActiveSynapses();
 
+        super.getAlgorithmStatistics().getSP_activeSynapsesHistory().add(new Integer(newOverlapScore));
+
         // compute minimumOverlapScore assuming all proximalSegments are
         // connected to the same number of synapses
         Column[][] columns = this.region.getColumns();
@@ -161,6 +163,7 @@ public class SpatialPooler extends Pooler {
                 }
             }
         }
+        super.getAlgorithmStatistics().getSP_activeColumnsHistory().add(new Integer(this.activeColumnPositions.size()));
     }
 
     /**
@@ -176,6 +179,8 @@ public class SpatialPooler extends Pooler {
         /// inhibitionRadius = averageReceptiveFieldSize()
         this.region
                 .setInhibitionRadius((int) averageReceptiveFieldSizeOfRegion());
+
+        super.getAlgorithmStatistics().getSP_inhibitionRadiusHistory().add(averageReceptiveFieldSizeOfRegion());
     }
 
     void modelLongTermPotentiationAndDepression() {
