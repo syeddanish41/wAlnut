@@ -22,11 +22,12 @@ public class AlgorithmStatistics {
     // temporal pooler (TP) statistics:
     private List<Integer> TP_synapsesHistory,
             TP_distalSegmentsHistory,
-            TP_activeDistalSegmentsHistory,
+            TP_activeDistalSegmentsHistory, // TODO: check for this at the end of TP
+                                            // since it is dependent on all Synpase permanence values
             TP_sequenceSegmentsHistory,
             TP_learningNeuronsHistory;
     // distribution of new synapses somehow?
-    private List<Double> TP_rawAnomalyScore;
+    private List<Double> TP_rawAnomalyScoreHistory;
 
     public AlgorithmStatistics() {
         this.clearAllData();
@@ -46,7 +47,7 @@ public class AlgorithmStatistics {
         this.TP_activeDistalSegmentsHistory = new LinkedList<Integer>();
         this.TP_sequenceSegmentsHistory = new LinkedList<Integer>();
         this.TP_learningNeuronsHistory = new LinkedList<Integer>();
-        this.TP_rawAnomalyScore = new LinkedList<Double>();
+        this.TP_rawAnomalyScoreHistory = new LinkedList<Double>();
     }
 
     public List<Integer> getSP_activeSynapsesHistory() {
@@ -81,7 +82,7 @@ public class AlgorithmStatistics {
         return TP_learningNeuronsHistory;
     }
 
-    public List<Double> getTP_rawAnomalyScore() {
-        return TP_rawAnomalyScore;
+    public List<Double> getTP_rawAnomalyScoreHistory() {
+        return TP_rawAnomalyScoreHistory;
     }
 }

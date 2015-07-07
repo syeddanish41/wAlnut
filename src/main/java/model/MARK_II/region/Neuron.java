@@ -1,5 +1,7 @@
 package model.MARK_II.region;
 
+import model.MARK_II.generalAlgorithm.AlgorithmStatistics;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +70,7 @@ public class Neuron extends Cell {
      * more than one sequence segment was active, the segment with the most
      * activity is returned.
      */
-    public DistalSegment getBestPreviousActiveSegment() {
+    public DistalSegment getBestPreviousActiveSegment(AlgorithmStatistics algorithmStatistics) {
         List<DistalSegment> previousActiveSegments = new ArrayList<DistalSegment>();
         List<DistalSegment> previousActiveSequenceSegment = new ArrayList<DistalSegment>();
 
@@ -84,7 +86,7 @@ public class Neuron extends Cell {
         }
 
         if (previousActiveSegments.size() == 0) {
-            return this.getPreviousSegmentWithMostActivity(this.distalSegments);
+            return this.getPreviousSegmentWithMostActivity(this.distalSegments, algorithmStatistics);
 
         } else if (previousActiveSegments.size() == 1) {
             return previousActiveSegments.get(0);
@@ -93,20 +95,21 @@ public class Neuron extends Cell {
 
             if (previousActiveSequenceSegment.size() == 0) {
                 return this
-                        .getPreviousSegmentWithMostActivity(this.distalSegments);
+                        .getPreviousSegmentWithMostActivity(this.distalSegments, algorithmStatistics);
             } else if (previousActiveSequenceSegment.size() == 1) {
                 return previousActiveSequenceSegment.get(0);
             } else { // previousActiveSequenceSegments.size() > 1
                 return this
-                        .getPreviousSegmentWithMostActivity(previousActiveSequenceSegment);
+                        .getPreviousSegmentWithMostActivity(previousActiveSequenceSegment, algorithmStatistics);
             }
         }
     }
 
     DistalSegment getPreviousSegmentWithMostActivity(
-            List<DistalSegment> whichSegmentsToCheck) {
+            List<DistalSegment> whichSegmentsToCheck, AlgorithmStatistics algorithmStatistics) {
         if (whichSegmentsToCheck.size() == 0) {
             DistalSegment newDistalSegment = new DistalSegment();
+            algorithmStatistics.getTP_distalSegmentsHistory().add(new Integer(1));
             this.addDistalSegment(newDistalSegment);
             return newDistalSegment;
         }
@@ -124,15 +127,17 @@ public class Neuron extends Cell {
         if (maxPreviousActiveSynapses == 0) {
             // there were no previously active distal segments
             DistalSegment newDistalSegment = new DistalSegment();
+            algorithmStatistics.getTP_distalSegmentsHistory().add(new Integer(1));
             this.addDistalSegment(newDistalSegment);
             return newDistalSegment;
         }
         return mostActiveDistalSegment;
     }
 
-    public DistalSegment getBestActiveSegment() {
+    public DistalSegment getBestActiveSegment(AlgorithmStatistics algorithmStatistics) {
         if (this.distalSegments.size() == 0) {
             DistalSegment newDistalSegment = new DistalSegment();
+            algorithmStatistics.getTP_distalSegmentsHistory().add(new Integer(1));
             this.addDistalSegment(newDistalSegment);
             return newDistalSegment;
         }

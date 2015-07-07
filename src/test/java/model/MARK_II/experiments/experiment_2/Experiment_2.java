@@ -7,6 +7,7 @@ import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.TemporalPooler;
 import model.MARK_II.region.Region;
+import model.MARK_II.region.Segment;
 import model.MARK_II.region.Synapse;
 import model.MARK_II.sensory.Retina;
 import model.MARK_II.util.RegionConsoleViewer;
@@ -54,6 +55,8 @@ public class Experiment_2 extends TestCase {
         Synapse.MINIMAL_CONNECTED_PERMANENCE = connectedPerm;
         Synapse.PERMANENCE_INCREASE = permanenceInc;
         Synapse.PERMANENCE_DECREASE = permanenceDec;
+
+        Segment.PERCENT_ACTIVE_SYNAPSES_THRESHOLD = 0.2; // TODO: change?
 
         // Step 1: create Temporal Pooler instance with appropriate parameters
         this.retina = new Retina(10, 10);
