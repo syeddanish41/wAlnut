@@ -97,18 +97,31 @@ public class Experiment_2 extends TestCase {
             runCLA();
         }
 
-        assertEquals(1, 2 - 1);
+        assertEquals(1, 2 - 1); // TODO: assert equals for each expected image
 
         this.retina.seeBMPImage("A.bmp");
         runCLA();
 
-        System.out.println("Expect to see 'A'");
+        System.out.println("Expect to see active columns for 'A' ");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnActiveStatesCharArray(this.region));
 
-        System.out.println("\n\nExpect to see 'B'");
+        System.out.println("\n\nExpect to see predictive columns for 'B'");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnPredictiveStatesCharArray(this.region));
+
+        this.retina.seeBMPImage("B.bmp");
+        runCLA();
+
+//        System.out.println("Expect to see active columns for 'B' ");
+//        RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
+//                .getColumnActiveStatesCharArray(this.region));
+//
+//        System.out.println("\n\nExpect to see predictive columns for 'C'");
+//        RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
+//                .getColumnPredictiveStatesCharArray(this.region));
+
+        // NOTE: repeat for remaining letters.
     }
 
     public void runCLA() {
