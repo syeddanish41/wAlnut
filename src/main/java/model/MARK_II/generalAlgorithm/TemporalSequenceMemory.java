@@ -21,7 +21,6 @@ public class TemporalSequenceMemory extends Pooler {
     private final int newSynapseCount;
     // TODO: double check this list doesn't just keep getting bigger and bigger
     private List<Neuron> currentLearningNeurons;
-    private algorithmStatistics algorithmStatistics;
     private List<DistalSegment> learningSegments;
 
     public TemporalSequenceMemory(SpatialPooler spatialPooler, int
@@ -31,7 +30,6 @@ public class TemporalSequenceMemory extends Pooler {
         this.segmentUpdateList = new SegmentUpdateList();
         this.newSynapseCount = newSynapseCount;
         this.currentLearningNeurons = new LinkedList<Neuron>();
-        this.algorithmStatistics = new algorithmStatistics();
         this.learningSegments = new LinkedList<DistalSegment>();
     }
 
@@ -162,8 +160,6 @@ public class TemporalSequenceMemory extends Pooler {
         this.currentLearningNeurons.clear();
 
         this.segmentUpdateList.clear();
-
-        this.algorithmStatistics.resetForNextTimeStep();
     }
 
     /**
@@ -553,10 +549,6 @@ public class TemporalSequenceMemory extends Pooler {
         return this.newSynapseCount;
     }
 
-    public algorithmStatistics getLearningAlgorithmStatistics() {
-        return this.algorithmStatistics;
-    }
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -566,9 +558,6 @@ public class TemporalSequenceMemory extends Pooler {
         stringBuilder.append(this.region.getBiologicalName());
         stringBuilder.append("\n     segmentUpdateList size: ");
         stringBuilder.append(this.segmentUpdateList.size());
-        stringBuilder.append("\n temporal pooler statistics: ");
-        this.algorithmStatistics.updateModelLearningMetrics(super.region);
-        stringBuilder.append(this.algorithmStatistics.toString());
         stringBuilder.append("\n            newSynapseCount: ");
         stringBuilder.append(this.newSynapseCount);
         stringBuilder.append("\ncurrentLearningNeurons size: ");

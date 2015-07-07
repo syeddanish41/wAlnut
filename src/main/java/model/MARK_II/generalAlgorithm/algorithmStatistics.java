@@ -4,7 +4,7 @@ package model.MARK_II.generalAlgorithm;
  * @author Q Liu (quinnliu@vt.edu)
  * @version 7/7/2015
  */
-public class algorithmStatistics {
+public class AlgorithmStatistics {
     // NOTE: each element in each of the following lists represent TOTALS
     //       for 1 time step of running the general learning algorithm.
 
@@ -25,7 +25,7 @@ public class algorithmStatistics {
     private int[] sequenceSegmentsHistory;
     private int[] learningNeuronsHistory;
 
-    public algorithmStatistics(int arraySize) {
+    public AlgorithmStatistics(int arraySize) {
         this.resetForNextTimeStep(arraySize);
     }
 
@@ -40,5 +40,41 @@ public class algorithmStatistics {
         this.activeDistalSegmentsHistory = new int[arraySize];
         this.sequenceSegmentsHistory = new int[arraySize];
         this.learningNeuronsHistory = new int[arraySize];
+    }
+
+    public int[] getActiveSynapsesHistory() {
+        return activeSynapsesHistory;
+    }
+
+    public int[] getActiveColumnsHistory() {
+        return activeColumnsHistory;
+    }
+
+    public int[] getInhibitionRadiusHistory() {
+        return inhibitionRadiusHistory;
+    }
+
+    public int[] getSynapsesHistory() {
+        return synapsesHistory;
+    }
+
+    public int[] getDistalSegmentsHistory() {
+        return distalSegmentsHistory;
+    }
+
+    public double[] getRawAnomalyScore() {
+        return rawAnomalyScore;
+    }
+
+    public int[] getActiveDistalSegmentsHistory() {
+        return activeDistalSegmentsHistory;
+    }
+
+    public int[] getSequenceSegmentsHistory() {
+        return sequenceSegmentsHistory;
+    }
+
+    public int[] getLearningNeuronsHistory() {
+        return learningNeuronsHistory;
     }
 }
