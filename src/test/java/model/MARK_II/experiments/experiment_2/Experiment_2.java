@@ -22,8 +22,8 @@ import java.util.Set;
  * @date 7/7/2015.
  */
 public class Experiment_2 extends TestCase {
-    private static String pathToExperiment_2_folder = "./src/test/java/model/experiments/vision/MARK_II" +
-            "/experiment_2/";
+    private static String pathToExperiment_2_folder = "./src/test/java/model" +
+            "/MARK_II/experiments/experiment_2";
 
     private Retina retina;
     private Region region;
@@ -104,6 +104,8 @@ public class Experiment_2 extends TestCase {
 
         this.retina.seeBMPImage("A.bmp");
         runCLA();
+
+        this.temporalPooler.saveCurrentRegionAlgorithmStatistics(pathToExperiment_2_folder);
 
         System.out.println("Expect to see active columns for 'A' ");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer

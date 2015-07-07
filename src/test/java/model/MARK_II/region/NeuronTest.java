@@ -1,5 +1,6 @@
 package model.MARK_II.region;
 
+import model.MARK_II.generalAlgorithm.AlgorithmStatistics;
 import model.MARK_II.sensory.VisionCell;
 
 /**
@@ -45,19 +46,19 @@ public class NeuronTest extends junit.framework.TestCase {
 
     public void test_getBestPreviousActiveSegment() {
         // previousActiveSegments size = 0 & sequenceSegments size = 0
-        assertNotNull(this.neuron.getBestPreviousActiveSegment());
+        assertNotNull(this.neuron.getBestPreviousActiveSegment(new AlgorithmStatistics()));
         assertEquals(1, this.neuron.getDistalSegments().size());
 
         // previousActiveSegments size = 0 & sequenceSegments size = 0
         this.neuron.addDistalSegment(this.distalSegmentWith1ActiveSynapse);
         this.neuron.addDistalSegment(this.distalSegmentWith2ActiveSynapses);
-        assertNotNull(this.neuron.getBestPreviousActiveSegment());
+        assertNotNull(this.neuron.getBestPreviousActiveSegment(new AlgorithmStatistics()));
         assertEquals(4, this.neuron.getDistalSegments().size());
 
         // previousActiveSegments size = 1 & sequenceSegments size = 0
         this.neuron.addDistalSegment(this.previousActiveDistalSegment);
         assertEquals(this.previousActiveDistalSegment,
-                this.neuron.getBestPreviousActiveSegment());
+                this.neuron.getBestPreviousActiveSegment(new AlgorithmStatistics()));
 
         // previousActiveSegments size = 2 & sequenceSegments size = 0
         VisionCell activeVisionCell_1 = new VisionCell();
@@ -70,7 +71,7 @@ public class NeuronTest extends junit.framework.TestCase {
         distalSegment_3.setPreviousActiveState(true);
         this.neuron.addDistalSegment(distalSegment_3);
         assertEquals(distalSegment_3,
-                this.neuron.getBestPreviousActiveSegment());
+                this.neuron.getBestPreviousActiveSegment(new AlgorithmStatistics()));
 
         // previousActiveSegments size = 3 & sequenceSegments size = 1
         DistalSegment distalSegment_4 = new DistalSegment();
@@ -78,7 +79,7 @@ public class NeuronTest extends junit.framework.TestCase {
         distalSegment_4.setSequenceState(true);
         this.neuron.addDistalSegment(distalSegment_4);
         assertEquals(distalSegment_4,
-                this.neuron.getBestPreviousActiveSegment());
+                this.neuron.getBestPreviousActiveSegment(new AlgorithmStatistics()));
 
         // previousActiveSegments size = 3 & sequenceSegments size = 2
         DistalSegment distalSegment_5 = new DistalSegment();
@@ -87,7 +88,7 @@ public class NeuronTest extends junit.framework.TestCase {
         distalSegment_5.setSequenceState(true);
         this.neuron.addDistalSegment(distalSegment_5);
         assertEquals(distalSegment_5,
-                this.neuron.getBestPreviousActiveSegment());
+                this.neuron.getBestPreviousActiveSegment(new AlgorithmStatistics()));
     }
 
     public void test_getBestActiveSegment() {
@@ -110,7 +111,7 @@ public class NeuronTest extends junit.framework.TestCase {
                         .getNumberOfActiveSynapses());
 
         assertEquals(this.distalSegmentWith4ActiveSynapses,
-                this.neuron.getBestActiveSegment());
+                this.neuron.getBestActiveSegment(null));
     }
 
     void setUpDistalSegments() {

@@ -125,7 +125,7 @@ public class TemporalSequenceMemory extends Pooler {
                 // NOTE: .getBestPreviousActiveSegment will create a new
                 // distal segment if none exist
                 DistalSegment bestSegment = neurons[bestNeuronIndex]
-                        .getBestPreviousActiveSegment();
+                        .getBestPreviousActiveSegment(this.spatialPooler.getAlgorithmStatistics());
 
                 //// if bestSegment is not None:
                 ////  learningSegments.add(bestSegment)
@@ -181,7 +181,7 @@ public class TemporalSequenceMemory extends Pooler {
                 if (neurons[i].getPreviousActiveState() == true) {
                     /// s = getActiveSegment(c, i, t-1, activeState)
                     DistalSegment bestSegment = neurons[i]
-                            .getBestPreviousActiveSegment();
+                            .getBestPreviousActiveSegment(this.spatialPooler.getAlgorithmStatistics());
 
                     /// if s.sequenceSegment == true then
                     if (bestSegment != null
@@ -222,7 +222,7 @@ public class TemporalSequenceMemory extends Pooler {
                         .getNeuron(bestNeuronIndex));
 
                 DistalSegment segment = neurons[bestNeuronIndex]
-                        .getBestPreviousActiveSegment();
+                        .getBestPreviousActiveSegment(this.spatialPooler.getAlgorithmStatistics());
                 /// sUpdate = getSegmentActiveSynapses(c, i, s, t-1, true)
                 SegmentUpdate segmentUpdate = this.getSegmentActiveSynapses(
                         column.getCurrentPosition(), bestNeuronIndex, segment,
@@ -392,7 +392,7 @@ public class TemporalSequenceMemory extends Pooler {
                 // then we would be iterating over the neuron's list
                 // of segments again
                 Segment predictingSegment = neurons[i]
-                        .getBestPreviousActiveSegment();
+                        .getBestPreviousActiveSegment(this.spatialPooler.getAlgorithmStatistics());
 
                 /// for s in segments(c, i)
                 for (Segment segment : neurons[i].getDistalSegments()) {
@@ -516,7 +516,7 @@ public class TemporalSequenceMemory extends Pooler {
                 setNumberOfSegments = true;
             }
 
-            Segment bestSegment = neurons[i].getBestActiveSegment();
+            Segment bestSegment = neurons[i].getBestActiveSegment(this.spatialPooler.getAlgorithmStatistics());
             int numberOfActiveSynapses = bestSegment.getNumberOfActiveSynapses();
 
             if (numberOfActiveSynapses > greatestNumberOfActiveSynapses) {
@@ -549,6 +549,7 @@ public class TemporalSequenceMemory extends Pooler {
         return this.newSynapseCount;
     }
 
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -576,7 +577,7 @@ public class TemporalSequenceMemory extends Pooler {
 
                 if (neuron.getPreviousActiveState() == true) {
                     DistalSegment bestSegment = neuron
-                            .getBestPreviousActiveSegment();
+                            .getBestPreviousActiveSegment(this.spatialPooler.getAlgorithmStatistics());
 
                     // Question: when is segment ever set to be sequence segment?
                     // Answer:

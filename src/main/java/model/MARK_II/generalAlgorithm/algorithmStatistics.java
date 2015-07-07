@@ -27,14 +27,10 @@ public class AlgorithmStatistics {
             TP_sequenceSegmentsHistory,
             TP_learningNeuronsHistory;
     // distribution of new synapses somehow?
-    private List<Double> TP_rawAnomalyScoreHistory;
+    private List<Double> TP_rawAnomalyScoreHistory; // TODO: automatically calculate somehow?
 
     public AlgorithmStatistics() {
         this.clearAllData();
-    }
-
-    public void saveAllData() {
-        // TODO: save all lists into a file
     }
 
     public void clearAllData() {

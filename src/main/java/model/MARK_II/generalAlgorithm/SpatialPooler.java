@@ -23,6 +23,8 @@ public class SpatialPooler extends Pooler {
 
     public static float MINIMUM_COLUMN_FIRING_RATE = 0.01f;
 
+    private AlgorithmStatistics algorithmStatistics;
+
     public SpatialPooler(Region region) {
         if (region == null) {
             throw new IllegalArgumentException(
@@ -31,6 +33,8 @@ public class SpatialPooler extends Pooler {
         super.region = region;
         this.activeColumns = new HashSet<Column>();
         this.activeColumnPositions = new HashSet<ColumnPosition>();
+
+        this.algorithmStatistics = new AlgorithmStatistics();
     }
 
     /**
@@ -99,7 +103,7 @@ public class SpatialPooler extends Pooler {
             ///     overlap(c) = overlap(c) + input(t, s.sourceInput)
             .getNumberOfActiveSynapses();
 
-        super.getAlgorithmStatistics().getSP_activeSynapsesHistory().add(new Integer(newOverlapScore));
+        this.algorithmStatistics.getSP_activeSynapsesHistory().add(new Integer(newOverlapScore));
 
         // compute minimumOverlapScore assuming all proximalSegments are
         // connected to the same number of synapses
@@ -163,7 +167,8 @@ public class SpatialPooler extends Pooler {
                 }
             }
         }
-        super.getAlgorithmStatistics().getSP_activeColumnsHistory().add(new Integer(this.activeColumnPositions.size()));
+        this.algorithmStatistics.getSP_activeColumnsHistory().add(new
+                Integer(this.activeColumnPositions.size()));
     }
 
     /**
@@ -180,7 +185,7 @@ public class SpatialPooler extends Pooler {
         this.region
                 .setInhibitionRadius((int) averageReceptiveFieldSizeOfRegion());
 
-        super.getAlgorithmStatistics().getSP_inhibitionRadiusHistory().add(averageReceptiveFieldSizeOfRegion());
+        this.algorithmStatistics.getSP_inhibitionRadiusHistory().add(averageReceptiveFieldSizeOfRegion());
     }
 
     void modelLongTermPotentiationAndDepression() {
@@ -485,6 +490,10 @@ public class SpatialPooler extends Pooler {
 
     public Region getRegion() {
         return this.region;
+    }
+
+    public AlgorithmStatistics getAlgorithmStatistics() {
+        return this.algorithmStatistics;
     }
 
     @Override
