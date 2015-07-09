@@ -28,15 +28,17 @@ public class AlgorithmStatistics {
 
     private int arraySize;
 
+    private int currentTimeStep;
+
     public AlgorithmStatistics(int arraySize) {
         this.arraySize = arraySize;
+        this.currentTimeStep = 0;
         this.clearAllData();
     }
 
     public AlgorithmStatistics() {
         this(10);
         this.arraySize = 10;
-        this.clearAllData();
     }
 
     public void clearAllData() {
@@ -52,58 +54,71 @@ public class AlgorithmStatistics {
         this.TP_rawAnomalyScoreHistory = new double[arraySize];
     }
 
-    public int[] getSP_activeSynapsesHistoryAndAdd(int index, int valueToAdd) {
-        int newValue = this.SP_activeSynapsesHistory[index] +
+    public void nextTimeStep() {
+        this.currentTimeStep++;
+        if (this.currentTimeStep == this.arraySize) {
+            this.currentTimeStep--;
+            // so user can continue to call getter methods to retrieve arrays
+            // without unknowingly adding to currentTimeStep
+        }
+        if (this.currentTimeStep > this.arraySize) {
+            throw new IllegalStateException("you can NOT call nextTimeStep() more" +
+                    "times than the array size of AlgorithmStatistics");
+        }
+    }
+
+    public int[] getSP_activeSynapsesHistoryAndAdd(int valueToAdd) {
+        int newValue = this.SP_activeSynapsesHistory[this.currentTimeStep] +
                         valueToAdd;
-        this.SP_activeSynapsesHistory[index] = newValue;
+        this.SP_activeSynapsesHistory[this.currentTimeStep] = newValue;
         return this.SP_activeSynapsesHistory;
     }
 
-    public int[] getSP_activeColumnsHistoryAndAdd(int index, int valueToAdd) {
-        int newValue = this.SP_activeColumnsHistory[index] + valueToAdd;
-        this.SP_activeColumnsHistory[index] = newValue;
+    public int[] getSP_activeColumnsHistoryAndAdd(int valueToAdd) {
+        int newValue = this.SP_activeColumnsHistory[this.currentTimeStep] + valueToAdd;
+        this.SP_activeColumnsHistory[this.currentTimeStep] = newValue;
         return this.SP_activeColumnsHistory;
     }
 
-    public double[] getSP_inhibitionRadiusHistoryAndAdd(int index, double valueToAdd) {
-        double newValue = this.SP_inhibitionRadiusHistory[index] + valueToAdd;
-        this.SP_inhibitionRadiusHistory[index] = newValue;
+    public double[] getSP_inhibitionRadiusHistoryAndAdd(double valueToAdd) {
+        double newValue = this.SP_inhibitionRadiusHistory[this.currentTimeStep] + valueToAdd;
+        this.SP_inhibitionRadiusHistory[this.currentTimeStep] = newValue;
         return this.SP_inhibitionRadiusHistory;
     }
 
-    public int[] getTP_synapsesHistoryAndAdd(int index, int valueToAdd) {
-        int newValue = this.TP_synapsesHistory[index] + valueToAdd;
-        this.TP_synapsesHistory[index] = newValue;
+    public int[] getTP_synapsesHistoryAndAdd(int valueToAdd) {
+        int newValue = this.TP_synapsesHistory[this.currentTimeStep] + valueToAdd;
+        this.TP_synapsesHistory[this.currentTimeStep] = newValue;
         return this.TP_synapsesHistory;
     }
 
-    public int[] getTP_distalSegmentsHistoryAndAdd(int index, int valueToAdd) {
-        int newValue = this.TP_distalSegmentsHistory[index] + valueToAdd;
-        this.TP_distalSegmentsHistory[index] = newValue;
+    public int[] getTP_distalSegmentsHistoryAndAdd(int valueToAdd) {
+        int newValue = this.TP_distalSegmentsHistory[this.currentTimeStep] + valueToAdd;
+        this.TP_distalSegmentsHistory[this.currentTimeStep] = newValue;
         return this.TP_distalSegmentsHistory;
     }
 
-    public int[] getTP_activeDistalSegmentsHistoryAndAdd(int index, int valueToAdd) {
-        int newValue = this.TP_activeDistalSegmentsHistory[index] + valueToAdd;
-        this.TP_activeDistalSegmentsHistory[index] = newValue;
+    public int[] getTP_activeDistalSegmentsHistoryAndAdd(int valueToAdd) {
+        int newValue = this.TP_activeDistalSegmentsHistory[this.currentTimeStep] + valueToAdd;
+        this.TP_activeDistalSegmentsHistory[this.currentTimeStep] = newValue;
         return this.TP_activeDistalSegmentsHistory;
     }
 
-    public int[] getTP_sequenceSegmentsHistoryAndAdd(int index, int valueToAdd) {
-        int newValue = this.TP_sequenceSegmentsHistory[index] + valueToAdd;
-        this.TP_sequenceSegmentsHistory[index] = newValue;
+    public int[] getTP_sequenceSegmentsHistoryAndAdd(int valueToAdd) {
+        int newValue = this.TP_sequenceSegmentsHistory[this.currentTimeStep] + valueToAdd;
+        this.TP_sequenceSegmentsHistory[this.currentTimeStep] = newValue;
         return this.TP_sequenceSegmentsHistory;
     }
 
-    public int[] getTP_learningNeuronsHistoryAndAdd(int index, int valueToAdd) {
-        int newValue = this.TP_learningNeuronsHistory[index] + valueToAdd;
-        this.TP_learningNeuronsHistory[index] = newValue;
+    public int[] getTP_learningNeuronsHistoryAndAdd(int valueToAdd) {
+        int newValue = this.TP_learningNeuronsHistory[this.currentTimeStep] + valueToAdd;
+        this.TP_learningNeuronsHistory[this.currentTimeStep] = newValue;
         return this.TP_learningNeuronsHistory;
     }
 
-    public double[] getTP_rawAnomalyScoreHistoryAndAdd(int index, double valueToAdd) {
-        double newValue = this.TP_rawAnomalyScoreHistory[index] + valueToAdd;
-        this.TP_rawAnomalyScoreHistory[index] = newValue;
+    public double[] getTP_rawAnomalyScoreHistoryAndAdd(double valueToAdd) {
+        double newValue = this.TP_rawAnomalyScoreHistory[this.currentTimeStep] + valueToAdd;
+        this.TP_rawAnomalyScoreHistory[this.currentTimeStep] = newValue;
         return this.TP_rawAnomalyScoreHistory;
     }
 }

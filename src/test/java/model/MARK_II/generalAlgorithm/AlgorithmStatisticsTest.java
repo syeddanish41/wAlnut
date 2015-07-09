@@ -15,14 +15,16 @@ public class AlgorithmStatisticsTest extends TestCase {
 
     public void test_addingHistory() {
         for (int i = 0; i < 3; i++) {
-            this.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(i, i);
+            this.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(i);
+            if (i == 1) {
+                this.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(10);
+            }
+            this.algorithmStatistics.nextTimeStep();
         }
-
-        this.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(1, 10);
 
         int[] expected = new int[] {0, 11, 2};
 
-        int[] actual = this.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(0, 0);
+        int[] actual = this.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(0);
         for (int i = 0; i < 3; i++) {
             assertEquals(expected[i], actual[i]);
         }
