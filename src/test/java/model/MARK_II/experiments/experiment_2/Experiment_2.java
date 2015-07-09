@@ -7,6 +7,7 @@ import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.TemporalPooler;
 import model.MARK_II.region.Region;
+import model.MARK_II.region.Segment;
 import model.MARK_II.region.Synapse;
 import model.MARK_II.sensory.Retina;
 import model.MARK_II.util.RegionConsoleViewer;
@@ -18,11 +19,11 @@ import java.util.Set;
 
 /**
  * @author Q Liu (quinnliu@vt.edu)
- * @date 7/1/2015.
+ * @date 7/7/2015.
  */
 public class Experiment_2 extends TestCase {
-    private static String pathToExperiment_2_folder = "./src/test/java/model/experiments/vision/MARK_II" +
-            "/experiment_2/";
+    private static String pathToExperiment_2_folder = "./src/test/java/model" +
+            "/MARK_II/experiments/experiment_2";
 
     private Retina retina;
     private Region region;
@@ -54,6 +55,8 @@ public class Experiment_2 extends TestCase {
         Synapse.MINIMAL_CONNECTED_PERMANENCE = connectedPerm;
         Synapse.PERMANENCE_INCREASE = permanenceInc;
         Synapse.PERMANENCE_DECREASE = permanenceDec;
+
+        Segment.PERCENT_ACTIVE_SYNAPSES_THRESHOLD = 0.2; // TODO: change?
 
         // Step 1: create Temporal Pooler instance with appropriate parameters
         this.retina = new Retina(10, 10);
@@ -97,18 +100,39 @@ public class Experiment_2 extends TestCase {
             runCLA();
         }
 
-        assertEquals(1, 2 - 1);
+        // TODO: assert equals for each expected image
 
         this.retina.seeBMPImage("A.bmp");
         runCLA();
 
-        System.out.println("Expect to see 'A'");
+        this.temporalPooler.saveCurrentRegionAlgorithmStatistics(pathToExperiment_2_folder);
+
+        System.out.println("Expect to see active columns for 'A' ");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnActiveStatesCharArray(this.region));
 
-        System.out.println("\n\nExpect to see 'B'");
+        char[][] columnActiveStates = RegionConsoleViewer
+                .getColumnActiveStatesCharArray(this.region);
+        assertEquals("iaaaaiii\niaiiaiii\niaaaaaii\niaiiaaii\niaiiiaii\n"
+                        + "iiiiiiii",
+                RegionConsoleViewer.doubleCharArrayAsString(columnActiveStates));
+
+        System.out.println("\n\nExpect to see predictive columns for 'B'");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnPredictiveStatesCharArray(this.region));
+
+        this.retina.seeBMPImage("B.bmp");
+        runCLA();
+
+//        System.out.println("Expect to see active columns for 'B' ");
+//        RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
+//                .getColumnActiveStatesCharArray(this.region));
+//
+//        System.out.println("\n\nExpect to see predictive columns for 'C'");
+//        RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
+//                .getColumnPredictiveStatesCharArray(this.region));
+
+        // NOTE: repeat for remaining letters.
     }
 
     public void runCLA() {
