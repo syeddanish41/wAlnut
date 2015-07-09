@@ -1,6 +1,7 @@
-package model.MARK_II.util;
+package model.MARK_II.generalAlgorithm;
 
 import junit.framework.TestCase;
+import model.MARK_II.generalAlgorithm.SDRStatistics;
 
 import java.math.BigInteger;
 
