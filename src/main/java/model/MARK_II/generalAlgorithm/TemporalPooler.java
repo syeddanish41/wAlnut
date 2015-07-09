@@ -110,7 +110,7 @@ public class TemporalPooler extends Pooler {
                             /// learnState(c, i, t) = 1
                             column.setLearningNeuronPosition(i);
                             this.currentLearningNeurons.add(neurons[i]);
-                            this.spatialPooler.getAlgorithmStatistics().getTP_learningNeuronsHistory().add(new Integer(1));
+                            //TODO:this.spatialPooler.getAlgorithmStatistics().getTP_learningNeuronsHistory().add(new Integer(1));
                         }
                     }
                 }
@@ -132,7 +132,7 @@ public class TemporalPooler extends Pooler {
                 column.setLearningNeuronPosition(bestNeuronIndex);
                 this.currentLearningNeurons.add(column
                         .getNeuron(bestNeuronIndex));
-                this.spatialPooler.getAlgorithmStatistics().getTP_learningNeuronsHistory().add(new Integer(1));
+                //TODO:this.spatialPooler.getAlgorithmStatistics().getTP_learningNeuronsHistory().add(new Integer(1));
 
                 DistalSegment segment = neurons[bestNeuronIndex]
                         .getBestPreviousActiveSegment(this.spatialPooler.getAlgorithmStatistics());
@@ -143,7 +143,7 @@ public class TemporalPooler extends Pooler {
                 /// sUpdate.sequenceSegment = true
                 segmentUpdate.setSequenceState(true);
                 segment.setSequenceState(true);
-                this.spatialPooler.getAlgorithmStatistics().getTP_sequenceSegmentsHistory().add(new Integer(1));
+                //TODO:this.spatialPooler.getAlgorithmStatistics().getTP_sequenceSegmentsHistory().add(new Integer(1));
 
                 /// segmentUpdateList.add(sUpdate)
                 this.segmentUpdateList.add(segmentUpdate);
@@ -267,7 +267,7 @@ public class TemporalPooler extends Pooler {
         int remainingNumberOfSynapsesToAdd = numberOfSynapsesToAdd
                 - potentialSynapsesToAdd.size();
 
-        this.spatialPooler.getAlgorithmStatistics().getTP_synapsesHistory().add(new Integer(remainingNumberOfSynapsesToAdd));
+        //TODO:this.spatialPooler.getAlgorithmStatistics().getTP_synapsesHistory().add(new Integer(remainingNumberOfSynapsesToAdd));
 
         int numberOfLearningNeurons = this.currentLearningNeurons.size();
         if (numberOfLearningNeurons == 0) {

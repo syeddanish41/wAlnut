@@ -109,7 +109,7 @@ public class Neuron extends Cell {
             List<DistalSegment> whichSegmentsToCheck, AlgorithmStatistics algorithmStatistics) {
         if (whichSegmentsToCheck.size() == 0) {
             DistalSegment newDistalSegment = new DistalSegment();
-            algorithmStatistics.getTP_distalSegmentsHistory().add(new Integer(1));
+            //TODO:algorithmStatistics.getTP_distalSegmentsHistory().add(new Integer(1));
             this.addDistalSegment(newDistalSegment);
             return newDistalSegment;
         }
@@ -127,7 +127,7 @@ public class Neuron extends Cell {
         if (maxPreviousActiveSynapses == 0) {
             // there were no previously active distal segments
             DistalSegment newDistalSegment = new DistalSegment();
-            algorithmStatistics.getTP_distalSegmentsHistory().add(new Integer(1));
+            //TODO:algorithmStatistics.getTP_distalSegmentsHistory().add(new Integer(1));
             this.addDistalSegment(newDistalSegment);
             return newDistalSegment;
         }
@@ -137,7 +137,7 @@ public class Neuron extends Cell {
     public DistalSegment getBestActiveSegment(AlgorithmStatistics algorithmStatistics) {
         if (this.distalSegments.size() == 0) {
             DistalSegment newDistalSegment = new DistalSegment();
-            algorithmStatistics.getTP_distalSegmentsHistory().add(new Integer(1));
+            //TODO:algorithmStatistics.getTP_distalSegmentsHistory().add(new Integer(1));
             this.addDistalSegment(newDistalSegment);
             return newDistalSegment;
         }
