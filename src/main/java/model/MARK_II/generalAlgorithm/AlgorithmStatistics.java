@@ -1,6 +1,6 @@
 package model.MARK_II.generalAlgorithm;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,21 +29,30 @@ public class AlgorithmStatistics {
     // distribution of new synapses somehow?
     private List<Double> TP_rawAnomalyScoreHistory; // TODO: automatically calculate somehow?
 
+    private int arraySize;
+
+    public AlgorithmStatistics(int arraySize) {
+        this.arraySize = arraySize;
+        this.clearAllData();
+    }
+
     public AlgorithmStatistics() {
+        this(10);
+        this.arraySize = 10;
         this.clearAllData();
     }
 
     public void clearAllData() {
-        this.SP_activeSynapsesHistory = new LinkedList<Integer>();
-        this.SP_activeColumnsHistory = new LinkedList<Integer>();
-        this.SP_inhibitionRadiusHistory = new LinkedList<Double>();
+        this.SP_activeSynapsesHistory = new ArrayList<Integer>(arraySize);
+        this.SP_activeColumnsHistory = new ArrayList<Integer>(arraySize);
+        this.SP_inhibitionRadiusHistory = new ArrayList<Double>(arraySize);
 
-        this.TP_synapsesHistory = new LinkedList<Integer>();
-        this.TP_distalSegmentsHistory = new LinkedList<Integer>();
-        this.TP_activeDistalSegmentsHistory = new LinkedList<Integer>();
-        this.TP_sequenceSegmentsHistory = new LinkedList<Integer>();
-        this.TP_learningNeuronsHistory = new LinkedList<Integer>();
-        this.TP_rawAnomalyScoreHistory = new LinkedList<Double>();
+        this.TP_synapsesHistory = new ArrayList<Integer>(arraySize);
+        this.TP_distalSegmentsHistory = new ArrayList<Integer>(arraySize);
+        this.TP_activeDistalSegmentsHistory = new ArrayList<Integer>(arraySize);
+        this.TP_sequenceSegmentsHistory = new ArrayList<Integer>(arraySize);
+        this.TP_learningNeuronsHistory = new ArrayList<Integer>(arraySize);
+        this.TP_rawAnomalyScoreHistory = new ArrayList<Double>(arraySize);
     }
 
     public List<Integer> getSP_activeSynapsesHistory() {

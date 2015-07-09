@@ -34,7 +34,12 @@ public class SpatialPooler extends Pooler {
         this.activeColumns = new HashSet<Column>();
         this.activeColumnPositions = new HashSet<ColumnPosition>();
 
-        this.algorithmStatistics = new AlgorithmStatistics();
+        this.algorithmStatistics = new AlgorithmStatistics(1000);
+    }
+
+    public SpatialPooler(Region region, int numberOfTimesToRunCLA) {
+        this(region);
+        this.algorithmStatistics = new AlgorithmStatistics(numberOfTimesToRunCLA);
     }
 
     /**
