@@ -71,6 +71,8 @@ public class TemporalPooler extends Pooler {
         this.currentLearningNeurons.clear();
 
         this.segmentUpdateList.clear();
+
+        this.spatialPooler.getAlgorithmStatistics().nextTimeStep();
     }
 
     /**
@@ -110,7 +112,6 @@ public class TemporalPooler extends Pooler {
                             /// learnState(c, i, t) = 1
                             column.setLearningNeuronPosition(i);
                             this.currentLearningNeurons.add(neurons[i]);
-                            //TODO:this.spatialPooler.getAlgorithmStatistics().getTP_learningNeuronsHistory().add(new Integer(1));
                         }
                     }
                 }
@@ -132,7 +133,6 @@ public class TemporalPooler extends Pooler {
                 column.setLearningNeuronPosition(bestNeuronIndex);
                 this.currentLearningNeurons.add(column
                         .getNeuron(bestNeuronIndex));
-                //TODO:this.spatialPooler.getAlgorithmStatistics().getTP_learningNeuronsHistory().add(new Integer(1));
 
                 DistalSegment segment = neurons[bestNeuronIndex]
                         .getBestPreviousActiveSegment(this.spatialPooler.getAlgorithmStatistics());
@@ -143,12 +143,13 @@ public class TemporalPooler extends Pooler {
                 /// sUpdate.sequenceSegment = true
                 segmentUpdate.setSequenceState(true);
                 segment.setSequenceState(true);
-                //TODO:this.spatialPooler.getAlgorithmStatistics().getTP_sequenceSegmentsHistory().add(new Integer(1));
+                this.spatialPooler.getAlgorithmStatistics().getTP_sequenceSegmentsHistoryAndAdd(1);
 
                 /// segmentUpdateList.add(sUpdate)
                 this.segmentUpdateList.add(segmentUpdate);
             }
         }
+        this.spatialPooler.getAlgorithmStatistics().getTP_learningNeuronsHistoryAndAdd(this.currentLearningNeurons.size());
     }
 
     /**
@@ -267,7 +268,7 @@ public class TemporalPooler extends Pooler {
         int remainingNumberOfSynapsesToAdd = numberOfSynapsesToAdd
                 - potentialSynapsesToAdd.size();
 
-        //TODO:this.spatialPooler.getAlgorithmStatistics().getTP_synapsesHistory().add(new Integer(remainingNumberOfSynapsesToAdd));
+        this.spatialPooler.getAlgorithmStatistics().getTP_synapsesHistoryAndAdd(remainingNumberOfSynapsesToAdd);
 
         int numberOfLearningNeurons = this.currentLearningNeurons.size();
         if (numberOfLearningNeurons == 0) {
@@ -534,11 +535,10 @@ public class TemporalPooler extends Pooler {
      * Save AlgorithmStatistics object into a .JSON file for the current Region.
      */
     public void saveCurrentRegionAlgorithmStatistics(String pathAndFolderNameWithoutEndingBacklash) throws IOException {
-        // TODO: save all lists into a file
         Gson gson = new Gson();
         String algorithmStatisticsInJSON = gson.toJson(this.spatialPooler.getAlgorithmStatistics());
         String finalPathAndFile = pathAndFolderNameWithoutEndingBacklash +
-                "/algorithmStatistics/region_" + region.getBiologicalName()
+                "/region_" + region.getBiologicalName()
                 + "_statistics.json";
         FileInputOutput.saveObjectToTextFile(algorithmStatisticsInJSON,
                 finalPathAndFile);
