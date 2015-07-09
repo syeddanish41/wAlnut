@@ -10,41 +10,63 @@ Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
 
 # [WalnutiQ](http://walnutiq.com)
 
-"*When it's darkest, we can see the stars. They are always there. You just have
-to remember to tip your head back and look up.*" ~ Ted Morgan
+"*Who's the friend who likes to play? Bing Bong Bing Bong. 
+Take her to the moon Joy!*" ~ Bing Bong
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
 Welcome! WalnutiQ is a human brain model simulation in Java. The long term goal 
 of this repository is to store code that can simulate a full sized human brain 
-in real-time. The current short term goal is to simulate a simplified visual 
-pathway from an eye that is able to move within a "room" to theories of how
-hierarchical regions in layer 2/3, 4, & 5 of the neocortex (70+% of the brain)
-work. 
+in real-time. The current short term goal is to experiment with a simulated
+simplified visual pathway from an eye that is able to move within a "room" to 
+hierarchical regions in layer 2/3, 4, & 5 of the neocortex (70+% of the brain). 
 
 I believe that a real intelligence machine built on biological computation 
 principles will be able to solve many of our hardest problems and will cause 
 many new hard problems. Once a computer can correctly simulate the intelligence 
-of 1 brain it can be quickly scaled to surpass the collective intelligence of 
+of 1 brain it can be scaled to surpass the collective intelligence of 
 the 7+ billion human brains on Earth. Technology has always been used to do 
 great good and great evil and it is scary to imagine the great evil this 
 technology brings. I desperately want to help build a technology that solves 
-our hardest problems where everything's happiness is considered. 
+our hardest problems where everything's happiness is considered. I believe
+without a doubt that this technology will have a greater impact on the 
+universe than the internet. Impossibilities of today like immortality, 
+super intelligence, cure for cancer, and the remaining secrets of our universe
+will be able to be discovered by a general learning algorithm that doesn't 
+need to eat, sleep, or reproduce. If we get this right future generations will
+have the opportunity of a true utopia where resources are plentiful and there 
+is no need for capitalism, greed, fear, and jealously. Just as self driving cars will make 
+human driving illegal any dangerous or boring task can be done by a general
+learning algorithm. It will be more intelligent than you because of it's
+prediction abilities allowing it to master skills in seconds what may have taken
+you 10,000 hours but it will NOT have emotions like you. However, it is possible
+that the general learning algorithm will discover how human emotions work and
+once they are inevitably implemented into themselves we as a collective human 
+family will need to become the super intelligent machines if we are not to go 
+extinct. Just look at how we treat pigs and chicken today. We are super 
+intelligent compared to them and the future super intelligent machines will
+be super intelligent compared to us. This is just one possible route of how the 
+future will play out of many options mostly unknown to us. I am most likely 
+wrong. However, hopefully you can see why I am so obsessed with making sure 
+this project goes well. 
 
-If you are interested in becoming a researcher/developer we would absolutely 
-love your collaboration as we cannot do this alone. The <b>only</b> requirement 
-we ask for is that you are someone that is not "all talk" and understands that
-progress is made by not making excuses. Please e-mail me at quinnliu@vt.edu 
-to talk about how you can get involved!
+If you are interested in becoming a researcher/developer I would absolutely 
+love your collaboration as I cannot do this alone. The <b>only</b> requirement 
+I ask for is that you are someone that is not "all talk" and understands that
+progress is made by not making excuses. If you rely on habits and a "no excuses"
+attitude for getting shit done please e-mail me at quinnliu@vt.edu 
+to talk about how you can get involved. This project has a long journey ahead
+so sustainability will take precedence over crunch. Currently I have no funding
+for paying for any of your help. 
 
 Most importantly, this research is made possible by everyone at 
 [Numenta](http://numenta.org/). Numenta has theorized and tested algorithms 
 that model layers 2/3 & 4 of the human neocortex. They have generously released 
 the pseudo code for their learning algorithms, and this repository is an extended
 implementation of their algorithms using object-oriented programming with a 
-focus on understandability over speed. Numenta's implementation of their 
-algorithms can be found [here](https://github.com/numenta/nupic). 
-For more information please:
+focus on <b>understandability</b> over speed and applications to <b>human vision.</b> 
+Numenta's implementation of their algorithms can be found 
+[here](https://github.com/numenta/nupic). For more information please:
 
 - Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f) 
   to become familiar with the neuroscience behind this repository.
