@@ -45,6 +45,10 @@ public class AlgorithmStatistics {
         this.arraySize = 10;
     }
 
+    public int getCurrentTimeStep() {
+        return this.currentTimeStep;
+    }
+
     public void clearAllData() {
         this.SP_activeSynapsesHistory = new int[arraySize];
         this.SP_activeColumnsHistory = new int[arraySize];

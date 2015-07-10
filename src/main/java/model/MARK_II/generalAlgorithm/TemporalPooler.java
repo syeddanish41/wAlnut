@@ -52,6 +52,17 @@ public class TemporalPooler extends Pooler {
             this.computeActiveStateOfAllNeuronsInActiveColumn(activeColumns);
             this.computePredictiveStateOfAllNeurons(activeColumns);
         }
+
+        this.printColumnPositions(this.spatialPooler.getActiveColumnPositions(), "Active    ");
+        this.printColumnPositions(this.predictiveColumnPositions, "Predictive");
+    }
+
+    void printColumnPositions(Set<ColumnPosition> columnPositions, String type) {
+        System.out.print(type + " column positions = ");
+        for (ColumnPosition cp : columnPositions) {
+            System.out.print("(" + cp.getRow() + "," + cp.getColumn() + "), ");
+        }
+        System.out.print("\n");
     }
 
     public void nextTimeStep() {
@@ -565,7 +576,11 @@ public class TemporalPooler extends Pooler {
                 activeAndPredictiveColumnIntersection.size();
         int denominator = this.spatialPooler.getActiveColumnPositions().size();
         if (denominator == 0) {
-            return 0;
+            System.out.println("WARNING: current time step " + this.spatialPooler
+                    .getAlgorithmStatistics().getCurrentTimeStep() + " of raw anomaly score had" +
+                    "0 active columns and " + this.predictiveColumnPositions.size()
+                    + " predictive columns");
+            return 1;
         } else {
             return ((double)numerator)/((double)denominator);
         }
