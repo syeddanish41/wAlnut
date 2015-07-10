@@ -29,7 +29,8 @@ public class TemporalPooler extends Pooler {
     private final int newSynapseCount;
     private List<Neuron> currentLearningNeurons;
     private SegmentUpdateList segmentUpdateList;
-    private Set<ColumnPosition> predictiveColumnPositions;
+    private Set<ColumnPosition> predictiveColumnsAtT;
+    private Set<ColumnPosition> predictiveColumnsAtTMinus1;
 
     public TemporalPooler(SpatialPooler spatialPooler, int newSynapseCount) {
         this.spatialPooler = spatialPooler;
@@ -39,15 +40,12 @@ public class TemporalPooler extends Pooler {
         this.newSynapseCount = newSynapseCount;
 
         this.currentLearningNeurons = new ArrayList<Neuron>();
-        this.predictiveColumnPositions = new HashSet<ColumnPosition>();
+        this.predictiveColumnsAtT = new HashSet<ColumnPosition>();
+        this.predictiveColumnsAtTMinus1 = new HashSet<ColumnPosition>();
     }
 
     public void performPooling() {
         Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
-//        for (Column c : activeColumns) {
-//            c.getNeuron(0).setPredictingState(true);
-//        }
-        this.spatialPooler.getRegion().getColumn(0, 0).getNeuron(0).setPredictingState(true);
         if (super.getLearningState()) {
             this.phaseOne(activeColumns);
             this.phaseTwo(activeColumns);
@@ -56,21 +54,10 @@ public class TemporalPooler extends Pooler {
             this.computeActiveStateOfAllNeuronsInActiveColumn(activeColumns);
             this.computePredictiveStateOfAllNeurons(activeColumns);
         }
-
-        this.printColumnPositions(this.spatialPooler.getActiveColumnPositions(), "Active    ");
-        this.printColumnPositions(this.predictiveColumnPositions, "Predictive");
     }
 
     public SpatialPooler getSpatialPooler() {
         return this.spatialPooler;
-    }
-
-    void printColumnPositions(Set<ColumnPosition> columnPositions, String type) {
-        System.out.print(type + " column positions = ");
-        for (ColumnPosition cp : columnPositions) {
-            System.out.print("(" + cp.getRow() + "," + cp.getColumn() + "), ");
-        }
-        System.out.print("\n");
     }
 
     public void nextTimeStep() {
@@ -90,7 +77,8 @@ public class TemporalPooler extends Pooler {
         this.spatialPooler.getAlgorithmStatistics().nextTimeStep();
         this.currentLearningNeurons.clear();
         this.segmentUpdateList.clear();
-        this.predictiveColumnPositions.clear();
+        this.predictiveColumnsAtTMinus1.addAll(this.predictiveColumnsAtT);
+        this.predictiveColumnsAtT.clear();
     }
 
     /**
@@ -338,7 +326,8 @@ public class TemporalPooler extends Pooler {
                         /// predictiveState(c, i, t) = 1
                         neurons[i].setPredictingState(true);
                         this.spatialPooler.getAlgorithmStatistics().getTP_activeDistalSegmentsHistoryAndAdd(1);
-                        this.predictiveColumnPositions.add(column.getCurrentPosition());
+                        this.predictiveColumnsAtT.add(column
+                                .getCurrentPosition());
 
                         /// activeUpdate = getSegmentActiveSynapses(c, i, s, t, false)
                         SegmentUpdate activeUpdate = this
@@ -363,8 +352,8 @@ public class TemporalPooler extends Pooler {
             }
         }
         this.spatialPooler.getAlgorithmStatistics()
-                .getTP_rawAnomalyScoreHistoryAndAdd(this
-                        .computeRawAnomalyScore());
+                .getTP_predictionScoreHistoryAndAdd(this
+                        .computePredictionScore());
     }
 
     /**
@@ -544,13 +533,14 @@ public class TemporalPooler extends Pooler {
                     if (segment.getActiveState()) {
                         neuron.setPredictingState(true);
                         this.spatialPooler.getAlgorithmStatistics().getTP_activeDistalSegmentsHistoryAndAdd(1);
-                        this.predictiveColumnPositions.add(column.getCurrentPosition());
+                        this.predictiveColumnsAtT.add(column
+                                .getCurrentPosition());
                     }
                 }
             }
         }
         this.spatialPooler.getAlgorithmStatistics()
-                .getTP_rawAnomalyScoreHistoryAndAdd(this.computeRawAnomalyScore());
+                .getTP_predictionScoreHistoryAndAdd(this.computePredictionScore());
     }
 
     public int getNumberOfCurrentLearningNeurons() {
@@ -573,22 +563,22 @@ public class TemporalPooler extends Pooler {
     /**
      * For more information please visit: https://github.com/WalnutiQ/WalnutiQ/issues/168
      */
-    public double computeRawAnomalyScore() {
+    public double computePredictionScore() {
         Set<ColumnPosition> activeColumns = this.spatialPooler.getActiveColumnPositions();
-        Set<ColumnPosition> activeAndPredictiveColumnIntersection =
+        Set<ColumnPosition> activeAtTAndPredictiveAtTMinus1ColumnIntersection =
                 new HashSet<ColumnPosition>(activeColumns);
 
-        activeAndPredictiveColumnIntersection.retainAll(this.predictiveColumnPositions);
+        activeAtTAndPredictiveAtTMinus1ColumnIntersection.retainAll(this
+                .predictiveColumnsAtTMinus1);
 
-        int numerator = this.spatialPooler.getActiveColumnPositions().size() -
-                activeAndPredictiveColumnIntersection.size();
+        int numerator = activeAtTAndPredictiveAtTMinus1ColumnIntersection.size();
         int denominator = this.spatialPooler.getActiveColumnPositions().size();
         if (denominator == 0) {
             System.out.println("WARNING: current time step " + this.spatialPooler
-                    .getAlgorithmStatistics().getCurrentTimeStep() + " of raw anomaly score had" +
-                    "0 active columns and " + this.predictiveColumnPositions.size()
-                    + " predictive columns");
-            return 1;
+                    .getAlgorithmStatistics().getCurrentTimeStep() + " of prediction score had" +
+                    "0 active columns @ t and " + this.predictiveColumnsAtT.size()
+                    + " predictive columns @ t-1");
+            return 0;
         } else {
             return ((double)numerator)/((double)denominator);
         }

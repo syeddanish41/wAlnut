@@ -105,42 +105,35 @@ public class Experiment_2 extends TestCase {
 
         this.retina.seeBMPImage("A.bmp");
         runCLA_noNextTimeStep();
-//      YES
-//        Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
-//        for (Column c : activeColumns) {
-//            c.getNeuron(0).setPredictingState(true);
-//        }
-        // YES this.temporalPooler.getSpatialPooler().getRegion().getColumn(0, 0).getNeuron(0).setPredictingState(true);
-        // YES this.temporalPooler.getRegion().getColumn(0, 0).getNeuron(0).setPredictingState(true);
-        // YES this.spatialPooler.getRegion().getColumn(0, 0).getNeuron(0).setPredictingState(true);
 
         this.temporalPooler.saveCurrentRegionAlgorithmStatistics
                 (pathToExperiment_2_folder);
 
         System.out.println("Expect to see active columns for 'A' ");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
-                .getColumnActiveStatesCharArray(this.temporalPooler.getRegion()));
+                .getColumnActiveStatesCharArray(this.temporalPooler.getRegion
+                        ()));
 
         char[][] columnActiveStates = RegionConsoleViewer
                 .getColumnActiveStatesCharArray(this.temporalPooler.getRegion());
-        assertEquals("iaaaaiii\niaiiaiii\niaaaaaii\niaiiaaii\niaiiiaii\n"
-                        + "iiiiiiii",
+        assertEquals("iaaaaiii\n" +
+                     "iaiiaiii\n" +
+                     "iaaaaaii\n" +
+                     "iaiiaaii\n" +
+                     "iaiiiaii\n" +
+                     "iiiiiiii",
                 RegionConsoleViewer.doubleCharArrayAsString(columnActiveStates));
-
-        // TODO: Do I need to be iterating through all columns instead of just
-        //       current columns
-//        Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
-//        for (Column c : activeColumns) {
-//            c.getNeuron(0).setPredictingState(true);
-//        }
 
         System.out.println("\n\nExpect to see predictive columns for 'B'");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
                 .getColumnPredictiveStatesCharArray(this.region));
 
-        this.retina.seeBMPImage("B.bmp");
-        runCLA();
+        // so above assertions can be made with current time step
+        // columns with predicting neurons
+        this.temporalPooler.nextTimeStep();
 
+//        this.retina.seeBMPImage("B.bmp");
+//        runCLA_noNextTimeStep();
 //        System.out.println("Expect to see active columns for 'B' ");
 //        RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
 //                .getColumnActiveStatesCharArray(this.region));
@@ -148,6 +141,7 @@ public class Experiment_2 extends TestCase {
 //        System.out.println("\n\nExpect to see predictive columns for 'C'");
 //        RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
 //                .getColumnPredictiveStatesCharArray(this.region));
+//        this.temporalPooler.nextTimeStep();
 
         // NOTE: repeat for remaining letters.
     }
@@ -162,5 +156,13 @@ public class Experiment_2 extends TestCase {
     public void runCLA_noNextTimeStep() {
         this.spatialPooler.performPooling();
         this.temporalPooler.performPooling();
+    }
+
+    void printColumnPositions(Set<ColumnPosition> columnPositions, String type) {
+        System.out.print(type + " column positions = ");
+        for (ColumnPosition cp : columnPositions) {
+            System.out.print("(" + cp.getRow() + "," + cp.getColumn() + "), ");
+        }
+        System.out.print("\n");
     }
 }

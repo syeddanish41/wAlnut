@@ -28,7 +28,7 @@ public class AlgorithmStatistics {
     TP_sequenceSegmentsHistory,
             TP_learningNeuronsHistory;
     // distribution of new synapses somehow?
-    private double[] TP_rawAnomalyScoreHistory; // TODO: automatically calculate somehow?
+    private double[] TP_predictionScoreHistory;
 
     private int arraySize;
 
@@ -59,7 +59,7 @@ public class AlgorithmStatistics {
         this.TP_activeDistalSegmentsHistory = new int[arraySize];
         this.TP_sequenceSegmentsHistory = new int[arraySize];
         this.TP_learningNeuronsHistory = new int[arraySize];
-        this.TP_rawAnomalyScoreHistory = new double[arraySize];
+        this.TP_predictionScoreHistory = new double[arraySize];
     }
 
     public void nextTimeStep() {
@@ -124,9 +124,9 @@ public class AlgorithmStatistics {
         return this.TP_learningNeuronsHistory;
     }
 
-    public double[] getTP_rawAnomalyScoreHistoryAndAdd(double valueToAdd) {
-        double newValue = this.TP_rawAnomalyScoreHistory[this.currentTimeStep] + valueToAdd;
-        this.TP_rawAnomalyScoreHistory[this.currentTimeStep] = newValue;
-        return this.TP_rawAnomalyScoreHistory;
+    public double[] getTP_predictionScoreHistoryAndAdd(double valueToAdd) {
+        double newValue = this.TP_predictionScoreHistory[this.currentTimeStep] + valueToAdd;
+        this.TP_predictionScoreHistory[this.currentTimeStep] = newValue;
+        return this.TP_predictionScoreHistory;
     }
 }
