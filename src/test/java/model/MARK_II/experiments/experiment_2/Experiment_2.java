@@ -67,7 +67,7 @@ public class Experiment_2 extends TestCase {
         retinaToRegion.connect(this.retina.getVisionCells(), this.region.getColumns(),
                 0, 0);
 
-        this.spatialPooler = new SpatialPooler(this.region);
+        this.spatialPooler = new SpatialPooler(this.region, 51);
         this.spatialPooler.setLearningState(true);
 
         this.temporalPooler = new TemporalPooler(this.spatialPooler, newSynapseCount);

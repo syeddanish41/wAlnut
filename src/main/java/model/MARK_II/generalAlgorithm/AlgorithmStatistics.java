@@ -19,7 +19,11 @@ public class AlgorithmStatistics {
     // temporal pooler (TP) statistics:
     private int[] TP_synapsesHistory,
             TP_distalSegmentsHistory,
-            TP_activeDistalSegmentsHistory, // TODO: check for this at the end of TP
+            /**
+             * An active distal segment on a Neuron means it has become
+             * predictive.
+             */
+            TP_activeDistalSegmentsHistory,
     // since it is dependent on all Synpase permanence values
     TP_sequenceSegmentsHistory,
             TP_learningNeuronsHistory;

@@ -25,11 +25,11 @@ import java.util.*;
  */
 public class TemporalPooler extends Pooler {
     private SpatialPooler spatialPooler;
-    private SegmentUpdateList segmentUpdateList;
 
     private final int newSynapseCount;
-
     private List<Neuron> currentLearningNeurons;
+    private SegmentUpdateList segmentUpdateList;
+    private Set<ColumnPosition> predictiveColumnPositions;
 
     public TemporalPooler(SpatialPooler spatialPooler, int newSynapseCount) {
         this.spatialPooler = spatialPooler;
@@ -39,6 +39,7 @@ public class TemporalPooler extends Pooler {
         this.newSynapseCount = newSynapseCount;
 
         this.currentLearningNeurons = new ArrayList<Neuron>();
+        this.predictiveColumnPositions = new HashSet<ColumnPosition>();
     }
 
     public void performPooling() {
@@ -67,12 +68,10 @@ public class TemporalPooler extends Pooler {
                 }
             }
         }
-
-        this.currentLearningNeurons.clear();
-
-        this.segmentUpdateList.clear();
-
         this.spatialPooler.getAlgorithmStatistics().nextTimeStep();
+        this.currentLearningNeurons.clear();
+        this.segmentUpdateList.clear();
+        this.predictiveColumnPositions.clear();
     }
 
     /**
@@ -319,6 +318,8 @@ public class TemporalPooler extends Pooler {
                     if (segment.getActiveState()) {
                         /// predictiveState(c, i, t) = 1
                         neurons[i].setPredictingState(true);
+                        this.spatialPooler.getAlgorithmStatistics().getTP_activeDistalSegmentsHistoryAndAdd(1);
+                        this.predictiveColumnPositions.add(column.getCurrentPosition());
 
                         /// activeUpdate = getSegmentActiveSynapses(c, i, s, t, false)
                         SegmentUpdate activeUpdate = this
@@ -342,6 +343,9 @@ public class TemporalPooler extends Pooler {
                 }
             }
         }
+        this.spatialPooler.getAlgorithmStatistics()
+                .getTP_rawAnomalyScoreHistoryAndAdd(this
+                        .computeRawAnomalyScore());
     }
 
     /**
@@ -520,16 +524,19 @@ public class TemporalPooler extends Pooler {
                 for (Segment segment : neuron.getDistalSegments()) {
                     if (segment.getActiveState()) {
                         neuron.setPredictingState(true);
+                        this.spatialPooler.getAlgorithmStatistics().getTP_activeDistalSegmentsHistoryAndAdd(1);
+                        this.predictiveColumnPositions.add(column.getCurrentPosition());
                     }
                 }
             }
         }
+        this.spatialPooler.getAlgorithmStatistics()
+                .getTP_rawAnomalyScoreHistoryAndAdd(this.computeRawAnomalyScore());
     }
 
     public int getNumberOfCurrentLearningNeurons() {
         return this.currentLearningNeurons.size();
     }
-
 
     /**
      * Save AlgorithmStatistics object into a .JSON file for the current Region.
@@ -542,5 +549,25 @@ public class TemporalPooler extends Pooler {
                 + "_statistics.json";
         FileInputOutput.saveObjectToTextFile(algorithmStatisticsInJSON,
                 finalPathAndFile);
+    }
+
+    /**
+     * For more information please visit: https://github.com/WalnutiQ/WalnutiQ/issues/168
+     */
+    public double computeRawAnomalyScore() {
+        Set<ColumnPosition> activeColumns = this.spatialPooler.getActiveColumnPositions();
+        Set<ColumnPosition> activeAndPredictiveColumnIntersection =
+                new HashSet<ColumnPosition>(activeColumns);
+
+        activeAndPredictiveColumnIntersection.retainAll(this.predictiveColumnPositions);
+
+        int numerator = this.spatialPooler.getActiveColumnPositions().size() -
+                activeAndPredictiveColumnIntersection.size();
+        int denominator = this.spatialPooler.getActiveColumnPositions().size();
+        if (denominator == 0) {
+            return 0;
+        } else {
+            return ((double)numerator)/((double)denominator);
+        }
     }
 }
