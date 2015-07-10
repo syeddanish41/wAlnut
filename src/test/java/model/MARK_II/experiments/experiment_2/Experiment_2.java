@@ -116,11 +116,11 @@ public class Experiment_2 extends TestCase {
 
         char[][] columnActiveStates = RegionConsoleViewer
                 .getColumnActiveStatesCharArray(this.temporalPooler.getRegion());
-        assertEquals("iaaaaiii\n" +
-                     "iaiiaiii\n" +
-                     "iaaaaaii\n" +
-                     "iaiiaaii\n" +
-                     "iaiiiaii\n" +
+        assertEquals("aaiiiiii\n" +
+                     "aaiiiiii\n" +
+                     "aaaiiiii\n" +
+                     "iiiiiiii\n" +
+                     "iiiiiiii\n" +
                      "iiiiiiii",
                 RegionConsoleViewer.doubleCharArrayAsString(columnActiveStates));
 
