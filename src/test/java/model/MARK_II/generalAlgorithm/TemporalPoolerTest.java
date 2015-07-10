@@ -157,15 +157,15 @@ public class TemporalPoolerTest extends junit.framework.TestCase {
         assertEquals(5, this.temporalPooler.getCurrentLearningNeurons().size());
     }
 
-    public void test_phaseOneCase3() {
-        // Case 3: bottomUpPredicted = false learningCellChosen = true
-        // This is not possible
-    }
-
-    public void test_phaseOneCase4() {
-        // Case 4: bottomUpPredicted = true learningCellChosen = true
-        // This is covered by case 2
-    }
+//    public void test_phaseOneCase3() {
+//        // Case 3: bottomUpPredicted = false learningCellChosen = true
+//        // This is not possible
+//    }
+//
+//    public void test_phaseOneCase4() {
+//        // Case 4: bottomUpPredicted = true learningCellChosen = true
+//        // This is covered by case 2
+//    }
 
     public void test_getSegmentActiveSynapses() {
         // Case 1: previousTimeStep = true & newSynapses = true

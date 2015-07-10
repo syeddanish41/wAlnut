@@ -6,6 +6,7 @@ import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.TemporalPooler;
+import model.MARK_II.region.Column;
 import model.MARK_II.region.Region;
 import model.MARK_II.region.Segment;
 import model.MARK_II.region.Synapse;
@@ -83,7 +84,7 @@ public class Experiment_2 extends TestCase {
         // we repeat the sequence 10 times
 
         // TODO: visualize region statistics
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             this.retina.seeBMPImage("A.bmp");
             runCLA();
 
@@ -103,19 +104,35 @@ public class Experiment_2 extends TestCase {
         // TODO: assert equals for each expected image
 
         this.retina.seeBMPImage("A.bmp");
-        runCLA();
+        runCLA_noNextTimeStep();
+//      YES
+//        Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
+//        for (Column c : activeColumns) {
+//            c.getNeuron(0).setPredictingState(true);
+//        }
+        // YES this.temporalPooler.getSpatialPooler().getRegion().getColumn(0, 0).getNeuron(0).setPredictingState(true);
+        // YES this.temporalPooler.getRegion().getColumn(0, 0).getNeuron(0).setPredictingState(true);
+        // YES this.spatialPooler.getRegion().getColumn(0, 0).getNeuron(0).setPredictingState(true);
 
-        this.temporalPooler.saveCurrentRegionAlgorithmStatistics(pathToExperiment_2_folder);
+        this.temporalPooler.saveCurrentRegionAlgorithmStatistics
+                (pathToExperiment_2_folder);
 
         System.out.println("Expect to see active columns for 'A' ");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
-                .getColumnActiveStatesCharArray(this.region));
+                .getColumnActiveStatesCharArray(this.temporalPooler.getRegion()));
 
         char[][] columnActiveStates = RegionConsoleViewer
-                .getColumnActiveStatesCharArray(this.region);
+                .getColumnActiveStatesCharArray(this.temporalPooler.getRegion());
         assertEquals("iaaaaiii\niaiiaiii\niaaaaaii\niaiiaaii\niaiiiaii\n"
                         + "iiiiiiii",
                 RegionConsoleViewer.doubleCharArrayAsString(columnActiveStates));
+
+        // TODO: Do I need to be iterating through all columns instead of just
+        //       current columns
+//        Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
+//        for (Column c : activeColumns) {
+//            c.getNeuron(0).setPredictingState(true);
+//        }
 
         System.out.println("\n\nExpect to see predictive columns for 'B'");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
@@ -140,5 +157,10 @@ public class Experiment_2 extends TestCase {
 
         this.temporalPooler.performPooling();
         this.temporalPooler.nextTimeStep();
+    }
+
+    public void runCLA_noNextTimeStep() {
+        this.spatialPooler.performPooling();
+        this.temporalPooler.performPooling();
     }
 }

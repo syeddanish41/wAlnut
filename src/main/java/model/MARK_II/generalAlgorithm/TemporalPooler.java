@@ -44,6 +44,10 @@ public class TemporalPooler extends Pooler {
 
     public void performPooling() {
         Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
+//        for (Column c : activeColumns) {
+//            c.getNeuron(0).setPredictingState(true);
+//        }
+        this.spatialPooler.getRegion().getColumn(0, 0).getNeuron(0).setPredictingState(true);
         if (super.getLearningState()) {
             this.phaseOne(activeColumns);
             this.phaseTwo(activeColumns);
@@ -55,6 +59,10 @@ public class TemporalPooler extends Pooler {
 
         this.printColumnPositions(this.spatialPooler.getActiveColumnPositions(), "Active    ");
         this.printColumnPositions(this.predictiveColumnPositions, "Predictive");
+    }
+
+    public SpatialPooler getSpatialPooler() {
+        return this.spatialPooler;
     }
 
     void printColumnPositions(Set<ColumnPosition> columnPositions, String type) {

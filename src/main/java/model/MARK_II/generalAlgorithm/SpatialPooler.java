@@ -167,7 +167,7 @@ public class SpatialPooler extends Pooler {
                     /// activeColumns(t).append(c)
                     columns[row][column].setActiveState(true);
 
-                    this.addActiveColumn(columns[row][column]);
+                    this.activeColumns.add(columns[row][column]);
                     this.activeColumnPositions.add(new ColumnPosition(row, column));
                 }
             }
@@ -449,14 +449,6 @@ public class SpatialPooler extends Pooler {
         regionAverageReceptiveField /= this.region.getNumberOfColumns();
 
         return regionAverageReceptiveField;
-    }
-
-    void addActiveColumn(Column activeColumn) {
-        if (activeColumn == null) {
-            throw new IllegalArgumentException(
-                    "activeColumn in SpatialPooler class method addActiveColumn cannot be null");
-        }
-        this.activeColumns.add(activeColumn);
     }
 
     /**
