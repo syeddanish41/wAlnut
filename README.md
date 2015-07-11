@@ -315,7 +315,8 @@ Q
 # Object oriented spatial pooling algorithm
 
 The following section will not make sense until you have first read and tried to understand the spatial pooling
-algorithm explained in detail in this [white paper](https://db.tt/FuQWQuwE).
+algorithm explained in detail in this 
+[white paper](https://github.com/WalnutiQ/papers/blob/master/HTM_CorticalLearningAlgorithms.pdf).
 
 The following is the spatial pooling algorithm pseudocode in the white paper
 implemented using object oriented design. Notice how the pseudocode from the
@@ -323,7 +324,7 @@ white paper pages 34-38 is placed immediately above the object oriented Java
 code that it is equivalent to. The pseudocode always begins with `///` to 
 differentiate from regular comments.
 
-The actual [SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java) 
+The actual [SpatialPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/SpatialPooler.java) 
 class contains the below code and additional code and clarifying comments.
 
 The spatial pooling algorithm can be run once by creating a `SpatialPooler` 
@@ -558,7 +559,8 @@ void boostSynapsesBasedOnActiveAndOverlapDutyCycle() {
 
 The following section will not make sense until you have first read and tried to 
 understand the temporal pooling algorithm explained in detail in this 
-[white paper](https://db.tt/FuQWQuwE). This algorithm postulates that the only
+[white paper](https://github.com/WalnutiQ/papers/blob/master/HTM_CorticalLearningAlgorithms.pdf). 
+This algorithm postulates that the only
 way to learn invariant representations of any type is by using when things
 happen across time. It hypothesizes the brain makes no assumptions about 
 the different transformations the world has(shifts, rotations, etc.). The algorithm
@@ -572,8 +574,8 @@ how the pseudocode from the white paper pages 39-46 is placed immediately above
 the object oriented Java code that is equivalent to the pseudocode. The 
 pseudocode always begins with `///` to differentiate from regular comments.
 
-The actual [TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java) 
-class contains the below code and additional code and clarifying comments.
+class contains the below code and aThe actual [TemporalPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/TemporalPooler.java) 
+dditional code and clarifying comments.
 
 The temporal pooling algorithm can be run once by creating a `TemporalPooler` class 
 object and calling the `performPooling()` method on that object.
