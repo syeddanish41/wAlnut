@@ -29,7 +29,7 @@ public class TemporalPooler extends Pooler {
     private final int newSynapseCount;
     private List<Neuron> currentLearningNeurons;
     private SegmentUpdateList segmentUpdateList;
-    private Set<ColumnPosition> predictiveColumnsAtT;
+    private Set<ColumnPosition> predictiveColumnsAtTForTPlus1;
     private Set<ColumnPosition> predictiveColumnsAtTMinus1;
 
     public TemporalPooler(SpatialPooler spatialPooler, int newSynapseCount) {
@@ -40,7 +40,7 @@ public class TemporalPooler extends Pooler {
         this.newSynapseCount = newSynapseCount;
 
         this.currentLearningNeurons = new ArrayList<Neuron>();
-        this.predictiveColumnsAtT = new HashSet<ColumnPosition>();
+        this.predictiveColumnsAtTForTPlus1 = new HashSet<ColumnPosition>();
         this.predictiveColumnsAtTMinus1 = new HashSet<ColumnPosition>();
     }
 
@@ -77,8 +77,8 @@ public class TemporalPooler extends Pooler {
         this.spatialPooler.getAlgorithmStatistics().nextTimeStep();
         this.currentLearningNeurons.clear();
         this.segmentUpdateList.clear();
-        this.predictiveColumnsAtTMinus1.addAll(this.predictiveColumnsAtT);
-        this.predictiveColumnsAtT.clear();
+        this.predictiveColumnsAtTMinus1.addAll(this.predictiveColumnsAtTForTPlus1);
+        this.predictiveColumnsAtTForTPlus1.clear();
     }
 
     /**
@@ -326,7 +326,7 @@ public class TemporalPooler extends Pooler {
                         /// predictiveState(c, i, t) = 1
                         neurons[i].setPredictingState(true);
                         this.spatialPooler.getAlgorithmStatistics().getTP_activeDistalSegmentsHistoryAndAdd(1);
-                        this.predictiveColumnsAtT.add(column
+                        this.predictiveColumnsAtTForTPlus1.add(column
                                 .getCurrentPosition());
 
                         /// activeUpdate = getSegmentActiveSynapses(c, i, s, t, false)
@@ -533,14 +533,15 @@ public class TemporalPooler extends Pooler {
                     if (segment.getActiveState()) {
                         neuron.setPredictingState(true);
                         this.spatialPooler.getAlgorithmStatistics().getTP_activeDistalSegmentsHistoryAndAdd(1);
-                        this.predictiveColumnsAtT.add(column
+                        this.predictiveColumnsAtTForTPlus1.add(column
                                 .getCurrentPosition());
                     }
                 }
             }
         }
         this.spatialPooler.getAlgorithmStatistics()
-                .getTP_predictionScoreHistoryAndAdd(this.computePredictionScore());
+                .getTP_predictionScoreHistoryAndAdd(this
+                        .computePredictionScore());
     }
 
     public int getNumberOfCurrentLearningNeurons() {
@@ -576,7 +577,7 @@ public class TemporalPooler extends Pooler {
         if (denominator == 0) {
             System.out.println("WARNING: current time step " + this.spatialPooler
                     .getAlgorithmStatistics().getCurrentTimeStep() + " of prediction score had" +
-                    "0 active columns @ t and " + this.predictiveColumnsAtT.size()
+                    "0 active columns @ t and " + this.predictiveColumnsAtTMinus1.size()
                     + " predictive columns @ t-1");
             return 0;
         } else {

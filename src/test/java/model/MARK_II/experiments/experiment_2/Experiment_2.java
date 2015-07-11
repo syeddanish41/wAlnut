@@ -84,7 +84,7 @@ public class Experiment_2 extends TestCase {
         // we repeat the sequence 10 times
 
         // TODO: visualize region statistics
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 10; i++) {
             this.retina.seeBMPImage("A.bmp");
             runCLA();
 
@@ -111,11 +111,10 @@ public class Experiment_2 extends TestCase {
 
         System.out.println("Expect to see active columns for 'A' ");
         RegionConsoleViewer.printDoubleCharArray(RegionConsoleViewer
-                .getColumnActiveStatesCharArray(this.temporalPooler.getRegion
-                        ()));
+                .getColumnActiveStatesCharArray(this.region));
 
         char[][] columnActiveStates = RegionConsoleViewer
-                .getColumnActiveStatesCharArray(this.temporalPooler.getRegion());
+                .getColumnActiveStatesCharArray(this.region);
         assertEquals("aaiiiiii\n" +
                      "aaiiiiii\n" +
                      "aaaiiiii\n" +
