@@ -93,12 +93,12 @@ public class TemporalPoolerTest extends junit.framework.TestCase {
 
         this.spatialPooler.performPooling();
         this.temporalPooler.performPooling();
-        assertEquals(16, this.temporalPooler.getSegmentUpdateList().size()); // NOTE: why does this sometimes return 6?
+        assertEquals(19, this.temporalPooler.getSegmentUpdateList().size());
         this.temporalPooler.nextTimeStep();
 
         this.spatialPooler.performPooling();
         this.temporalPooler.performPooling();
-        assertEquals(16, this.temporalPooler.getSegmentUpdateList().size());
+        assertEquals(19, this.temporalPooler.getSegmentUpdateList().size());
         this.temporalPooler.nextTimeStep();
     }
 
@@ -302,14 +302,14 @@ public class TemporalPoolerTest extends junit.framework.TestCase {
 
     public void test_phaseTwo() {
         this.temporalPooler.phaseOne(this.spatialPooler.getActiveColumns());
-        this.temporalPooler.phaseTwo(this.spatialPooler.getActiveColumns());
+        this.temporalPooler.phaseTwo();
         assertEquals(25, this.temporalPooler.getSegmentUpdateList().size());
     }
 
     public void test_phaseThree() {
         this.temporalPooler.phaseOne(this.spatialPooler.getActiveColumns());
-        this.temporalPooler.phaseTwo(this.spatialPooler.getActiveColumns());
-        this.temporalPooler.phaseThree(this.spatialPooler.getActiveColumns());
+        this.temporalPooler.phaseTwo();
+        this.temporalPooler.phaseThree();
         assertEquals(20, this.temporalPooler.getSegmentUpdateList().size());
     }
 
