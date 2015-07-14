@@ -57,6 +57,7 @@ public class RegionConsoleViewer {
                     if (neuron.getPredictingState()) {
                         // 'p' represents an Column with a Neuron that has predictive state on
                         columnPredictiveStates[row][column] = 'p';
+                        break;
                     } else {
                         // 'n' represents an Column with a Neuron that does NOTE havehas predictive state on
                         columnPredictiveStates[row][column] = 'n';

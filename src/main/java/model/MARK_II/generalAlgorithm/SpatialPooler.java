@@ -23,6 +23,8 @@ public class SpatialPooler extends Pooler {
 
     public static float MINIMUM_COLUMN_FIRING_RATE = 0.01f;
 
+    private AlgorithmStatistics algorithmStatistics;
+
     public SpatialPooler(Region region) {
         if (region == null) {
             throw new IllegalArgumentException(
@@ -31,6 +33,13 @@ public class SpatialPooler extends Pooler {
         super.region = region;
         this.activeColumns = new HashSet<Column>();
         this.activeColumnPositions = new HashSet<ColumnPosition>();
+
+        this.algorithmStatistics = new AlgorithmStatistics(1000);
+    }
+
+    public SpatialPooler(Region region, int numberOfTimesToRunCLA) {
+        this(region);
+        this.algorithmStatistics = new AlgorithmStatistics(numberOfTimesToRunCLA);
     }
 
     /**
@@ -99,6 +108,8 @@ public class SpatialPooler extends Pooler {
             ///     overlap(c) = overlap(c) + input(t, s.sourceInput)
             .getNumberOfActiveSynapses();
 
+        this.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(newOverlapScore);
+
         // compute minimumOverlapScore assuming all proximalSegments are
         // connected to the same number of synapses
         Column[][] columns = this.region.getColumns();
@@ -156,11 +167,12 @@ public class SpatialPooler extends Pooler {
                     /// activeColumns(t).append(c)
                     columns[row][column].setActiveState(true);
 
-                    this.addActiveColumn(columns[row][column]);
+                    this.activeColumns.add(columns[row][column]);
                     this.activeColumnPositions.add(new ColumnPosition(row, column));
                 }
             }
         }
+        this.algorithmStatistics.getSP_activeColumnsHistoryAndAdd(this.activeColumnPositions.size());
     }
 
     /**
@@ -174,8 +186,11 @@ public class SpatialPooler extends Pooler {
         this.boostSynapsesBasedOnActiveAndOverlapDutyCycle();
 
         /// inhibitionRadius = averageReceptiveFieldSize()
+        double inhibitionRadius = averageReceptiveFieldSizeOfRegion();
         this.region
-                .setInhibitionRadius((int) averageReceptiveFieldSizeOfRegion());
+                .setInhibitionRadius((int) inhibitionRadius);
+
+        this.algorithmStatistics.getSP_inhibitionRadiusHistoryAndAdd(inhibitionRadius);
     }
 
     void modelLongTermPotentiationAndDepression() {
@@ -436,14 +451,6 @@ public class SpatialPooler extends Pooler {
         return regionAverageReceptiveField;
     }
 
-    void addActiveColumn(Column activeColumn) {
-        if (activeColumn == null) {
-            throw new IllegalArgumentException(
-                    "activeColumn in SpatialPooler class method addActiveColumn cannot be null");
-        }
-        this.activeColumns.add(activeColumn);
-    }
-
     /**
      * Compute a moving average of how often this Column has overlap greater
      * than minimumDutyOverlap. Exponential Moving Average(EMA): St = a * Yt +
@@ -480,6 +487,10 @@ public class SpatialPooler extends Pooler {
 
     public Region getRegion() {
         return this.region;
+    }
+
+    public AlgorithmStatistics getAlgorithmStatistics() {
+        return this.algorithmStatistics;
     }
 
     @Override
