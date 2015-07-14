@@ -108,7 +108,7 @@ public class SpatialPooler extends Pooler {
             ///     overlap(c) = overlap(c) + input(t, s.sourceInput)
             .getNumberOfActiveSynapses();
 
-        this.algorithmStatistics.getSP_activeSynapsesHistory().add(new Integer(newOverlapScore));
+        this.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(newOverlapScore);
 
         // compute minimumOverlapScore assuming all proximalSegments are
         // connected to the same number of synapses
@@ -167,13 +167,12 @@ public class SpatialPooler extends Pooler {
                     /// activeColumns(t).append(c)
                     columns[row][column].setActiveState(true);
 
-                    this.addActiveColumn(columns[row][column]);
+                    this.activeColumns.add(columns[row][column]);
                     this.activeColumnPositions.add(new ColumnPosition(row, column));
                 }
             }
         }
-        this.algorithmStatistics.getSP_activeColumnsHistory().add(new
-                Integer(this.activeColumnPositions.size()));
+        this.algorithmStatistics.getSP_activeColumnsHistoryAndAdd(this.activeColumnPositions.size());
     }
 
     /**
@@ -187,10 +186,11 @@ public class SpatialPooler extends Pooler {
         this.boostSynapsesBasedOnActiveAndOverlapDutyCycle();
 
         /// inhibitionRadius = averageReceptiveFieldSize()
+        double inhibitionRadius = averageReceptiveFieldSizeOfRegion();
         this.region
-                .setInhibitionRadius((int) averageReceptiveFieldSizeOfRegion());
+                .setInhibitionRadius((int) inhibitionRadius);
 
-        this.algorithmStatistics.getSP_inhibitionRadiusHistory().add(averageReceptiveFieldSizeOfRegion());
+        this.algorithmStatistics.getSP_inhibitionRadiusHistoryAndAdd(inhibitionRadius);
     }
 
     void modelLongTermPotentiationAndDepression() {
@@ -449,14 +449,6 @@ public class SpatialPooler extends Pooler {
         regionAverageReceptiveField /= this.region.getNumberOfColumns();
 
         return regionAverageReceptiveField;
-    }
-
-    void addActiveColumn(Column activeColumn) {
-        if (activeColumn == null) {
-            throw new IllegalArgumentException(
-                    "activeColumn in SpatialPooler class method addActiveColumn cannot be null");
-        }
-        this.activeColumns.add(activeColumn);
     }
 
     /**
