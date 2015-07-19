@@ -34,12 +34,12 @@ public class BigNeocortexTest extends TestCase {
         // index_1 = A   , 60, 60, 4, 20, 3
 
         // NOTE: new region every 6 elements
-        this.regionParameterListInOrder = new String[] {"root", "60", "60", "4", "20", "3",
-                                               "A", "60", "60", "4", "20", "3"};
+        this.regionParameterListInOrder = new String[] {"root", "60", "60", "2", "20", "3",
+                                               "A", "60", "60", "2", "20", "3"};
 
         // NOTE: new connection pattern every 7 elements
         String[] regionConnectionParameterListInOrder = new String[]{
-                "0", "0", "30", "60", "A", "4", "4",
+                "0", "0", "30", "60", "A", "2", "2",
                 "change to region A"};
 
         this.pathAndFolderName = "" +

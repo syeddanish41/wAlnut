@@ -114,8 +114,9 @@ Q
 6. A new window should popup.  Under "Platform Settings" `=>` "SDKs".  At the upper
    lefthand, select the "+" `=>` "JDK".
 
-7. On Mac, In the "Finder" window, enter SHIFT + command + G.  Type in "/System/Library/Java".
-   Navigate to the JDK folder and once you have done so, click "choose". On Windows,
+7. On Mac, In the "Finder" window, enter SHIFT + command + G.  Type in
+   "/Library/Java/JavaVirtualMachines". Navigate to the JDK folder and once you
+   have done so, click "choose". On Windows,
    navigate to the JDK folder in "C:\Program Files\Java". On Linux, good luck finding it.
 
 8. If this was successfully done, a list of SDKs should now appear under SDKs.

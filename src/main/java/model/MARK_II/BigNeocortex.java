@@ -75,7 +75,7 @@ public class BigNeocortex {
         this.heapTracker.updateHeapData();
         double maxHeapSizeInMB = (double) this.heapTracker
                 .getHeapMaxSizeInBytes() / 1000000;
-        this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfARegionInMB * 2 /
+        this.MAX_HEAP_USE_PERCENTAGE = (double) maxSizeOfARegionInMB * 3 /
                 maxHeapSizeInMB;
         if (this.MAX_HEAP_USE_PERCENTAGE > 1.0) {
             throw new IllegalArgumentException("maxSizeOfARegionInMB is too " +
