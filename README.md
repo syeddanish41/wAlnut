@@ -1,4 +1,5 @@
-Install with **[IntelliJ(Recommended)](#install-in-linuxmacwindows-with-intellij),** or
+Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij)**
+(Recommended) or
 **[Gradle](#install-in-linuxmacwindows-with-gradle)** for Linux/Mac/Windows **|**
 **[How to contribute](#how-to-contribute) |**
 **[What are all the files here for?](#what-are-all-the-files-here-for) |**
