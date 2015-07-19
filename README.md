@@ -1,5 +1,5 @@
-Install with **[Eclipse](#install-in-linuxmacwindows-with-eclipse),**
-**[IntelliJ](#install-in-linuxmacwindows-with-intellij),** or
+Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij)**
+(Recommended) or
 **[Gradle](#install-in-linuxmacwindows-with-gradle)** for Linux/Mac/Windows **|**
 **[How to contribute](#how-to-contribute) |**
 **[What are all the files here for?](#what-are-all-the-files-here-for) |**
@@ -82,93 +82,68 @@ Numenta's implementation of their algorithms can be found
 Thanks for reading,  
 Q
 
-## Install in Linux/Mac/Windows with Eclipse
+
+## Install in Linux/Mac/Windows with IntelliJ (Recommended)
 1. If you have any problems with the following instructions please e-mail
    quinnliu@vt.edu and I will try to help the best I can. First
-   [install Eclipse IDE](https://www.eclipse.org/downloads/) or use
-   any other version of Eclipse if you already have it installed.
+   make sure you have java version 1.8. To check open up a new terminal
+   and type:
+   ```sh
+   prompt> java -version
+   java version "1.8.0_60" # it's only important to see "1.8" in
+                           # the version
+   ```  
+   If you don't have any of those Java versions install java 1.8 by going
+   [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+   After installing java 1.8 open up a new terminal to check if java 1.8
+   is installed by retyping `java -version` in the terminal.
 
-2. Go to the top right of this page and hit the `Fork` button. Then clone your
-   forked WalnutiQ repository locally. Then import it as a Git
-   project into Eclipse. Right-click your package explorer `=>` Import...
-   `=>` Git `=>` Projects from Git `=>` Next > `=>` Existing local repository
-   `=>` Next > `=>` Add... `=>` Browse to the WalnutiQ folder you cloned locally
-   and finish.
-
-3. IMPORTANT: You will notice that your folders will have red X's everywhere.
-   To fix this right click your `src` folder then hover over "New",
-   then click "Source Folder". Then give it the "Folder name:" `src/main/java`.
-   Right click your `src` folder again and hover over "New", then click
-   "Source Folder". Then give it the "Folder name:" `src/test/java`
-   Similarily for the folder `experiments` right click the folder and go to
-   New `=>` Source Folder `=>` Folder name: `experiments`.
-   Finally for the folder `images` right click the folder and go to
-   New `=>` Source Folder `=>` Folder name: `images`.
-
-4. In Eclipse, add all the libraries (.jar file) in the folder
-   `referencedLibraries/` by right-clicking your folder `WalnutiQ`
-   in the package explorer `=>` Build Path `=>` Add External Archives...
-
-5. In Eclipse, add JUnit 4 by right-clicking your folder `WalnutiQ`
-   in the package explorer `=>` Build Path `=>` Add Libraries... `=>` JUnit `=>`
-   Next > `=>` Finish
-
-6. In Eclipse, also add JRE System Library by right-clicking
-   your folder `WalnutiQ` in the package explorer `=>` Build Path `=>`
-   Add Libraries... `=>` JRE System Library `=>` Next > `=>` Finish
-
-7. Right click your folder `WalnutiQ` `=>` Run As `=>` JUnit Test `=>`
-   ALL TESTS PASS!
-
-
-## Install in Linux/Mac/Windows with IntelliJ
-1. If you have any problems with the following instructions please e-mail
-   quinnliu@vt.edu and I will try to help the best I can. First
-   [install IntelliJ IDEA FREE Community Edition](http://www.jetbrains.com/idea/download/).
+2. Then [install IntelliJ IDEA FREE Community Edition](http://www.jetbrains.com/idea/download/).
      - Note where you choose to install this and choose a folder that is easy to access
        (I stored it in Documents)
 
-2. Go to the top right of this page and hit the `Fork` button. Then clone your forked WalnutiQ
+3. Go to the top right of this page and hit the `Fork` button. Then clone your forked WalnutiQ
    repository locally.
 
-3. Once IntelliJ is installed, open it.  Go to "File" `=>` "Import Project...". This should
+4. Once IntelliJ is installed, open it.  Go to "File" `=>` "Import Project...". This should
    open up a new window and you should easily be able to select the "WalnutiQ" folder. Click "ok".
 
-4. Now, the project should be imported.  You should now add JDK.  Go back to "File"
+5. Now, the project should be imported.  You should now add JDK.  Go back to "File"
    `=>` "Project Structure".
 
-5. A new window should popup.  Under "Platform Settings" `=>` "SDKs".  At the upper
+6. A new window should popup.  Under "Platform Settings" `=>` "SDKs".  At the upper
    lefthand, select the "+" `=>` "JDK".
 
-6. On Mac, In the "Finder" window, enter SHIFT + command + G.  Type in "/System/Library/Java".
-   Navigate to the JDK folder and once you have done so, click "choose". On Windows,
+7. On Mac, In the "Finder" window, enter SHIFT + command + G.  Type in
+   "/Library/Java/JavaVirtualMachines". Navigate to the JDK folder and once you
+   have done so, click "choose". On Windows,
    navigate to the JDK folder in "C:\Program Files\Java". On Linux, good luck finding it.
 
-7. If this was successfully done, a list of SDKs should now appear under SDKs.
+8. If this was successfully done, a list of SDKs should now appear under SDKs.
    In the same window, navigate to the lefthand side and under "Project Settings" `=>`
    "Project".  Under "Project SDK", it should say "<No SDK>".  In that bar, select the new
    Java version which you added.  At the bottom righthand corner, select "Apply". Click
    "OK".
 
-8. Now click "File" `=>` "New" `=>` "Project from Existing Sources..." `=>` Navigate to "WalnutiQ" folder
+9. Now click "File" `=>` "New" `=>` "Project from Existing Sources..." `=>` Navigate to "WalnutiQ" folder
    and click "OK" `=>` Select "Gradle" `=>` Next `=>` Select "Use default gradle wrapper (recommended)" `=>` Finish
 
-9. In the left side file viewer right-click the folder "WalnutiQ" and select `Run 'Tests in WalnutiQ''`. Hopefully
+10. In the left side file viewer right-click the folder "WalnutiQ" and select `Run 'Tests in WalnutiQ''`. Hopefully
    they all pass.
 
 ## Install in Linux/Mac/Windows with Gradle
 1. If you have any problems with the following instructions please e-mail
    quinnliu@vt.edu and I will try to help the best I can. First
-   make sure you have java version 1.6, 1.7 or 1.8. To check open up a new terminal
+   make sure you have java version 1.8. To check open up a new terminal
    and type:
    ```sh
    prompt> java -version
-   java version "1.7.0_60" # it's only important to see "1.6", 1.7" or "1.8" in
+   java version "1.8.0_60" # it's only important to see "1.8" in
                            # the version
    ```  
-   If you don't have any of those Java versions install java 1.7 by going
-   [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
-   After installing java 1.7 open up a new terminal to check if java 1.7
+   If you don't have any of those Java versions install java 1.8 by going
+   [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+   After installing java 1.8 open up a new terminal to check if java 1.8
    is installed by retyping `java -version` in the terminal.
 
 2. Go to the top right of this page and hit the `Fork` button. Then clone your
