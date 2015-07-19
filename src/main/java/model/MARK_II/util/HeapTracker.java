@@ -66,6 +66,7 @@ public class HeapTracker {
         }
         double used = (double) this.getUsedHeapInBytes();
         double max = (double) this.getHeapMaxSizeInBytes();
-        return (used/max) > percentage;
+        double usedOverMax = used/max;
+        return usedOverMax > percentage;
     }
 }
