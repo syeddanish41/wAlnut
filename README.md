@@ -1,4 +1,4 @@
-Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij)**
+Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
 (Recommended) or
 **[Gradle](#install-in-linuxmacwindows-with-gradle)** for Linux/Mac/Windows **|**
 **[How to contribute](#how-to-contribute) |**
@@ -8,14 +8,14 @@ Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij)**
 **[algorithm part 2](#object-oriented-temporal-pooling-algorithm) |**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
-# [WalnutiQ](http://walnutiq.com)
+# Walnut
 
 "*Who's the friend who likes to play? Bing Bong Bing Bong.
 Take her to the moon Joy!*" ~ Bing Bong
 
 [![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
 
-Welcome! WalnutiQ is a human brain model simulation in Java. The long term goal
+Welcome! Walnut is a human brain model simulation in Java. The long term goal
 of this repository is to store code that can simulate a full sized human brain
 in real-time. The current short term goal is to experiment with a simulated
 simplified visual pathway from an eye that is able to move within a "room" to
