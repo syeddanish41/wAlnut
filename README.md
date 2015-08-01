@@ -10,48 +10,54 @@ Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)
 
 # Walnut
 
-"*Who's the friend who likes to play? Bing Bong Bing Bong.
-Take her to the moon Joy!*" ~ Bing Bong
+"*A society that tells people that they can achieve anything will also be a
+  society that develops a problem of self-esteem. If everyone expects to
+  achieve everything you are going to get an awful a lot of people who are
+  feeling that something has gone dramatically wrong with their lives. It is
+  probably as unlikely today that you could become as successful as Bill Gates
+  as it was unlikely in the 17th century that you could join in the ranks
+  of the French aristocracy. But it doesn't feel like that. It feels like if
+  you had a garage, knew software, had a few contacts, had a few bright ideas
+  you could get there.*" ~ Alain de Botton
 
-[![Build Status](https://travis-ci.org/WalnutiQ/WalnutiQ.png)](https://travis-ci.org/WalnutiQ/WalnutiQ)
+[![Build Status](https://travis-ci.org/WalnutiQ/walnut.png)](https://travis-ci.org/WalnutiQ/walnut)
 
-Welcome! Walnut is a human brain model simulation in Java. The long term goal
-of this repository is to store code that can simulate a full sized human brain
-in real-time. The current short term goal is to experiment with a simulated
-simplified visual pathway from an eye that is able to move within a "room" to
-hierarchical regions in layer 2/3, 4, & 5 of the neocortex (70+% of the brain).
+The long term goal of this repository is to store code that can simulate a full
+sized human brain in real time. The current short term goal is to experiment
+with a simplified visual pathway from an eye(that can move within a "room") to
+algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the neocortex
+(70+% of the brain) to understand how a common learning algorithm needs to
+work.
 
-I believe that a real intelligence machine built on biological computation
-principles will be able to solve many of our hardest problems and will cause
-many new hard problems. Once a computer can correctly simulate the intelligence
-of 1 brain it can be scaled to surpass the collective intelligence of
-the 7+ billion human brains on Earth. Technology has always been used to do
-great good and great evil and it is scary to imagine the great evil this
-technology brings. I desperately want to help build a technology that solves
-our hardest problems where everything's happiness is considered. I believe
-without a doubt that this technology will have a greater impact on the
-universe than the internet. Impossibilities of today like immortality,
-super intelligence, cure for cancer, and the remaining secrets of our universe
-will be able to be discovered faster by a general learning algorithm that doesn't
-need to eat, sleep, or reproduce.
+If we figure out the important biological computation principles behind the
+human brain we will be able to simulate the intelligence of 1 brain on a
+computer. This can be scaled to surpass the collective intelligence of the 7+
+billion human brains on Earth.
 
-Just as self driving cars will make human driving illegal any dangerous or
-boring task can be replaced by a general learning algorithm. This will cause
+I believe that this intelligent machine will be able to solve many of our
+hardest problems and will cause many new hard problems. Technology has always
+been used to do great good and great evil and it is scary to imagine the great
+evil this technology brings. I desperately want to help build a technology that
+solves our hardest problems where everything's happiness is considered.
+Impossibilities of today like immortality, super intelligence, cure for cancer,
+and the remaining secrets of our universe will be able to be discovered faster
+by a general learning algorithm that doesn't need to eat, sleep, or reproduce.
+And just as self driving cars will make human driving illegal any dangerous or
+boring task will be replaced by a general learning algorithm. This will cause
 massive job replacement; one of many of our new hard problems.
 
-Just like how after we understood the principles of flight we are able to
-build planes that are much faster and can carry more weight than birds, after
-the human neocortex's computational principles are fully understood we
-will be capable of running programs much more intelligent than you and I with
-other unimaginable capabilities. However it will at first not have any emotions
-like you I. This will be a good thing because it will force us to ask if it
-would be moral to create an super intelligent machine with emotions to help us.
-Additionally, it may not necessary be a good thing for the human race. For
-example look at how humans treat [intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
-We are super intelligent emotional machines compared to them and the future
+After we understood the principles of flight we were able to build planes that
+are much faster and can carry more weight than birds. After we understand
+the human neocortex's computational principles we will be able to run programs
+much more intelligent than humans with unimaginable capabilities. At first it
+will not have any emotions like you and I. This will be a good thing because it
+will force us to ask if it would be moral to create an super intelligent machine
+with emotions to help us. It may not necessarily be a good thing for the human
+race. For example look at how humans treat [intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
+We are super intelligent emotional machines compared to pigs and the future
 super intelligent emotional machines will be super intelligent compared to us.
 
-This is just one possible route of how the future will play out out of many
+This is just one possible route of how the future may play out out of many
 options mostly unknown to us. I am most likely wrong. However, hopefully you
 can see why I am so obsessed with making sure this project goes well.
 
@@ -59,10 +65,9 @@ If you are interested in becoming a researcher/developer I would be grateful
 for your collaboration as I cannot do this alone. The <b>only</b> requirement
 I ask for is that you are someone that is not "all talk" and understands that
 progress is made by not making excuses. If you rely on habits and a "no excuses"
-attitude for getting shit done please e-mail me at quinnliu@vt.edu
-to talk about how you can get involved. This project has a long journey ahead
-so sustainability will take precedence over crunch. Currently I have no funding
-for paying you.
+attitude please e-mail me at quinnliu@vt.edu to talk about how you can get
+involved. This project has a long journey ahead so sustainability will take
+precedence over crunch. Currently I have no funding for paying you.
 
 Most importantly, this research is made possible by everyone at
 [Numenta](http://numenta.org/). Numenta has theorized and tested algorithms
