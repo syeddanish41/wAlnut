@@ -222,8 +222,6 @@ Q
         - experiments/vision = experiments with partial visual pathway models  
   - .gitignore = contains names of files/folders not to add to this repository
                  but keep in your local WalnutiQ folder
-  - .project = when writing your code using Eclipse this file will allow all of
-               your files to be organized in the correct folder
   - .travis.yml = tells [our custom travis testing site](https://travis-ci.org/quinnliu/WalnutiQ)
                   what versions of Java to test the files here
   - LICENSE.txt = GNU General Public License version 3
