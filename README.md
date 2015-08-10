@@ -10,15 +10,8 @@ Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)
 
 # Walnut
 
-"*A society that tells people that they can achieve anything will also be a
-  society that develops a problem of self-esteem. If everyone expects to
-  achieve everything you are going to get an awful a lot of people who are
-  feeling that something has gone dramatically wrong with their lives. It is
-  probably as unlikely today that you could become as successful as Bill Gates
-  as it was unlikely in the 17th century that you could join in the ranks
-  of the French aristocracy. But it doesn't feel like that. It feels like if
-  you had a garage, knew software, had a few contacts, had a few bright ideas
-  you could get there.*" ~ Alain de Botton
+"Don't try to change the world. Find something that you love and do it everyday. Do that for the rest of your life and
+ eventually the world will change." ~ Macklemore & Ryan Lewis
 
 [![Build Status](https://travis-ci.org/WalnutiQ/walnut.png)](https://travis-ci.org/WalnutiQ/walnut)
 
@@ -228,8 +221,6 @@ Q
         - experiments/vision = experiments with partial visual pathway models  
   - .gitignore = contains names of files/folders not to add to this repository
                  but keep in your local WalnutiQ folder
-  - .project = when writing your code using Eclipse this file will allow all of
-               your files to be organized in the correct folder
   - .travis.yml = tells [our custom travis testing site](https://travis-ci.org/quinnliu/WalnutiQ)
                   what versions of Java to test the files here
   - LICENSE.txt = GNU General Public License version 3
