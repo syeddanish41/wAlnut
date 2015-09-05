@@ -12,7 +12,7 @@ Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)
 
 "*I wish you were here to sing along...my son*" ~ [Sam](https://www.youtube.com/watch?v=puOUO2T1H6o)
 
-[![Build Status](https://travis-ci.org/WalnutiQ/walnut.png)](https://travis-ci.org/WalnutiQ/walnut)
+[![Build Status](https://travis-ci.org/WalnutiQ/walnut.png)](https://travis-ci.org/WalnutiQ/wAlnut)
 
 The long term goal of this repository is to store code that can simulate a full
 sized human brain in real time. The current short term goal is to experiment
