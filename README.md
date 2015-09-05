@@ -10,13 +10,7 @@ Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)
 
 # wAlnut
 
-<<<<<<< HEAD
-"*Don't try to change the world. Find something that you love and
-  do it everyday. Do that for the rest of your life and eventually
-  the world will change.*" ~ Macklemore & Ryan Lewis
-=======
 "*I wish you were here to sing along...my son*" ~ [Sam](https://www.youtube.com/watch?v=puOUO2T1H6o)
->>>>>>> develop
 
 [![Build Status](https://travis-ci.org/WalnutiQ/walnut.png)](https://travis-ci.org/WalnutiQ/walnut)
 
