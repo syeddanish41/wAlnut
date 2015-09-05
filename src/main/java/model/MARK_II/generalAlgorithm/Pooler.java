@@ -3,7 +3,7 @@ package model.MARK_II.generalAlgorithm;
 import model.MARK_II.region.Region;
 
 /**
- * Abstract class extended by SpatialPooler.java and TemporalPooler.java classes.
+ * Abstract class extended by algorithm classes.
  *
  * @author Quinn Liu (quinnliu@vt.edu)
  * @version June 26, 2013
