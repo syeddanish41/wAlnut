@@ -8,7 +8,7 @@ Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)
 **[algorithm part 2](#object-oriented-temporal-pooling-algorithm) |**
 **[Noise invariance experiment](#noise-invariance-experiment)**
 
-# Walnut
+# wAlnut
 
 "*I wish you were here to sing along...my son*" ~ [Sam](https://www.youtube.com/watch?v=puOUO2T1H6o)
 
