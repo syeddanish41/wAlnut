@@ -1,9 +1,9 @@
 package model.MARK_II.generalAlgorithm.failedResearch.temporalAlgorithms;
 
+import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
-import model.MARK_II.region.Column;
-import model.MARK_II.region.Neuron;
+import model.MARK_II.region.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,24 +24,48 @@ public class PredictionAlgorithm_1 extends Pooler {
     private SpatialPooler spatialPooler;
 
     Set<Neuron> previouslyActiveNeurons;
+    Set<Neuron> currentActiveNeurons;
 
     public PredictionAlgorithm_1(SpatialPooler spatialPooler) {
         this.spatialPooler = spatialPooler;
         super.region = spatialPooler.getRegion();
 
-        this.previouslyActiveNeurons = new HashSet<Neuron>();
+        this.previouslyActiveNeurons = new HashSet<>();
+        this.currentActiveNeurons = new HashSet<>();
     }
 
     /**
      * Call this method to run PredictionAlgorithm_1 once on Region.
+     *
+     * MAIN LOGIC: For each learning neuron in an active column, connect to all
+     * previously active neurons.
      */
     public void run() {
-        Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
+        Set<ColumnPosition> activeColumnPositions = this.spatialPooler.getActiveColumnPositions();
         // Step 1) iterate through all active neurons in region
-        for (Column activeColumn : activeColumns) {
+        for (ColumnPosition ACP : activeColumnPositions) {
+            Column activeColumn = super.getRegion().getColumn(ACP.getRow(), ACP.getRow());
             Neuron learningNeuron = this.getNeuronWithLeastNumberOfConnectedSynapses(activeColumn);
-            // TODO: how many of the previouslyActiveNeurons should we connect to?
+
+            // Step 2) for each learning neuron connect to all previously active
+            //         neurons
+            for (Neuron previouslyActiveNeuron : this.previouslyActiveNeurons) {
+                DistalSegment distalSegment = new DistalSegment();
+                distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron, Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
+                learningNeuron.addDistalSegment(distalSegment);
+
+                // Step 3) Decide which neurons are active for the current time step
+                // TODO: answer: the current list of learning neurons? This is because
+                //       they aren't connected to anything since they have the least
+                //       connected synapses
+                learningNeuron.setActiveState(true);
+                this.currentActiveNeurons.add(learningNeuron);
+            }
         }
+
+        // Step 4) change current states for next time step
+        this.previouslyActiveNeurons = this.currentActiveNeurons;
+        this.currentActiveNeurons.clear();
     }
 
     /**
