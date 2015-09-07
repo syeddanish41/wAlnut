@@ -1,5 +1,6 @@
 package model.MARK_II.generalAlgorithm.failedResearch.temporalAlgorithms;
 
+import model.MARK_II.generalAlgorithm.AlgorithmStatistics;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
@@ -18,7 +19,7 @@ import java.util.Set;
  * how to improve it.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @version 9/3/2015
+ * @version 9/7/2015
  */
 public class PredictionAlgorithm_1 extends Pooler {
     private SpatialPooler spatialPooler;
@@ -54,18 +55,30 @@ public class PredictionAlgorithm_1 extends Pooler {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron, Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
                 learningNeuron.addDistalSegment(distalSegment);
 
-                // Step 3) Decide which neurons are active for the current time step
-                // TODO: answer: the current list of learning neurons? This is because
-                //       they aren't connected to anything since they have the least
-                //       connected synapses
+                // Step 3) Decide which neurons are active for the current time
+                //         step
+                // possible answer: the current list of learning neurons? This
+                // is because they aren't connected to anything since they have
+                // the least connected synapses
+                // TODO: possiable answer = only previously active neurons
+                //       closeby to current learning neuron
                 learningNeuron.setActiveState(true);
                 this.currentActiveNeurons.add(learningNeuron);
             }
         }
 
         // Step 4) change current states for next time step
-        this.previouslyActiveNeurons = this.currentActiveNeurons;
+        for (Neuron neuron : this.currentActiveNeurons) {
+            this.previouslyActiveNeurons.add(neuron);
+            neuron.setActiveState(false);
+        }
         this.currentActiveNeurons.clear();
+
+        // Step 5) what neurons can be used for prediction?
+        // possible answer: which neurons currently have the most # of active
+        // synapses across all distal dendrites
+        // TODO:
+
     }
 
     /**

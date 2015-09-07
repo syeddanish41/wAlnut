@@ -6,11 +6,21 @@ import model.MARK_II.region.Region;
  * Abstract class extended by algorithm classes.
  *
  * @author Quinn Liu (quinnliu@vt.edu)
- * @version June 26, 2013
+ * @version 9/7/2015
  */
 public abstract class Pooler {
     protected Region region;
     private boolean learningState;
+
+    protected AlgorithmStatistics algorithmStatistics;
+
+    public Pooler(int numberOfTimesToRunAlgorithm) {
+        this.algorithmStatistics = new AlgorithmStatistics(numberOfTimesToRunAlgorithm);
+    }
+
+    public Pooler() {
+        this.algorithmStatistics = new AlgorithmStatistics(AlgorithmStatistics.DEFAULT_NUMBER_OF_ALGORITHM_RUNS);
+    }
 
     public void changeRegion(Region newRegion) {
         if (newRegion == null) {
@@ -31,5 +41,9 @@ public abstract class Pooler {
 
     public Region getRegion() {
         return this.region;
+    }
+
+    public AlgorithmStatistics getAlgorithmStatistics() {
+        return this.algorithmStatistics;
     }
 }
