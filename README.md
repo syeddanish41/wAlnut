@@ -10,7 +10,11 @@ Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)
 
 # wAlnut
 
-"*I wish you were here to sing along...my son*" ~ [Sam](https://www.youtube.com/watch?v=puOUO2T1H6o)
+"*Perfect lets you stall, ask more questions, do more reviews, safe it up and 
+generally avoid doing anything that might fail or anything important. You're 
+not in the perfect business. Stop pretending that's what the world wants from 
+you.*"  
+~ [Seth Godin](http://sethgodin.typepad.com/seths_blog/2015/06/abandoning-perfection.html)
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
