@@ -1,7 +1,8 @@
-package model.MARK_II.generalAlgorithm.failedResearch;
+package model.MARK_II.generalAlgorithm.failedResearch.temporalAlgorithms;
 
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
+import model.MARK_II.region.Column;
 import model.MARK_II.region.Neuron;
 
 import java.util.HashSet;
@@ -35,11 +36,24 @@ public class PredictionAlgorithm_1 extends Pooler {
      * Call this method to run PredictionAlgorithm_1 once on Region.
      */
     public void run() {
-        // Step 1) iterate through all neurons in region
-        //           if column.isActive()
-        //             learningNeuron = column.getNeuronWithLeastNumberOfConnectedSynapses()
-        //             // TODO: how many of the previouslyActiveNeurons should we connect to?
-
+        Set<Column> activeColumns = this.spatialPooler.getActiveColumns();
+        // Step 1) iterate through all active neurons in region
+        for (Column activeColumn : activeColumns) {
+            Neuron learningNeuron = this.getNeuronWithLeastNumberOfConnectedSynapses(activeColumn);
+            // TODO: how many of the previouslyActiveNeurons should we connect to?
+        }
     }
 
+    /**
+     * PROS:
+     * 1) Prevents same neuron in column to repeatedly be learning neuron.
+     * 2) Events out connections within Region like real neocortex.
+     *
+     * CONS:
+     * 1) Is this enough of an indicator to say next time neuron2 becomes
+     *    active -> neuron3 becomes predicted?
+     */
+    Neuron getNeuronWithLeastNumberOfConnectedSynapses(Column activeColumn) {
+        return null;
+    }
 }
