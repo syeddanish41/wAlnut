@@ -27,12 +27,19 @@ public class PredictionAlgorithm_1 extends Pooler {
     Set<Neuron> previouslyActiveNeurons;
     Set<Neuron> currentActiveNeurons;
 
+    /**
+     * TODO: size = ? Set a max & min with a new class? For now set same
+     * as activeColumns.size()
+     */
+    Set<Neuron> isPredictingNeurons;
+
     public PredictionAlgorithm_1(SpatialPooler spatialPooler) {
         this.spatialPooler = spatialPooler;
         super.region = spatialPooler.getRegion();
 
         this.previouslyActiveNeurons = new HashSet<>();
         this.currentActiveNeurons = new HashSet<>();
+        this.isPredictingNeurons = new HashSet<>();
     }
 
     /**
@@ -57,10 +64,10 @@ public class PredictionAlgorithm_1 extends Pooler {
 
                 // Step 3) Decide which neurons are active for the current time
                 //         step
-                // possible answer: the current list of learning neurons? This
+                // Possible answer: the current list of learning neurons? This
                 // is because they aren't connected to anything since they have
                 // the least connected synapses
-                // TODO: possiable answer = only previously active neurons
+                // TODO: possible answer = only previously active neurons
                 //       closeby to current learning neuron
                 learningNeuron.setActiveState(true);
                 this.currentActiveNeurons.add(learningNeuron);
@@ -72,13 +79,44 @@ public class PredictionAlgorithm_1 extends Pooler {
             this.previouslyActiveNeurons.add(neuron);
             neuron.setActiveState(false);
         }
-        this.currentActiveNeurons.clear();
 
         // Step 5) what neurons can be used for prediction?
-        // possible answer: which neurons currently have the most # of active
-        // synapses across all distal dendrites
-        // TODO:
+        // Possible answer: which neurons currently have the most # of active
+        // synapses across all distal dendrites connected to the current set of
+        // active neurons. This is where we reward all the competition between
+        // all synapses to represent an connection to a past time step.
+        int numberOfActiveSynapsesConnectedToCurrentActiveNeurons = 0;
 
+        Column[][] columns = super.region.getColumns();
+        for (int ri = 0; ri < columns.length; ri++) {
+            for (int ci = 0; ci < columns[0].length; ci++) {
+                for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
+                    // TODO: we want to figure out which neurons(let's call them
+                    // futureNeurons) in any previous time step created a
+                    // synapse to attach to me(maybePredictingNeuron)! This
+                    // means that in the past after "maybePredictingNeuron" was
+                    // active, then in the next time step "futureNeurons" was
+                    // active. Thus, if maybePredictingNeuron is currently
+                    // active, then this is an INDICATOR that "futureNeurons"
+                    // will be active in the next time step. Thus we will mark
+                    // those neurons as "possiblyActiveInNextTimeStep" or
+                    // "isPredicting".
+                    for (DistalSegment distalSegment : maybePredictingNeuron.getDistalSegments()) {
+                        for (Synapse synapse : distalSegment.getConnectedSynapses());
+                        // TODO: fuck this is going to be a lot more work
+                        // need to figure out efficient way to figure this out
+                    }
+
+                }
+            }
+        }
+
+        // TODO: strengthen the connection between neuronAtTimeT and
+        // neuronAtTimeT+1 where
+
+        // prepare for next time step be clearing current info that is out of date
+        this.currentActiveNeurons.clear();
+        // TODO: iterate through all neurons and call nextTimeStep()
     }
 
     /**

@@ -22,7 +22,7 @@ import java.util.List;
  * @version July 22, 2013
  */
 public class Neuron extends Cell {
-    private boolean isPredicting;
+    private boolean isPredicting; // = possiblyActiveInNextTimeStep
     private boolean wasPredicting;
 
     private List<DistalSegment> distalSegments;
