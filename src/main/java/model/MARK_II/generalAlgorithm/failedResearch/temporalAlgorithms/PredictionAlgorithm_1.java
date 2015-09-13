@@ -63,8 +63,7 @@ public class PredictionAlgorithm_1 extends Pooler {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron, Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
             }
             learningNeuron.addDistalSegment(distalSegment);
-            // Step 3) Decide which neurons are active for the current time
-            //         step
+            // Step 3) Which neurons should be active for the current time step?
             // Possible answer: the current list of learning neurons? This
             // is because they aren't connected to anything since they have
             // the least connected synapses
@@ -74,17 +73,36 @@ public class PredictionAlgorithm_1 extends Pooler {
             this.currentActiveNeurons.add(learningNeuron);
         }
 
-        // Step 4) what neurons can be used for prediction?
+        // Step 4) What neurons can be used for prediction?
         // Possible answer: which neurons currently have the most # of active
         // synapses across all distal dendrites connected to the current set of
         // active neurons. This is where we reward all the competition between
         // all synapses to represent an connection to a past time step.
         int numberOfActiveSynapsesConnectedToCurrentActiveNeurons = 0;
 
+        for (Neuron activeNeuron : this.currentActiveNeurons) {
+            // TODO: we want to figure out which neurons(let's call them
+            // futureNeurons) in any previous time step created a
+            // synapse to attach to me(activeNeuron)! This
+            // means that in the past after "activeNeuron" was
+            // active, then in the next time step "futureNeurons" was
+            // active. Thus, if "activeNeuron" is currently
+            // active, then this is an INDICATOR that "futureNeurons"
+            // will be active in the next time step. Thus we will mark
+            // these neurons as "possiblyActiveInNextTimeStep" or
+            // "isPredicting".
+
+            // Step 5) How many number of predicting neurons?
+            // Possiable
+        }
+
         Column[][] columns = super.region.getColumns();
         for (int ri = 0; ri < columns.length; ri++) {
             for (int ci = 0; ci < columns[0].length; ci++) {
                 for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
+                    if (maybePredictingNeuron.getActiveState()) {
+
+                    }
                     // TODO: we want to figure out which neurons(let's call them
                     // futureNeurons) in any previous time step created a
                     // synapse to attach to me(maybePredictingNeuron)! This
@@ -93,7 +111,7 @@ public class PredictionAlgorithm_1 extends Pooler {
                     // active. Thus, if maybePredictingNeuron is currently
                     // active, then this is an INDICATOR that "futureNeurons"
                     // will be active in the next time step. Thus we will mark
-                    // those neurons as "possiblyActiveInNextTimeStep" or
+                    // these neurons as "possiblyActiveInNextTimeStep" or
                     // "isPredicting".
                     for (DistalSegment distalSegment : maybePredictingNeuron.getDistalSegments()) {
                         for (Synapse synapse : distalSegment.getConnectedSynapses());
