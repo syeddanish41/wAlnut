@@ -74,13 +74,7 @@ public class PredictionAlgorithm_1 extends Pooler {
             this.currentActiveNeurons.add(learningNeuron);
         }
 
-        // Step 4) change current states for next time step
-        for (Neuron neuron : this.currentActiveNeurons) {
-            this.previouslyActiveNeurons.add(neuron);
-            neuron.setActiveState(false);
-        }
-
-        // Step 5) what neurons can be used for prediction?
+        // Step 4) what neurons can be used for prediction?
         // Possible answer: which neurons currently have the most # of active
         // synapses across all distal dendrites connected to the current set of
         // active neurons. This is where we reward all the competition between
@@ -115,6 +109,10 @@ public class PredictionAlgorithm_1 extends Pooler {
         // neuronAtTimeT+1 where
 
         // prepare for next time step be clearing current info that is out of date
+        for (Neuron neuron : this.currentActiveNeurons) {
+            this.previouslyActiveNeurons.add(neuron);
+            neuron.setActiveState(false);
+        }
         this.currentActiveNeurons.clear();
         // TODO: iterate through all neurons and call nextTimeStep()
     }
