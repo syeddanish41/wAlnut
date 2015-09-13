@@ -50,28 +50,28 @@ public class PredictionAlgorithm_1 extends Pooler {
      */
     public void run() {
         Set<ColumnPosition> activeColumnPositions = this.spatialPooler.getActiveColumnPositions();
-        // Step 1) iterate through all active neurons in region
+        // Step 1) Iterate through all active neurons in region
         for (ColumnPosition ACP : activeColumnPositions) {
             Column activeColumn = super.getRegion().getColumn(ACP.getRow(), ACP.getRow());
             Neuron learningNeuron = this.getNeuronWithLeastNumberOfConnectedSynapses(activeColumn);
 
-            // Step 2) for each learning neuron connect to all previously active
-            //         neurons
-            for (Neuron previouslyActiveNeuron : this.previouslyActiveNeurons) {
-                DistalSegment distalSegment = new DistalSegment();
-                distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron, Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
-                learningNeuron.addDistalSegment(distalSegment);
+            // Step 2) For each learning neuron connect to all previously active
+            //         neurons. 1 new distal segment per learning neuron.
+            DistalSegment distalSegment = new DistalSegment();
 
-                // Step 3) Decide which neurons are active for the current time
-                //         step
-                // Possible answer: the current list of learning neurons? This
-                // is because they aren't connected to anything since they have
-                // the least connected synapses
-                // TODO: possible answer = only previously active neurons
-                //       closeby to current learning neuron
-                learningNeuron.setActiveState(true);
-                this.currentActiveNeurons.add(learningNeuron);
+            for (Neuron previouslyActiveNeuron : this.previouslyActiveNeurons) {
+                distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron, Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
             }
+            learningNeuron.addDistalSegment(distalSegment);
+            // Step 3) Decide which neurons are active for the current time
+            //         step
+            // Possible answer: the current list of learning neurons? This
+            // is because they aren't connected to anything since they have
+            // the least connected synapses
+            // TODO: possible answer = only previously active neurons
+            //       closeby to current learning neuron
+            learningNeuron.setActiveState(true);
+            this.currentActiveNeurons.add(learningNeuron);
         }
 
         // Step 4) change current states for next time step
