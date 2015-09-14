@@ -130,6 +130,10 @@ public class PredictionAlgorithm_1 extends Pooler {
         // isPredicting neuron @ t = 0 where isPredicting neuron is NOT active
         // @ t = 1.
 
+        this.nextTimeStep();
+    }
+
+    void nextTimeStep() {
         // prepare for next time step be clearing current info that is out of date
         this.previouslyActiveNeurons.clear();
         for (Neuron neuron : this.currentActiveNeurons) {
