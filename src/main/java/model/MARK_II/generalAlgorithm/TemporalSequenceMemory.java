@@ -25,6 +25,7 @@ public class TemporalSequenceMemory extends Pooler {
 
     public TemporalSequenceMemory(SpatialPooler spatialPooler, int
             newSynapseCount) {
+        super(AlgorithmStatistics.DEFAULT_NUMBER_OF_ALGORITHM_RUNS);
         this.spatialPooler = spatialPooler;
         super.region = spatialPooler.getRegion();
         this.segmentUpdateList = new SegmentUpdateList();
