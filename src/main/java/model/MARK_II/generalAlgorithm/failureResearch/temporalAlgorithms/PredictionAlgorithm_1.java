@@ -131,12 +131,20 @@ public class PredictionAlgorithm_1 extends Pooler {
         // @ t = 1.
 
         // prepare for next time step be clearing current info that is out of date
+        this.previouslyActiveNeurons.clear();
         for (Neuron neuron : this.currentActiveNeurons) {
             this.previouslyActiveNeurons.add(neuron);
             neuron.setActiveState(false);
         }
         this.currentActiveNeurons.clear();
-        // TODO: iterate through all neurons and call nextTimeStep()
+        Column[][] columns = super.region.getColumns();
+        for (int ri = 0; ri < columns.length; ri++) {
+            for (int ci = 0; ci < columns[0].length; ci++) {
+                for (Neuron neuron : columns[ri][ci].getNeurons()) {
+                    neuron.nextTimeStep();
+                }
+            }
+        }
     }
 
     /**
