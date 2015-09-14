@@ -95,9 +95,40 @@ public class PredictionAlgorithm_1 extends Pooler {
         // TODO: the same number of active neurons as predicting neurons
         // means a very clear prediction however plus or minus certain
         // predicting neurons means unsureness
+        for (Neuron activeNeuron : this.currentActiveNeurons) {
+            Column[][] columns = super.region.getColumns();
+            for (int ri = 0; ri < columns.length; ri++) {
+                for (int ci = 0; ci < columns[0].length; ci++) {
+                    for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
+                        int connectionScore = this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron);
 
-        // TODO: strengthen the connection between neuronAtTimeT and
-        // neuronAtTimeT+1 where
+                        if (this.isPredictingNeurons.size() >= this.spatialPooler.getActiveColumnPositions().size()) {
+                            break; // TODO: move step 5 into method and convert to break
+                        }
+
+                        if (connectionScore >= minimumConnectionScore) {
+                            maybePredictingNeuron.setPredictingState(true);
+                            this.isPredictingNeurons.add(maybePredictingNeuron);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Step 6) Which synapse connections should be strengthened to model
+        // long term potentiation?
+        // Possible answer:
+        // TODO: strengthen the connection between active neuron @ t = 0 and
+        // isPredicting neuron @ t = 0 where isPredicting neuron is
+        // active @ t = 1.
+        // TODO: investigate if problem if neuron stays active forever?
+
+        // Step 7) Which synapse connections should be weakened to model
+        // long term depression?
+        // Possible answer:
+        // TODO: weaken the connection between active neuron @ t = 0 and
+        // isPredicting neuron @ t = 0 where isPredicting neuron is NOT active
+        // @ t = 1.
 
         // prepare for next time step be clearing current info that is out of date
         for (Neuron neuron : this.currentActiveNeurons) {
@@ -137,23 +168,25 @@ public class PredictionAlgorithm_1 extends Pooler {
             for (int ri = 0; ri < columns.length; ri++) {
                 for (int ci = 0; ci < columns[0].length; ci++) {
                     for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
-                        // TODO: how to figure out if maybePredictingNeuron
-                        // previously created a synapse attached to activeNeuron
-                        int numberOfConnectedSynapsesToCurrentActiveNeuron = 0;
-                        for (DistalSegment distalSegment : maybePredictingNeuron.getDistalSegments()) {
-                            for (Synapse synapse : distalSegment.getConnectedSynapses()) {
-                                if (synapse.getCell().equals(maybePredictingNeuron)) {
-                                    numberOfConnectedSynapsesToCurrentActiveNeuron++;
-                                }
-                            }
-                        }
-                        connectionScores.add(numberOfConnectedSynapsesToCurrentActiveNeuron);
+                        connectionScores.add(this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron));
                     }
                 }
             }
-
         }
         return connectionScores;
+    }
+
+    int getNumberOfConnectedSynapsesToCurrentActiveNeuron(Neuron maybePredictingNeuron, Neuron activeNeuron) {
+        // TODO: consider cyclical connections if this is even possible?
+        int numberOfConnectedSynapsesToCurrentActiveNeuron = 0;
+        for (DistalSegment distalSegment : maybePredictingNeuron.getDistalSegments()) {
+            for (Synapse synapse : distalSegment.getConnectedSynapses()) {
+                if (synapse.getCell().equals(activeNeuron)) {
+                    numberOfConnectedSynapsesToCurrentActiveNeuron++;
+                }
+            }
+        }
+        return numberOfConnectedSynapsesToCurrentActiveNeuron;
     }
 
     /**
