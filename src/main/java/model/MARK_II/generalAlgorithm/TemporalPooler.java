@@ -357,8 +357,8 @@ public class TemporalPooler extends Pooler {
             }
         }
         this.spatialPooler.getAlgorithmStatistics()
-                .getTP_predictionScoreHistoryAndAdd(this
-                        .computePredictionScore());
+                .getTP_predictionScoreHistoryAndAdd(super.algorithmStatistics
+                        .computePredictionScore(this.spatialPooler.getActiveColumnPositions(), this.predictiveColumnsAtTForTPlus1));
     }
 
     /**
@@ -452,7 +452,7 @@ public class TemporalPooler extends Pooler {
 
         for (int i = 0; i < neurons.length; i++) {
             int numberOfSegments = neurons[i].getDistalSegments().size();
-            if (setNumberOfSegments == false) {
+            if (!setNumberOfSegments) {
                 // following code should be only run the first time
                 leastNumberOfSegments = numberOfSegments;
                 neuronWithLeastSegmentsIndex = i;
@@ -558,8 +558,8 @@ public class TemporalPooler extends Pooler {
             }
         }
         this.spatialPooler.getAlgorithmStatistics()
-                .getTP_predictionScoreHistoryAndAdd(this
-                        .computePredictionScore());
+                .getTP_predictionScoreHistoryAndAdd(super.algorithmStatistics
+                        .computePredictionScore(this.spatialPooler.getActiveColumnPositions(), this.predictiveColumnsAtTMinus1));
     }
 
     public int getNumberOfCurrentLearningNeurons() {
@@ -577,29 +577,5 @@ public class TemporalPooler extends Pooler {
                 + "_statistics.json";
         FileInputOutput.saveObjectToTextFile(algorithmStatisticsInJSON,
                 finalPathAndFile);
-    }
-
-    /**
-     * For more information please visit: https://github.com/WalnutiQ/WalnutiQ/issues/168
-     */
-    public double computePredictionScore() {
-        Set<ColumnPosition> activeColumns = this.spatialPooler.getActiveColumnPositions();
-        Set<ColumnPosition> activeAtTAndPredictiveAtTMinus1ColumnIntersection =
-                new HashSet<ColumnPosition>(activeColumns);
-
-        activeAtTAndPredictiveAtTMinus1ColumnIntersection.retainAll(this
-                .predictiveColumnsAtTMinus1);
-
-        int numerator = activeAtTAndPredictiveAtTMinus1ColumnIntersection.size();
-        int denominator = this.spatialPooler.getActiveColumnPositions().size();
-        if (denominator == 0) {
-            System.out.println("WARNING: current time step " + this.spatialPooler
-                    .getAlgorithmStatistics().getCurrentTimeStep() + " of prediction score had" +
-                    "0 active columns @ t and " + this.predictiveColumnsAtTMinus1.size()
-                    + " predictive columns @ t-1");
-            return 0;
-        } else {
-            return ((double)numerator)/((double)denominator);
-        }
     }
 }

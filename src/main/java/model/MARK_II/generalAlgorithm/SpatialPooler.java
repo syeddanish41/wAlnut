@@ -23,23 +23,20 @@ public class SpatialPooler extends Pooler {
 
     public static float MINIMUM_COLUMN_FIRING_RATE = 0.01f;
 
-    private AlgorithmStatistics algorithmStatistics;
+    public SpatialPooler(Region region, int numberOfTimesToRunAlgorithm) {
+        super(numberOfTimesToRunAlgorithm);
 
-    public SpatialPooler(Region region) {
         if (region == null) {
             throw new IllegalArgumentException(
                     "region in SpatialPooler class constructor cannot be null");
         }
         super.region = region;
-        this.activeColumns = new HashSet<Column>();
-        this.activeColumnPositions = new HashSet<ColumnPosition>();
-
-        this.algorithmStatistics = new AlgorithmStatistics(1000);
+        this.activeColumns = new HashSet<>();
+        this.activeColumnPositions = new HashSet<>();
     }
 
-    public SpatialPooler(Region region, int numberOfTimesToRunCLA) {
-        this(region);
-        this.algorithmStatistics = new AlgorithmStatistics(numberOfTimesToRunCLA);
+    public SpatialPooler(Region region) {
+        this(region, AlgorithmStatistics.DEFAULT_NUMBER_OF_ALGORITHM_RUNS);
     }
 
     /**
@@ -108,7 +105,7 @@ public class SpatialPooler extends Pooler {
             ///     overlap(c) = overlap(c) + input(t, s.sourceInput)
             .getNumberOfActiveSynapses();
 
-        this.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(newOverlapScore);
+        super.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(newOverlapScore);
 
         // compute minimumOverlapScore assuming all proximalSegments are
         // connected to the same number of synapses
@@ -172,7 +169,7 @@ public class SpatialPooler extends Pooler {
                 }
             }
         }
-        this.algorithmStatistics.getSP_activeColumnsHistoryAndAdd(this.activeColumnPositions.size());
+        super.algorithmStatistics.getSP_activeColumnsHistoryAndAdd(this.activeColumnPositions.size());
     }
 
     /**
@@ -190,7 +187,7 @@ public class SpatialPooler extends Pooler {
         this.region
                 .setInhibitionRadius((int) inhibitionRadius);
 
-        this.algorithmStatistics.getSP_inhibitionRadiusHistoryAndAdd(inhibitionRadius);
+        super.algorithmStatistics.getSP_inhibitionRadiusHistoryAndAdd(inhibitionRadius);
     }
 
     void modelLongTermPotentiationAndDepression() {
@@ -487,10 +484,6 @@ public class SpatialPooler extends Pooler {
 
     public Region getRegion() {
         return this.region;
-    }
-
-    public AlgorithmStatistics getAlgorithmStatistics() {
-        return this.algorithmStatistics;
     }
 
     @Override
