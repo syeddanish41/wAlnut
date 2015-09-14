@@ -8,9 +8,9 @@ Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)
 
 # wAlnut
 
-"*Perfect lets you stall, ask more questions, do more reviews, safe it up and 
-generally avoid doing anything that might fail or anything important. You're 
-not in the perfect business. Stop pretending that's what the world wants from 
+"*Perfect lets you stall, ask more questions, do more reviews, safe it up and
+generally avoid doing anything that might fail or anything important. You're
+not in the perfect business. Stop pretending that's what the world wants from
 you.*"  
 ~ [Seth Godin](http://sethgodin.typepad.com/seths_blog/2015/06/abandoning-perfection.html)
 
@@ -204,11 +204,11 @@ Q
           + [connectTypes](./src/main/java/model/MARK_II/connectTypes) =
             allow the different brain structures to connect to each other in
             a variety of ways
-          + [generalAlgorithm](./src/main/java/model/MARK_II/generalAlgorithm) 
-            - failedResearch 
+          + [generalAlgorithm](./src/main/java/model/MARK_II/generalAlgorithm)
+            - failureResearch 
               + temporalAlgorithms = Process of rethinking a prediction algorithm
-                from the ground up using ideas from temporal pooler when 
-                necessary. 
+                from the ground up using ideas from temporal pooler when
+                necessary.
             - **[SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java)
               = models the sparse & distributed spiking activity of neurons
               seen in the neocortex and models long term potentiation and
@@ -221,7 +221,7 @@ Q
             this repo https://github.com/quinnliu/CallWalnutiQ
           + region = components that make up a Region object
           + sensory = classes for allowing brain model to receive sensory input
-          + unimplementedBiology = parts of the nervous system we haven't 
+          + unimplementedBiology = parts of the nervous system we haven't
             implemented into this model
         - [util](./src/main/java/model/util) = classes that enable the brain
           model properties to be viewed graphically and efficiently saved
@@ -301,8 +301,8 @@ Q
 # Noise invariance experiment
 
 Here is some example code of how part of the theorized prediction algorithm
-works. It is a beautiful summary of how columns of neurons in your neocortex 
-are probably working to encode what you see. The following are the three images 
+works. It is a beautiful summary of how columns of neurons in your neocortex
+are probably working to encode what you see. The following are the three images
 the retina will be looking at:
 
 ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/presentations/three_images_of_digit_2.jpg)

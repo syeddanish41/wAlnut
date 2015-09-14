@@ -1,13 +1,11 @@
-package model.MARK_II.generalAlgorithm.failedResearch.temporalAlgorithms;
+package model.MARK_II.generalAlgorithm.failureResearch.temporalAlgorithms;
 
-import model.MARK_II.generalAlgorithm.AlgorithmStatistics;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.region.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -21,7 +19,7 @@ import java.util.TreeSet;
  * how to improve it.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @version 9/7/2015
+ * @version 9/13/2015
  */
 public class PredictionAlgorithm_1 extends Pooler {
     private SpatialPooler spatialPooler;
@@ -65,7 +63,8 @@ public class PredictionAlgorithm_1 extends Pooler {
             DistalSegment distalSegment = new DistalSegment();
 
             for (Neuron previouslyActiveNeuron : this.previouslyActiveNeurons) {
-                distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron, Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
+                distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron,
+                        Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
             }
             learningNeuron.addDistalSegment(distalSegment);
             // Step 3) Which neurons should be active for the current time step?
@@ -84,31 +83,12 @@ public class PredictionAlgorithm_1 extends Pooler {
         // synapses across all distal dendrites connected to the current set of
         // active neurons. This is where we reward all the competition between
         // all synapses to represent an connection to a past time step.
-        Set<Neuron> numberOfConnectedSynapses = new TreeSet<>();
 
-        for (Neuron activeNeuron : this.currentActiveNeurons) {
-            // we want to figure out which neurons(let's call them
-            // futureNeurons) in any previous time step created a
-            // synapse to attach to me(activeNeuron)! This
-            // means that in the past after "activeNeuron" was
-            // active, then in the next time step "futureNeurons" was
-            // active. Thus, if "activeNeuron" is currently
-            // active, then this is an INDICATOR that "futureNeurons"
-            // will be active in the next time step. Thus we will mark
-            // these neurons as "possiblyActiveInNextTimeStep" or
-            // "isPredicting".
+        // NOTE: connectionScores = sorted # of connected synapses for each neuron in Region
+        Set<Integer> connectionScores = this.getConnectionScores();
 
-            Column[][] columns = super.region.getColumns();
-            for (int ri = 0; ri < columns.length; ri++) {
-                for (int ci = 0; ci < columns[0].length; ci++) {
-                    for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
-                        // TODO: how to figure out if maybePredictingNeuron
-                        // previously created a synapse attached to activeNeuron
-
-                    }
-                }
-            }
-        }
+        int index = Math.max(0, connectionScores.size() - this.spatialPooler.getActiveColumnPositions().size());
+        int minimumConnectionScore = (Integer) connectionScores.toArray()[index];
 
         // Step 5) How many number of predicting neurons?
         // Possible answer: same number of currently active neurons.
@@ -129,41 +109,51 @@ public class PredictionAlgorithm_1 extends Pooler {
     }
 
     /**
-     * @param neighborColumns
-     * @param desiredLocalActivity
-     * @return the kth highest number of activeSynapses overlapScore value of a Column object within the
-     * neighborColumns list.
-     *
-     * ActiveSynapsesConnectedToCurrentActiveNeurons
+     * @return sorted # of connected synapses for each neuron in Region aka
+     * connection scores.
      */
-    int kthScoreOfColumns(List<Column> neighborColumns,
-                          int desiredLocalActivity) {
-        if (neighborColumns == null) {
-            throw new IllegalArgumentException(
-                    "neighborColumns in SpatialPooler method kthScoreOfColumns cannot be null");
-        }
-        // TreeSet data structures' elements are automatically sorted.
-        Set<Integer> overlapScores = new TreeSet<Integer>();
-        for (Column column : neighborColumns) {
-            overlapScores.add(column.getOverlapScore());
-        }
+    Set<Integer> getConnectionScores() {
+        Set<Integer> connectionScores = new TreeSet<>();
 
-        // if invalid or no local activity is desired, it is changed so that the
-        // highest overlapScore is returned.
-        if (desiredLocalActivity <= 0) {
-            throw new IllegalStateException(
-                    "desiredLocalActivity cannot be <= 0");
-        }
+        // TODO: note a given neuron might have distal segments attached to
+        // multiple current active neurons. Does the following code account
+        // for that?
 
-        // k is the index of the overlapScore to be returned. The overlapScore
-        // is the score at position k(counting from the top) of all
-        // overlapScores when arranged from smallest to greatest.
-        int k = Math.max(0, overlapScores.size() - desiredLocalActivity);
-        if (overlapScores.size() > k) {
-            return (Integer) overlapScores.toArray()[k];
-        } else {
-            return 0;
+        for (Neuron activeNeuron : this.currentActiveNeurons) {
+            // we want to figure out which neurons(let's call them
+            // futureNeurons) in any previous time step created a
+            // synapse to attach to me(activeNeuron)! This
+            // means that in the past after "activeNeuron" was
+            // active, then in the next time step "futureNeurons" was
+            // active. Thus, if "activeNeuron" is currently
+            // active, then this is an INDICATOR that "futureNeurons"
+            // will be active in the next time step. Thus we will mark
+            // these neurons as "possiblyActiveInNextTimeStep" or
+            // "isPredicting".
+
+            // get # of connected synapses for each neuron in Region for the
+            // current set of active neurons
+            Column[][] columns = super.region.getColumns();
+            for (int ri = 0; ri < columns.length; ri++) {
+                for (int ci = 0; ci < columns[0].length; ci++) {
+                    for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
+                        // TODO: how to figure out if maybePredictingNeuron
+                        // previously created a synapse attached to activeNeuron
+                        int numberOfConnectedSynapsesToCurrentActiveNeuron = 0;
+                        for (DistalSegment distalSegment : maybePredictingNeuron.getDistalSegments()) {
+                            for (Synapse synapse : distalSegment.getConnectedSynapses()) {
+                                if (synapse.getCell().equals(maybePredictingNeuron)) {
+                                    numberOfConnectedSynapsesToCurrentActiveNeuron++;
+                                }
+                            }
+                        }
+                        connectionScores.add(numberOfConnectedSynapsesToCurrentActiveNeuron);
+                    }
+                }
+            }
+
         }
+        return connectionScores;
     }
 
     /**
@@ -176,6 +166,7 @@ public class PredictionAlgorithm_1 extends Pooler {
      *    active -> neuron3 becomes predicted?
      */
     Neuron getNeuronWithLeastNumberOfConnectedSynapses(Column activeColumn) {
+        // TODO: implement
         return null;
     }
 }
