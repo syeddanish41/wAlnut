@@ -139,7 +139,6 @@ public class AlgorithmStatistics {
      * For more information please visit: https://github.com/WalnutiQ/WalnutiQ/issues/168
      */
     public double computePredictionScore(Set<ColumnPosition> activeColumnPositions, Set<ColumnPosition> predictiveColumnsAtTMinus1) {
-        // TODO: update to newest formula from github issue
         Set<ColumnPosition> activeColumns = activeColumnPositions;
         Set<ColumnPosition> activeAtTAndPredictiveAtTMinus1ColumnIntersection =
                 new HashSet<>(activeColumns);

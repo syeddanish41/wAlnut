@@ -13,7 +13,6 @@ public class ResetModelParametersTest extends junit.framework.TestCase {
     private Synapse synapse;
 
     public void setUp() {
-        // TODO: update tests with generic permanence checks
         // NOTE: when first testing this class I used preset values for MARK I
         //       model without realizing I would want to change them in the
         //       future. The following are the preset values:

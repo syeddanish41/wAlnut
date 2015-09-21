@@ -27,10 +27,6 @@ public class PredictionAlgorithm_1 extends Pooler {
     Set<Neuron> previouslyActiveNeurons;
     Set<Neuron> currentActiveNeurons;
 
-    /**
-     * TODO: size = ? Set a max & min with a new class? For now set same
-     * as activeColumns.size()
-     */
     Set<Neuron> isPredictingNeurons;
 
     public PredictionAlgorithm_1(SpatialPooler spatialPooler) {
@@ -103,7 +99,7 @@ public class PredictionAlgorithm_1 extends Pooler {
                         int connectionScore = this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron);
 
                         if (this.isPredictingNeurons.size() >= this.spatialPooler.getActiveColumnPositions().size()) {
-                            break; // TODO: move step 5 into method and convert to break
+                            break; // TODO: move step 5 into method and convert to return
                         }
 
                         if (connectionScore >= minimumConnectionScore) {

@@ -24,7 +24,6 @@ public class SpatialPoolerTest extends TestCase {
     private SpatialPooler spatialPooler;
 
     public void setUp() {
-        // TODO: update tests with generic permanence checks
         // NOTE: when first testing this class I used preset values for MARK I
         //       model without realizing I would want to change them in the
         //       future. The following are the preset values:
@@ -174,7 +173,6 @@ public class SpatialPoolerTest extends TestCase {
         assertEquals(0.3f, synapse_00.getPermanenceValue(), 0.001);
         this.spatialPooler.modelLongTermPotentiationAndDepression();
 
-        // TODO: Why did this fail on Travis CI but passed locally?
         assertEquals(0.32f, synapse_00.getPermanenceValue(), 0.001);
 
         // now the Synapse permanenceValue is decreased
