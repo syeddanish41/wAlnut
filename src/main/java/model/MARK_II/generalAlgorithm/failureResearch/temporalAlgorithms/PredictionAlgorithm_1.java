@@ -44,7 +44,7 @@ public class PredictionAlgorithm_1 extends Pooler {
      * MAIN LOGIC: For each learning neuron in an active column, connect to all
      * previously active neurons.
      */
-    public void run() {
+    public void runOnce() {
         Set<ColumnPosition> activeColumnPositions = this.spatialPooler.getActiveColumnPositions();
         // Step 1) Which neurons to apply logic to?
         // Possible answer: Iterate through all active neurons in region
@@ -67,8 +67,6 @@ public class PredictionAlgorithm_1 extends Pooler {
             // Possible answer: the current list of learning neurons? This
             // is because they aren't connected to anything since they have
             // the least connected synapses
-            // TODO: possible answer = only previously active neurons
-            //       closeby to current learning neuron
             learningNeuron.setActiveState(true);
             this.currentActiveNeurons.add(learningNeuron);
         }
@@ -88,28 +86,9 @@ public class PredictionAlgorithm_1 extends Pooler {
 
         // Step 5) How many number of predicting neurons?
         // Possible answer: same number of currently active neurons.
-        // TODO: the same number of active neurons as predicting neurons
-        // means a very clear prediction however plus or minus certain
-        // predicting neurons means unsureness
-        for (Neuron activeNeuron : this.currentActiveNeurons) {
-            Column[][] columns = super.region.getColumns();
-            for (int ri = 0; ri < columns.length; ri++) {
-                for (int ci = 0; ci < columns[0].length; ci++) {
-                    for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
-                        int connectionScore = this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron);
-
-                        if (this.isPredictingNeurons.size() >= this.spatialPooler.getActiveColumnPositions().size()) {
-                            break; // TODO: move step 5 into method and convert to return
-                        }
-
-                        if (connectionScore >= minimumConnectionScore) {
-                            maybePredictingNeuron.setPredictingState(true);
-                            this.isPredictingNeurons.add(maybePredictingNeuron);
-                        }
-                    }
-                }
-            }
-        }
+        // This means a very clear prediction however plus or minus certain
+        // predicting neurons means unsureness.
+        this.updateIsPredictingNeurons(minimumConnectionScore);
 
         // Step 6) Which synapse connections should be strengthened to model
         // long term potentiation?
@@ -127,6 +106,28 @@ public class PredictionAlgorithm_1 extends Pooler {
         // @ t = 1.
 
         this.nextTimeStep();
+    }
+
+    void updateIsPredictingNeurons(int minimumConnectionScore) {
+        for (Neuron activeNeuron : this.currentActiveNeurons) {
+            Column[][] columns = super.region.getColumns();
+            for (int ri = 0; ri < columns.length; ri++) {
+                for (int ci = 0; ci < columns[0].length; ci++) {
+                    for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
+                        int connectionScore = this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron);
+
+                        if (this.isPredictingNeurons.size() >= this.spatialPooler.getActiveColumnPositions().size()) {
+                            return;
+                        }
+
+                        if (connectionScore >= minimumConnectionScore) {
+                            maybePredictingNeuron.setPredictingState(true);
+                            this.isPredictingNeurons.add(maybePredictingNeuron);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     void nextTimeStep() {
