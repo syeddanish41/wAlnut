@@ -78,9 +78,7 @@ Numenta's implementation of their algorithms can be found
   [white paper](https://github.com/WalnutiQ/papers/blob/master/HTM_CorticalLearningAlgorithms.pdf)
   to better understand the theory behind this repository.
 
-Thanks for reading,  
-Q
-
+~ Q
 
 ## Install in Linux/Mac/Windows with IntelliJ (Recommended)
 1. If you have any problems with the following instructions please e-mail
@@ -205,17 +203,17 @@ Q
             allow the different brain structures to connect to each other in
             a variety of ways
           + [generalAlgorithm](./src/main/java/model/MARK_II/generalAlgorithm)
-            - failureResearch 
+            - [failureResearch](./src/main/java/model/MARK_II/generalAlgorithm/failureResearch)
               + temporalAlgorithms = Process of rethinking a prediction algorithm
                 from the ground up using ideas from temporal pooler when
                 necessary.
-            - **[SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java)
+            - [SpatialPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/SpatialPooler.java)
               = models the sparse & distributed spiking activity of neurons
               seen in the neocortex and models long term potentiation and
-              depression on synapses of proximal dendrites**
-            - **[TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java)
+              depression on synapses of proximal dendrites
+            - [TemporalPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/TemporalPooler.java)
               = models neocortex's ability to predict future input using long
-              term potentiation and depression on synapses of distal dendrites**
+              term potentiation and depression on synapses of distal dendrites
           + [parameters](./src/main/java/model/MARK_II/parameters) = allows
             construction of different WalnutiQ models from command line for
             this repo https://github.com/quinnliu/CallWalnutiQ
@@ -242,8 +240,7 @@ Q
                   repository in Windows
 
 # Important brain theories in use
-
-1. **Theory:** 1 common learning/predicting algorithm in the neocortex of the brain
+1. **Theory:** 1 common learning algorithm in the neocortex of the brain
    - Supportive:
      + 1992 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualProjectionsRouted.pdf)
        from Department of Brain and
@@ -297,6 +294,32 @@ Q
      process this new input similarily to how cortex X would process it, then we
      can hypothesize that there is a common learning/predicting algorithm in all
      cortices of the neocortex.
+
+2. **Theory:** The 1 common learning algorithm learns about the world by using
+   when things happen across time. The algorithm makes no assumptions about
+   the different transformations that our world has(shifts, rotations, etc.).
+   The algorithm ONLY says if 1 pattern follows another in time in a
+   predictable way, then they are causally related and should have the
+   SAME PRESENTATION in the brain.
+   - Kinda Supportive:
+     + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
+       by Dileep George from Stanford University
+       - There is a idea in optimization algorithms called No Free Lunch
+         theorem. No Free Lunch theorem "state[s] that any two optimization algorithms
+         are equivalent when their performance is averaged across all possible
+         problems".
+       - "*On the surface, the NFL theorem seems to create problems for the
+         idea of a common cortical algorithm. How can one mechanism/algorithm
+         do very well on tasks as different as vision, audition and language?
+         The answer comes from the part of the NFL theorem that talks about
+         the assumptions that need to be exploited ... If the cortex is good
+         at learning a wide variety of tasks using a common mechanism, then
+         there must be something common about these seemingly different tasks.*".
+
+   - Not supportive:
+
+   - No Conclusion Yet: Still experimenting with rethinking a prediction algorithm
+     from the ground up using ideas from temporal pooler when necessary in folder [failureResearch](./src/main/java/model/MARK_II/generalAlgorithm/failureResearch).
 
 # Noise invariance experiment
 
