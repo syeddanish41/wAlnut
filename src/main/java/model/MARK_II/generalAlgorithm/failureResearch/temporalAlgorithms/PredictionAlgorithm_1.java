@@ -30,8 +30,8 @@ import java.util.TreeSet;
 public class PredictionAlgorithm_1 extends Pooler {
     private SpatialPooler spatialPooler;
 
-    Set<Neuron> previouslyActiveNeurons;
-    Set<Neuron> currentActiveNeurons;
+    Set<Neuron> wasActiveNeurons;
+    Set<Neuron> isActiveNeurons;
 
     Set<Neuron> isPredictingNeurons;
 
@@ -39,8 +39,9 @@ public class PredictionAlgorithm_1 extends Pooler {
         this.spatialPooler = spatialPooler;
         super.region = spatialPooler.getRegion();
 
-        this.previouslyActiveNeurons = new HashSet<>();
-        this.currentActiveNeurons = new HashSet<>();
+        this.wasActiveNeurons = new HashSet<>();
+        this.isActiveNeurons = new HashSet<>();
+
         this.isPredictingNeurons = new HashSet<>();
     }
 
@@ -64,7 +65,7 @@ public class PredictionAlgorithm_1 extends Pooler {
             // previously active neurons. 1 new distal segment per learning neuron.
             DistalSegment distalSegment = new DistalSegment();
 
-            for (Neuron previouslyActiveNeuron : this.previouslyActiveNeurons) {
+            for (Neuron previouslyActiveNeuron : this.wasActiveNeurons) {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron,
                         Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
             }
@@ -74,7 +75,7 @@ public class PredictionAlgorithm_1 extends Pooler {
             // is because they aren't connected to anything since they have
             // the least connected synapses
             learningNeuron.setActiveState(true);
-            this.currentActiveNeurons.add(learningNeuron);
+            this.isActiveNeurons.add(learningNeuron);
         }
 
         // Step 4) What neurons can be used for prediction?
@@ -97,9 +98,16 @@ public class PredictionAlgorithm_1 extends Pooler {
         // Step 6) Which synapse connections should be strengthened to model
         // long term potentiation?
         // Possible answer:
-        // TODO: strengthen the connection between active neuron @ t = 0 and
-        // isPredicting neuron @ t = 0 where isPredicting neuron is
-        // active @ t = 1.
+        // TODO: strengthen the connection between active neuron @ t = -1 and
+        // isPredicting neuron @ t = -1 where is Predicting neuron is
+        // active @ t = 0.
+        for (Neuron activeNeuronThatWasAlsoPredictingInLastTimeStep : this.isActiveNeurons) {
+            if (activeNeuronThatWasAlsoPredictingInLastTimeStep.getPreviousPredictingState()) {
+                // TODO: find all "neuronA's" that were active @ t = -1 connected
+                // to distal dendrite synapses on this Neuron
+            }
+        }
+
         // TODO: investigate if problem if neuron stays active forever?
 
         // Step 7) Which synapse connections should be weakened to model
@@ -113,7 +121,7 @@ public class PredictionAlgorithm_1 extends Pooler {
     }
 
     void updateIsPredictingNeurons(int minimumConnectionScore) {
-        for (Neuron activeNeuron : this.currentActiveNeurons) {
+        for (Neuron activeNeuron : this.isActiveNeurons) {
             Column[][] columns = super.region.getColumns();
             for (int ri = 0; ri < columns.length; ri++) {
                 for (int ci = 0; ci < columns[0].length; ci++) {
@@ -121,7 +129,7 @@ public class PredictionAlgorithm_1 extends Pooler {
                         int connectionScore = this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron);
 
                         if (this.isPredictingNeurons.size() >= this.spatialPooler.getActiveColumnPositions().size()) {
-                            break; // TODO: move step 5 into method and convert to break
+                            break;
                         }
 
                         if (connectionScore >= minimumConnectionScore) {
@@ -136,12 +144,12 @@ public class PredictionAlgorithm_1 extends Pooler {
 
     void nextTimeStep() {
         // prepare for next time step be clearing current info that is out of date
-        this.previouslyActiveNeurons.clear();
-        for (Neuron neuron : this.currentActiveNeurons) {
-            this.previouslyActiveNeurons.add(neuron);
+        this.wasActiveNeurons.clear();
+        for (Neuron neuron : this.isActiveNeurons) {
+            this.wasActiveNeurons.add(neuron);
             neuron.setActiveState(false);
         }
-        this.currentActiveNeurons.clear();
+        this.isActiveNeurons.clear();
         Column[][] columns = super.region.getColumns();
         for (int ri = 0; ri < columns.length; ri++) {
             for (int ci = 0; ci < columns[0].length; ci++) {
@@ -163,7 +171,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         // multiple current active neurons. Does the following code account
         // for that?
 
-        for (Neuron activeNeuron : this.currentActiveNeurons) {
+        for (Neuron activeNeuron : this.isActiveNeurons) {
             // we want to figure out which neurons(let's call them
             // futureNeurons) in any previous time step created a
             // synapse to attach to me(activeNeuron)! This
