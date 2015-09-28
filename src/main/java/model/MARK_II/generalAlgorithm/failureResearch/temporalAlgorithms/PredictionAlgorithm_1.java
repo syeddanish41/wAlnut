@@ -10,8 +10,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * An experimental prediction algorithm. Initial ideas behind how this algorithm
- * was designed are here: https://github.com/WalnutiQ/walnut/issues/199
+ * This is an experimental prediction algorithm. Initial ideas behind how this
+ * algorithm was designed are here: https://github.com/WalnutiQ/walnut/issues/199
+ *
+ * The core idea of this algorithm is that it makes no assumptions about the
+ * different transformations that our world has(shifts, rotations, etc.). The
+ * algorithm ONLY says if 1 pattern follows another in time in a predictable
+ * way, then they are causally related and should have the SAME REPRESENTATION
+ * in the brain.
  *
  * This class solidifies those initial ideas into a deterministic prediction
  * algorithm that probably doesn't work well. Fully understanding why this
@@ -19,7 +25,7 @@ import java.util.TreeSet;
  * how to improve it.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @version 9/13/2015
+ * @version 9/27/2015
  */
 public class PredictionAlgorithm_1 extends Pooler {
     private SpatialPooler spatialPooler;
@@ -27,10 +33,6 @@ public class PredictionAlgorithm_1 extends Pooler {
     Set<Neuron> previouslyActiveNeurons;
     Set<Neuron> currentActiveNeurons;
 
-    /**
-     * TODO: size = ? Set a max & min with a new class? For now set same
-     * as activeColumns.size()
-     */
     Set<Neuron> isPredictingNeurons;
 
     public PredictionAlgorithm_1(SpatialPooler spatialPooler) {
@@ -71,8 +73,6 @@ public class PredictionAlgorithm_1 extends Pooler {
             // Possible answer: the current list of learning neurons? This
             // is because they aren't connected to anything since they have
             // the least connected synapses
-            // TODO: possible answer = only previously active neurons
-            //       closeby to current learning neuron
             learningNeuron.setActiveState(true);
             this.currentActiveNeurons.add(learningNeuron);
         }
@@ -92,9 +92,27 @@ public class PredictionAlgorithm_1 extends Pooler {
 
         // Step 5) How many number of predicting neurons?
         // Possible answer: same number of currently active neurons.
-        // TODO: the same number of active neurons as predicting neurons
-        // means a very clear prediction however plus or minus certain
-        // predicting neurons means unsureness
+        this.updateIsPredictingNeurons(minimumConnectionScore);
+
+        // Step 6) Which synapse connections should be strengthened to model
+        // long term potentiation?
+        // Possible answer:
+        // TODO: strengthen the connection between active neuron @ t = 0 and
+        // isPredicting neuron @ t = 0 where isPredicting neuron is
+        // active @ t = 1.
+        // TODO: investigate if problem if neuron stays active forever?
+
+        // Step 7) Which synapse connections should be weakened to model
+        // long term depression?
+        // Possible answer:
+        // TODO: weaken the connection between active neuron @ t = 0 and
+        // isPredicting neuron @ t = 0 where isPredicting neuron is NOT active
+        // @ t = 1.
+
+        this.nextTimeStep();
+    }
+
+    void updateIsPredictingNeurons(int minimumConnectionScore) {
         for (Neuron activeNeuron : this.currentActiveNeurons) {
             Column[][] columns = super.region.getColumns();
             for (int ri = 0; ri < columns.length; ri++) {
@@ -114,23 +132,6 @@ public class PredictionAlgorithm_1 extends Pooler {
                 }
             }
         }
-
-        // Step 6) Which synapse connections should be strengthened to model
-        // long term potentiation?
-        // Possible answer:
-        // TODO: strengthen the connection between active neuron @ t = 0 and
-        // isPredicting neuron @ t = 0 where isPredicting neuron is
-        // active @ t = 1.
-        // TODO: investigate if problem if neuron stays active forever?
-
-        // Step 7) Which synapse connections should be weakened to model
-        // long term depression?
-        // Possible answer:
-        // TODO: weaken the connection between active neuron @ t = 0 and
-        // isPredicting neuron @ t = 0 where isPredicting neuron is NOT active
-        // @ t = 1.
-
-        this.nextTimeStep();
     }
 
     void nextTimeStep() {

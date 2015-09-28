@@ -300,7 +300,7 @@ Numenta's implementation of their algorithms can be found
    the different transformations that our world has(shifts, rotations, etc.).
    The algorithm ONLY says if 1 pattern follows another in time in a
    predictable way, then they are causally related and should have the
-   SAME PRESENTATION in the brain.
+   SAME REPRESENTATION in the brain.
    - Kinda Supportive:
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
