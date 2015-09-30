@@ -109,6 +109,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         }
 
         // TODO: investigate if problem if neuron stays active forever?
+        
 
         // Step 7) Which synapse connections should be weakened to model
         // long term depression?
