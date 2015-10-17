@@ -335,7 +335,7 @@ you want to learn about the most important brain theories we are using read
 
 # Key Experiments
 
-The following experiments show off how a general learning algorithm use the
+The following experiments show off how a general learning algorithm uses the
 brain's data structure to it's advantage to process input data and create 
 intelligence. 
 
@@ -357,11 +357,15 @@ the retina will be looking at:
 retina.seeBMPImage("2.bmp");
 spatialPooler.performPooling();
 // set1 = ((6,2), (1,5))
+// (6,2) and (1,5) are the columns in the Region that are active after seeing
+// "2.bmp"
 assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
 retina.seeBMPImage("2_with_some_noise.bmp");
 spatialPooler.performPooling();
 // set1 = ((6,2), (1,5))
+// NOTE: the columns that are active are still the same even though there was
+//       quite a lot of noise in the input data
 assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
 retina.seeBMPImage("2_with_a_lot_of_noise.bmp");
