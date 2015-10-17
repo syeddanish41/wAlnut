@@ -46,7 +46,7 @@ public class PredictionAlgorithm_1 extends Pooler {
     }
 
     /**
-     * Call this method to run PredictionAlgorithm_1 once on Region.
+     * Call this method to run PredictionAlgorithm_1 once on a Region.
      *
      * MAIN LOGIC: For each learning neuron in an active column, connect to all
      * previously active neurons.
@@ -109,7 +109,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         }
 
         // TODO: investigate if problem if neuron stays active forever?
-        
+
 
         // Step 7) Which synapse connections should be weakened to model
         // long term depression?
