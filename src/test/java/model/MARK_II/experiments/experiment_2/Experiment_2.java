@@ -45,19 +45,13 @@ public class Experiment_2 extends TestCase {
         int newSynapseCount = 10;
         double permanenceInc =   0.1;
         double permanenceDec =   0.0;
-        // TODO: understand below parameters
-        // activationThreshold = 8?
-        // globalDecay = 0?
-        // burnIn = 1?
-        // checkSynapseConsistency = False?
-        // pamLength = 10?
 
         Synapse.INITIAL_PERMANENCE = initialPerm;
         Synapse.MINIMAL_CONNECTED_PERMANENCE = connectedPerm;
         Synapse.PERMANENCE_INCREASE = permanenceInc;
         Synapse.PERMANENCE_DECREASE = permanenceDec;
 
-        Segment.PERCENT_ACTIVE_SYNAPSES_THRESHOLD = 0.2; // TODO: change?
+        Segment.PERCENT_ACTIVE_SYNAPSES_THRESHOLD = 0.2;
 
         // Step 1: create Temporal Pooler instance with appropriate parameters
         this.retina = new Retina(10, 10);
@@ -83,7 +77,6 @@ public class Experiment_2 extends TestCase {
         // Step 3: send this simple sequence to the temporal pooler for learning
         // we repeat the sequence 10 times
 
-        // TODO: visualize region statistics
         for (int i = 0; i < 10; i++) {
             this.retina.seeBMPImage("A.bmp");
             runCLA();
@@ -100,8 +93,6 @@ public class Experiment_2 extends TestCase {
             this.retina.seeBMPImage("E.bmp");
             runCLA();
         }
-
-        // TODO: assert equals for each expected image
 
         this.retina.seeBMPImage("A.bmp");
         runCLA_noNextTimeStep();
