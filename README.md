@@ -1,10 +1,7 @@
-Install with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
-(Recommended) or
-**[Gradle](#install-in-linuxmacwindows-with-gradle)** for Linux/Mac/Windows **|**
-**[How to contribute](#how-to-contribute) |**
-**[What are all the files here for?](#what-are-all-the-files-here-for) |**
-**[Important brain theories in use](#important-brain-theories-in-use) |**
-**[Noise invariance experiment](#noise-invariance-experiment)**
+**[Why](#why) |**
+**[How](#how) |**
+**[What](#what) |**
+**[Key Experiments](#key-experiments)**
 
 # wAlnut
 
@@ -15,6 +12,8 @@ you.*"
 ~ [Seth Godin](http://sethgodin.typepad.com/seths_blog/2015/06/abandoning-perfection.html)
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
+
+## Why
 
 The long term goal of this repository is to store code that can simulate a full
 sized human brain in real time. The current short term goal is to experiment
@@ -28,7 +27,7 @@ human brain we will be able to simulate the intelligence of 1 brain on a
 computer. This can be scaled to surpass the collective intelligence of the 7+
 billion human brains on Earth.
 
-I believe that this intelligent machine will be able to solve many of our
+I believe that an intelligent machine will be able to solve many of our
 hardest problems and will cause many new hard problems. Technology has always
 been used to do great good and great evil and it is scary to imagine the great
 evil this technology brings. I desperately want to help build a technology that
@@ -63,14 +62,15 @@ attitude please e-mail me at quinnliu@vt.edu to talk about how you can get
 involved. This project has a long journey ahead so sustainability will take
 precedence over crunch. Currently I have no funding for paying you.
 
-Most importantly, this research is made possible by everyone at
-[Numenta](http://numenta.org/). Numenta has theorized and tested algorithms
-that model layers 2/3 & 4 of the human neocortex. They have generously released
-the pseudo code for their learning algorithms, and this repository is an extended
-implementation of their algorithms using object-oriented programming with a
-focus on <b>understandability</b> over speed and applications to <b>human vision.</b>
-Numenta's implementation of their algorithms can be found
-[here](https://github.com/numenta/nupic). For more information please:
+This research was initially inspired by everyone at [Numenta](http://numenta.org/). 
+Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the 
+human neocortex. They have generously released the pseudo code for their 
+learning algorithms, and this repository is an extended implementation of 
+their algorithms using object-oriented programming with a focus on 
+<b>understandability</b> over speed and applications to <b>human vision</b>
+using hierarchy and sensory motor integration. Numenta's implementation of their 
+algorithms can be found [here](https://github.com/numenta/nupic). For more 
+information please:
 
 - Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
   to become familiar with the neuroscience behind this repository.
@@ -78,11 +78,14 @@ Numenta's implementation of their algorithms can be found
   [white paper](https://github.com/WalnutiQ/papers/blob/master/HTM_CorticalLearningAlgorithms.pdf)
   to better understand the theory behind this repository.
 
-Thanks for reading,  
-Q
+~ Q
 
+## How
+Install all code with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
+(Recommended) or **[Gradle](#install-in-linuxmacwindows-with-gradle)** for 
+Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
 
-## Install in Linux/Mac/Windows with IntelliJ (Recommended)
+#### Install in Linux/Mac/Windows with IntelliJ (Recommended)
 1. If you have any problems with the following instructions please e-mail
    quinnliu@vt.edu and I will try to help the best I can. First
    make sure you have java version 1.8. To check open up a new terminal
@@ -130,7 +133,7 @@ Q
 10. In the left side file viewer right-click the folder "WalnutiQ" and select `Run 'Tests in WalnutiQ''`. Hopefully
    they all pass.
 
-## Install in Linux/Mac/Windows with Gradle
+#### Install in Linux/Mac/Windows with Gradle
 1. If you have any problems with the following instructions please e-mail
    quinnliu@vt.edu and I will try to help the best I can. First
    make sure you have java version 1.8. To check open up a new terminal
@@ -170,7 +173,7 @@ Q
    # hopefully all the tests still pass... :)
    ```
 
-## How to contribute
+#### How to contribute
 1. You need to be able to use Git & Github.com. If you don't know how I created
    a easy to follow 1.5 hour playlist on how to use Git & Github
    [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).  
@@ -191,7 +194,14 @@ Q
    following labeled model:
    ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/MARK_I/labeled_MARK_I_version_2_high_contrast.jpg)
 
-## What are all the files here for
+## What
+
+If you are confused what a file is doing at a high level read
+**[What are all the files here for?](#what-are-all-the-files-here-for)**. If
+you want to learn about the most important brain theories we are using read
+**[Important brain theories in use](#important-brain-theories-in-use)**. 
+
+#### What are all the files here for
   - gradle/wrapper = the actual Gradle code for building our Java code
   - images = images used in training & testing the partial brain model
   - referencedLibraries = contains .jar files(of other people's code) needed to
@@ -205,17 +215,17 @@ Q
             allow the different brain structures to connect to each other in
             a variety of ways
           + [generalAlgorithm](./src/main/java/model/MARK_II/generalAlgorithm)
-            - failureResearch 
+            - [failureResearch](./src/main/java/model/MARK_II/generalAlgorithm/failureResearch)
               + temporalAlgorithms = Process of rethinking a prediction algorithm
                 from the ground up using ideas from temporal pooler when
                 necessary.
-            - **[SpatialPooler.java](./src/main/java/model/MARK_II/SpatialPooler.java)
+            - [SpatialPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/SpatialPooler.java)
               = models the sparse & distributed spiking activity of neurons
               seen in the neocortex and models long term potentiation and
-              depression on synapses of proximal dendrites**
-            - **[TemporalPooler.java](./src/main/java/model/MARK_II/TemporalPooler.java)
+              depression on synapses of proximal dendrites
+            - [TemporalPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/TemporalPooler.java)
               = models neocortex's ability to predict future input using long
-              term potentiation and depression on synapses of distal dendrites**
+              term potentiation and depression on synapses of distal dendrites
           + [parameters](./src/main/java/model/MARK_II/parameters) = allows
             construction of different WalnutiQ models from command line for
             this repo https://github.com/quinnliu/CallWalnutiQ
@@ -241,9 +251,8 @@ Q
   - gradlew.bat = allows you to use Gradle to run all of the code in this
                   repository in Windows
 
-# Important brain theories in use
-
-1. **Theory:** 1 common learning/predicting algorithm in the neocortex of the brain
+#### Important brain theories in use
+1. **Theory:** 1 common learning algorithm in the neocortex of the brain
    - Supportive:
      + 1992 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualProjectionsRouted.pdf)
        from Department of Brain and
@@ -298,7 +307,44 @@ Q
      can hypothesize that there is a common learning/predicting algorithm in all
      cortices of the neocortex.
 
-# Noise invariance experiment
+2. **Theory:** The 1 common learning algorithm learns about the world by using
+   when things happen across time. The algorithm makes no assumptions about
+   the different transformations that our world has(shifts, rotations, etc.).
+   The algorithm ONLY says if 1 pattern follows another in time in a
+   predictable way, then they are causally related and should have the
+   SAME REPRESENTATION in the brain.
+   - Kinda Supportive:
+     + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
+       by Dileep George from Stanford University
+       - There is a idea in optimization algorithms called No Free Lunch
+         theorem. No Free Lunch theorem "state[s] that any two optimization algorithms
+         are equivalent when their performance is averaged across all possible
+         problems".
+       - "*On the surface, the NFL theorem seems to create problems for the
+         idea of a common cortical algorithm. How can one mechanism/algorithm
+         do very well on tasks as different as vision, audition and language?
+         The answer comes from the part of the NFL theorem that talks about
+         the assumptions that need to be exploited ... If the cortex is good
+         at learning a wide variety of tasks using a common mechanism, then
+         there must be something common about these seemingly different tasks.*".
+
+   - Not supportive:
+
+   - No Conclusion Yet: Still experimenting with rethinking a prediction algorithm
+     from the ground up using ideas from temporal pooler when necessary in folder [failureResearch](./src/main/java/model/MARK_II/generalAlgorithm/failureResearch).
+
+# Key Experiments
+
+The following experiments show off how a general learning algorithm uses the
+brain's data structure to it's advantage to process input data and create 
+intelligence. 
+
+The first problem a general learning algorithm has is to not get confused by
+all the noise in the world. The **[Noise invariance experiment](#noise-invariance-experiment)**
+illustrates how the first part of the algorithm does not get confused by noisy 
+input data. 
+
+#### Noise invariance experiment
 
 Here is some example code of how part of the theorized prediction algorithm
 works. It is a beautiful summary of how columns of neurons in your neocortex
@@ -311,11 +357,15 @@ the retina will be looking at:
 retina.seeBMPImage("2.bmp");
 spatialPooler.performPooling();
 // set1 = ((6,2), (1,5))
+// (6,2) and (1,5) are the columns in the Region that are active after seeing
+// "2.bmp"
 assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
 retina.seeBMPImage("2_with_some_noise.bmp");
 spatialPooler.performPooling();
 // set1 = ((6,2), (1,5))
+// NOTE: the columns that are active are still the same even though there was
+//       quite a lot of noise in the input data
 assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
 retina.seeBMPImage("2_with_a_lot_of_noise.bmp");

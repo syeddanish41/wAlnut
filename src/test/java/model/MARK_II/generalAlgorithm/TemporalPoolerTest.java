@@ -369,7 +369,7 @@ public class TemporalPoolerTest extends junit.framework.TestCase {
         column.setNeuron(neuron1, 1);
         column.setNeuron(neuron2, 2);
         column.setNeuron(neuron3, 3);
-        // NOTE: why is this test not passing on Travis CI with Java version 1.8.0_31?
+        // NOTE: this test not passing on Travis CI with Java version 1.8.0_31.
         // NOTE: local Java version = 1.8.0_51-b16
         //assertEquals(2, this.temporalPooler.getBestMatchingNeuronIndex(column));
 

@@ -45,11 +45,6 @@ public class Experiment_2 extends TestCase {
         int newSynapseCount = 10;
         double permanenceInc =   0.1;
         double permanenceDec =   0.0;
-        // activationThreshold = 8?
-        // globalDecay = 0?
-        // burnIn = 1?
-        // checkSynapseConsistency = False?
-        // pamLength = 10?
 
         Synapse.INITIAL_PERMANENCE = initialPerm;
         Synapse.MINIMAL_CONNECTED_PERMANENCE = connectedPerm;
@@ -112,11 +107,11 @@ public class Experiment_2 extends TestCase {
         char[][] columnActiveStates = RegionConsoleViewer
                 .getColumnActiveStatesCharArray(this.region);
         assertEquals("aaiiiiii\n" +
-                     "aaiiiiii\n" +
-                     "aaaiiiii\n" +
-                     "iiiiiiii\n" +
-                     "iiiiiiii\n" +
-                     "iiiiiiii",
+                        "aaiiiiii\n" +
+                        "aaaiiiii\n" +
+                        "iiiiiiii\n" +
+                        "iiiiiiii\n" +
+                        "iiiiiiii",
                 RegionConsoleViewer.doubleCharArrayAsString(columnActiveStates));
 
         System.out.println("\n\nExpect to see predictive columns for 'B'");
