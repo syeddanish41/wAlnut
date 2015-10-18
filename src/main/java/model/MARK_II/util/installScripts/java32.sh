@@ -7,7 +7,7 @@ else
 	cd /opt/java
 fi
 
-if [ ! -f "jdk-8u45-linux-x64.tar.gz"]; then
+if [ ! -f "jdk-8u45-linux-x64.tar.gz" ]; then
 	# Downloading java 1.8.0_45 from the Oracle website
 	sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-i586.tar.gz"
 fi
