@@ -15,18 +15,6 @@ you.*"
 
 ## Why
 
-The long term goal of this repository is to store code that can simulate a full
-sized human brain in real time. The current short term goal is to experiment
-with a simplified visual pathway from an eye(that can move within a "room") to
-algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the neocortex
-(70+% of the brain) to understand how a common learning algorithm needs to
-work.
-
-If we figure out the important biological computation principles behind the
-human brain we will be able to simulate the intelligence of 1 brain on a
-computer. This can be scaled to surpass the collective intelligence of the 7+
-billion human brains on Earth.
-
 I believe that an intelligent machine will be able to solve many of our
 hardest problems and will cause many new hard problems. Technology has always
 been used to do great good and great evil and it is scary to imagine the great
@@ -38,6 +26,18 @@ by a general learning algorithm that doesn't need to eat, sleep, or reproduce.
 And just as self driving cars will make human driving illegal any dangerous or
 boring task will be replaced by a general learning algorithm. This will cause
 massive job replacement; one of many of our new hard problems.
+
+The long term goal of this repository is to store code that can simulate a full
+sized human brain in real time. The current short term goal is to experiment
+with a simplified visual pathway from an eye(that can move within a "room") to
+algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the neocortex
+(70+% of the brain) to understand how a common learning algorithm needs to
+work.
+
+If we figure out the important biological computation principles behind the
+human brain we will be able to simulate the intelligence of 1 brain on a
+computer. This can be scaled to surpass the collective intelligence of the 7+
+billion human brains on Earth.
 
 After we understood the principles of flight we were able to build planes that
 are much faster and can carry more weight than birds. After we understand
@@ -62,14 +62,14 @@ attitude please e-mail me at quinnliu@vt.edu to talk about how you can get
 involved. This project has a long journey ahead so sustainability will take
 precedence over crunch. Currently I have no funding for paying you.
 
-This research was initially inspired by everyone at [Numenta](http://numenta.org/). 
-Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the 
-human neocortex. They have generously released the pseudo code for their 
-learning algorithms, and this repository is an extended implementation of 
-their algorithms using object-oriented programming with a focus on 
+This research was initially inspired by everyone at [Numenta](http://numenta.org/).
+Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the
+human neocortex. They have generously released the pseudo code for their
+learning algorithms, and this repository is an extended implementation of
+their algorithms using object-oriented programming with a focus on
 <b>understandability</b> over speed and applications to <b>human vision</b>
-using hierarchy and sensory motor integration. Numenta's implementation of their 
-algorithms can be found [here](https://github.com/numenta/nupic). For more 
+using hierarchy and sensory motor integration. Numenta's implementation of their
+algorithms can be found [here](https://github.com/numenta/nupic). For more
 information please:
 
 - Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
@@ -82,7 +82,7 @@ information please:
 
 ## How
 Install all code with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
-(Recommended) or **[Gradle](#install-in-linuxmacwindows-with-gradle)** for 
+(Recommended) or **[Gradle](#install-in-linuxmacwindows-with-gradle)** for
 Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
 
 #### Install in Linux/Mac/Windows with IntelliJ (Recommended)
@@ -199,7 +199,7 @@ Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
 If you are confused what a file is doing at a high level read
 **[What are all the files here for?](#what-are-all-the-files-here-for)**. If
 you want to learn about the most important brain theories we are using read
-**[Important brain theories in use](#important-brain-theories-in-use)**. 
+**[Important brain theories in use](#important-brain-theories-in-use)**.
 
 #### What are all the files here for
   - gradle/wrapper = the actual Gradle code for building our Java code
@@ -336,13 +336,13 @@ you want to learn about the most important brain theories we are using read
 # Key Experiments
 
 The following experiments show off how a general learning algorithm uses the
-brain's data structure to it's advantage to process input data and create 
-intelligence. 
+brain's data structure to it's advantage to process input data and create
+intelligence.
 
 The first problem a general learning algorithm has is to not get confused by
 all the noise in the world. The **[Noise invariance experiment](#noise-invariance-experiment)**
-illustrates how the first part of the algorithm does not get confused by noisy 
-input data. 
+illustrates how the first part of the algorithm does not get confused by noisy
+input data.
 
 #### Noise invariance experiment
 
