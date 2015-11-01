@@ -4,13 +4,13 @@ import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.region.Column;
 import model.MARK_II.region.Region;
 
+import java.util.Arrays;
+
 /**
  * This is an experimental SDR algorithm.
  *
  * The core idea of this algorithm is that it finds a FIXED percentage of the
- * most active columns and this is the Region's SDR. It also strengthens the
- * connections of synapses to active input cells and weakens the connections
- * of synapses to inactive input cells.
+ * most active columns and this is the Region's SDR.
  *
  * This class solidifies these ideas into a deterministic SDR generation
  * algorithm that works okay. Understanding how this algorithm compares
@@ -18,11 +18,13 @@ import model.MARK_II.region.Region;
  * appropriate or not appropriate to use inhibition in SDRAlgorithms.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @version 10/17/2015
+ * @author Aarathi Raghuraman (raarathi@vt.edu)
+ * @version 11/01/2015
  */
 public class SDRAlgorithm_1 extends Pooler {
     private final double ACTIVITY_PERCENTAGE;
 
+    // activityPercentage: what percentage of columns are allowed to become active
     public SDRAlgorithm_1(int numberOfTimesToRunAlgorithm, Region region, double activityPercentage) {
         super(numberOfTimesToRunAlgorithm);
         super.region = region;
@@ -33,14 +35,53 @@ public class SDRAlgorithm_1 extends Pooler {
      * Call this method to run SDRAlgorithm_1 once on a Region.
      */
     public void run() {
-        // Step 1) compute columns with most input activity @ t = 0
-        //         using ACTIVITY_PERCENTAGE
+
         Column[][] columns = this.region.getColumns();
+        int numActiveColumns = (int) Math.round(((double)columns[0].length)*((double)columns.length)*ACTIVITY_PERCENTAGE/100);
+
+        int[] overlapScores = new int[columns.length*columns[0].length];
+
+        int counter = 0;
         for (int row = 0; row < columns.length; row++) {
             for (int column = 0; column < columns[0].length; column++) {
-                //this.computeColumnOverlapScore(columns[row][column]);
+                overlapScores[counter] = this.computeColumnOverlapScore(columns[row][column]);
+                counter++;
             }
         }
-        // TODO:
+
+        // sorting overlapScores using quicksort
+        Arrays.sort(overlapScores);
+
+        // setting columns that are above the minimumOverlapScore to active
+        int minimumOverlapScore = overlapScores[overlapScores.length - numActiveColumns];
+        for (int row = 0; row < columns.length; row++) {
+            for (int column = 0; column < columns[0].length; column++) {
+                if(columns[row][column].getProximalSegment().getNumberOfActiveSynapses() > minimumOverlapScore)
+                {
+                    columns[row][column].setActiveState(true);
+                }
+            }
+        }
+    }
+
+    /**
+     * The overlapScore for each Column is the number of Synapses connected to
+     * Cells with active inputs.
+     */
+    int computeColumnOverlapScore(Column column) {
+        if (column == null) {
+            throw new IllegalArgumentException(
+                    "the Column in SDAlgorithm_1 method computeColumnOverlapScore cannot be null");
+        }
+
+        /// overlap(c) = 0
+        int newOverlapScore = column.getProximalSegment()
+                /// for s in connectedSynapses(c)
+                ///     overlap(c) = overlap(c) + input(t, s.sourceInput)
+                .getNumberOfActiveSynapses();
+
+        super.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(newOverlapScore);
+
+        return newOverlapScore;
     }
 }
