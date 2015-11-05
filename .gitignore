@@ -5,34 +5,15 @@
 # Java
 *.class
 
-# Gradle 
+# Gradle
 .gradle
 /build
 
-# IntelliJ 
+# IntelliJ
 .idea
 *.iml
 *.iws
 classes/
 
-# Eclipse
-.classpath
-*.pydevproject
-.metadata
-.gradle
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.settings/
-.loadpath
-out/
-
-# Eclipse external tool builders
-.externalToolBuilders/
-
-# Locally stored "Eclipse launch configurations"
-*.launch
+# Mac
+.DS_Store
