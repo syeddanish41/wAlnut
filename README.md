@@ -104,34 +104,25 @@ Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
      - Note where you choose to install this and choose a folder that is easy to access
        (I stored it in Documents)
 
-3. Go to the top right of this page and hit the `Fork` button. Then clone your forked WalnutiQ
+3. Open up IntelliJ and create a test project and get HelloWorld working.
+   You will need to find your Java 1.8 jdk in the process. Once you have a program
+   that can print something continue.
+
+3. Go to the top right of this page and hit the `Fork` button. Then clone your forked wAlnut
    repository locally.
 
-4. Once IntelliJ is installed, open it.  Go to "File" `=>` "Import Project...". This should
-   open up a new window and you should easily be able to select the "WalnutiQ" folder. Click "ok".
+4. Inside IntelliJ, on Windows go to "File" `=>`
+   "Import Project...". On Mac go to "File" `=>`
+   "Project from Existing Sources...". This should open up a new window and you
+   should easily be able to select the "wAlnut" folder. Click "OK".
 
-5. Now, the project should be imported.  You should now add JDK.  Go back to "File"
-   `=>` "Project Structure".
+5. Select "Import project from external model". Then select "Gradle" and hit
+   "Next".
 
-6. A new window should popup.  Under "Platform Settings" `=>` "SDKs".  At the upper
-   lefthand, select the "+" `=>` "JDK".
+6. Select "Use default gradle wrapper (recommended)" `=>` hit Finish
 
-7. On Mac, In the "Finder" window, enter SHIFT + command + G.  Type in
-   "/Library/Java/JavaVirtualMachines". Navigate to the JDK folder and once you
-   have done so, click "choose". On Windows,
-   navigate to the JDK folder in "C:\Program Files\Java". On Linux, good luck finding it.
-
-8. If this was successfully done, a list of SDKs should now appear under SDKs.
-   In the same window, navigate to the lefthand side and under "Project Settings" `=>`
-   "Project".  Under "Project SDK", it should say "<No SDK>".  In that bar, select the new
-   Java version which you added.  At the bottom righthand corner, select "Apply". Click
-   "OK".
-
-9. Now click "File" `=>` "New" `=>` "Project from Existing Sources..." `=>` Navigate to "WalnutiQ" folder
-   and click "OK" `=>` Select "Gradle" `=>` Next `=>` Select "Use default gradle wrapper (recommended)" `=>` Finish
-
-10. In the left side file viewer right-click the folder "WalnutiQ" and select `Run 'Tests in WalnutiQ''`. Hopefully
-   they all pass.
+7. In the left side file viewer right-click the folder "wAlnut" and select `Run 'Tests in wAlnut'`.
+   Congrats! Go buy yourself some pistachio ice cream :)
 
 #### Install in Linux/Mac/Windows with Gradle
 1. If you have any problems with the following instructions please e-mail
@@ -170,7 +161,7 @@ Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
    ```sh
    prompt> ./gradlew clean # removes your old compiled code
    prompt> ./gradlew build
-   # hopefully all the tests still pass... :)
+   # Congrats! Go buy yourself some watermelon :)
    ```
 
 #### How to contribute
