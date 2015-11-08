@@ -60,32 +60,17 @@ for your collaboration as I cannot do this alone. The <b>only</b> requirement
 I ask for is that you are someone that is not "all talk" and understands that
 progress is made by not making excuses. If you rely on habits and a "no excuses"
 attitude please e-mail me at quinnliu@vt.edu to talk about how you can get
-<<<<<<< HEAD
-involved. This project has a long journey ahead(multiple decades) so
-sustainability will take precedence over crunch. Currently I have no funding
-for paying you but if you happen to be really rich and would like to fund this
-project text me at 5409865954.
-
-This research was initially inspired by everyone at [Numenta](http://numenta.org/)
-in 2011. Numenta had theorized and tested algorithms that model layers 2/3 & 4
-of the human neocortex. They have generously released the pseudo code for their
-=======
 involved. This project has a long journey ahead so sustainability will take
-precedence over crunch. Currently I have no funding for paying you.
+precedence over crunch.
 
 This research was initially inspired by everyone at [Numenta](http://numenta.org/).
 Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the
 human neocortex. They have generously released the pseudo code for their
->>>>>>> feature-issue_199
 learning algorithms, and this repository is an extended implementation of
 their algorithms using object-oriented programming with a focus on
 <b>understandability</b> over speed and applications to <b>human vision</b>
 using hierarchy and sensory motor integration. Numenta's implementation of their
-<<<<<<< HEAD
-current algorithms can be found [here](https://github.com/numenta/nupic). For more
-=======
 algorithms can be found [here](https://github.com/numenta/nupic). For more
->>>>>>> feature-issue_199
 information please:
 
 - Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
@@ -99,11 +84,7 @@ information please:
 ## How
 Install all code with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
 (Recommended) or **[Gradle](#install-in-linuxmacwindows-with-gradle)** for
-<<<<<<< HEAD
 Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
-=======
-Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
->>>>>>> feature-issue_199
 
 #### Install in Linux/Mac/Windows with IntelliJ (Recommended)
 1. If you have any problems with the following instructions please e-mail
@@ -210,17 +191,13 @@ Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
 If you are confused what a file is doing at a high level read
 **[what are all the files here for](#what-are-all-the-files-here-for)**. If
 you want to learn about the most important brain theories we are using read
-<<<<<<< HEAD
 **[important brain theories in use](#important-brain-theories-in-use)**.
-=======
-**[Important brain theories in use](#important-brain-theories-in-use)**.
->>>>>>> feature-issue_199
 
 #### What are all the files here for
   - gradle/wrapper = the actual Gradle code for building our Java code
   - images = images used in training & testing the partial brain model
   - referencedLibraries = contains .jar files(of other people's code) needed to
-                          run WalnutiQ
+    run WalnutiQ
   - src
       + main/java/model
         - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the
@@ -255,19 +232,19 @@ you want to learn about the most important brain theories we are using read
           model properties to be viewed graphically and efficiently saved
           and opened  
       + test/java/model = test classes for important classes in the
-                          `src/main/java/model` folder
+        `src/main/java/model` folder
         - experiments/vision = experiments with partial visual pathway models  
   - .gitignore = contains names of files/folders not to add to this repository
-                 but keep in your local WalnutiQ folder
+    but keep in your local WalnutiQ folder
   - .travis.yml = tells [our custom travis testing site](https://travis-ci.org/quinnliu/WalnutiQ)
-                  what versions of Java to test the files here
+    what versions of Java to test the files here
   - LICENSE.txt = GNU General Public License version 3
   - README.md = the file you are reading right now
   - build.gradle = compiles all of the code in this repository using Gradle
   - gradlew = allows you to use Gradle to run all of the code in this repository
-              in Linux & Mac
+    in Linux & Mac
   - gradlew.bat = allows you to use Gradle to run all of the code in this
-                  repository in Windows
+    repository in Windows
 
 #### Important brain theories in use
 1. **Theory:** 1 common learning algorithm in the neocortex of the brain
@@ -358,11 +335,7 @@ brain's data structure to it's advantage to process input data and create
 intelligence.
 
 The first problem a general learning algorithm has is to not get confused by
-<<<<<<< HEAD
 all the noise in the world. The **[noise invariance experiment](#noise-invariance-experiment)**
-=======
-all the noise in the world. The **[Noise invariance experiment](#noise-invariance-experiment)**
->>>>>>> feature-issue_199
 illustrates how the first part of the algorithm does not get confused by noisy
 input data.
 
@@ -438,9 +411,11 @@ Outside of AI I like to make YouTube videos, skateboard, watch rom coms, and
 walk around manhattan eating pistachio ice cream and watermelon.
 
 #### Aarathi's bio
-Still trying to convince her to write one when you she has some time...
+Coming soon she says...
+
+#### Manpreet's bio
+Coming soon he says...
 
 #### Your bio
-Interested in helping us code a Strong AI? E-mail me at quinnliu@vt.edu
-=======
->>>>>>> feature-issue_199
+Interested in helping us code a Strong AI? Read [how you can get paid an
+hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
