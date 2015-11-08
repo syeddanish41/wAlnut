@@ -60,6 +60,7 @@ for your collaboration as I cannot do this alone. The <b>only</b> requirement
 I ask for is that you are someone that is not "all talk" and understands that
 progress is made by not making excuses. If you rely on habits and a "no excuses"
 attitude please e-mail me at quinnliu@vt.edu to talk about how you can get
+<<<<<<< HEAD
 involved. This project has a long journey ahead(multiple decades) so
 sustainability will take precedence over crunch. Currently I have no funding
 for paying you but if you happen to be really rich and would like to fund this
@@ -68,11 +69,23 @@ project text me at 5409865954.
 This research was initially inspired by everyone at [Numenta](http://numenta.org/)
 in 2011. Numenta had theorized and tested algorithms that model layers 2/3 & 4
 of the human neocortex. They have generously released the pseudo code for their
+=======
+involved. This project has a long journey ahead so sustainability will take
+precedence over crunch. Currently I have no funding for paying you.
+
+This research was initially inspired by everyone at [Numenta](http://numenta.org/).
+Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the
+human neocortex. They have generously released the pseudo code for their
+>>>>>>> feature-issue_199
 learning algorithms, and this repository is an extended implementation of
 their algorithms using object-oriented programming with a focus on
 <b>understandability</b> over speed and applications to <b>human vision</b>
 using hierarchy and sensory motor integration. Numenta's implementation of their
+<<<<<<< HEAD
 current algorithms can be found [here](https://github.com/numenta/nupic). For more
+=======
+algorithms can be found [here](https://github.com/numenta/nupic). For more
+>>>>>>> feature-issue_199
 information please:
 
 - Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
@@ -86,7 +99,11 @@ information please:
 ## How
 Install all code with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
 (Recommended) or **[Gradle](#install-in-linuxmacwindows-with-gradle)** for
+<<<<<<< HEAD
 Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
+=======
+Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
+>>>>>>> feature-issue_199
 
 #### Install in Linux/Mac/Windows with IntelliJ (Recommended)
 1. If you have any problems with the following instructions please e-mail
@@ -107,35 +124,25 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
      - Note where you choose to install this and choose a folder that is easy to
        access (I stored it in Documents)
 
-3. Go to the top right of this page and hit the `Fork` button. Then clone your
-   forked WalnutiQ repository locally.
+3. Open up IntelliJ and create a test project and get HelloWorld working.
+   You will need to find your Java 1.8 jdk in the process. Once you have a program
+   that can print something continue.
 
-4. Once IntelliJ is installed, open it.  Go to "File" `=>` "Import Project...".
-   This should open up a new window and you should easily be able to select the
-   "WalnutiQ" folder. Click "ok".
+4. Go to the top right of this page and hit the `Fork` button. Then clone your forked wAlnut
+   repository locally.
 
-5. Now, the project should be imported.  You should now add JDK.  Go back to "File"
-   `=>` "Project Structure".
+5. Inside IntelliJ, on Windows go to "File" `=>`
+   "Import Project...". On Mac go to "File" `=>`
+   "Project from Existing Sources...". This should open up a new window and you
+   should easily be able to select the "wAlnut" folder. Click "OK".
 
-6. A new window should popup.  Under "Platform Settings" `=>` "SDKs".  At the upper
-   lefthand, select the "+" `=>` "JDK".
+6. Select "Import project from external model". Then select "Gradle" and hit
+   "Next".
 
-7. On Mac, In the "Finder" window, enter SHIFT + command + G.  Type in
-   "/Library/Java/JavaVirtualMachines". Navigate to the JDK folder and once you
-   have done so, click "choose". On Windows,
-   navigate to the JDK folder in "C:\Program Files\Java". On Linux, good luck finding it.
+7. Select "Use default gradle wrapper (recommended)" `=>` hit Finish
 
-8. If this was successfully done, a list of SDKs should now appear under SDKs.
-   In the same window, navigate to the lefthand side and under "Project Settings" `=>`
-   "Project".  Under "Project SDK", it should say "<No SDK>".  In that bar, select the new
-   Java version which you added.  At the bottom righthand corner, select "Apply". Click
-   "OK".
-
-9. Now click "File" `=>` "New" `=>` "Project from Existing Sources..." `=>` Navigate to "WalnutiQ" folder
-   and click "OK" `=>` Select "Gradle" `=>` Next `=>` Select "Use default gradle wrapper (recommended)" `=>` Finish
-
-10. In the left side file viewer right-click the folder "WalnutiQ" and select `Run 'Tests in WalnutiQ''`. Hopefully
-   they all pass.
+8. In the left side file viewer right-click the folder "wAlnut" and select `Run 'Tests in wAlnut'`.
+   Congrats! Go buy yourself some pistachio ice cream :)
 
 #### Install in Linux/Mac/Windows with Gradle
 1. If you have any problems with the following instructions please e-mail
@@ -174,7 +181,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    ```sh
    prompt> ./gradlew clean # removes your old compiled code
    prompt> ./gradlew build
-   # hopefully all the tests still pass... :)
+   # Congrats! Go buy yourself some watermelon :)
    ```
 
 #### How to contribute
@@ -203,7 +210,11 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
 If you are confused what a file is doing at a high level read
 **[what are all the files here for](#what-are-all-the-files-here-for)**. If
 you want to learn about the most important brain theories we are using read
+<<<<<<< HEAD
 **[important brain theories in use](#important-brain-theories-in-use)**.
+=======
+**[Important brain theories in use](#important-brain-theories-in-use)**.
+>>>>>>> feature-issue_199
 
 #### What are all the files here for
   - gradle/wrapper = the actual Gradle code for building our Java code
@@ -347,7 +358,11 @@ brain's data structure to it's advantage to process input data and create
 intelligence.
 
 The first problem a general learning algorithm has is to not get confused by
+<<<<<<< HEAD
 all the noise in the world. The **[noise invariance experiment](#noise-invariance-experiment)**
+=======
+all the noise in the world. The **[Noise invariance experiment](#noise-invariance-experiment)**
+>>>>>>> feature-issue_199
 illustrates how the first part of the algorithm does not get confused by noisy
 input data.
 
@@ -388,6 +403,7 @@ You can view the entire file in
 Please do not be afraid to ask a question if you are confused! This stuff took
 me several months to fully understand but it is really beautiful after you
 understand it.
+<<<<<<< HEAD
 
 ## Team Bios
 
@@ -426,3 +442,5 @@ Still trying to convince her to write one when you she has some time...
 
 #### Your bio
 Interested in helping us code a Strong AI? E-mail me at quinnliu@vt.edu
+=======
+>>>>>>> feature-issue_199
