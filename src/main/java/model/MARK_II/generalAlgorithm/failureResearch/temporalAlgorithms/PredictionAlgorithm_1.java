@@ -54,14 +54,14 @@ public class PredictionAlgorithm_1 extends Pooler {
     public void run() {
         Set<ColumnPosition> activeColumnPositions = this.spatialPooler.getActiveColumnPositions();
         // Step 1) Which neurons to apply logic to?
-        // Possible answer: Iterate through all active neurons in region
+        // POSSIBLE ANSWER: Iterate through all active neurons in region
         for (ColumnPosition ACP : activeColumnPositions) {
             Column activeColumn = super.getRegion().getColumn(ACP.getRow(), ACP.getRow());
             Neuron learningNeuron = this.getNeuronWithLeastNumberOfConnectedSynapses(activeColumn);
 
             // Step 2) How do you allow neuronA to predict neuronB will become
             // active in the next time step?
-            // Possible answer: For each learning neuron connect to all
+            // POSSIBLE ANSWER: For each learning neuron connect to all
             // previously active neurons. 1 new distal segment per learning neuron.
             DistalSegment distalSegment = new DistalSegment();
 
@@ -71,7 +71,7 @@ public class PredictionAlgorithm_1 extends Pooler {
             }
             learningNeuron.addDistalSegment(distalSegment);
             // Step 3) Which neurons should be active for the current time step?
-            // Possible answer: the current list of learning neurons? This
+            // POSSIBLE ANSWER: the current list of learning neurons? This
             // is because they aren't connected to anything since they have
             // the least connected synapses
             learningNeuron.setActiveState(true);
@@ -79,7 +79,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         }
 
         // Step 4) What neurons can be used for prediction?
-        // Possible answer: which neurons currently have the most # of connected
+        // POSSIBLE ANSWER: which neurons currently have the most # of connected
         // (NOT active Cells)
         // synapses across all distal dendrites connected to the current set of
         // active neurons. This is where we reward all the competition between
@@ -92,31 +92,58 @@ public class PredictionAlgorithm_1 extends Pooler {
         int minimumConnectionScore = (Integer) connectionScores.toArray()[index];
 
         // Step 5) How many number of predicting neurons?
-        // Possible answer: same number of currently active neurons.
+        // POSSIBLE ANSWER: same number of currently active neurons.
         this.updateIsPredictingNeurons(minimumConnectionScore);
 
         // Step 6) Which synapse connections should be strengthened to model
         // long term potentiation?
-        // Possible answer:
-        // TODO: strengthen the connection between active neuron @ t = -1 and
-        // isPredicting neuron @ t = -1 where is Predicting neuron is
-        // active @ t = 0.
-        for (Neuron activeNeuronThatWasAlsoPredictingInLastTimeStep : this.isActiveNeurons) {
-            if (activeNeuronThatWasAlsoPredictingInLastTimeStep.getPreviousPredictingState()) {
-                // TODO: find all "neuronA's" that were active @ t = -1 connected
-                // to distal dendrite synapses on this Neuron
+        // Refer to picture: https://github.com/WalnutiQ/wAlnut/issues/199
+        // POSSIBLE ANSWER: strengthen the connection between active neuron
+        // @ t = -1 and isPredicting neuron @ t = -1 where is Predicting neuron
+        // is active @ t = 0
+        for (Neuron activeNeuron : this.isActiveNeurons) {
+            if (activeNeuron.getPreviousPredictingState()) {
+                // Since this neuron(refering to variable activeNeuron)
+                // correctly predicted it will become active we need to
+                // strengthen all synapses connected to neuronAs(neurons
+                // enclosed by synapses of this neuron that were active @ t = -1)
+
+                for (DistalSegment distalSegment : activeNeuron.getDistalSegments()) {
+                    for (Synapse synapse : distalSegment.getSynapses()) {
+                        if (synapse.getCell().equals(activeNeuron)) {
+                            synapse.increasePermanence();
+                        }
+                    }
+                }
             }
         }
 
-        // TODO: investigate if problem if neuron stays active forever?
-
-
         // Step 7) Which synapse connections should be weakened to model
         // long term depression?
-        // Possible answer:
-        // TODO: weaken the connection between active neuron @ t = 0 and
-        // isPredicting neuron @ t = 0 where isPredicting neuron is NOT active
-        // @ t = 1.
+        // POSSIBLE ANSWER: weaken the connection between active neuron @ t = -1
+        // and isPredicting neuron @ t = -1 where isPredicting neuron is NOT
+        // active @ t = 0
+        Column[][] columns = super.region.getColumns();
+        for (int ri = 0; ri < columns.length; ri++) {
+            for (int ci = 0; ci < columns[0].length; ci++) {
+                for (Neuron neuron : columns[ri][ci].getNeurons()) {
+                    if (neuron.getActiveState() == false &&
+                        neuron.getPreviousPredictingState() == true) {
+                        // Since this neuron(refering to variable neuron)
+                        // incorrectly predicted it will become active we need
+                        // to weaken all synpases connected to neuronAs.
+
+                        for (DistalSegment distalSegment : neuron.getDistalSegments()) {
+                            for (Synapse synapse : distalSegment.getSynapses()) {
+                                if (synapse.getCell().equals(neuron)) {
+                                    synapse.decreasePermanence();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         this.nextTimeStep();
     }
