@@ -59,8 +59,8 @@ can see why I am so obsessed with making sure this project goes well.
 If you are interested in becoming a researcher/developer I would be grateful
 for your collaboration as I cannot do this alone. We currently have very little
 funding but read [how to get paid hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
-to get started. This project has a long journey ahead so sustainability will
-take precedence over crunch.
+to get started. On the other hand if you are interested in donating please read
+[investors](#investors).
 
 This research was initially inspired by everyone at [Numenta](http://numenta.org/).
 Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the
