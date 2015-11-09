@@ -429,7 +429,7 @@ please provide the following information as you would like it to be displayed
 in our [master investors list](#master-investors-list):
 ```
 Name: Pikachu
-Favorite type of nut: Seedot(name of a pokemon that looks like an acorn get it?)
+Favorite type of nut: Seedot(name of a pokemon that looks like a acorn get it?)
 Website: www.shock-me-baby-one-more-time.com
 Social Security Number: Pika Pika Pikachu
 ```
@@ -438,7 +438,7 @@ If you would like to learn how your donation is being spent to pay developers
 read [here](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
 
 In return for your donation we will periodically make youtube videos posted
-[here](www.youtube.com/user/quinnliuvideos)
+[here](https://www.youtube.com/user/quinnliuvideos)
 explaining our research that will make it understandable to everyone including
 people with no neuroscience or coding background.
 
@@ -452,4 +452,4 @@ of curiosity.
 
 Name | Amount (USD) | Favorite type of nut | website
 -----|--------------|----------------------|---------
-Q Liu | $574.47 | Pistachio ice cream | [www.walnutiq.com](www.walnutiq.com)
+Q Liu | $574.47 | Pistachio ice cream | [www.walnutiq.com](http://www.walnutiq.com/)
