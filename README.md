@@ -2,7 +2,8 @@
 **[How](#how) |**
 **[What](#what) |**
 **[Key Experiments](#key-experiments) |**
-**[Team Bios](#team-bios)**
+**[Team Bios](#team-bios) |**
+**[Investors](#investors)**
 
 # wAlnut
 
@@ -56,12 +57,10 @@ options mostly unknown to us. I am most likely wrong. However, hopefully you
 can see why I am so obsessed with making sure this project goes well.
 
 If you are interested in becoming a researcher/developer I would be grateful
-for your collaboration as I cannot do this alone. The <b>only</b> requirement
-I ask for is that you are someone that is not "all talk" and understands that
-progress is made by not making excuses. If you rely on habits and a "no excuses"
-attitude please e-mail me at quinnliu@vt.edu to talk about how you can get
-involved. This project has a long journey ahead so sustainability will take
-precedence over crunch.
+for your collaboration as I cannot do this alone. We currently have very little
+funding but read [how to get paid hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
+to get started. On the other hand if you are interested in donating please read
+[investors](#investors).
 
 This research was initially inspired by everyone at [Numenta](http://numenta.org/).
 Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the
@@ -79,7 +78,7 @@ information please:
   [white paper](https://github.com/WalnutiQ/papers/blob/master/HTM_CorticalLearningAlgorithms.pdf)
   to better understand the theory behind this repository.
 
-~ Q
+~ Q Liu
 
 ## How
 Install all code with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
@@ -376,7 +375,6 @@ You can view the entire file in
 Please do not be afraid to ask a question if you are confused! This stuff took
 me several months to fully understand but it is really beautiful after you
 understand it.
-<<<<<<< HEAD
 
 ## Team Bios
 
@@ -418,4 +416,40 @@ Coming soon he says...
 
 #### Your bio
 Interested in helping us code a Strong AI? Read [how you can get paid an
-hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
+hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
+to get started.
+
+## Investors
+<b>Investors</b> = People who believe we can build a Strong AI and use it for more
+good(out of love) than evil(out of fear).
+
+If you would like to become an investor of wAlnut simply venmo your donation to
+(Coming approximately 11/14/2015!). In the venmo `What's it for?` section
+please provide the following information as you would like it to be displayed
+in our [master investors list](#master-investors-list):
+```
+Name: Pikachu
+Favorite type of nut: Seedot(name of a pokemon that looks like a acorn get it?)
+Website: www.shock-me-baby-one-more-time.com
+Social Security Number: Pika Pika Pikachu
+```
+
+If you would like to learn how your donation is being spent to pay developers
+read [here](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
+
+In return for your donation we will periodically make youtube videos posted
+[here](https://www.youtube.com/user/quinnliuvideos)
+explaining our research that will make it understandable to everyone including
+people with no neuroscience or coding background.
+
+In the history of mankind some technologies are so powerful it would be wrong
+to have it only accessible by a group of people. Any advanced weapon for its
+time, internet, and now a Strong AI. Our latest research will always be
+available to everyone in the world with a laptop, internet, and a little bit
+of curiosity.
+
+## Master Investors List
+
+Name | Amount (USD) | Favorite type of nut | website
+-----|--------------|----------------------|---------
+Q Liu | $574.47 | Pistachio ice cream | [www.walnutiq.com](http://www.walnutiq.com/)
