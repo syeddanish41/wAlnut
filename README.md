@@ -375,7 +375,6 @@ You can view the entire file in
 Please do not be afraid to ask a question if you are confused! This stuff took
 me several months to fully understand but it is really beautiful after you
 understand it.
-<<<<<<< HEAD
 
 ## Team Bios
 
@@ -425,19 +424,23 @@ to get started.
 good(out of love) than evil(out of fear).
 
 If you would like to become an investor of wAlnut simply venmo your donation to
-to (Coming approximately 11/14/2015!). In the venmo "What's it for?" section
+(Coming approximately 11/14/2015!). In the venmo `What's it for?` section
 please provide the following information as you would like it to be displayed
-in our [investors master list](#investors-master-list):
+in our [master investors list](#master-investors-list):
 ```
 Name: Pikachu
-Favorite type of nut: Seedot all day
-website: www.shock-me-baby-one-more-time.com
-social security number: JUST KIDDING
+Favorite type of nut: Seedot(name of a pokemon that looks like an acorn get it?)
+Website: www.shock-me-baby-one-more-time.com
+Social Security Number: Pika Pika Pikachu
 ```
 
-In return for your donation we will periodically make youtube videos
-explaining our research that are understandable to everyone with no coding or
-neuroscience background required.
+If you would like to learn how your donation is being spent to pay developers
+read [here](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
+
+In return for your donation we will periodically make youtube videos posted
+[here](www.youtube.com/user/quinnliuvideos)
+explaining our research that will make it understandable to everyone including
+people with no neuroscience or coding background.
 
 In the history of mankind some technologies are so powerful it would be wrong
 to have it only accessible by a group of people. Any advanced weapon for its
@@ -445,8 +448,8 @@ time, internet, and now a Strong AI. Our latest research will always be
 available to everyone in the world with a laptop, internet, and a little bit
 of curiosity.
 
-## Investors Master List
+## Master Investors List
 
-Names of all investors and their investment amount:
 Name | Amount (USD) | Favorite type of nut | website
-Q Liu | $574.47 | Pistachio ice cream | www.walnutiq.com
+-----|--------------|----------------------|---------
+Q Liu | $574.47 | Pistachio ice cream | [www.walnutiq.com](www.walnutiq.com)
