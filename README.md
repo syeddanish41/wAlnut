@@ -425,11 +425,19 @@ to get started.
 good(out of love) than evil(out of fear).
 
 If you would like to become an investor of wAlnut simply venmo your donation to
-to @walnutiq. The profile picture will be our logo: TODO: insert logo
+to (Coming approximately 11/14/2015!). In the venmo "What's it for?" section
+please provide the following information as you would like it to be displayed
+in our [investors master list](#investors-master-list):
+```
+Name: Pikachu
+Favorite type of nut: Seedot all day
+website: www.shock-me-baby-one-more-time.com
+social security number: JUST KIDDING
+```
 
-In return we will periodically make youtube videos explaining our research
-that are understandable to everyone with no coding or neuroscience background
-required.
+In return for your donation we will periodically make youtube videos
+explaining our research that are understandable to everyone with no coding or
+neuroscience background required.
 
 In the history of mankind some technologies are so powerful it would be wrong
 to have it only accessible by a group of people. Any advanced weapon for its
@@ -437,6 +445,8 @@ time, internet, and now a Strong AI. Our latest research will always be
 available to everyone in the world with a laptop, internet, and a little bit
 of curiosity.
 
+## Investors Master List
+
 Names of all investors and their investment amount:
-Name | Amount (USD) | Favourite type of nut | website
+Name | Amount (USD) | Favorite type of nut | website
 Q Liu | $574.47 | Pistachio ice cream | www.walnutiq.com
