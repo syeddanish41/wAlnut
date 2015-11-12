@@ -423,29 +423,26 @@ to get started.
 <b>Investors</b> = People who believe we can build a Strong AI and use it for more
 good(out of love) than evil(out of fear).
 
-If you would like to become an investor of wAlnut simply venmo your donation.
-In the `Search People` section type `@walnut` and look for the logo:
-![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/logo/WalnutiQ_logo.png)
+1. If you would like to become an investor of wAlnut simply venmo your donation.
+In the `Search People` section type `@walnut` and look for the pink walnut logo.
+It will look similar to this:
+![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/logo/venmo_walnut_screenshot.png)
 
-In the venmo `What's it for?` section
+2. In the venmo `What's it for?` section
 please provide the following information as you would like it to be displayed
-in our [master investors list](#master-investors-list):
-```
-Name: Pikachu
-Favorite type of nut: Seedot
-Website: Pika Pika Pikachu
-Social Security Number: This is a joke. Please don't do this.
-```
+in our [master investors list](#master-investors-list). Here is
+an example of one of our investors:
+![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/logo/venmo_payment_Walnut_iQ_screenshot.png)
 
-If you would like to learn how your donation is being spent to pay developers
+3. If you would like to learn how your donation is being spent to pay developers
 read [here](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
 
-In return for your donation we will periodically make youtube videos posted
+4. In return for your donation we will periodically make youtube videos posted
 [here](https://www.youtube.com/user/quinnliuvideos)
 explaining our research that will make it understandable to everyone including
 people with no neuroscience or coding background.
 
-In the history of mankind some technologies are so powerful it would be wrong
+5. In the history of mankind some technologies are so powerful it would be wrong
 to have it only accessible by a group of people. Before it was the internet and
 now it is a Strong AI. Our latest research will always be available to everyone
 in the world with a laptop, internet, and a little bit of curiosity.
