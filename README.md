@@ -7,11 +7,8 @@
 
 # wAlnut
 
-"*Perfect lets you stall, ask more questions, do more reviews, safe it up and
-generally avoid doing anything that might fail or anything important. You're
-not in the perfect business. Stop pretending that's what the world wants from
-you.*"  
-~ [Seth Godin](http://sethgodin.typepad.com/seths_blog/2015/06/abandoning-perfection.html)
+"*The only true wisdom is in knowing you know nothing.*"  
+~ [Socrates](http://www.brainyquote.com/quotes/quotes/s/socrates101212.html)
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
