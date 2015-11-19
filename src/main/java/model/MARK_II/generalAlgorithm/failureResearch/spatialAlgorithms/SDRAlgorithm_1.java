@@ -42,6 +42,8 @@ public class SDRAlgorithm_1 extends Pooler {
         int[] overlapScores = new int[columns.length*columns[0].length];
 
         int counter = 0;
+        int indexOfMinumOverlapScore = overlapScores.length - numActiveColumns;
+        //TODO live QuickSort implemented here would remove sort algorithm below. 
         for (int row = 0; row < columns.length; row++) {
             for (int column = 0; column < columns[0].length; column++) {
                 overlapScores[counter] = this.computeColumnOverlapScore(columns[row][column]);
@@ -53,7 +55,7 @@ public class SDRAlgorithm_1 extends Pooler {
         Arrays.sort(overlapScores);
 
         // setting columns that are above the minimumOverlapScore to active
-        int minimumOverlapScore = overlapScores[overlapScores.length - numActiveColumns];
+        int minimumOverlapScore = overlapScores[indexOfMinumOverlapScore];
         for (int row = 0; row < columns.length; row++) {
             for (int column = 0; column < columns[0].length; column++) {
                 if(columns[row][column].getProximalSegment().getNumberOfActiveSynapses() > minimumOverlapScore)
