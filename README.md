@@ -69,7 +69,7 @@ using hierarchy and sensory motor integration. Numenta's implementation of their
 algorithms can be found [here](https://github.com/numenta/nupic). For more
 information please:
 
-- Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
+- Watch this [video playlist](https://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
   to become familiar with the neuroscience behind this repository.
 - Read Numenta's great explanation of their research in this
   [white paper](https://github.com/WalnutiQ/papers/blob/master/HTM_CorticalLearningAlgorithms.pdf)
@@ -167,7 +167,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).  
 
 2. For now we are using the Git workflow model described
-   [here](https://github.com/quinnliu/WalnutiQ/issues/62) to contribute to this
+   [here](https://github.com/WalnutiQ/wAlnut/issues/62) to contribute to this
    repository effectively. Make sure you understand this model before
    trying to merge into the master branch. Additionally, before merging your
    feature branch to master make sure to change the quote at the top of this
@@ -219,7 +219,7 @@ you want to learn about the most important brain theories we are using read
               term potentiation and depression on synapses of distal dendrites
           + [parameters](./src/main/java/model/MARK_II/parameters) = allows
             construction of different WalnutiQ models from command line for
-            this repo https://github.com/quinnliu/CallWalnutiQ
+            this repo https://github.com/WalnutiQ/call_wAlnut
           + region = components that make up a Region object
           + sensory = classes for allowing brain model to receive sensory input
           + unimplementedBiology = parts of the nervous system we haven't
