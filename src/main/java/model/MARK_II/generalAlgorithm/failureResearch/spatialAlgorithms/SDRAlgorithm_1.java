@@ -58,13 +58,13 @@ public class SDRAlgorithm_1 extends Pooler {
 
         // sorting overlapScores using quicksort
         Arrays.sort(overlapScores);
-
+ 
         // setting columns that are above the minimumOverlapScore to active
         int minimumOverlapScore = overlapScores[indexOfMinumOverlapScore];
         HashSet<ColumnPosition> sparseRepresentation = new HashSet<ColumnPosition>();
         for (int row = 0; row < columns.length; row++) {
             for (int column = 0; column < columns[0].length; column++) {
-                if(columns[row][column].getProximalSegment().getNumberOfActiveSynapses() > minimumOverlapScore)
+                if(columns[row][column].getProximalSegment().getNumberOfActiveSynapses() >= minimumOverlapScore)
                 {
                     columns[row][column].setActiveState(true);
                     sparseRepresentation.add(new ColumnPosition(row, column));
