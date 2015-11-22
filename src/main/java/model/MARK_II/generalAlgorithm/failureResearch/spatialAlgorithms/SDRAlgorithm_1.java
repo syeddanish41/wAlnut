@@ -1,10 +1,12 @@
 package model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms;
 
+import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.region.Column;
 import model.MARK_II.region.Region;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * This is an experimental SDR algorithm.
@@ -33,9 +35,12 @@ public class SDRAlgorithm_1 extends Pooler {
 
     /**
      * Call this method to run SDRAlgorithm_1 once on a Region.
+     *
+     * SDR generation
      */
-    public void run() {
+    public HashSet<ColumnPosition> run() {
 
+        // % to actual active columns
         Column[][] columns = this.region.getColumns();
         int numActiveColumns = (int) Math.round(((double)columns[0].length)*((double)columns.length)*ACTIVITY_PERCENTAGE/100);
 
@@ -56,14 +61,17 @@ public class SDRAlgorithm_1 extends Pooler {
 
         // setting columns that are above the minimumOverlapScore to active
         int minimumOverlapScore = overlapScores[indexOfMinumOverlapScore];
+        HashSet<ColumnPosition> sparseRepresentation = new HashSet<ColumnPosition>();
         for (int row = 0; row < columns.length; row++) {
             for (int column = 0; column < columns[0].length; column++) {
                 if(columns[row][column].getProximalSegment().getNumberOfActiveSynapses() > minimumOverlapScore)
                 {
                     columns[row][column].setActiveState(true);
+                    sparseRepresentation.add(new ColumnPosition(row, column));
                 }
             }
         }
+        return sparseRepresentation;
     }
 
     /**
