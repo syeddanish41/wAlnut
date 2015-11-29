@@ -1,15 +1,14 @@
 **[Why](#why) |**
 **[How](#how) |**
 **[What](#what) |**
-**[Key Experiments](#key-experiments)**
+**[Key Experiments](#key-experiments) |**
+**[Team Bios](#team-bios) |**
+**[Investors](#investors)**
 
 # wAlnut
 
-"*Perfect lets you stall, ask more questions, do more reviews, safe it up and
-generally avoid doing anything that might fail or anything important. You're
-not in the perfect business. Stop pretending that's what the world wants from
-you.*"  
-~ [Seth Godin](http://sethgodin.typepad.com/seths_blog/2015/06/abandoning-perfection.html)
+"*The only true wisdom is in knowing you know nothing.*"  
+~ [Socrates](http://www.brainyquote.com/quotes/quotes/s/socrates101212.html)
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
@@ -55,12 +54,10 @@ options mostly unknown to us. I am most likely wrong. However, hopefully you
 can see why I am so obsessed with making sure this project goes well.
 
 If you are interested in becoming a researcher/developer I would be grateful
-for your collaboration as I cannot do this alone. The <b>only</b> requirement
-I ask for is that you are someone that is not "all talk" and understands that
-progress is made by not making excuses. If you rely on habits and a "no excuses"
-attitude please e-mail me at quinnliu@vt.edu to talk about how you can get
-involved. This project has a long journey ahead so sustainability will take
-precedence over crunch. Currently I have no funding for paying you.
+for your collaboration as I cannot do this alone. We currently have very little
+funding but read [how to get paid hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
+to get started. On the other hand if you are interested in donating please read
+[investors](#investors).
 
 This research was initially inspired by everyone at [Numenta](http://numenta.org/).
 Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the
@@ -72,18 +69,18 @@ using hierarchy and sensory motor integration. Numenta's implementation of their
 algorithms can be found [here](https://github.com/numenta/nupic). For more
 information please:
 
-- Watch this [video playlist](http://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
+- Watch this [video playlist](https://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
   to become familiar with the neuroscience behind this repository.
 - Read Numenta's great explanation of their research in this
   [white paper](https://github.com/WalnutiQ/papers/blob/master/HTM_CorticalLearningAlgorithms.pdf)
   to better understand the theory behind this repository.
 
-~ Q
+~ Q Liu
 
 ## How
 Install all code with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
 (Recommended) or **[Gradle](#install-in-linuxmacwindows-with-gradle)** for
-Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
+Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
 
 #### Install in Linux/Mac/Windows with IntelliJ (Recommended)
 1. If you have any problems with the following instructions please e-mail
@@ -101,27 +98,27 @@ Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
    is installed by retyping `java -version` in the terminal.
 
 2. Then [install IntelliJ IDEA FREE Community Edition](http://www.jetbrains.com/idea/download/).
-     - Note where you choose to install this and choose a folder that is easy to access
-       (I stored it in Documents)
+     - Note where you choose to install this and choose a folder that is easy to
+       access (I stored it in Documents)
 
 3. Open up IntelliJ and create a test project and get HelloWorld working.
    You will need to find your Java 1.8 jdk in the process. Once you have a program
    that can print something continue.
 
-3. Go to the top right of this page and hit the `Fork` button. Then clone your forked wAlnut
+4. Go to the top right of this page and hit the `Fork` button. Then clone your forked wAlnut
    repository locally.
 
-4. Inside IntelliJ, on Windows go to "File" `=>`
+5. Inside IntelliJ, on Windows go to "File" `=>`
    "Import Project...". On Mac go to "File" `=>`
    "Project from Existing Sources...". This should open up a new window and you
    should easily be able to select the "wAlnut" folder. Click "OK".
 
-5. Select "Import project from external model". Then select "Gradle" and hit
+6. Select "Import project from external model". Then select "Gradle" and hit
    "Next".
 
-6. Select "Use default gradle wrapper (recommended)" `=>` hit Finish
+7. Select "Use default gradle wrapper (recommended)" `=>` hit Finish
 
-7. In the left side file viewer right-click the folder "wAlnut" and select `Run 'Tests in wAlnut'`.
+8. In the left side file viewer right-click the folder "wAlnut" and select `Run 'Tests in wAlnut'`.
    Congrats! Go buy yourself some pistachio ice cream :)
 
 #### Install in Linux/Mac/Windows with Gradle
@@ -170,7 +167,7 @@ Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
    [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).  
 
 2. For now we are using the Git workflow model described
-   [here](https://github.com/quinnliu/WalnutiQ/issues/62) to contribute to this
+   [here](https://github.com/WalnutiQ/wAlnut/issues/62) to contribute to this
    repository effectively. Make sure you understand this model before
    trying to merge into the master branch. Additionally, before merging your
    feature branch to master make sure to change the quote at the top of this
@@ -188,15 +185,15 @@ Linux/Mac/Windows and then read **[How to contribute](#how-to-contribute)**.
 ## What
 
 If you are confused what a file is doing at a high level read
-**[What are all the files here for?](#what-are-all-the-files-here-for)**. If
+**[what are all the files here for](#what-are-all-the-files-here-for)**. If
 you want to learn about the most important brain theories we are using read
-**[Important brain theories in use](#important-brain-theories-in-use)**.
+**[important brain theories in use](#important-brain-theories-in-use)**.
 
 #### What are all the files here for
   - gradle/wrapper = the actual Gradle code for building our Java code
   - images = images used in training & testing the partial brain model
   - referencedLibraries = contains .jar files(of other people's code) needed to
-                          run WalnutiQ
+    run WalnutiQ
   - src
       + main/java/model
         - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the
@@ -207,9 +204,12 @@ you want to learn about the most important brain theories we are using read
             a variety of ways
           + [generalAlgorithm](./src/main/java/model/MARK_II/generalAlgorithm)
             - [failureResearch](./src/main/java/model/MARK_II/generalAlgorithm/failureResearch)
-              + temporalAlgorithms = Process of rethinking a prediction algorithm
-                from the ground up using ideas from temporal pooler when
-                necessary.
+              + spatialAlgorithms = rethinking SDR algorithm to create different
+                variations of the algorithms from the ground up using
+                ideas from spatial pooler when necessary.
+              + temporalAlgorithms = rethinking a prediction algorithm to create
+                different variations of the algorithm from the ground up using
+                ideas from temporal pooler when necessary.
             - [SpatialPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/SpatialPooler.java)
               = models the sparse & distributed spiking activity of neurons
               seen in the neocortex and models long term potentiation and
@@ -219,7 +219,7 @@ you want to learn about the most important brain theories we are using read
               term potentiation and depression on synapses of distal dendrites
           + [parameters](./src/main/java/model/MARK_II/parameters) = allows
             construction of different WalnutiQ models from command line for
-            this repo https://github.com/quinnliu/CallWalnutiQ
+            this repo https://github.com/WalnutiQ/call_wAlnut
           + region = components that make up a Region object
           + sensory = classes for allowing brain model to receive sensory input
           + unimplementedBiology = parts of the nervous system we haven't
@@ -228,19 +228,19 @@ you want to learn about the most important brain theories we are using read
           model properties to be viewed graphically and efficiently saved
           and opened  
       + test/java/model = test classes for important classes in the
-                          `src/main/java/model` folder
+        `src/main/java/model` folder
         - experiments/vision = experiments with partial visual pathway models  
   - .gitignore = contains names of files/folders not to add to this repository
-                 but keep in your local WalnutiQ folder
+    but keep in your local WalnutiQ folder
   - .travis.yml = tells [our custom travis testing site](https://travis-ci.org/quinnliu/WalnutiQ)
-                  what versions of Java to test the files here
+    what versions of Java to test the files here
   - LICENSE.txt = GNU General Public License version 3
   - README.md = the file you are reading right now
   - build.gradle = compiles all of the code in this repository using Gradle
   - gradlew = allows you to use Gradle to run all of the code in this repository
-              in Linux & Mac
+    in Linux & Mac
   - gradlew.bat = allows you to use Gradle to run all of the code in this
-                  repository in Windows
+    repository in Windows
 
 #### Important brain theories in use
 1. **Theory:** 1 common learning algorithm in the neocortex of the brain
@@ -331,7 +331,7 @@ brain's data structure to it's advantage to process input data and create
 intelligence.
 
 The first problem a general learning algorithm has is to not get confused by
-all the noise in the world. The **[Noise invariance experiment](#noise-invariance-experiment)**
+all the noise in the world. The **[noise invariance experiment](#noise-invariance-experiment)**
 illustrates how the first part of the algorithm does not get confused by noisy
 input data.
 
@@ -372,3 +372,84 @@ You can view the entire file in
 Please do not be afraid to ask a question if you are confused! This stuff took
 me several months to fully understand but it is really beautiful after you
 understand it.
+
+## Team Bios
+
+#### Q's bio  
+Hi my name is Q.
+
+In 2011 I watched a talk about a guy trying to build a machine more intelligent
+than humans and I fell in love with this idea. At the time I believed that an
+intelligent machine would be able to solve many of our hardest problems(ex.
+secrets of the universe and cure for cancer) and would cause many new hard
+problems(ex. massive job loss). I was determined to use it to benefit humanity
+as much as possible but first I needed to build it.
+
+I told myself I would give myself 1 year(end of 2012) to build a machine more
+intelligent than humans which I believed was plenty of time since I didn’t know
+how to code yet. By 2013 2 years had gone by and although I had learned a lot of
+interesting brain theories from neuroscientists and coding techniques from
+computer scientists I gave up on this dream out of frustration on my speed of
+progress and fell into a deep depression. Most of my identity came from the
+brain research I did and I had hit a wall in the research I did not have the
+confidence to break through.
+
+After focusing on my physical health, family, and friends I eventually got out
+of my depression and decided to restart working towards my dream of creating a
+Strong AI for the past year. However, this time I have learned to use habits
+over motivation, collaboration over working alone, sustainability over crunch,
+intense focus on what is necessary over nice to haves, acknowledgement you must
+sometimes forget what you know in order to create something new, and many
+beautiful ideas I have yet to learn.
+
+Outside of AI I like to make YouTube videos, skateboard, watch rom coms, and
+walk around manhattan eating pistachio ice cream and watermelon.
+
+#### Aarathi's bio
+Coming soon she says...
+
+#### Manpreet's bio
+Coming soon he says...
+
+#### Kevins's bio
+[Kevin Harrington](https://github.com/madhephaestus) is a java developer and roboticist based in Worcester MA. He brings robotics controls, high performance Java, and hardware integration skills to the project. He will be focused on sensor-motor interfaces and simulationg the robot for learning environments. 
+
+#### Your bio
+Interested in helping us code a Strong AI? Read [how you can get paid an
+hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
+to get started.
+
+## Investors
+<b>Investors</b> = People who believe we can build a Strong AI and use it for more
+good(out of love) than evil(out of fear).
+
+1. If you would like to become an investor of wAlnut simply venmo your donation.
+In the `Search People` section type `@walnut` and look for the pink walnut logo.
+It will look similar to this:
+![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/logo/venmo_walnut_screenshot.png)
+
+2. In the venmo `What's it for?` section
+please provide the following information as you would like it to be displayed
+in our [master investors list](#master-investors-list). Here is
+an example of one of our investors:
+![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/logo/venmo_payment_Walnut_iQ_screenshot.png)
+
+3. If you would like to learn how your donation is being spent to pay developers
+read [here](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
+
+4. In return for your donation we will periodically make youtube videos posted
+[here](https://www.youtube.com/user/quinnliuvideos)
+explaining our research that will make it understandable to everyone including
+people with no neuroscience or coding background.
+
+5. In the history of mankind some technologies are so powerful it would be wrong
+to have it only accessible by a group of people. Before it was the internet and
+now it is a Strong AI. Our latest research will always be available to everyone
+in the world with a laptop, internet, and a little bit of curiosity.
+
+## Master Investors List
+
+Name | Amount (USD) | Favorite type of nut | website
+-----|--------------|----------------------|---------
+Q Liu | $574.47 | Pistachio ice cream | [www.walnutiq.com](http://www.walnutiq.com/)
+Ying Ying Wu | $5 | Unkown | A Mystery

@@ -107,11 +107,11 @@ public class Experiment_2 extends TestCase {
         char[][] columnActiveStates = RegionConsoleViewer
                 .getColumnActiveStatesCharArray(this.region);
         assertEquals("aaiiiiii\n" +
-                     "aaiiiiii\n" +
-                     "aaaiiiii\n" +
-                     "iiiiiiii\n" +
-                     "iiiiiiii\n" +
-                     "iiiiiiii",
+                        "aaiiiiii\n" +
+                        "aaaiiiii\n" +
+                        "iiiiiiii\n" +
+                        "iiiiiiii\n" +
+                        "iiiiiiii",
                 RegionConsoleViewer.doubleCharArrayAsString(columnActiveStates));
 
         System.out.println("\n\nExpect to see predictive columns for 'B'");
