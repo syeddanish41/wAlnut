@@ -97,10 +97,9 @@ public class PredictionAlgorithm_1 extends Pooler {
 
         // Step 6) Which synapse connections should be strengthened to model
         // long term potentiation?
-        // Refer to picture: https://github.com/WalnutiQ/wAlnut/issues/199
-        // POSSIBLE ANSWER: strengthen the connection between active neuron
-        // @ t = -1 and isPredicting neuron @ t = -1 where is Predicting neuron
-        // is active @ t = 0
+        // Refer to picture: https://goo.gl/PVbAm8
+        // POSSIBLE ANSWER: strengthen the connection between neuronB that
+        // isActive @t=4 and isPredicting @t=3 and neuronA that isActive @t=3.
         for (Neuron activeNeuron : this.isActiveNeurons) {
             if (activeNeuron.getPreviousPredictingState()) {
                 // Since this neuron(refering to variable activeNeuron)
