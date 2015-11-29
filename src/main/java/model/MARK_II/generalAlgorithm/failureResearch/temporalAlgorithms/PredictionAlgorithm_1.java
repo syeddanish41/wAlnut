@@ -71,11 +71,10 @@ public class PredictionAlgorithm_1 extends Pooler {
             }
             learningNeuron.addDistalSegment(distalSegment);
             // Step 3) Which neurons should be active for the current time step?
-            // POSSIBLE ANSWER: the current list of learning neurons? This
-            // is because they aren't connected to anything since they have
-            // the least connected synapses
-            learningNeuron.setActiveState(true);
-            this.isActiveNeurons.add(learningNeuron);
+            // POSSIBLE ANSWER:
+            // All neurons in active columns
+            
+
         }
 
         // Step 4) What neurons can be used for prediction?
@@ -97,7 +96,7 @@ public class PredictionAlgorithm_1 extends Pooler {
 
         // Step 6) Which synapse connections should be strengthened to model
         // long term potentiation?
-        // Refer to picture: https://goo.gl/PVbAm8
+        // Refer to picture: https://goo.gl/b7j9OQ
         // POSSIBLE ANSWER: strengthen the connection between neuronB that
         // isActive @t=4 and isPredicting @t=3 and neuronA that isActive @t=3.
         for (Neuron activeNeuron : this.isActiveNeurons) {
