@@ -448,5 +448,6 @@ in the world with a laptop, internet, and a little bit of curiosity.
 
 Name | Amount (USD) | Favorite type of nut | website
 -----|--------------|----------------------|---------
-Q Liu | $700.82 | Pistachio ice cream | [www.walnutiq.com](http://www.walnutiq.com/)
+Q Liu | $700.82 | Pistachio ice cream | [www.youtube.com/quinnliuvideos](www.youtube.com/quinnliuvideos)
+Perry Leong | $5 | Cashews | [linkedin.com/profile/view?id=183115052](linkedin.com/profile/view?id=183115052)
 Ying Ying Wu | $5 | Unkown | A Mystery
