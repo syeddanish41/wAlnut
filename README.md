@@ -7,8 +7,8 @@
 
 # wAlnut
 
-"*The only true wisdom is in knowing you know nothing.*"  
-~ [Socrates](http://www.brainyquote.com/quotes/quotes/s/socrates101212.html)
+"*If you're not first, you're last*"
+~ [Ricky Bobby's Dad]
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
