@@ -8,7 +8,7 @@
 # wAlnut
 
 "*If you're not first, you're last*"
-~ [Ricky Bobby's Dad]
+~ [Ricky Bobby](http://www.imdb.com/title/tt0415306/)
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
@@ -413,6 +413,9 @@ Coming soon he says...
 
 #### Kevins's bio
 [Kevin Harrington](https://github.com/madhephaestus) is a java developer and roboticist based in Worcester MA. He brings robotics controls, high performance Java, and hardware integration skills to the project. He will be focused on sensor-motor interfaces and simulationg the robot for learning environments. 
+
+#### Mark's bio
+Hi, I'm Mark. I like math, sometimes.
 
 #### Your bio
 Interested in helping us code a Strong AI? Read [how you can get paid an
