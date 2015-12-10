@@ -55,7 +55,6 @@ public class SpatialPooler extends Pooler {
                 this.computeColumnOverlapScore(columns[row][column]);
             }
         }
-
         // a sparse set of Columns become active after local inhibition
         this.computeActiveColumnsOfRegion();
 
