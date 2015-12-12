@@ -423,8 +423,10 @@ hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-p
 to get started.
 
 ## Investors
-<b>Investors</b> = People who believe we can build a Strong AI and use it for more
-good(out of love) than evil(out of fear).
+
+Hi! My name is Q. To me a wAlnut investor is someone who believes we can build a 
+machine more intelligent than humans and use it for more good out of love than 
+evil out of fear. 
 
 1. If you would like to become an investor of wAlnut simply venmo your donation.
 In the `Search People` section type `@walnut` and look for the pink walnut logo.
@@ -440,15 +442,16 @@ an example of one of our investors:
 3. If you would like to learn how your donation is being spent to pay developers
 read [here](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
 
-4. In return for your donation we will periodically make youtube videos posted
+4. We will periodically make youtube videos posted
 [here](https://www.youtube.com/user/quinnliuvideos)
-explaining our research that will make it understandable to everyone including
-people with no neuroscience or coding background.
+explaining our research. Care will be taken to ensure it is understandable to 
+everyone including 10 year old kids with no neuroscience or coding background.
 
 5. In the history of mankind some technologies are so powerful it would be wrong
-to have it only accessible by a group of people. Before it was the internet and
-now it is a Strong AI. Our latest research will always be available to everyone
-in the world with a laptop, internet, and a little bit of curiosity.
+to have it only accessible by a group of people. Examples include electricity,
+computers, the internet, and now its a machine smarter than humans. Our latest 
+research and code will always be available here for free to everyone in the world with 
+a laptop, internet, and a little bit of curiosity.
 
 ## Master Investors List
 
