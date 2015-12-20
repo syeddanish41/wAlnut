@@ -7,8 +7,8 @@
 
 # wAlnut
 
-"*If you're not first, you're last*"
-~ [Ricky Bobby](http://www.imdb.com/title/tt0415306/)
+"*What I cannot create, I do not understand*"
+~ [Richard Feynman](https://www.quora.com/What-did-Richard-Feynman-mean-when-he-said-What-I-cannot-create-I-do-not-understand)
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
