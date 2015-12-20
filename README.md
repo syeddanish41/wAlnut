@@ -14,54 +14,35 @@
 
 ## Why
 
-I believe that an intelligent machine will be able to solve many of our
-hardest problems and will cause many new hard problems. Technology has always
-been used to do great good and great evil and it is scary to imagine the great
-evil this technology brings. I desperately want to help build a technology that
-solves our hardest problems where everything's happiness is considered.
-Impossibilities of today like immortality, super intelligence, cure for cancer,
+I believe that an intelligent machine smarter than humans will be able to 
+solve many of our hardest problems and will cause many new hard problems. 
+Hard problems of today like immortality, cure for cancer,
 and the remaining secrets of our universe will be able to be discovered faster
-by a general learning algorithm that doesn't need to eat, sleep, or reproduce.
+by an intelligent machine that doesn't need to eat, sleep, or reproduce.
 And just as self driving cars will make human driving illegal any dangerous or
-boring task will be replaced by a general learning algorithm. This will cause
+boring task will be replaced by a intelligent machine. This will cause
 massive job replacement; one of many of our new hard problems.
-
-The long term goal of this repository is to store code that can simulate a full
-sized human brain in real time. The current short term goal is to experiment
-with a simplified visual pathway from an eye(that can move within a "room") to
-algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the neocortex
-(70+% of the brain) to understand how a common learning algorithm needs to
-work.
-
-If we figure out the important biological computation principles behind the
-human brain we will be able to simulate the intelligence of 1 brain on a
-computer. This can be scaled to surpass the collective intelligence of the 7+
-billion human brains on Earth.
 
 After we understood the principles of flight we were able to build planes that
 are much faster and can carry more weight than birds. After we understand
-the human neocortex's computational principles we will be able to run programs
+the human brain's computational principles we will be able to run programs
 much more intelligent than humans with unimaginable capabilities. At first it
 will not have any emotions like you and I. This will be a good thing because it
 will force us to ask if it would be moral to create an super intelligent machine
 with emotions to help us. It may not necessarily be a good thing for the human
 race. For example look at how humans treat [intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
-We are super intelligent emotional machines compared to pigs and the future
-super intelligent emotional machines will be super intelligent compared to us.
-
-This is just one possible route of how the future may play out out of many
-options mostly unknown to us. I am most likely wrong. However, hopefully you
-can see why I am so obsessed with making sure this project goes well.
+We are more intelligent emotional machines compared to pigs and the future
+super intelligent emotional machines will be much more intelligent compared to us.
 
 If you are interested in becoming a researcher/developer I would be grateful
-for your collaboration as I cannot do this alone. We currently have very little
+for your collaboration as I cannot do this alone. We currently have little
 funding but read [how to get paid hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
 to get started. On the other hand if you are interested in donating please read
 [investors](#investors).
 
 This research was initially inspired by everyone at [Numenta](http://numenta.org/).
 Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the
-human neocortex. They have generously released the pseudo code for their
+human neocortex(~70% of human brain). They generously released the pseudo code for their
 learning algorithms, and this repository is an extended implementation of
 their algorithms using object-oriented programming with a focus on
 <b>understandability</b> over speed and applications to <b>human vision</b>
