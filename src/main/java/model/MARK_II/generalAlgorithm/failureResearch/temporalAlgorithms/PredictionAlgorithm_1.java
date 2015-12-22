@@ -80,7 +80,8 @@ public class PredictionAlgorithm_1 extends Pooler {
             // "Q" and "queue" in the same set of active columns.
             // To achieve this in the current active SDR, the active neurons
             // will be the ones that are most connected to the previous SDR.
-            // TODO:
+            Neuron activeNeuron = this.computeActiveNeuron(activeColumn);
+            activeNeuron.setActiveState(true);
         }
 
         // Step 4) What neurons can be used for prediction?
@@ -269,5 +270,31 @@ public class PredictionAlgorithm_1 extends Pooler {
         for (DistalSegment distalSegment : neuron.getDistalSegments()) {
             numberOfConnectedSynapses += distalSegment.getConnectedSynapses().size();
         }
+        return numberOfConnectedSynapses;
+    }
+
+    Neuron computeActiveNeuron(Column activeColumn) {
+        // TODO:
+        return null;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
