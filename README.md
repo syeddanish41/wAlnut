@@ -14,24 +14,21 @@
 
 ## Why
 
-I believe that an intelligent machine will be able to solve many of our
-hardest problems and will cause many new hard problems. Technology has always
-been used to do great good and great evil and it is scary to imagine the great
-evil this technology brings. I desperately want to help build a technology that
-solves our hardest problems where everything's happiness is considered.
-Impossibilities of today like immortality, super intelligence, cure for cancer,
-and the remaining secrets of our universe will be able to be discovered faster
-by a general learning algorithm that doesn't need to eat, sleep, or reproduce.
-And just as self driving cars will make human driving illegal any dangerous or
-boring task will be replaced by a general learning algorithm. This will cause
-massive job replacement; one of many of our new hard problems.
+We believe that intelligent machines will be able to solve many of our
+hardest problems and will cause many new hard problems. Intelligent machines 
+that do not need to eat, sleep, or reproduce will be able to discover solutions
+to our hardest problems like cancer, mortality, and secrets of the universe
+much more efficiently than humans. Technology has always been used to do great
+good and great evil and even if we have the best intentions to do good 
+intelligent machines will cause many new problems. For example there may be
+massive job replacement since most dangerous and time-consuming tasks can 
+be replaced my intelligent machines. 
 
 The long term goal of this repository is to store code that can simulate a full
-sized human brain in real time. The current short term goal is to experiment
+sized human brain in real time.. The current short term goal is to experiment
 with a simplified visual pathway from an eye(that can move within a "room") to
 algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the neocortex
-(70+% of the brain) to understand how a common learning algorithm needs to
-work.
+(70+% of the brain) to understand the principles of intelligence. 
 
 If we figure out the important biological computation principles behind the
 human brain we will be able to simulate the intelligence of 1 brain on a
