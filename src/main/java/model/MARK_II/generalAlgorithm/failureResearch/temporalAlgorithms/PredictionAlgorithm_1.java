@@ -25,7 +25,7 @@ import java.util.TreeSet;
  * how to improve it.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @version 9/27/2015
+ * @version 12/21/2015
  */
 public class PredictionAlgorithm_1 extends Pooler {
     private SpatialPooler spatialPooler;
@@ -52,9 +52,9 @@ public class PredictionAlgorithm_1 extends Pooler {
      * previously active neurons.
      */
     public void run() {
-        Set<ColumnPosition> activeColumnPositions = this.spatialPooler.getActiveColumnPositions();
         // Step 1) Which neurons to apply logic to?
-        // POSSIBLE ANSWER: Iterate through all active neurons in region
+        // POSSIBLE ANSWER: Iterate through all neurons in active columns in region
+        Set<ColumnPosition> activeColumnPositions = this.spatialPooler.getActiveColumnPositions();
         for (ColumnPosition ACP : activeColumnPositions) {
             Column activeColumn = super.getRegion().getColumn(ACP.getRow(), ACP.getRow());
             Neuron learningNeuron = this.getNeuronWithLeastNumberOfConnectedSynapses(activeColumn);
@@ -70,12 +70,21 @@ public class PredictionAlgorithm_1 extends Pooler {
                         Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
             }
             learningNeuron.addDistalSegment(distalSegment);
+
             // Step 3) Which neurons should be active for the current time step?
-            // POSSIBLE ANSWER: the current list of learning neurons? This
-            // is because they aren't connected to anything since they have
-            // the least connected synapses
-            learningNeuron.setActiveState(true);
-            this.isActiveNeurons.add(learningNeuron);
+            // POSSIBLE ANSWER: The active neurons that best represent the
+            // current sensory input.
+
+            // Example: Imagine you were told "write Q". Now would you write:
+            // A) Q or B) queue? We want a different set of neurons to represent
+            // "Q" and "queue" in the same set of active columns.
+            // To achieve this in the current active SDR, the active neurons
+            // will be the ones that are most connected to the previous SDR.
+            Neuron activeNeuron = this.computeActiveNeuron(activeColumn);
+            activeNeuron.setActiveState(true);
+
+            // POSSIBLE ANSWER:
+            // All neurons in active columns if there is no prediction?
         }
 
         // Step 4) What neurons can be used for prediction?
@@ -97,10 +106,9 @@ public class PredictionAlgorithm_1 extends Pooler {
 
         // Step 6) Which synapse connections should be strengthened to model
         // long term potentiation?
-        // Refer to picture: https://github.com/WalnutiQ/wAlnut/issues/199
-        // POSSIBLE ANSWER: strengthen the connection between active neuron
-        // @ t = -1 and isPredicting neuron @ t = -1 where is Predicting neuron
-        // is active @ t = 0
+        // Refer to picture: https://goo.gl/b7j9OQ
+        // POSSIBLE ANSWER: strengthen the connection between neuronB that
+        // isActive @t=4 and isPredicting @t=3 and neuronA that isActive @t=3.
         for (Neuron activeNeuron : this.isActiveNeurons) {
             if (activeNeuron.getPreviousPredictingState()) {
                 // Since this neuron(refering to variable activeNeuron)
@@ -241,14 +249,55 @@ public class PredictionAlgorithm_1 extends Pooler {
     /**
      * PROS:
      * 1) Prevents same neuron in column to repeatedly be learning neuron.
-     * 2) Events out connections within Region like real neocortex.
+     * 2) Evens out connections within Region.
      *
      * CONS:
      * 1) Is this enough of an indicator to say next time neuron2 becomes
      *    active -> neuron3 becomes predicted?
      */
     Neuron getNeuronWithLeastNumberOfConnectedSynapses(Column activeColumn) {
-        // TODO: implement
+        int minimumNumberOfConnectedSynapses =
+                this.getNumberOfConnectedSynapses(activeColumn.getNeuron(0));
+        Neuron minimumNeuron = activeColumn.getNeuron(0);
+        for (Neuron currentNeuron : activeColumn.getNeurons()) {
+            int currentMinimum = this.getNumberOfConnectedSynapses(currentNeuron);
+            if (currentMinimum < minimumNumberOfConnectedSynapses) {
+                minimumNeuron = currentNeuron;
+            }
+        }
+        return minimumNeuron;
+    }
+
+    int getNumberOfConnectedSynapses(Neuron neuron) {
+        int numberOfConnectedSynapses = 0;
+        for (DistalSegment distalSegment : neuron.getDistalSegments()) {
+            numberOfConnectedSynapses += distalSegment.getConnectedSynapses().size();
+        }
+        return numberOfConnectedSynapses;
+    }
+
+    Neuron computeActiveNeuron(Column activeColumn) {
+        // TODO:
         return null;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

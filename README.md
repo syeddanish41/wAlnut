@@ -14,25 +14,35 @@
 
 ## Why
 
-I believe that an intelligent machine smarter than humans will be able to 
-solve many of our hardest problems and will cause many new hard problems. 
-Hard problems of today like immortality, cure for cancer,
-and the remaining secrets of our universe will be able to be discovered faster
-by an intelligent machine that doesn't need to eat, sleep, or reproduce.
-And just as self driving cars will make human driving illegal any dangerous or
-boring task will be replaced by a intelligent machine. This will cause
-massive job replacement; one of many of our new hard problems.
+We believe that intelligent machines will be able to solve many of our
+hardest problems and will cause many new hard problems. Intelligent machines 
+that do not need to eat, sleep, or reproduce will be able to discover solutions
+to our hardest problems like cancer, mortality, and secrets of the universe
+much more efficiently than humans. Technology has always been used to do great
+good and great evil and even if we have the best intentions to do good 
+intelligent machines will cause many new problems. For example there will be
+massive job replacement since most jobs can be replaced my intelligent machines. 
+A possible solution to this hard problem will be to augment our brains and 
+become super intelligent. 
+
+The long term goal of this repository is to store code that can simulate a full
+sized human brain in real time. The current short term goal is to experiment
+with a simplified visual pathway from an eye(that can move within a "room") to
+algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the neocortex
+(70+% of the brain) to understand the principles of intelligence. 
 
 After we understood the principles of flight we were able to build planes that
 are much faster and can carry more weight than birds. After we understand
-the human brain's computational principles we will be able to run programs
-much more intelligent than humans with unimaginable capabilities. At first it
-will not have any emotions like you and I. This will be a good thing because it
-will force us to ask if it would be moral to create an super intelligent machine
-with emotions to help us. It may not necessarily be a good thing for the human
-race. For example look at how humans treat [intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
+the human brain's computation principles we will be able to create intelligent
+machines much more intelligent than humans with unimaginable capabilities. At 
+first it will not have any emotions like you and I. This will be a good thing 
+because it will force us to ask if it would be moral to create an super 
+intelligent machine with emotions to help us. It may not necessarily be a 
+good thing for the human race. For example look at how humans treat 
+[intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
 We are more intelligent emotional machines compared to pigs and the future
-super intelligent emotional machines will be much more intelligent compared to us.
+super intelligent emotional machines will be much more intelligent compared to 
+us.
 
 If you are interested in becoming a researcher/developer I would be grateful
 for your collaboration as I cannot do this alone. We currently have little
@@ -424,7 +434,7 @@ an example of one of our investors:
 read [here](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
 
 4. We will periodically make youtube videos posted
-[here](https://www.youtube.com/user/quinnliuvideos)
+[here](https://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
 explaining our research. Care will be taken to ensure it is understandable to 
 everyone including 10 year old kids with no neuroscience or coding background.
 
@@ -438,6 +448,6 @@ a laptop, internet, and a little bit of curiosity.
 
 Name | Amount (USD) | Favorite type of nut | website
 -----|--------------|----------------------|---------
-Q Liu | $700.82 | Pistachio ice cream | [www.youtube.com/quinnliuvideos](www.youtube.com/quinnliuvideos)
+Q Liu | $826.09 | Pistachio ice cream | [www.youtube.com/quinnliuvideos](www.youtube.com/quinnliuvideos)
 Perry Leong | $5 | Cashews | [linkedin.com/profile/view?id=183115052](linkedin.com/profile/view?id=183115052)
 Ying Ying Wu | $5 | Unkown | A Mystery
