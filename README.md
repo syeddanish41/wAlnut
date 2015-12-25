@@ -7,8 +7,8 @@
 
 # wAlnut
 
-"*The only true wisdom is in knowing you know nothing.*"  
-~ [Socrates](http://www.brainyquote.com/quotes/quotes/s/socrates101212.html)
+"*What I cannot create, I do not understand*"
+~ [Richard Feynman](https://www.quora.com/What-did-Richard-Feynman-mean-when-he-said-What-I-cannot-create-I-do-not-understand)
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
@@ -20,45 +20,39 @@ that do not need to eat, sleep, or reproduce will be able to discover solutions
 to our hardest problems like cancer, mortality, and secrets of the universe
 much more efficiently than humans. Technology has always been used to do great
 good and great evil and even if we have the best intentions to do good 
-intelligent machines will cause many new problems. For example there may be
-massive job replacement since most dangerous and time-consuming tasks can 
-be replaced my intelligent machines. 
+intelligent machines will cause many new problems. For example there will be
+massive job replacement since most jobs can be replaced my intelligent machines. 
+A possible solution to this hard problem will be to augment our brains and 
+become super intelligent. 
 
 The long term goal of this repository is to store code that can simulate a full
-sized human brain in real time.. The current short term goal is to experiment
+sized human brain in real time. The current short term goal is to experiment
 with a simplified visual pathway from an eye(that can move within a "room") to
 algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the neocortex
 (70+% of the brain) to understand the principles of intelligence. 
 
-If we figure out the important biological computation principles behind the
-human brain we will be able to simulate the intelligence of 1 brain on a
-computer. This can be scaled to surpass the collective intelligence of the 7+
-billion human brains on Earth.
-
 After we understood the principles of flight we were able to build planes that
 are much faster and can carry more weight than birds. After we understand
-the human neocortex's computational principles we will be able to run programs
-much more intelligent than humans with unimaginable capabilities. At first it
-will not have any emotions like you and I. This will be a good thing because it
-will force us to ask if it would be moral to create an super intelligent machine
-with emotions to help us. It may not necessarily be a good thing for the human
-race. For example look at how humans treat [intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
-We are super intelligent emotional machines compared to pigs and the future
-super intelligent emotional machines will be super intelligent compared to us.
-
-This is just one possible route of how the future may play out out of many
-options mostly unknown to us. I am most likely wrong. However, hopefully you
-can see why I am so obsessed with making sure this project goes well.
+the human brain's computation principles we will be able to create intelligent
+machines much more intelligent than humans with unimaginable capabilities. At 
+first it will not have any emotions like you and I. This will be a good thing 
+because it will force us to ask if it would be moral to create an super 
+intelligent machine with emotions to help us. It may not necessarily be a 
+good thing for the human race. For example look at how humans treat 
+[intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
+We are more intelligent emotional machines compared to pigs and the future
+super intelligent emotional machines will be much more intelligent compared to 
+us.
 
 If you are interested in becoming a researcher/developer I would be grateful
-for your collaboration as I cannot do this alone. We currently have very little
+for your collaboration as I cannot do this alone. We currently have little
 funding but read [how to get paid hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
 to get started. On the other hand if you are interested in donating please read
 [investors](#investors).
 
 This research was initially inspired by everyone at [Numenta](http://numenta.org/).
 Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the
-human neocortex. They have generously released the pseudo code for their
+human neocortex(~70% of human brain). They generously released the pseudo code for their
 learning algorithms, and this repository is an extended implementation of
 their algorithms using object-oriented programming with a focus on
 <b>understandability</b> over speed and applications to <b>human vision</b>
@@ -411,14 +405,19 @@ Coming soon he says...
 #### Kevins's bio
 [Kevin Harrington](https://github.com/madhephaestus) is a java developer and roboticist based in Worcester MA. He brings robotics controls, high performance Java, and hardware integration skills to the project. He will be focused on sensor-motor interfaces and simulationg the robot for learning environments. 
 
+#### Mark's bio
+Hi, I'm Mark. I like math, sometimes.
+
 #### Your bio
 Interested in helping us code a Strong AI? Read [how you can get paid an
 hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
 to get started.
 
 ## Investors
-<b>Investors</b> = People who believe we can build a Strong AI and use it for more
-good(out of love) than evil(out of fear).
+
+Hi! My name is Q. To me a wAlnut investor is someone who believes we can build a 
+machine more intelligent than humans and use it for more good out of love than 
+evil out of fear. 
 
 1. If you would like to become an investor of wAlnut simply venmo your donation.
 In the `Search People` section type `@walnut` and look for the pink walnut logo.
@@ -434,19 +433,21 @@ an example of one of our investors:
 3. If you would like to learn how your donation is being spent to pay developers
 read [here](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
 
-4. In return for your donation we will periodically make youtube videos posted
-[here](https://www.youtube.com/user/quinnliuvideos)
-explaining our research that will make it understandable to everyone including
-people with no neuroscience or coding background.
+4. We will periodically make youtube videos posted
+[here](https://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
+explaining our research. Care will be taken to ensure it is understandable to 
+everyone including 10 year old kids with no neuroscience or coding background.
 
 5. In the history of mankind some technologies are so powerful it would be wrong
-to have it only accessible by a group of people. Before it was the internet and
-now it is a Strong AI. Our latest research will always be available to everyone
-in the world with a laptop, internet, and a little bit of curiosity.
+to have it only accessible by a group of people. Examples include electricity,
+computers, the internet, and now its a machine smarter than humans. Our latest 
+research and code will always be available here for free to everyone in the world with 
+a laptop, internet, and a little bit of curiosity.
 
 ## Master Investors List
 
 Name | Amount (USD) | Favorite type of nut | website
 -----|--------------|----------------------|---------
-Q Liu | $574.47 | Pistachio ice cream | [www.walnutiq.com](http://www.walnutiq.com/)
+Q Liu | $826.09 | Pistachio ice cream | [www.youtube.com/quinnliuvideos](www.youtube.com/quinnliuvideos)
+Perry Leong | $5 | Cashews | [linkedin.com/profile/view?id=183115052](linkedin.com/profile/view?id=183115052)
 Ying Ying Wu | $5 | Unkown | A Mystery
