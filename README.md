@@ -14,16 +14,21 @@
 
 ## Why
 
-We believe that intelligent machines will be able to solve many of our
-hardest problems and will cause many new hard problems. Intelligent machines 
-that do not need to eat, sleep, or reproduce will be able to discover solutions
-to our hardest problems like cancer, mortality, and secrets of the universe
-much more efficiently than humans. Technology has always been used to do great
-good and great evil and even if we have the best intentions to do good 
-intelligent machines will cause many new problems. For example there will be
-massive job replacement since most jobs can be replaced my intelligent machines. 
-A possible solution to this hard problem will be to augment our brains and 
-become super intelligent. 
+I believe that intelligent machines will be able to solve many of our
+hardest problems and will cause many new hard problems. Our hardest problems like
+cancer, mortality, and secrets of the universe involve understanding a lot of 
+data and as humans we are limited by the processing power and size of our brains. 
+But if we figure out the computational principles that make you and I 
+intelligent, simulate them on a computer, scale it up to surpass the collective 
+intelligence of the 7+ billion people on Earth we will have created 
+intelligent machines that do not need to eat, sleep, or reproduce that can
+work on our hardest problems much more efficiently than humans. 
+
+Technology has always been used to do great good and great evil and even if we 
+have the best intentions to do good, intelligent machines will cause many new 
+problems. For example there will be massive job loss since most jobs 
+can be replaced by intelligent machines. A possible solution to this hard problem 
+will be to augment our brains and become super intelligent. 
 
 The long term goal of this repository is to store code that can simulate a full
 sized human brain in real time. The current short term goal is to experiment
@@ -45,9 +50,9 @@ super intelligent emotional machines will be much more intelligent compared to
 us.
 
 If you are interested in becoming a researcher/developer I would be grateful
-for your collaboration as I cannot do this alone. We currently have little
-funding but read [how to get paid hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
-to get started. On the other hand if you are interested in donating please read
+for your collaboration as I cannot do this alone. We currently have $$$
+so read [how to get paid hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
+to get started. If you are interested in donating please read
 [investors](#investors).
 
 This research was initially inspired by everyone at [Numenta](http://numenta.org/).
@@ -387,7 +392,7 @@ confidence to break through.
 
 After focusing on my physical health, family, and friends I eventually got out
 of my depression and decided to restart working towards my dream of creating a
-Strong AI for the past year. However, this time I have learned to use habits
+intelligent machine for the past year. However, this time I have learned to use habits
 over motivation, collaboration over working alone, sustainability over crunch,
 intense focus on what is necessary over nice to haves, acknowledgement you must
 sometimes forget what you know in order to create something new, and many
@@ -409,7 +414,7 @@ Coming soon he says...
 Hi, I'm Mark. I like math, sometimes.
 
 #### Your bio
-Interested in helping us code a Strong AI? Read [how you can get paid an
+Interested in helping us code an intelligent machine? Read [how you can get paid an
 hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
 to get started.
 

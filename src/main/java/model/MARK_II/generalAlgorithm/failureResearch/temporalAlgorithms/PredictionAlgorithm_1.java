@@ -205,13 +205,9 @@ public class PredictionAlgorithm_1 extends Pooler {
     Set<Integer> getConnectionScores() {
         Set<Integer> connectionScores = new TreeSet<>();
 
-        // TODO: note a given neuron might have distal segments attached to
-        // multiple current active neurons. Does the following code account
-        // for that?
-
         for (Neuron activeNeuron : this.isActiveNeurons) {
-            // we want to figure out which neurons(let's call them
-            // futureNeurons) in any previous time step created a
+            // We want to figure out which neurons(let's call them
+            // futureNeurons) in the Region in any previous time step created a
             // synapse to attach to me(activeNeuron)! This
             // means that in the past after "activeNeuron" was
             // active, then in the next time step "futureNeurons" was
@@ -221,24 +217,27 @@ public class PredictionAlgorithm_1 extends Pooler {
             // these neurons as "possiblyActiveInNextTimeStep" or
             // "isPredicting".
 
-            // get # of connected synapses for each neuron in Region for the
-            // current set of active neurons
+            // Get # of connected synapses for each neuron in Region for the
+            // current set of active neurons.
             Column[][] columns = super.region.getColumns();
             for (int ri = 0; ri < columns.length; ri++) {
                 for (int ci = 0; ci < columns[0].length; ci++) {
-                    for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
-                        connectionScores.add(this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron));
+                    int connectionScore = 0;
+                    for (Neuron possiblyActiveInNextTimeStep : columns[ri][ci].getNeurons()) {
+                        connectionScore += this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(possiblyActiveInNextTimeStep, activeNeuron);
                     }
+                    connectionScores.add(connectionScore);
                 }
             }
         }
         return connectionScores;
     }
 
-    int getNumberOfConnectedSynapsesToCurrentActiveNeuron(Neuron maybePredictingNeuron, Neuron activeNeuron) {
-        // TODO: consider cyclical connections if this is even possible?
+    int getNumberOfConnectedSynapsesToCurrentActiveNeuron(Neuron possiblyActiveInNextTimeStep, Neuron activeNeuron) {
+        // NOTE: This is incredibly inefficient. Fix this by making activeNeuron
+        // know which synapses from which neurons are connected to it.
         int numberOfConnectedSynapsesToCurrentActiveNeuron = 0;
-        for (DistalSegment distalSegment : maybePredictingNeuron.getDistalSegments()) {
+        for (DistalSegment distalSegment : possiblyActiveInNextTimeStep.getDistalSegments()) {
             for (Synapse synapse : distalSegment.getConnectedSynapses()) {
                 if (synapse.getCell().equals(activeNeuron)) {
                     numberOfConnectedSynapsesToCurrentActiveNeuron++;
@@ -279,7 +278,9 @@ public class PredictionAlgorithm_1 extends Pooler {
     }
 
     Neuron computeActiveNeuron(Column activeColumn) {
-        // TODO:
+        // TODO: return neuron that is most connected to all SDRs in previous
+        // time steps
+
         return null;
     }
 }
