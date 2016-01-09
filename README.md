@@ -7,8 +7,8 @@
 
 # wAlnut
 
-"*What I cannot create, I do not understand*"
-~ [Richard Feynman](https://www.quora.com/What-did-Richard-Feynman-mean-when-he-said-What-I-cannot-create-I-do-not-understand)
+"*When you can no longer answer these questions go to a folder on your computer labelled butterfly.*"
+~ Alice Howland
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
