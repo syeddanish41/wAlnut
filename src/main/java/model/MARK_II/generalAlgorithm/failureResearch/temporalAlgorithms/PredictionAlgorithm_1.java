@@ -73,18 +73,23 @@ public class PredictionAlgorithm_1 extends Pooler {
 
             // Step 3) Which neurons should be active for the current time step?
             // POSSIBLE ANSWER: The active neurons that best represent the
-            // current sensory input.
-
-            // Example: Imagine you were told "write Q". Now would you write:
-            // A) Q or B) queue? We want a different set of neurons to represent
-            // "Q" and "queue" in the same set of active columns.
-            // To achieve this in the current active SDR, the active neurons
-            // will be the ones that are most connected to the previous SDR.
+            //                  current sensory input.
+            //                                      2
+            // EXAMPLE: Imagine you saw "2 - 1" and - . Although the minus
+            //                                      1
+            //          symbol can also represent division you are not confused
+            //          because the "2" and "1" are in different locations.
+            //          Your brain saw the "2" and "1" SDRs as well as the SDR
+            //          for how your eye moved while looking at "2", "1", and
+            //          "-" in sequence so when you saw "-" you knew that it
+            //          meant minus or division.
+            //
+            // CONCLUSION: We want the current SDR to be the active neurons that
+            //             are most connected to all previous active SDRs. In
+            //             this case it includes vision and eye muscle SDRs.
             Neuron activeNeuron = this.computeActiveNeuron(activeColumn);
             activeNeuron.setActiveState(true);
-
-            // POSSIBLE ANSWER:
-            // All neurons in active columns if there is no prediction?
+            this.isActiveNeurons.add(activeNeuron);
         }
 
         // Step 4) What neurons can be used for prediction?
@@ -106,19 +111,17 @@ public class PredictionAlgorithm_1 extends Pooler {
 
         // Step 6) Which synapse connections should be strengthened to model
         // long term potentiation?
-        // Refer to picture: https://goo.gl/b7j9OQ
-        // POSSIBLE ANSWER: strengthen the connection between neuronB that
-        // isActive @t=4 and isPredicting @t=3 and neuronA that isActive @t=3.
-        for (Neuron activeNeuron : this.isActiveNeurons) {
-            if (activeNeuron.getPreviousPredictingState()) {
-                // Since this neuron(refering to variable activeNeuron)
-                // correctly predicted it will become active we need to
-                // strengthen all synapses connected to neuronAs(neurons
-                // enclosed by synapses of this neuron that were active @ t = -1)
+        // POSSIBLE ANSWER: Current time-step is @t=4. Strengthen the
+        // connection between neuronBs that isActive @t=4 and isPredicting
+        // @t=3 and neuronA that isActive @t=3.
+        for (Neuron activeNeuronBatTequals4 : this.isActiveNeurons) {
+            if (activeNeuronBatTequals4.getPreviousPredictingState()) {
 
-                for (DistalSegment distalSegment : activeNeuron.getDistalSegments()) {
+                for (DistalSegment distalSegment : activeNeuronBatTequals4.getDistalSegments()) {
                     for (Synapse synapse : distalSegment.getSynapses()) {
-                        if (synapse.getCell().equals(activeNeuron)) {
+                        // increase permanence of connection with
+                        // neuronAs' active @t=3.
+                        if (synapse.getCell().getPreviousActiveState()) {
                             synapse.increasePermanence();
                         }
                     }
@@ -128,22 +131,21 @@ public class PredictionAlgorithm_1 extends Pooler {
 
         // Step 7) Which synapse connections should be weakened to model
         // long term depression?
-        // POSSIBLE ANSWER: weaken the connection between active neuron @ t = -1
-        // and isPredicting neuron @ t = -1 where isPredicting neuron is NOT
-        // active @ t = 0
+        // POSSIBLE ANSWER: Current time-step is @t=4. Weaken the connection
+        // between neuronBs that isActive=False @t=4 and isPredicting @t=3
+        // and neuronA that isActive @t=3.
         Column[][] columns = super.region.getColumns();
         for (int ri = 0; ri < columns.length; ri++) {
             for (int ci = 0; ci < columns[0].length; ci++) {
-                for (Neuron neuron : columns[ri][ci].getNeurons()) {
-                    if (neuron.getActiveState() == false &&
-                        neuron.getPreviousPredictingState() == true) {
-                        // Since this neuron(refering to variable neuron)
-                        // incorrectly predicted it will become active we need
-                        // to weaken all synpases connected to neuronAs.
+                for (Neuron inActiveNeuronBatTequals4 : columns[ri][ci].getNeurons()) {
+                    if (!inActiveNeuronBatTequals4.getActiveState() &&
+                        inActiveNeuronBatTequals4.getPreviousPredictingState()) {
 
-                        for (DistalSegment distalSegment : neuron.getDistalSegments()) {
+                        for (DistalSegment distalSegment : inActiveNeuronBatTequals4.getDistalSegments()) {
                             for (Synapse synapse : distalSegment.getSynapses()) {
-                                if (synapse.getCell().equals(neuron)) {
+                                // decrease permanence of connection with
+                                // neuronA' active @t=3.
+                                if (synapse.getCell().getPreviousActiveState()) {
                                     synapse.decreasePermanence();
                                 }
                             }
@@ -203,13 +205,9 @@ public class PredictionAlgorithm_1 extends Pooler {
     Set<Integer> getConnectionScores() {
         Set<Integer> connectionScores = new TreeSet<>();
 
-        // TODO: note a given neuron might have distal segments attached to
-        // multiple current active neurons. Does the following code account
-        // for that?
-
         for (Neuron activeNeuron : this.isActiveNeurons) {
-            // we want to figure out which neurons(let's call them
-            // futureNeurons) in any previous time step created a
+            // We want to figure out which neurons(let's call them
+            // futureNeurons) in the Region in any previous time step created a
             // synapse to attach to me(activeNeuron)! This
             // means that in the past after "activeNeuron" was
             // active, then in the next time step "futureNeurons" was
@@ -219,24 +217,27 @@ public class PredictionAlgorithm_1 extends Pooler {
             // these neurons as "possiblyActiveInNextTimeStep" or
             // "isPredicting".
 
-            // get # of connected synapses for each neuron in Region for the
-            // current set of active neurons
+            // Get # of connected synapses for each neuron in Region for the
+            // current set of active neurons.
             Column[][] columns = super.region.getColumns();
             for (int ri = 0; ri < columns.length; ri++) {
                 for (int ci = 0; ci < columns[0].length; ci++) {
-                    for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
-                        connectionScores.add(this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron));
+                    int connectionScore = 0;
+                    for (Neuron possiblyActiveInNextTimeStep : columns[ri][ci].getNeurons()) {
+                        connectionScore += this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(possiblyActiveInNextTimeStep, activeNeuron);
                     }
+                    connectionScores.add(connectionScore);
                 }
             }
         }
         return connectionScores;
     }
 
-    int getNumberOfConnectedSynapsesToCurrentActiveNeuron(Neuron maybePredictingNeuron, Neuron activeNeuron) {
-        // TODO: consider cyclical connections if this is even possible?
+    int getNumberOfConnectedSynapsesToCurrentActiveNeuron(Neuron possiblyActiveInNextTimeStep, Neuron activeNeuron) {
+        // NOTE: This is incredibly inefficient. Fix this by making activeNeuron
+        // know which synapses from which neurons are connected to it.
         int numberOfConnectedSynapsesToCurrentActiveNeuron = 0;
-        for (DistalSegment distalSegment : maybePredictingNeuron.getDistalSegments()) {
+        for (DistalSegment distalSegment : possiblyActiveInNextTimeStep.getDistalSegments()) {
             for (Synapse synapse : distalSegment.getConnectedSynapses()) {
                 if (synapse.getCell().equals(activeNeuron)) {
                     numberOfConnectedSynapsesToCurrentActiveNeuron++;
@@ -277,27 +278,9 @@ public class PredictionAlgorithm_1 extends Pooler {
     }
 
     Neuron computeActiveNeuron(Column activeColumn) {
-        // TODO:
+        // TODO: return neuron that is most connected to all SDRs in previous
+        // time steps
+
         return null;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
