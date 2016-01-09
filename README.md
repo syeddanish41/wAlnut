@@ -18,17 +18,6 @@ One hard problem) 5.3 million humans in America have Alzheimer. It's the only ca
 the top 10 in America that cannot be prevented, cured, or slowed. [Source](http://www.alz.org/facts/).
 
 I believe that intelligent machines will be able to solve many of our
-hardest problems and will cause many new hard problems. Intelligent machines 
-that do not need to eat, sleep, or reproduce will be able to discover solutions
-to our hardest problems like cancer, mortality, and secrets of the universe
-much more efficiently than humans. Technology has always been used to do great
-good and great evil and even if we have the best intentions to do good 
-intelligent machines will cause many new problems. For example there will be
-massive job replacement since most jobs can be replaced my intelligent machines. 
-A possible solution to this hard problem will be to augment our brains and 
-become super intelligent. 
-=======
-I believe that intelligent machines will be able to solve many of our
 hardest problems and will cause many new hard problems. Our hardest problems like
 cancer, mortality, and secrets of the universe involve understanding a lot of 
 data and as humans we are limited by the processing power and size of our brains. 
@@ -43,7 +32,6 @@ have the best intentions to do good, intelligent machines will cause many new
 problems. For example there will be massive job loss since most jobs 
 can be replaced by intelligent machines. A possible solution to this hard problem 
 will be to augment our brains and become super intelligent. 
->>>>>>> feature-issue_199
 
 The long term goal of this repository is to store code that can simulate a full
 sized human brain in real time. The current short term goal is to experiment
