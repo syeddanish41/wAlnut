@@ -14,7 +14,10 @@
 
 ## Why
 
-We believe that intelligent machines will be able to solve many of our
+- 5.3 million humans in America have Alzheimer. It's the only cause of death in 
+the top 10 in America that cannot be prevented, cured, or slowed. [Source](http://www.alz.org/facts/).
+
+I believe that intelligent machines will be able to solve many of our
 hardest problems and will cause many new hard problems. Intelligent machines 
 that do not need to eat, sleep, or reproduce will be able to discover solutions
 to our hardest problems like cancer, mortality, and secrets of the universe
