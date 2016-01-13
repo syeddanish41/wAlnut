@@ -22,7 +22,7 @@ But if we figure out the computational principles that make you and I
 intelligent, simulate them on a computer, scale it up to surpass the collective 
 intelligence of the 7+ billion people on Earth we will have created 
 intelligent machines that do not need to eat, sleep, or reproduce that can
-work on our hardest problems much more efficiently than humans. Test
+work on our hardest problems much more efficiently than humans. 
 
 Technology has always been used to do great good and great evil and even if we 
 have the best intentions to do good, intelligent machines will cause many new 
