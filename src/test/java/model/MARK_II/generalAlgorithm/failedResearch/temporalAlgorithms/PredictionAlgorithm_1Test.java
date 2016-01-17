@@ -7,7 +7,7 @@ import model.MARK_II.region.Region;
 
 /**
  * @author Q Liu (quinnliu@vt.edu)
- * @version 9/20/2015
+ * @version 1/16/2016
  */
 public class PredictionAlgorithm_1Test extends TestCase {
     private PredictionAlgorithm_1 predictionAlgorithm_1;
@@ -19,5 +19,6 @@ public class PredictionAlgorithm_1Test extends TestCase {
 
     public void test_runOnce() {
         //this.predictionAlgorithm_1.runOnce();
+
     }
 }

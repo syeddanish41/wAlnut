@@ -25,7 +25,7 @@ import java.util.TreeSet;
  * how to improve it.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @version 12/21/2015
+ * @version 1/16/2016
  */
 public class PredictionAlgorithm_1 extends Pooler {
     private SpatialPooler spatialPooler;
@@ -87,7 +87,10 @@ public class PredictionAlgorithm_1 extends Pooler {
             // CONCLUSION: We want the current SDR to be the active neurons that
             //             are most connected to all previous active SDRs. In
             //             this case it includes vision and eye muscle SDRs.
-            Neuron activeNeuron = this.computeActiveNeuron(activeColumn);
+
+            // NOTE: haven't decided how to return active neuron so just re
+            //       return 1st neuron for now
+            Neuron activeNeuron = activeColumn.getNeuron(0);
             activeNeuron.setActiveState(true);
             this.isActiveNeurons.add(activeNeuron);
         }
@@ -275,12 +278,5 @@ public class PredictionAlgorithm_1 extends Pooler {
             numberOfConnectedSynapses += distalSegment.getConnectedSynapses().size();
         }
         return numberOfConnectedSynapses;
-    }
-
-    Neuron computeActiveNeuron(Column activeColumn) {
-        // TODO: return neuron that is most connected to all SDRs in previous
-        // time steps
-
-        return null;
     }
 }
