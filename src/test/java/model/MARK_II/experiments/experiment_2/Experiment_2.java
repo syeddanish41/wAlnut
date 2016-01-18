@@ -58,9 +58,12 @@ public class Experiment_2 extends TestCase {
 
     void runAlgorithmOneTimeStep() throws IOException {
         this.sdrAlgorithm_1.run(); // on Region A
+        System.out.println("Region A SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         this.sdrAlgorithm_1.changeRegion(this.regionB);
+        System.out.println("Region B SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         this.sdrAlgorithm_1.run(); // on Region B
         this.sdrAlgorithm_1.changeRegion(this.regionC);
+        System.out.println("Region C SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         this.sdrAlgorithm_1.run(); // on Region C
 
         this.predictionAlgorithm_1.run(); // on Region C
@@ -68,6 +71,11 @@ public class Experiment_2 extends TestCase {
         Point3D nextRetinaPosition = this.regionB.getMotorOutput(
                 this.imageViewer.getBoxRetinaIsStuckIn());
         this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
+
+        // TODO: I messed up AlgorithmStatistics class. Each Region needs an
+        //       algorithm statistics instance. Right now each algorithm has one.
+        System.out.println("Region A SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
+        System.out.println("nextRetinaPosition = (" + nextRetinaPosition.getX() + ", " + nextRetinaPosition.getY() + ", " + nextRetinaPosition.getZ() + ")");
     }
 
     public void test_experiment_2() throws IOException {
@@ -75,8 +83,6 @@ public class Experiment_2 extends TestCase {
 
         for (int i = 0; i < 10; i++) {
             this.runAlgorithmOneTimeStep();
-            int[] statistics = this.sdrAlgorithm_1.getAlgorithmStatistics().getSP_activeColumnsHistoryAndAdd(-1);
-            System.out.println("statistics[" + i +  "] = " + statistics[i]);
         }
     }
 }
