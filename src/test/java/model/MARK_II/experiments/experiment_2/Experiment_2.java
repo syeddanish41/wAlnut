@@ -45,7 +45,6 @@ public class Experiment_2 extends TestCase {
        // Connecting region B to C:right
        regionToRegion.connect(this.regionB.getColumns(), this.regionC.getColumns(new Rectangle(new Point(7,0), new Point(15,15))), 0, 0);
 
-       // 2-1
        this.imageViewer = new ImageViewer("2_minus_1.bmp", retina);
     }
 

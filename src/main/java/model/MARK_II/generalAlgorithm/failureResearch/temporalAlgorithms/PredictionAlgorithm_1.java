@@ -29,16 +29,16 @@ import java.util.TreeSet;
  * @version 1/16/2016
  */
 public class PredictionAlgorithm_1 extends Pooler {
-    private SpatialPooler spatialPooler; // TODO: change to SDRAlgorithm_1
+    private SDRAlgorithm_1 SDRAlgorithm_1; // TODO: change to SDRAlgorithm_1
 
     Set<Neuron> wasActiveNeurons;
     Set<Neuron> isActiveNeurons;
 
     Set<Neuron> isPredictingNeurons;
 
-    public PredictionAlgorithm_1(SpatialPooler spatialPooler) {
-        this.spatialPooler = spatialPooler;
-        super.region = spatialPooler.getRegion();
+    public PredictionAlgorithm_1(SDRAlgorithm_1 SDRAlgorithm_1) {
+        this.SDRAlgorithm_1 = SDRAlgorithm_1;
+        super.region = SDRAlgorithm_1.getRegion();
 
         this.wasActiveNeurons = new HashSet<>();
         this.isActiveNeurons = new HashSet<>();
