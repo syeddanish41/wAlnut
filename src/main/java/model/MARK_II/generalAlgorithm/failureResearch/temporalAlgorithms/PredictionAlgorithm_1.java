@@ -29,7 +29,7 @@ import java.util.TreeSet;
  * @version 1/16/2016
  */
 public class PredictionAlgorithm_1 extends Pooler {
-    private SDRAlgorithm_1 SDRAlgorithm_1; // TODO: change to SDRAlgorithm_1
+    private SDRAlgorithm_1 SDRAlgorithm_1;
 
     Set<Neuron> wasActiveNeurons;
     Set<Neuron> isActiveNeurons;
@@ -55,7 +55,7 @@ public class PredictionAlgorithm_1 extends Pooler {
     public void run() {
         // Step 1) Which neurons to apply logic to?
         // POSSIBLE ANSWER: Iterate through all neurons in active columns in region
-        Set<ColumnPosition> activeColumnPositions = this.spatialPooler.getActiveColumnPositions();
+        Set<ColumnPosition> activeColumnPositions = this.SDRAlgorithm_1.getActiveColumnPositions();
         for (ColumnPosition ACP : activeColumnPositions) {
             Column activeColumn = super.getRegion().getColumn(ACP.getRow(), ACP.getRow());
             Neuron learningNeuron = this.getNeuronWithLeastNumberOfConnectedSynapses(activeColumn);
@@ -106,7 +106,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         // NOTE: connectionScores = sorted # of connected synapses for each neuron in Region
         Set<Integer> connectionScores = this.getConnectionScores();
 
-        int index = Math.max(0, connectionScores.size() - this.spatialPooler.getActiveColumnPositions().size());
+        int index = Math.max(0, connectionScores.size() - this.SDRAlgorithm_1.getActiveColumnPositions().size());
         int minimumConnectionScore = (Integer) connectionScores.toArray()[index];
 
         // Step 5) How many number of predicting neurons?
@@ -170,7 +170,7 @@ public class PredictionAlgorithm_1 extends Pooler {
                     for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
                         int connectionScore = this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron);
 
-                        if (this.isPredictingNeurons.size() >= this.spatialPooler.getActiveColumnPositions().size()) {
+                        if (this.isPredictingNeurons.size() >= this.SDRAlgorithm_1.getActiveColumnPositions().size()) {
                             break;
                         }
 

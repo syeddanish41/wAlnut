@@ -1,6 +1,9 @@
 package model.MARK_II.generalAlgorithm;
 
+import model.MARK_II.region.Column;
 import model.MARK_II.region.Region;
+
+import java.util.Set;
 
 /**
  * Abstract class extended by algorithm classes.
@@ -11,6 +14,8 @@ import model.MARK_II.region.Region;
 public abstract class Pooler {
     // region: 2D array of columns
     protected Region region;
+    protected Set<Column> activeColumns;
+    protected Set<ColumnPosition> activeColumnPositions;
 
     // whether or not the algorithm is learning right now
     private boolean learningState;
@@ -35,6 +40,14 @@ public abstract class Pooler {
         }
 
         this.region = newRegion;
+    }
+
+    public Set<ColumnPosition> getActiveColumnPositions() {
+        return this.activeColumnPositions;
+    }
+
+    public Set<Column> getActiveColumns() {
+        return this.activeColumns;
     }
 
     public boolean getLearningState() {

@@ -18,8 +18,6 @@ import java.util.List;
  * @version July 29, 2013
  */
 public class SpatialPooler extends Pooler {
-    private Set<Column> activeColumns;
-    private Set<ColumnPosition> activeColumnPositions;
 
     public static float MINIMUM_COLUMN_FIRING_RATE = 0.01f;
 
@@ -31,8 +29,8 @@ public class SpatialPooler extends Pooler {
                     "region in SpatialPooler class constructor cannot be null");
         }
         super.region = region;
-        this.activeColumns = new HashSet<Column>();
-        this.activeColumnPositions = new HashSet<ColumnPosition>();
+        super.activeColumns = new HashSet<Column>();
+        super.activeColumnPositions = new HashSet<ColumnPosition>();
     }
 
     public SpatialPooler(Region region) {
@@ -62,28 +60,6 @@ public class SpatialPooler extends Pooler {
         // simulate learning by boosting specific Synapses
         this.regionLearnOneTimeStep();
 
-        return this.activeColumns;
-    }
-
-    /**
-     * If only the column positions computed by spatial pooling are needed use
-     * this method to return a set of just the column positions that were active
-     * in the most recent iteration of spatial pooling. For example instead of
-     * using:
-     *
-     * Set<Column> columnActivity =
-     * spatialPooler.performPooling();
-     *
-     * Now use:
-     *
-     * spatialPooler.performPooling();
-     * Set<ColumnPosition> columnActivity = this.spatialPooler.getActiveColumnPositions();
-     */
-    public Set<ColumnPosition> getActiveColumnPositions() {
-        return this.activeColumnPositions;
-    }
-
-    public Set<Column> getActiveColumns() {
         return this.activeColumns;
     }
 

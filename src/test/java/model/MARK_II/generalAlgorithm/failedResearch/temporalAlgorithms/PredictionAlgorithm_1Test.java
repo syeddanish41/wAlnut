@@ -2,6 +2,7 @@ package model.MARK_II.generalAlgorithm.failedResearch.temporalAlgorithms;
 
 import junit.framework.TestCase;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
+import model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms.SDRAlgorithm_1;
 import model.MARK_II.generalAlgorithm.failureResearch.temporalAlgorithms.PredictionAlgorithm_1;
 import model.MARK_II.region.Region;
 
@@ -13,12 +14,11 @@ public class PredictionAlgorithm_1Test extends TestCase {
     private PredictionAlgorithm_1 predictionAlgorithm_1;
 
     public void setUp() {
-        SpatialPooler spatialPooler = new SpatialPooler(new Region("root", 6, 8, 4, 20.0, 3));
-        this.predictionAlgorithm_1 = new PredictionAlgorithm_1(spatialPooler);
+        SDRAlgorithm_1 SDRAlgorithm_1 = new SDRAlgorithm_1(1, new Region("root", 6, 8, 4, 20.0, 3), 66.67);
+        this.predictionAlgorithm_1 = new PredictionAlgorithm_1(SDRAlgorithm_1);
     }
 
     public void test_runOnce() {
         //this.predictionAlgorithm_1.runOnce();
-
     }
 }

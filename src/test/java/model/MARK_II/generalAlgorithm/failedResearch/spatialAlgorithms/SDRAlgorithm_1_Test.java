@@ -51,7 +51,7 @@ public class SDRAlgorithm_1_Test extends TestCase {
         column02.getProximalSegment().addSynapse(syn01);
         column02.getProximalSegment().addSynapse(syn02);
 
-        sdrAlgorithm1 = new SDRAlgorithm_1(1, region,66.67);
+        sdrAlgorithm1 = new SDRAlgorithm_1(1, region, 66.67);
 
     }
 
