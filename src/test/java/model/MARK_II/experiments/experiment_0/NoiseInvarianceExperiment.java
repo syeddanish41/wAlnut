@@ -70,20 +70,24 @@ public class NoiseInvarianceExperiment extends TestCase {
         set2.add(cp4);
 
         // View all three images of digit 2 @ https://github.com/WalnutiQ/WalnutiQ#noise-invariance-experiment
-        this.retina.seeBMPImage("2.bmp");
-        this.spatialPooler.performPooling();
-        // set1 = ((6, 5), (6, 2), (2, 5), (1, 5))
-        TestCase.assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
+        retina.seeBMPImage("2.bmp");
+        spatialPooler.performPooling();
+        // set1 = ((6,2), (1,5))
+        // (6,2) and (1,5) are the columns in the Region that are active after seeing "2.bmp"
+        assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
-        this.retina.seeBMPImage("2_with_some_noise.bmp");
-        this.spatialPooler.performPooling();
-        // set1 = ((6, 5), (6, 2), (2, 5), (1, 5))
-        TestCase.assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
+        retina.seeBMPImage("2_with_some_noise.bmp");
+        spatialPooler.performPooling();
+        // set1 = ((6,2), (1,5))
+        // NOTE: the columns that are active are still the same even though there was
+        //       quite a lot of noise in the input data
+        assertEquals(set1, this.spatialPooler.getActiveColumnPositions());
 
-        this.retina.seeBMPImage("2_with_a_lot_of_noise.bmp");
-        this.spatialPooler.performPooling();
-        // when there is a lot of noise notice how the active columns are no longer the same?
-        // set2 = ((2, 5), (1, 5))
-        TestCase.assertEquals(set2, this.spatialPooler.getActiveColumnPositions());
+        retina.seeBMPImage("2_with_a_lot_of_noise.bmp");
+        spatialPooler.performPooling();
+        // when there is a lot of noise notice how the active columns are
+        // no longer the same?
+        // set2 = ((6,2), (2,5))
+        assertEquals(set2, this.spatialPooler.getActiveColumnPositions());
     }
 }

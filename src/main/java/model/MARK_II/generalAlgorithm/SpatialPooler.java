@@ -31,8 +31,8 @@ public class SpatialPooler extends Pooler {
                     "region in SpatialPooler class constructor cannot be null");
         }
         super.region = region;
-        this.activeColumns = new HashSet<>();
-        this.activeColumnPositions = new HashSet<>();
+        this.activeColumns = new HashSet<Column>();
+        this.activeColumnPositions = new HashSet<ColumnPosition>();
     }
 
     public SpatialPooler(Region region) {

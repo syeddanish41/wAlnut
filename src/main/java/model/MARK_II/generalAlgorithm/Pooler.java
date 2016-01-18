@@ -9,16 +9,22 @@ import model.MARK_II.region.Region;
  * @version 9/7/2015
  */
 public abstract class Pooler {
+    // region: 2D array of columns
     protected Region region;
+
+    // whether or not the algorithm is learning right now
     private boolean learningState;
 
+    // AlgorithmStatistics: class to store statistical data
     protected AlgorithmStatistics algorithmStatistics;
 
     public Pooler(int numberOfTimesToRunAlgorithm) {
+        this.learningState = false;
         this.algorithmStatistics = new AlgorithmStatistics(numberOfTimesToRunAlgorithm);
     }
 
     public Pooler() {
+        this.learningState = false;
         this.algorithmStatistics = new AlgorithmStatistics(AlgorithmStatistics.DEFAULT_NUMBER_OF_ALGORITHM_RUNS);
     }
 
@@ -27,7 +33,7 @@ public abstract class Pooler {
             throw new IllegalArgumentException(
                     "newRegion in Pooler class changeRegion method cannot be null");
         }
-        this.learningState = false;
+
         this.region = newRegion;
     }
 
