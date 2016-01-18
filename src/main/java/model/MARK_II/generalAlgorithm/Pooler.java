@@ -3,6 +3,7 @@ package model.MARK_II.generalAlgorithm;
 import model.MARK_II.region.Column;
 import model.MARK_II.region.Region;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -24,6 +25,8 @@ public abstract class Pooler {
     protected AlgorithmStatistics algorithmStatistics;
 
     public Pooler(int numberOfTimesToRunAlgorithm) {
+        this.activeColumns = new HashSet<>();
+        this.activeColumnPositions = new HashSet<>();
         this.learningState = false;
         this.algorithmStatistics = new AlgorithmStatistics(numberOfTimesToRunAlgorithm);
     }

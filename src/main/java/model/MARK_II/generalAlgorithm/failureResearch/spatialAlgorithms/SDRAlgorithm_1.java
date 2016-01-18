@@ -1,6 +1,5 @@
 package model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms;
 
-import model.MARK_II.generalAlgorithm.AlgorithmStatistics;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.region.Column;

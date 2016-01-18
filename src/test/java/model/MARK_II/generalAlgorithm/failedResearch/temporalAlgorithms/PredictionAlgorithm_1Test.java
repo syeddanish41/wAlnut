@@ -11,14 +11,16 @@ import model.MARK_II.region.Region;
  * @version 1/16/2016
  */
 public class PredictionAlgorithm_1Test extends TestCase {
+    private SDRAlgorithm_1 SDRAlgorithm_1;
     private PredictionAlgorithm_1 predictionAlgorithm_1;
 
     public void setUp() {
-        SDRAlgorithm_1 SDRAlgorithm_1 = new SDRAlgorithm_1(1, new Region("root", 6, 8, 4, 20.0, 3), 66.67);
+        this.SDRAlgorithm_1 = new SDRAlgorithm_1(1, new Region("root", 6, 8, 4, 20.0, 3), 10);
         this.predictionAlgorithm_1 = new PredictionAlgorithm_1(SDRAlgorithm_1);
     }
 
-    public void test_runOnce() {
-        //this.predictionAlgorithm_1.runOnce();
+    public void test_run() {
+        this.SDRAlgorithm_1.run();
+        this.predictionAlgorithm_1.run();
     }
 }

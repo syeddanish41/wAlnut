@@ -68,7 +68,7 @@ public class PredictionAlgorithm_1 extends Pooler {
 
             for (Neuron previouslyActiveNeuron : this.wasActiveNeurons) {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron,
-                        Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
+                        Synapse.MINIMAL_CONNECTED_PERMANENCE, 69, 69));
             }
             learningNeuron.addDistalSegment(distalSegment);
 

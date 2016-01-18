@@ -73,8 +73,10 @@ public class Experiment_2 extends TestCase {
     public void test_experiment_2() throws IOException {
         assertEquals(2-1, 1);
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             this.runAlgorithmOneTimeStep();
+            int[] statistics = this.sdrAlgorithm_1.getAlgorithmStatistics().getSP_activeColumnsHistoryAndAdd(-1);
+            System.out.println("statistics[" + i +  "] = " + statistics[i]);
         }
     }
 }
