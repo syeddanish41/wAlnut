@@ -3,6 +3,7 @@ package model.MARK_II.generalAlgorithm.failureResearch.temporalAlgorithms;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
+import model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms.SDRAlgorithm_1;
 import model.MARK_II.region.*;
 
 import java.util.HashSet;
@@ -28,7 +29,7 @@ import java.util.TreeSet;
  * @version 1/16/2016
  */
 public class PredictionAlgorithm_1 extends Pooler {
-    private SpatialPooler spatialPooler;
+    private SpatialPooler spatialPooler; // TODO: change to SDRAlgorithm_1
 
     Set<Neuron> wasActiveNeurons;
     Set<Neuron> isActiveNeurons;

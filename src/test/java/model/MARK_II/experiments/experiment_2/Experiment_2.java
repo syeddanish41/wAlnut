@@ -49,6 +49,10 @@ public class Experiment_2 extends TestCase {
        this.imageViewer = new ImageViewer("2_minus_1.bmp", retina);
     }
 
+    public void test_experiment_2() {
+        assertEquals(2-1, 1);
+    }
+
 
 //    int[][] seenAreaFittedToRetinaSize = this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(new Point3D(33, 33, 33));
 //    assertTrue(Arrays.deepEquals(this.twoDotBMP, seenAreaFittedToRetinaSize));
