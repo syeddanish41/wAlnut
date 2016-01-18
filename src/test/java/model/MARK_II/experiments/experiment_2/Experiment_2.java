@@ -70,7 +70,11 @@ public class Experiment_2 extends TestCase {
         this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
     }
 
-    public void test_experiment_2() {
+    public void test_experiment_2() throws IOException {
         assertEquals(2-1, 1);
+
+        for (int i = 0; i < 1000; i++) {
+            this.runAlgorithmOneTimeStep();
+        }
     }
 }

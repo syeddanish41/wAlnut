@@ -1,5 +1,6 @@
 package model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms;
 
+import model.MARK_II.generalAlgorithm.AlgorithmStatistics;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.region.Column;
@@ -35,8 +36,6 @@ public class SDRAlgorithm_1 extends Pooler {
 
     /**
      * Call this method to run SDRAlgorithm_1 once on a Region.
-     *
-     * SDR generation
      */
     public HashSet<ColumnPosition> run() {
 
@@ -64,13 +63,18 @@ public class SDRAlgorithm_1 extends Pooler {
         HashSet<ColumnPosition> sparseRepresentation = new HashSet<ColumnPosition>();
         for (int row = 0; row < columns.length; row++) {
             for (int column = 0; column < columns[0].length; column++) {
-                if(columns[row][column].getProximalSegment().getNumberOfActiveSynapses() >= minimumOverlapScore)
+                if(columns[row][column].getProximalSegment().getNumberOfActiveSynapses()
+                        >= minimumOverlapScore)
                 {
                     columns[row][column].setActiveState(true);
+                    super.activeColumns.add(columns[row][column]);
                     sparseRepresentation.add(new ColumnPosition(row, column));
                 }
             }
         }
+        super.algorithmStatistics.getSP_activeColumnsHistoryAndAdd(sparseRepresentation.size());
+        super.algorithmStatistics.nextTimeStep();
+        super.activeColumnPositions = sparseRepresentation;
         return sparseRepresentation;
     }
 
