@@ -31,6 +31,8 @@ public abstract class Pooler {
         this.algorithmStatistics = new AlgorithmStatistics(numberOfTimesToRunAlgorithm);
     }
 
+    abstract public void nextTimeStep();
+
     public Pooler() {
         this.learningState = false;
     }

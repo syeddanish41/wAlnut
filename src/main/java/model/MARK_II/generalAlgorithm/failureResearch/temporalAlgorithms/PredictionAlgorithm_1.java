@@ -184,7 +184,8 @@ public class PredictionAlgorithm_1 extends Pooler {
         }
     }
 
-    void nextTimeStep() {
+    @Override
+    public void nextTimeStep() {
         // prepare for next time step be clearing current info that is out of date
         this.wasActiveNeurons.clear();
         for (Neuron neuron : this.isActiveNeurons) {

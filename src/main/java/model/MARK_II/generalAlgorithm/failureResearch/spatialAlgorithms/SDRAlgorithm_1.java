@@ -3,6 +3,7 @@ package model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.region.Column;
+import model.MARK_II.region.DistalSegment;
 import model.MARK_II.region.Neuron;
 import model.MARK_II.region.Region;
 
@@ -65,7 +66,6 @@ public class SDRAlgorithm_1 extends Pooler {
             System.out.println("WARNING: Consider making your region " +
             this.region.getBiologicalName() + "'s connection to lower regions " +
                     "have more overlap.");
-            minimumOverlapScore++;
         }
 
 //        String sortedScores = new String();
@@ -111,5 +111,17 @@ public class SDRAlgorithm_1 extends Pooler {
                 .getNumberOfActiveSynapses();
 
         return newOverlapScore;
+    }
+
+    @Override
+    public void nextTimeStep() {
+        Column[][] columns = super.region.getColumns();
+        for (int ri = 0; ri < columns.length; ri++) {
+            for (int ci = 0; ci < columns[0].length; ci++) {
+                for (Neuron neuron : columns[ri][ci].getNeurons()) {
+                    neuron.nextTimeStep();
+                }
+            }
+        }
     }
 }

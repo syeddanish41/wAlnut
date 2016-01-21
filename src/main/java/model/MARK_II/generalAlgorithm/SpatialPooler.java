@@ -1,9 +1,6 @@
 package model.MARK_II.generalAlgorithm;
 
-import model.MARK_II.region.Cell;
-import model.MARK_II.region.Column;
-import model.MARK_II.region.Region;
-import model.MARK_II.region.Synapse;
+import model.MARK_II.region.*;
 
 import java.awt.*;
 import java.util.*;
@@ -458,6 +455,18 @@ public class SpatialPooler extends Pooler {
 
     public Region getRegion() {
         return this.region;
+    }
+
+    @Override
+    public void nextTimeStep() {
+        Column[][] columns = super.region.getColumns();
+        for (int ri = 0; ri < columns.length; ri++) {
+            for (int ci = 0; ci < columns[0].length; ci++) {
+                for (Neuron neuron : columns[ri][ci].getNeurons()) {
+                    neuron.nextTimeStep();
+                }
+            }
+        }
     }
 
     @Override

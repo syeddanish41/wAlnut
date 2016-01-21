@@ -51,7 +51,7 @@ public class Experiment_2 extends TestCase {
 
        this.imageViewer = new ImageViewer("2_minus_1.bmp", retina); // 400 x 400 pixels
        int[][] seenArea = this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(new Point3D(200, 200, 200));
-       //RegionConsoleViewer.printDoubleIntArray(seenArea);
+       RegionConsoleViewer.printDoubleIntArray(seenArea);
 
        this.sdrAlgorithm_1 = new SDRAlgorithm_1(1000, this.regionA, 10);
        this.sdrAlgorithm_1.setLearningState(true);
@@ -70,22 +70,28 @@ public class Experiment_2 extends TestCase {
         this.sdrAlgorithm_1.run(); // on Region C
 
         this.predictionAlgorithm_1.run(); // on Region C
-        this.sdrAlgorithm_1.changeRegion(this.regionA);
+        this.predictionAlgorithm_1.nextTimeStep();
 
         Point3D nextRetinaPosition = this.regionB.getMotorOutput(
                 this.imageViewer.getBoxRetinaIsStuckIn());
         System.out.println("nextRetinaPosition = (" + nextRetinaPosition.getX() + ", " + nextRetinaPosition.getY() + ", " + nextRetinaPosition.getZ() + ")");
 
+        this.sdrAlgorithm_1.nextTimeStep(); // on Region C
+        this.sdrAlgorithm_1.changeRegion(this.regionB);
+        this.sdrAlgorithm_1.nextTimeStep(); // on Region B
+        this.sdrAlgorithm_1.changeRegion(this.regionA);
+        this.sdrAlgorithm_1.nextTimeStep(); // on Region A
+
         int[][] seenArea = this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
-        //System.out.println("What Retina is going to see next:");
-        //RegionConsoleViewer.printDoubleIntArray(seenArea);
+        System.out.println("What Retina is going to see next:");
+        RegionConsoleViewer.printDoubleIntArray(seenArea);
     }
 
     public void test_experiment_2() throws IOException {
         assertEquals(2-1, 1);
 
-//        for (int i = 0; i < 50; i++) {
-//            this.runAlgorithmOneTimeStep();
-//        }
+        for (int i = 0; i < 5; i++) {
+            this.runAlgorithmOneTimeStep();
+        }
     }
 }
