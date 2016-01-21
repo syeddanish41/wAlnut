@@ -81,8 +81,6 @@ public class SpatialPooler extends Pooler {
             ///     overlap(c) = overlap(c) + input(t, s.sourceInput)
             .getNumberOfActiveSynapses();
 
-        super.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(newOverlapScore);
-
         // compute minimumOverlapScore assuming all proximalSegments are
         // connected to the same number of synapses
         Column[][] columns = this.region.getColumns();

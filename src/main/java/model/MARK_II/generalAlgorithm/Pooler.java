@@ -21,19 +21,18 @@ public abstract class Pooler {
     // whether or not the algorithm is learning right now
     private boolean learningState;
 
-    // AlgorithmStatistics: class to store statistical data
     protected AlgorithmStatistics algorithmStatistics;
 
     public Pooler(int numberOfTimesToRunAlgorithm) {
         this.activeColumns = new HashSet<>();
         this.activeColumnPositions = new HashSet<>();
         this.learningState = false;
+
         this.algorithmStatistics = new AlgorithmStatistics(numberOfTimesToRunAlgorithm);
     }
 
     public Pooler() {
         this.learningState = false;
-        this.algorithmStatistics = new AlgorithmStatistics(AlgorithmStatistics.DEFAULT_NUMBER_OF_ALGORITHM_RUNS);
     }
 
     public void changeRegion(Region newRegion) {

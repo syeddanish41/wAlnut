@@ -71,8 +71,6 @@ public class SDRAlgorithm_1 extends Pooler {
                 }
             }
         }
-        super.algorithmStatistics.getSP_activeColumnsHistoryAndAdd(sparseRepresentation.size());
-        super.algorithmStatistics.nextTimeStep();
 
         super.activeColumnPositions = sparseRepresentation;
         return sparseRepresentation;
@@ -93,8 +91,6 @@ public class SDRAlgorithm_1 extends Pooler {
                 /// for s in connectedSynapses(c)
                 ///     overlap(c) = overlap(c) + input(t, s.sourceInput)
                 .getNumberOfActiveSynapses();
-
-        super.algorithmStatistics.getSP_activeSynapsesHistoryAndAdd(newOverlapScore);
 
         return newOverlapScore;
     }

@@ -35,9 +35,9 @@ public class Experiment_2 extends TestCase {
    public void setUp() throws IOException{
        Retina retina = new Retina(64, 64);
 
-       regionA = new Region("A", 32, 32, 1, 20, 3);
-       regionB = new Layer5Region("B", 32, 32, 1, 20, 3);
-       regionC = new Region("C", 16, 16, 1, 20, 3);
+       this.regionA = new Region("A", 32, 32, 1, 20, 3);
+       this.regionB = new Layer5Region("B", 32, 32, 1, 20, 3);
+       this.regionC = new Region("C", 16, 16, 1, 20, 3);
 
        AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
        retinaToRegion.connect(retina.getVisionCells(), this.regionA.getColumns(), 0, 0);
@@ -72,8 +72,8 @@ public class Experiment_2 extends TestCase {
                 this.imageViewer.getBoxRetinaIsStuckIn());
         this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
 
-        // TODO: I messed up AlgorithmStatistics class. Each Region needs an
-        //       algorithm statistics instance. Right now each algorithm has one.
+        // NOTE: each algorithmStatistic can be extracted after an algorithm run
+        //       to save the statistics of that run
         System.out.println("Region A SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         System.out.println("nextRetinaPosition = (" + nextRetinaPosition.getX() + ", " + nextRetinaPosition.getY() + ", " + nextRetinaPosition.getZ() + ")");
     }
