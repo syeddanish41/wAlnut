@@ -15,7 +15,6 @@ import java.util.HashSet;
 /**
  * @author Manpreet Singh (mghotra81@gmail.com)
  * @author Aarathi Raghuraman (raarathi@vt.edu)
- * TODO - Using Mockito Library for Testbed #221
  */
 public class SDRAlgorithm_1_Test extends TestCase {
 
@@ -62,5 +61,4 @@ public class SDRAlgorithm_1_Test extends TestCase {
         sparseRepresentation.add(new ColumnPosition(0, 2));
         assertEquals(sparseRepresentation, sdrAlgorithm1.run());
     }
-
 }

@@ -40,12 +40,12 @@ public class Experiment_2 extends TestCase {
        this.regionC = new Region("C", 16, 16, 1, 20, 3);
 
        AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
-       retinaToRegion.connect(retina.getVisionCells(), this.regionA.getColumns(), 0, 0);
+       retinaToRegion.connect(retina.getVisionCells(), this.regionA.getColumns(), 8, 8);
 
        AbstractRegionToRegionConnect regionToRegion = new RegionToRegionRectangleConnect();
-       regionToRegion.connect(this.regionA.getColumns(), this.regionB.getColumns(), 0, 0);
-       regionToRegion.connect(this.regionA.getColumns(), this.regionC.getColumns(new Rectangle(new Point(0,0), new Point(7,15))), 0, 0);
-       regionToRegion.connect(this.regionB.getColumns(), this.regionC.getColumns(new Rectangle(new Point(7,0), new Point(15,15))), 0, 0);
+       regionToRegion.connect(this.regionA.getColumns(), this.regionB.getColumns(), 5, 5);
+       regionToRegion.connect(this.regionA.getColumns(), this.regionC.getColumns(new Rectangle(new Point(0,0), new Point(7,15))), 5, 5);
+       regionToRegion.connect(this.regionB.getColumns(), this.regionC.getColumns(new Rectangle(new Point(7,0), new Point(15,15))), 5, 5);
 
        this.imageViewer = new ImageViewer("2_minus_1.bmp", retina); // 400 x 400 pixels
        this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(new Point3D(200, 200, 200));
@@ -57,6 +57,7 @@ public class Experiment_2 extends TestCase {
    }
 
     void runAlgorithmOneTimeStep() throws IOException {
+        // TODO: error not seeing any input
         this.sdrAlgorithm_1.run(); // on Region A
         System.out.println("Region A SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         this.sdrAlgorithm_1.changeRegion(this.regionB);
@@ -67,21 +68,19 @@ public class Experiment_2 extends TestCase {
         this.sdrAlgorithm_1.run(); // on Region C
 
         this.predictionAlgorithm_1.run(); // on Region C
+        this.sdrAlgorithm_1.changeRegion(this.regionA);
 
         Point3D nextRetinaPosition = this.regionB.getMotorOutput(
                 this.imageViewer.getBoxRetinaIsStuckIn());
-        this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
+        int[][] seenArea = this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
 
-        // NOTE: each algorithmStatistic can be extracted after an algorithm run
-        //       to save the statistics of that run
-        System.out.println("Region A SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         System.out.println("nextRetinaPosition = (" + nextRetinaPosition.getX() + ", " + nextRetinaPosition.getY() + ", " + nextRetinaPosition.getZ() + ")");
     }
 
     public void test_experiment_2() throws IOException {
         assertEquals(2-1, 1);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             this.runAlgorithmOneTimeStep();
         }
     }

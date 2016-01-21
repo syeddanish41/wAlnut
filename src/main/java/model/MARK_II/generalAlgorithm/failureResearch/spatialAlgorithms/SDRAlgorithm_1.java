@@ -3,6 +3,7 @@ package model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.region.Column;
+import model.MARK_II.region.Neuron;
 import model.MARK_II.region.Region;
 
 import java.util.Arrays;
@@ -59,6 +60,20 @@ public class SDRAlgorithm_1 extends Pooler {
  
         // setting columns that are above the minimumOverlapScore to active
         int minimumOverlapScore = overlapScores[indexOfMinumOverlapScore];
+        System.out.println("minimumOverlapScore = " + minimumOverlapScore);
+        if (minimumOverlapScore == 0) {
+            System.out.println("WARNING: Consider making your region " +
+            this.region.getBiologicalName() + "'s connection to lower regions " +
+                    "have more overlap.");
+            minimumOverlapScore++;
+        }
+
+        String sortedScores = new String();
+        for (int i = 0; i < overlapScores.length; i++) {
+            sortedScores += overlapScores[i] + ", ";
+        }
+        System.out.println("sortedScores = " + sortedScores);
+
         HashSet<ColumnPosition> sparseRepresentation = new HashSet<ColumnPosition>();
         for (int row = 0; row < columns.length; row++) {
             for (int column = 0; column < columns[0].length; column++) {
@@ -66,6 +81,9 @@ public class SDRAlgorithm_1 extends Pooler {
                         >= minimumOverlapScore)
                 {
                     columns[row][column].setActiveState(true);
+                    for (Neuron neuron : columns[row][column].getNeurons()) {
+                        neuron.setActiveState(true);
+                    }
                     super.activeColumns.add(columns[row][column]);
                     sparseRepresentation.add(new ColumnPosition(row, column));
                 }
