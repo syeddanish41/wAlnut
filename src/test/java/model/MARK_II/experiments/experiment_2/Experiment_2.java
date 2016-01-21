@@ -15,6 +15,8 @@ import model.MARK_II.sensory.ImageViewer;
 import model.MARK_II.sensory.Retina;
 import model.MARK_II.util.Point3D;
 import model.MARK_II.util.Rectangle;
+import model.MARK_II.util.RegionConsoleViewer;
+
 import java.awt.Point;
 
 /**
@@ -48,7 +50,8 @@ public class Experiment_2 extends TestCase {
        regionToRegion.connect(this.regionB.getColumns(), this.regionC.getColumns(new Rectangle(new Point(7,0), new Point(15,15))), 5, 5);
 
        this.imageViewer = new ImageViewer("2_minus_1.bmp", retina); // 400 x 400 pixels
-       this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(new Point3D(200, 200, 200));
+       int[][] seenArea = this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(new Point3D(200, 200, 200));
+       //RegionConsoleViewer.printDoubleIntArray(seenArea);
 
        this.sdrAlgorithm_1 = new SDRAlgorithm_1(1000, this.regionA, 10);
        this.sdrAlgorithm_1.setLearningState(true);
@@ -57,11 +60,10 @@ public class Experiment_2 extends TestCase {
    }
 
     void runAlgorithmOneTimeStep() throws IOException {
-        // TODO: error not seeing any input
         this.sdrAlgorithm_1.run(); // on Region A
-        System.out.println("Region A SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
+        //System.out.println("Region A SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         this.sdrAlgorithm_1.changeRegion(this.regionB);
-        System.out.println("Region B SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
+        System.out.println("Region B(Layer 5) SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         this.sdrAlgorithm_1.run(); // on Region B
         this.sdrAlgorithm_1.changeRegion(this.regionC);
         System.out.println("Region C SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
@@ -72,16 +74,18 @@ public class Experiment_2 extends TestCase {
 
         Point3D nextRetinaPosition = this.regionB.getMotorOutput(
                 this.imageViewer.getBoxRetinaIsStuckIn());
-        int[][] seenArea = this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
-
         System.out.println("nextRetinaPosition = (" + nextRetinaPosition.getX() + ", " + nextRetinaPosition.getY() + ", " + nextRetinaPosition.getZ() + ")");
+
+        int[][] seenArea = this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(nextRetinaPosition);
+        //System.out.println("What Retina is going to see next:");
+        //RegionConsoleViewer.printDoubleIntArray(seenArea);
     }
 
     public void test_experiment_2() throws IOException {
         assertEquals(2-1, 1);
 
-        for (int i = 0; i < 1; i++) {
-            this.runAlgorithmOneTimeStep();
-        }
+//        for (int i = 0; i < 50; i++) {
+//            this.runAlgorithmOneTimeStep();
+//        }
     }
 }

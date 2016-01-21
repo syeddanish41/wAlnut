@@ -60,7 +60,7 @@ public class SDRAlgorithm_1 extends Pooler {
  
         // setting columns that are above the minimumOverlapScore to active
         int minimumOverlapScore = overlapScores[indexOfMinumOverlapScore];
-        System.out.println("minimumOverlapScore = " + minimumOverlapScore);
+        //System.out.println("minimumOverlapScore = " + minimumOverlapScore);
         if (minimumOverlapScore == 0) {
             System.out.println("WARNING: Consider making your region " +
             this.region.getBiologicalName() + "'s connection to lower regions " +
@@ -68,11 +68,11 @@ public class SDRAlgorithm_1 extends Pooler {
             minimumOverlapScore++;
         }
 
-        String sortedScores = new String();
-        for (int i = 0; i < overlapScores.length; i++) {
-            sortedScores += overlapScores[i] + ", ";
-        }
-        System.out.println("sortedScores = " + sortedScores);
+//        String sortedScores = new String();
+//        for (int i = 0; i < overlapScores.length; i++) {
+//            sortedScores += overlapScores[i] + ", ";
+//        }
+//        System.out.println("sortedScores = " + sortedScores);
 
         HashSet<ColumnPosition> sparseRepresentation = new HashSet<ColumnPosition>();
         for (int row = 0; row < columns.length; row++) {
