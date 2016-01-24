@@ -61,7 +61,7 @@ public class Experiment_2 extends TestCase {
 
     void runAlgorithmOneTimeStep() throws IOException {
         this.sdrAlgorithm_1.run(); // on Region A
-        //System.out.println("Region A SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
+        System.out.println("Region A SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         this.sdrAlgorithm_1.changeRegion(this.regionB);
         System.out.println("Region B(Layer 5) SDR size: " + this.sdrAlgorithm_1.getActiveColumnPositions().size());
         this.sdrAlgorithm_1.run(); // on Region B

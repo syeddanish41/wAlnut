@@ -106,7 +106,8 @@ public class PredictionAlgorithm_1 extends Pooler {
         // NOTE: connectionScores = sorted # of connected synapses for each neuron in Region
         Set<Integer> connectionScores = this.getConnectionScores();
 
-        int index = Math.max(0, connectionScores.size() - this.SDRAlgorithm_1.getActiveColumnPositions().size());
+        int size = this.SDRAlgorithm_1.getActiveColumnPositions().size();
+        int index = Math.max(0, connectionScores.size() - size);
         int minimumConnectionScore = (Integer) connectionScores.toArray()[index];
 
         // Step 5) How many number of predicting neurons?
