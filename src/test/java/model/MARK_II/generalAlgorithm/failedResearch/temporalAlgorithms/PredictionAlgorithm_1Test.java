@@ -1,6 +1,7 @@
 package model.MARK_II.generalAlgorithm.failedResearch.temporalAlgorithms;
 
 import junit.framework.TestCase;
+import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms.SDRAlgorithm_1;
 import model.MARK_II.generalAlgorithm.failureResearch.temporalAlgorithms.PredictionAlgorithm_1;
@@ -9,9 +10,14 @@ import model.MARK_II.region.Neuron;
 import model.MARK_II.region.Region;
 import model.MARK_II.region.Synapse;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * Please refer to this diagram while understanding the code below:
+ * https://cloud.githubusercontent.com/assets/2585159/12080374/88609706-b226-11e5-832f-a33fac9d7447.png
+ *
+ * @author Aarathi Raghuraman (raarathi@vt.edu)
  * @author Q Liu (quinnliu@vt.edu)
  * @version 1/16/2016
  */
@@ -28,17 +34,15 @@ public class PredictionAlgorithm_1Test extends TestCase {
         this.predictionAlgorithm_1 = new PredictionAlgorithm_1(SDRAlgorithm_1);
     }
 
-    // https://cloud.githubusercontent.com/assets/2585159/12080374/88609706-b226-11e5-832f-a33fac9d7447.png
-    /*
-     * Should use image instead of setting the individual neurons to active as the columns stay unaffected by the changes in the neuron
-     */
     public void test_run() {
-        //this.SDRAlgorithm_1.run();
         this.A = this.region.getColumn(0,0).getNeuron(0);
         this.B = this.region.getColumn(0,1).getNeuron(0);
 
         // @t = 0
-        A.setActiveState(true);
+        // simulate running SDRAlgorithm_1
+        Set<ColumnPosition> SDR = new HashSet<>();
+        SDR.add(new ColumnPosition(0, 0));
+        this.SDRAlgorithm_1.setActiveColumnPositions(SDR);
         this.predictionAlgorithm_1.run();
         this.predictionAlgorithm_1.nextTimeStep();
 

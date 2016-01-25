@@ -22,7 +22,7 @@ import java.awt.Point;
 /**
  * Refer to Experiment 2 drawing here: https://github.com/WalnutiQ/wAlnut/issues/199
  *
- * @author raarathi
+ * @author Aarathi Raghuraman (raarathi@vt.edu)
  * @author Q Liu (quinnliu@vt.edu)
  * @version 1/17/16
  */

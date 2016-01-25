@@ -50,6 +50,10 @@ public abstract class Pooler {
         return this.activeColumnPositions;
     }
 
+    public void setActiveColumnPositions(Set<ColumnPosition> activeColumnPositions) {
+        this.activeColumnPositions = activeColumnPositions;
+    }
+
     public Set<Column> getActiveColumns() {
         return this.activeColumns;
     }
