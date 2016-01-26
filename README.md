@@ -7,15 +7,17 @@
 
 # wAlnut
 
-"*When you can no longer answer these questions go to a folder on your computer labelled butterfly.*"
-~ Alice Howland
+"*Why must our bodies break down and living cease? We have domesticated the 
+entire planet to our whim. We have supercomputers that fit in our pockets, 
+multiple on your person right now. We make space probes, engineered down to the 
+micron, to send as far as Jupiter. We can make atomic bombs that can kill a 
+great many of us at once.*"  
+  
+~ Cheryl Wu aka [grungerabbit](http://grungerabbit.com)
 
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
 ## Why
-
-One hard problem) 5.3 million humans in America have Alzheimer. It's the only cause of death in 
-the top 10 in America that cannot be prevented, cured, or slowed. [Source](http://www.alz.org/facts/).
 
 I believe that intelligent machines will be able to solve many of our
 hardest problems and will cause many new hard problems. Our hardest problems like
