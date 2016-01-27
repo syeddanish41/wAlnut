@@ -30,11 +30,13 @@ problems. For example there will be massive job loss since most jobs
 can be replaced by intelligent machines. A possible solution to this hard problem 
 will be to augment our brains and become super intelligent. 
 
-The long term goal of this repository is to store code that can simulate a full
-sized human brain in real time. The current short term goal is to experiment
-with a simplified visual pathway from an eye(that can move within a "room") to
-algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the neocortex
-(70+% of the brain) to understand the principles of intelligence. 
+The current short term goal is to experiment with a simplified visual pathway 
+from an eye(that can move within a room) to experimental general learning 
+algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the 
+neocortex (70+% of the brain) to understand the principles of intelligence. 
+
+The long term goal of this repository is to store code that can simulate the 
+general learning ability of a full sized human brain in real time. 
 
 After we understood the principles of flight we were able to build planes that
 are much faster and can carry more weight than birds. After we understand
