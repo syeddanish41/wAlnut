@@ -70,6 +70,7 @@ public class PredictionAlgorithm_1 extends Pooler {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron,
                         Synapse.MINIMAL_CONNECTED_PERMANENCE, 69, 69));
             }
+            System.out.println("Adding distal segment to neuron at position (" + ACP.getRow() + ", " + ACP.getColumn() + ")");
             learningNeuron.addDistalSegment(distalSegment);
 
             // Step 3) Which neurons should be active for the current time step?

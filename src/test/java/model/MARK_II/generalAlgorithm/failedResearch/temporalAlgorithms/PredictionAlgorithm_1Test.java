@@ -5,21 +5,15 @@ import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms.SDRAlgorithm_1;
 import model.MARK_II.generalAlgorithm.failureResearch.temporalAlgorithms.PredictionAlgorithm_1;
-import model.MARK_II.region.Cell;
-import model.MARK_II.region.Neuron;
-import model.MARK_II.region.Region;
-import model.MARK_II.region.Synapse;
+import model.MARK_II.region.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Please refer to this diagram while understanding the code below:
- * https://cloud.githubusercontent.com/assets/2585159/12080374/88609706-b226-11e5-832f-a33fac9d7447.png
- *
  * @author Aarathi Raghuraman (raarathi@vt.edu)
  * @author Q Liu (quinnliu@vt.edu)
- * @version 1/16/2016
+ * @version 1/31/2016
  */
 public class PredictionAlgorithm_1Test extends TestCase {
     private SDRAlgorithm_1 SDRAlgorithm_1;
@@ -34,27 +28,42 @@ public class PredictionAlgorithm_1Test extends TestCase {
         this.predictionAlgorithm_1 = new PredictionAlgorithm_1(SDRAlgorithm_1);
     }
 
+    /**
+     * @param columnPosition of Neuron you want to active. Remember each column
+     *                       has only 1 neuron currently.
+     */
+    private void runSDRAlgorithm_1AndActiveNeuron(ColumnPosition columnPosition) {
+        Set<ColumnPosition> SDR = new HashSet<>();
+        SDR.add(columnPosition);
+        this.SDRAlgorithm_1.setActiveColumnPositions(SDR);
+    }
+
     public void test_run() {
+        // Please refer to this diagram while understanding the code below:
+        // https://cloud.githubusercontent.com/assets/2585159/12080374/88609706-b226-11e5-832f-a33fac9d7447.png
         this.A = this.region.getColumn(0,0).getNeuron(0);
+        ColumnPosition A_position = new ColumnPosition(0, 0);
         this.B = this.region.getColumn(0,1).getNeuron(0);
+        ColumnPosition B_position = new ColumnPosition(0, 1);
 
         // @t = 0
-        // simulate running SDRAlgorithm_1
-        Set<ColumnPosition> SDR = new HashSet<>();
-        SDR.add(new ColumnPosition(0, 0));
-        this.SDRAlgorithm_1.setActiveColumnPositions(SDR);
+        this.runSDRAlgorithm_1AndActiveNeuron(A_position);
+
         this.predictionAlgorithm_1.run();
         this.predictionAlgorithm_1.nextTimeStep();
 
         // @t = 1
         assertFalse(A.getActiveState());
         assertTrue(A.getPreviousActiveState());
-        B.setActiveState(true);
+
+        this.runSDRAlgorithm_1AndActiveNeuron(B_position);
+
         this.predictionAlgorithm_1.run();
         this.predictionAlgorithm_1.nextTimeStep();
 
         // @t = 2
         // Check for synapse between B and A
+        assertEquals(1, B.getDistalSegments().size());
         Set<Synapse<Cell>> synapses = B.getDistalSegments().get(0).getSynapses();
         assertEquals(synapses.size(), 1);
         for(Synapse<Cell> synapse: synapses)
