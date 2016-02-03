@@ -36,6 +36,9 @@ public class PredictionAlgorithm_1Test extends TestCase {
         Set<ColumnPosition> SDR = new HashSet<>();
         SDR.add(columnPosition);
         this.SDRAlgorithm_1.setActiveColumnPositions(SDR);
+
+        this.region.getColumn(columnPosition.getRow(), columnPosition.getColumn())
+                .getNeuron(0).setActiveState(true);
     }
 
     public void test_run() {

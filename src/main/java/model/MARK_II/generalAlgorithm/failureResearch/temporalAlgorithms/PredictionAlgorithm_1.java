@@ -66,6 +66,7 @@ public class PredictionAlgorithm_1 extends Pooler {
             // previously active neurons. 1 new distal segment per learning neuron.
             DistalSegment distalSegment = new DistalSegment();
 
+            // TODO: 1) wasActiveNeurons.size() = 0 @t=1 instead of 1
             for (Neuron previouslyActiveNeuron : this.wasActiveNeurons) {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron,
                         Synapse.MINIMAL_CONNECTED_PERMANENCE, 69, 69));
@@ -75,23 +76,9 @@ public class PredictionAlgorithm_1 extends Pooler {
 
             // Step 3) Which neurons should be active for the current time step?
             // POSSIBLE ANSWER: The active neurons that best represent the
-            //                  current sensory input.
-            //                                      2
-            // EXAMPLE: Imagine you saw "2 - 1" and - . Although the minus
-            //                                      1
-            //          symbol can also represent division you are not confused
-            //          because the "2" and "1" are in different locations.
-            //          Your brain saw the "2" and "1" SDRs as well as the SDR
-            //          for how your eye moved while looking at "2", "1", and
-            //          "-" in sequence so when you saw "-" you knew that it
-            //          meant minus or division.
-            //
-            // CONCLUSION: We want the current SDR to be the active neurons that
-            //             are most connected to all previous active SDRs. In
-            //             this case it includes vision and eye muscle SDRs.
-
-            // NOTE: haven't decided how to return active neuron so just re
-            //       return 1st neuron for now
+            //                  current sensory input. Since we are currently
+            //                  only experimenting with 1 neuron columns just
+            //                  return the one neuron.
             Neuron activeNeuron = activeColumn.getNeuron(0);
             activeNeuron.setActiveState(true);
             this.isActiveNeurons.add(activeNeuron);
@@ -189,6 +176,7 @@ public class PredictionAlgorithm_1 extends Pooler {
     @Override
     public void nextTimeStep() {
         // prepare for next time step by clearing current info that is out of date
+        // TODO: 2) why is wasActiveNeurons.size = 1 @t=0 instead of 0
         this.wasActiveNeurons.clear();
         for (Neuron neuron : this.isActiveNeurons) {
             this.wasActiveNeurons.add(neuron);
