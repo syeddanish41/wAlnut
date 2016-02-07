@@ -57,7 +57,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         // POSSIBLE ANSWER: Iterate through all neurons in active columns in region
         Set<ColumnPosition> activeColumnPositions = this.SDRAlgorithm_1.getActiveColumnPositions();
         for (ColumnPosition ACP : activeColumnPositions) {
-            Column activeColumn = super.getRegion().getColumn(ACP.getRow(), ACP.getRow());
+            Column activeColumn = super.getRegion().getColumn(ACP.getRow(), ACP.getColumn());
             Neuron learningNeuron = this.getNeuronWithLeastNumberOfConnectedSynapses(activeColumn);
 
             // Step 2) How do you allow neuronA to predict neuronB will become
