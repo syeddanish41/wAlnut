@@ -409,19 +409,8 @@ walk around manhattan eating pistachio ice cream and watermelon.
 #### Aarathi's bio
 Coming soon she says...
 
-#### Manpreet's bio
-Coming soon he says...
-
-#### Kevins's bio
-[Kevin Harrington](https://github.com/madhephaestus) is a java developer and roboticist based in Worcester MA. He brings robotics controls, high performance Java, and hardware integration skills to the project. He will be focused on sensor-motor interfaces and simulationg the robot for learning environments. 
-
 #### Mark's bio
 Hi, I'm Mark. I like math, sometimes.
-
-#### Your bio
-Interested in helping us code an intelligent machine? Read [how you can get paid an
-hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
-to get started.
 
 ## Investors
 
