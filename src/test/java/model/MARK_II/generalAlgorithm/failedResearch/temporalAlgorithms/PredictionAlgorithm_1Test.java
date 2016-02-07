@@ -42,6 +42,10 @@ public class PredictionAlgorithm_1Test extends TestCase {
     }
 
     public void test_run() {
+        // TODO: change so that it acutually calls SDR_Algorithm_1.java in case
+        //       logic for that algorithm changes. Then this test won't have to be
+        //       changed.
+
         // Please refer to this diagram while understanding the code below:
         // https://cloud.githubusercontent.com/assets/2585159/12080374/88609706-b226-11e5-832f-a33fac9d7447.png
         this.A = this.region.getColumn(0,0).getNeuron(0);
