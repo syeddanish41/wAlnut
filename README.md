@@ -7,14 +7,13 @@
 
 # wAlnut
 
-"*Why must our bodies break down and living cease? We have domesticated the 
-entire planet to our whim. We have supercomputers that fit in our pockets, 
-multiple on your person right now. We make space probes, engineered down to the 
-micron, to send as far as Jupiter. We can make atomic bombs that can kill a 
-great many of us at once.*"  
-  
-~ Cheryl Wu aka [grungerabbit](http://grungerabbit.com)
+"*I wish I'd had the courage to live a life true to myself, not the life others
+expected of me. I meant it, promise this dying women that you will always be
+true to yourself, that you will be brave enough to live the way you want to live
+regardless of what other poeple say.*" 
 
+~ Grace
+  
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
 ## Why
