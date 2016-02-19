@@ -8,7 +8,7 @@
 # wAlnut
 
 "*I wish I'd had the courage to live a life true to myself, not the life others
-expected of me. I meant it, promise this dying women that you will always be
+expected of me. I mean it, promise this dying women that you will always be
 true to yourself, that you will be brave enough to live the way you want to live
 regardless of what other poeple say.*" 
 
@@ -404,9 +404,6 @@ beautiful ideas I have yet to learn.
 
 Outside of AI I like to make YouTube videos, skateboard, watch rom coms, and
 walk around manhattan eating pistachio ice cream and watermelon.
-
-#### Aarathi's bio
-Coming soon she says...
 
 #### Mark's bio
 Hi, I'm Mark. I like math, sometimes.
