@@ -441,9 +441,10 @@ a laptop, internet, and a little bit of curiosity.
 
 ## Master Investors List
 
-Name | Amount (USD) | Favorite type of nut | website
------|--------------|----------------------|---------
-Q Liu            | $700.82 | Pistachio ice cream | [www.youtube.com/quinnliuvideos](www.youtube.com/quinnliuvideos)
-Frederick Scholl | $10     | Unkown              | A Mystery
-Perry Leong      | $5      | Cashews             | [linkedin.com/profile/view?id=183115052](linkedin.com/profile/view?id=183115052)
-Ying Ying Wu     | $5      | Unkown              | A Mystery
+Name               | Amount (USD) | Favorite nut         | Website
+-------------------|--------------|----------------------|---------
+Q Liu              | $700.82      | Pistachio ice cream  | [youtube](www.youtube.com/quinnliuvideos)
+Aarathi Raghuraman | $140         | Acorn                | [linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
+Frederick Scholl   | $10          | Beech                | A mystery
+Perry Leong        | $5           | Cashews              | [linkedin](linkedin.com/profile/view?id=183115052)
+Ying Ying Wu       | $5           | Breadnut             | A mystery
