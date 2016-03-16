@@ -7,9 +7,13 @@
 
 # wAlnut
 
-"*When you can no longer answer these questions go to a folder on your computer labelled butterfly.*"
-~ Alice Howland
+"*I wish I'd had the courage to live a life true to myself, not the life others
+expected of me. I mean it, promise this dying women that you will always be
+true to yourself, that you will be brave enough to live the way you want to live
+regardless of what other poeple say.*" 
 
+~ Grace
+  
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
 ## Why
@@ -448,8 +452,12 @@ a laptop, internet, and a little bit of curiosity.
 
 ## Master Investors List
 
-Name | Amount (USD) | Favorite type of nut | website
------|--------------|----------------------|---------
-Q Liu | $826.09 | Pistachio ice cream | [www.youtube.com/quinnliuvideos](www.youtube.com/quinnliuvideos)
-Perry Leong | $5 | Cashews | [linkedin.com/profile/view?id=183115052](linkedin.com/profile/view?id=183115052)
-Ying Ying Wu | $5 | Unkown | A Mystery
+Name               | Amount (USD) | Favorite nut         | Website
+-------------------|--------------|----------------------|---------
+Q Liu              | $700.82      | Pistachio ice cream  | [youtube](www.youtube.com/quinnliuvideos)
+Aarathi Raghuraman | $140         | Acorn                | [linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
+Frederick Scholl   | $10          | Beech                | A mystery
+Perry Leong        | $5           | Cashews              | [linkedin](linkedin.com/profile/view?id=183115052)
+Ying Ying Wu       | $5           | Breadnut             | A mystery
+Soni Lamkaj        | $5           | Candlenut            | A mystery
+Zhi Pan            | $5           | Chestnuts            | A mystery
