@@ -1,6 +1,10 @@
 package model.MARK_II.generalAlgorithm;
 
+import model.MARK_II.region.Column;
 import model.MARK_II.region.Region;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Abstract class extended by algorithm classes.
@@ -9,17 +13,28 @@ import model.MARK_II.region.Region;
  * @version 9/7/2015
  */
 public abstract class Pooler {
+    // region: 2D array of columns
     protected Region region;
+    protected Set<Column> activeColumns;
+    protected Set<ColumnPosition> activeColumnPositions;
+
+    // whether or not the algorithm is learning right now
     private boolean learningState;
 
     protected AlgorithmStatistics algorithmStatistics;
 
     public Pooler(int numberOfTimesToRunAlgorithm) {
+        this.activeColumns = new HashSet<>();
+        this.activeColumnPositions = new HashSet<>();
+        this.learningState = false;
+
         this.algorithmStatistics = new AlgorithmStatistics(numberOfTimesToRunAlgorithm);
     }
 
+    abstract public void nextTimeStep();
+
     public Pooler() {
-        this.algorithmStatistics = new AlgorithmStatistics(AlgorithmStatistics.DEFAULT_NUMBER_OF_ALGORITHM_RUNS);
+        this.learningState = false;
     }
 
     public void changeRegion(Region newRegion) {
@@ -27,8 +42,20 @@ public abstract class Pooler {
             throw new IllegalArgumentException(
                     "newRegion in Pooler class changeRegion method cannot be null");
         }
-        this.learningState = false;
+
         this.region = newRegion;
+    }
+
+    public Set<ColumnPosition> getActiveColumnPositions() {
+        return this.activeColumnPositions;
+    }
+
+    public void setActiveColumnPositions(Set<ColumnPosition> activeColumnPositions) {
+        this.activeColumnPositions = activeColumnPositions;
+    }
+
+    public Set<Column> getActiveColumns() {
+        return this.activeColumns;
     }
 
     public boolean getLearningState() {

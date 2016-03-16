@@ -80,8 +80,8 @@ public class Retina {
         BufferedImage image = null;
         try {
             image = ImageIO.read(getClass().getResource(BMPFileName));
-        } catch (IOException e) {
-            // nothing
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("could not find file " + BMPFileName);
         }
 
         int numberOfRows = this.visionCells.length;

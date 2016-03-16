@@ -148,6 +148,7 @@ public class RegionConsoleViewer {
                 System.out.printf("%1d", doubleIntArray[row][column]);
             }
         }
+        System.out.print("\n");
     }
 
     /**

@@ -60,6 +60,7 @@ public class TemporalPooler extends Pooler {
         return this.spatialPooler;
     }
 
+    @Override
     public void nextTimeStep() {
         Column[][] columns = super.region.getColumns();
         for (int row = 0; row < super.region.getNumberOfRowsAlongRegionYAxis(); row++) {

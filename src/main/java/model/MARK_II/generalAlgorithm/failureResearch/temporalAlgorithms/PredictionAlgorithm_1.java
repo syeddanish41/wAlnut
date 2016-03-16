@@ -3,6 +3,7 @@ package model.MARK_II.generalAlgorithm.failureResearch.temporalAlgorithms;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.Pooler;
 import model.MARK_II.generalAlgorithm.SpatialPooler;
+import model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms.SDRAlgorithm_1;
 import model.MARK_II.region.*;
 
 import java.util.HashSet;
@@ -25,19 +26,19 @@ import java.util.TreeSet;
  * how to improve it.
  *
  * @author Q Liu (quinnliu@vt.edu)
- * @version 12/21/2015
+ * @version 1/16/2016
  */
 public class PredictionAlgorithm_1 extends Pooler {
-    private SpatialPooler spatialPooler;
+    private SDRAlgorithm_1 SDRAlgorithm_1;
 
     Set<Neuron> wasActiveNeurons;
     Set<Neuron> isActiveNeurons;
 
     Set<Neuron> isPredictingNeurons;
 
-    public PredictionAlgorithm_1(SpatialPooler spatialPooler) {
-        this.spatialPooler = spatialPooler;
-        super.region = spatialPooler.getRegion();
+    public PredictionAlgorithm_1(SDRAlgorithm_1 SDRAlgorithm_1) {
+        this.SDRAlgorithm_1 = SDRAlgorithm_1;
+        super.region = SDRAlgorithm_1.getRegion();
 
         this.wasActiveNeurons = new HashSet<>();
         this.isActiveNeurons = new HashSet<>();
@@ -54,9 +55,9 @@ public class PredictionAlgorithm_1 extends Pooler {
     public void run() {
         // Step 1) Which neurons to apply logic to?
         // POSSIBLE ANSWER: Iterate through all neurons in active columns in region
-        Set<ColumnPosition> activeColumnPositions = this.spatialPooler.getActiveColumnPositions();
+        Set<ColumnPosition> activeColumnPositions = this.SDRAlgorithm_1.getActiveColumnPositions();
         for (ColumnPosition ACP : activeColumnPositions) {
-            Column activeColumn = super.getRegion().getColumn(ACP.getRow(), ACP.getRow());
+            Column activeColumn = super.getRegion().getColumn(ACP.getRow(), ACP.getColumn());
             Neuron learningNeuron = this.getNeuronWithLeastNumberOfConnectedSynapses(activeColumn);
 
             // Step 2) How do you allow neuronA to predict neuronB will become
@@ -65,29 +66,20 @@ public class PredictionAlgorithm_1 extends Pooler {
             // previously active neurons. 1 new distal segment per learning neuron.
             DistalSegment distalSegment = new DistalSegment();
 
+            // TODO: 1) wasActiveNeurons.size() = 0 @t=1 instead of 1
             for (Neuron previouslyActiveNeuron : this.wasActiveNeurons) {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron,
-                        Synapse.MINIMAL_CONNECTED_PERMANENCE, -1, -1));
+                        Synapse.MINIMAL_CONNECTED_PERMANENCE, 69, 69));
             }
+            System.out.println("Adding distal segment to neuron at position (" + ACP.getRow() + ", " + ACP.getColumn() + ")");
             learningNeuron.addDistalSegment(distalSegment);
 
             // Step 3) Which neurons should be active for the current time step?
             // POSSIBLE ANSWER: The active neurons that best represent the
-            //                  current sensory input.
-            //                                      2
-            // EXAMPLE: Imagine you saw "2 - 1" and - . Although the minus
-            //                                      1
-            //          symbol can also represent division you are not confused
-            //          because the "2" and "1" are in different locations.
-            //          Your brain saw the "2" and "1" SDRs as well as the SDR
-            //          for how your eye moved while looking at "2", "1", and
-            //          "-" in sequence so when you saw "-" you knew that it
-            //          meant minus or division.
-            //
-            // CONCLUSION: We want the current SDR to be the active neurons that
-            //             are most connected to all previous active SDRs. In
-            //             this case it includes vision and eye muscle SDRs.
-            Neuron activeNeuron = this.computeActiveNeuron(activeColumn);
+            //                  current sensory input. Since we are currently
+            //                  only experimenting with 1 neuron columns just
+            //                  return the one neuron.
+            Neuron activeNeuron = activeColumn.getNeuron(0);
             activeNeuron.setActiveState(true);
             this.isActiveNeurons.add(activeNeuron);
         }
@@ -102,7 +94,8 @@ public class PredictionAlgorithm_1 extends Pooler {
         // NOTE: connectionScores = sorted # of connected synapses for each neuron in Region
         Set<Integer> connectionScores = this.getConnectionScores();
 
-        int index = Math.max(0, connectionScores.size() - this.spatialPooler.getActiveColumnPositions().size());
+        int size = this.SDRAlgorithm_1.getActiveColumnPositions().size();
+        int index = Math.max(0, connectionScores.size() - size);
         int minimumConnectionScore = (Integer) connectionScores.toArray()[index];
 
         // Step 5) How many number of predicting neurons?
@@ -166,7 +159,7 @@ public class PredictionAlgorithm_1 extends Pooler {
                     for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
                         int connectionScore = this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron);
 
-                        if (this.isPredictingNeurons.size() >= this.spatialPooler.getActiveColumnPositions().size()) {
+                        if (this.isPredictingNeurons.size() >= this.SDRAlgorithm_1.getActiveColumnPositions().size()) {
                             break;
                         }
 
@@ -180,22 +173,16 @@ public class PredictionAlgorithm_1 extends Pooler {
         }
     }
 
-    void nextTimeStep() {
-        // prepare for next time step be clearing current info that is out of date
+    @Override
+    public void nextTimeStep() {
+        // prepare for next time step by clearing current info that is out of date
+        // TODO: 2) why is wasActiveNeurons.size = 1 @t=0 instead of 0
         this.wasActiveNeurons.clear();
         for (Neuron neuron : this.isActiveNeurons) {
             this.wasActiveNeurons.add(neuron);
-            neuron.setActiveState(false);
+            neuron.nextTimeStep();
         }
         this.isActiveNeurons.clear();
-        Column[][] columns = super.region.getColumns();
-        for (int ri = 0; ri < columns.length; ri++) {
-            for (int ci = 0; ci < columns[0].length; ci++) {
-                for (Neuron neuron : columns[ri][ci].getNeurons()) {
-                    neuron.nextTimeStep();
-                }
-            }
-        }
     }
 
     /**
@@ -275,12 +262,5 @@ public class PredictionAlgorithm_1 extends Pooler {
             numberOfConnectedSynapses += distalSegment.getConnectedSynapses().size();
         }
         return numberOfConnectedSynapses;
-    }
-
-    Neuron computeActiveNeuron(Column activeColumn) {
-        // TODO: return neuron that is most connected to all SDRs in previous
-        // time steps
-
-        return null;
     }
 }

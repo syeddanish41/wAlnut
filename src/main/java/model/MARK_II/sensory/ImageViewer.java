@@ -30,10 +30,7 @@ public class ImageViewer {
      */
     public ImageViewer(String BMPFileName, Retina retina)
             throws IOException {
-        this.BMPImage = ImageIO.read(getClass().getResource(BMPFileName));
-
-        //ReadImage readImage = new ReadImage();
-        this.int2DImage = this.readBMPImage(BMPFileName);
+        this.updateInputImage(BMPFileName);
         this.retina = retina;
 
         int numberOfRowPixels = this.int2DImage.length;
@@ -62,6 +59,11 @@ public class ImageViewer {
 
     public BoundingBox getBoxRetinaIsStuckIn() {
         return this.boxRetinaIsStuckIn;
+    }
+
+    public void updateInputImage(String BMPFileName) throws IOException {
+        this.BMPImage = ImageIO.read(getClass().getResource(BMPFileName));
+        this.int2DImage = this.readBMPImage(BMPFileName);
     }
 
     void moveRetinaToNewPositionInsideOfBoundingBox(Point3D newRetinaPosition) {
