@@ -217,10 +217,6 @@ public class Column {
         if (overlapScore < 0) {
             throw new IllegalArgumentException(
                     "overlapScore in Column class setOverlapScore method must be >= 0.");
-        } else if (overlapScore > this.proximalSegment.getSynapses().size()) {
-            throw new IllegalArgumentException(
-                    "overlapScore in Column class setOverlapScore method must be <= "
-                            + "the total number of Synapses in this column's proximal Segment.");
         }
         this.overlapScore = overlapScore;
     }
