@@ -160,23 +160,32 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    ```
 
 #### How to contribute
-1. You need to be able to use Git & Github.com. If you don't know how I created
-   a easy to follow 1.5 hour playlist on how to use Git & Github
-   [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).  
+1. Hi my name is Q. I really enjoy trying to build a Strong Aritificial Intelligence and I am now looking to pay 
+   other developers a hourly rate of $20/hour(limited to 2 hours/week) to code features for WalnutiQ. The most up to 
+   date income and payment data can be viewed 
+   [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
+   
+2. Sorry but you must meet these minimum requirements:
+   - Know how to use Git & Github.com. If you don't know how I created a 1.5 hour playlist on how to use Git & 
+     Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
+   - Be curious about how the human brain works. You don't need to be passionate about it right now. 
+   - Written at least 3 thousand lines of Java in your life. 
+   
+3. E-mail quinnliu@vt.edu the following:
+   - Link to source code of project you enjoyed working on the most. I am really just looking for good object oriented 
+     design and good documention.
+   - Why you want to work on wAlnut. 
+  
+4. If I e-mail you back for an interview during the interview we will discuss:
+   - Your hourly rate of $20/hour(or more based on skill level).
+   - How everything will work. Expect to pair program with someone for 2 hours a week. 
+   - If we both like what we hear we will walk you through making your 1st commit to the repo's master branch!
 
-2. For now we are using the Git workflow model described
+5. For now we are using the Git workflow model described
    [here](https://github.com/WalnutiQ/wAlnut/issues/62) to contribute to this
-   repository effectively. Make sure you understand this model before
-   trying to merge into the master branch. Additionally, before merging your
-   feature branch to master make sure to change the quote at the top of this
-   README.md to another quote.
+   repository effectively. 
 
-3. View our [issue tracker](https://github.com/quinnliu/WalnutiQ/issues?state=open)
-   and create a new issue with a question if you are confused. Otherwise,
-   assign a issue to yourself you would like to work on or suggest
-   a new issue if you kinda know what you are doing.
-
-4. While reading through the code base it will be very helpful to refer to the
+6. While reading through the code base it will be very helpful to refer to the
    following labeled model:
    ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/MARK_I/labeled_MARK_I_version_2_high_contrast.jpg)
 
@@ -403,22 +412,8 @@ beautiful ideas I have yet to learn.
 Outside of AI I like to make YouTube videos, skateboard, watch rom coms, and
 walk around manhattan eating pistachio ice cream and watermelon.
 
-#### Aarathi's bio
-Coming soon she says...
-
-#### Manpreet's bio
-Coming soon he says...
-
-#### Kevins's bio
-[Kevin Harrington](https://github.com/madhephaestus) is a java developer and roboticist based in Worcester MA. He brings robotics controls, high performance Java, and hardware integration skills to the project. He will be focused on sensor-motor interfaces and simulationg the robot for learning environments. 
-
 #### Mark's bio
 Hi, I'm Mark. I like math, sometimes.
-
-#### Your bio
-Interested in helping us code an intelligent machine? Read [how you can get paid an
-hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
-to get started.
 
 ## Investors
 

@@ -1,12 +1,15 @@
 package model.MARK_II.generalAlgorithm.failedResearch.temporalAlgorithms;
 
 import junit.framework.TestCase;
+import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
+import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
 import model.MARK_II.generalAlgorithm.ColumnPosition;
-import model.MARK_II.generalAlgorithm.SpatialPooler;
 import model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms.SDRAlgorithm_1;
 import model.MARK_II.generalAlgorithm.failureResearch.temporalAlgorithms.PredictionAlgorithm_1;
 import model.MARK_II.region.*;
+import model.MARK_II.sensory.Retina;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,16 +19,20 @@ import java.util.Set;
  * @version 1/31/2016
  */
 public class PredictionAlgorithm_1Test extends TestCase {
+    private Retina retina;
+    private Region region;
     private SDRAlgorithm_1 SDRAlgorithm_1;
     private PredictionAlgorithm_1 predictionAlgorithm_1;
-    private Region region;
     private Neuron A;
     private Neuron B;
 
     public void setUp() {
+        this.retina = new Retina(1, 2);
         this.region = new Region("root", 1, 2, 1, 20.0, 1);
-        this.SDRAlgorithm_1 = new SDRAlgorithm_1(1, region, 0);
-        this.predictionAlgorithm_1 = new PredictionAlgorithm_1(SDRAlgorithm_1);
+        AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
+        retinaToRegion.connect(this.retina.getVisionCells(), this.region.getColumns(), 0, 0);
+        this.SDRAlgorithm_1 = new SDRAlgorithm_1(1, this.region, 0);
+        this.predictionAlgorithm_1 = new PredictionAlgorithm_1(this.SDRAlgorithm_1);
     }
 
     /**
@@ -41,7 +48,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
                 .getNeuron(0).setActiveState(true);
     }
 
-    public void test_run() {
+    public void test_run() throws IOException {
         // TODO: change so that it acutually calls SDR_Algorithm_1.java in case
         //       logic for that algorithm changes. Then this test won't have to be
         //       changed.
@@ -54,7 +61,9 @@ public class PredictionAlgorithm_1Test extends TestCase {
         ColumnPosition B_position = new ColumnPosition(0, 1);
 
         // @t = 0
-        this.runSDRAlgorithm_1AndActiveNeuron(A_position);
+        this.retina.seeBMPImage("visionCell00_active.bpm");
+        this.SDRAlgorithm_1.run();
+        //this.runSDRAlgorithm_1AndActiveNeuron(A_position);
 
         this.predictionAlgorithm_1.run();
         this.predictionAlgorithm_1.nextTimeStep();
@@ -90,7 +99,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
     }
 
     // B becomes active from t=3 to t=4
-    public void test_runAtTEquals4_Case1()
+    public void test_runAtTEquals4_Case1() throws IOException
     {
         this.test_run();
         B.setActiveState(true);
@@ -104,7 +113,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
     }
 
     // B does not become active from t=3 to t=4
-    public void test_runAtTEquals4_Case2()
+    public void test_runAtTEquals4_Case2() throws IOException
     {
         this.test_run();
         Synapse<Cell>[] synapses = (Synapse<Cell>[])(B.getDistalSegments().get(0).getSynapses()).toArray();
