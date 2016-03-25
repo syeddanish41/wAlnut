@@ -57,7 +57,7 @@ us.
 
 If you are interested in becoming a researcher/developer I would be grateful
 for your collaboration as I cannot do this alone. We currently have $$$
-so read [how to get paid hourly rate to code wAlnut](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut)
+so read [how to contribute](https://github.com/WalnutiQ/wAlnut#how-to-contribute)
 to get started. If you are interested in donating please read
 [investors](#investors).
 
@@ -436,28 +436,20 @@ in our [master investors list](#master-investors-list). Here is
 an example of one of our investors:
 ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/logo/venmo_payment_Walnut_iQ_screenshot.png)
 
-3. If you would like to learn how your donation is being spent to pay developers
-read [here](https://github.com/WalnutiQ/wAlnut/wiki/How-to-get-paid-hourly-rate-to-code-wAlnut).
-
-4. We will periodically make youtube videos posted
-[here](https://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
-explaining our research. Care will be taken to ensure it is understandable to 
-everyone including 10 year old kids with no neuroscience or coding background.
-
-5. In the history of mankind some technologies are so powerful it would be wrong
+3. In the history of mankind some technologies are so powerful it would be wrong
 to have it only accessible by a group of people. Examples include electricity,
 computers, the internet, and now its a machine smarter than humans. Our latest 
 research and code will always be available here for free to everyone in the world with 
 a laptop, internet, and a little bit of curiosity.
 
-## Master Investors List
+## Investors
 
-Name               | Amount (USD) | Favorite nut         | Website
--------------------|--------------|----------------------|---------
-Q Liu              | $700.82      | Pistachio ice cream  | [youtube](www.youtube.com/quinnliuvideos)
-Aarathi Raghuraman | $140         | Acorn                | [linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
-Frederick Scholl   | $10          | Beech                | A mystery
-Perry Leong        | $5           | Cashews              | [linkedin](linkedin.com/profile/view?id=183115052)
-Ying Ying Wu       | $5           | Breadnut             | A mystery
-Soni Lamkaj        | $5           | Candlenut            | A mystery
-Zhi Pan            | $5           | Chestnuts            | A mystery
+Name               | Amount (USD) | Favorite nut         | Favourite superhero  | Website
+-------------------|--------------|----------------------|----------------------|---------
+Q Liu              | $1,384       | Pistachio ice cream  | Shuyu Liu & Juan Zhao|[youtube](www.youtube.com/quinnliuvideos)
+Aarathi Raghuraman | $140         |                      |                      |[linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
+Frederick Scholl   | $10          |                      |                      |
+Perry Leong        | $5           | Cashews              |                      |[linkedin](linkedin.com/profile/view?id=183115052)
+Ying Ying Wu       | $5           |                      |                      |
+Soni Lamkaj        | $5           |                      |                      |
+Zhi Pan            | $5           |                      |                      |
