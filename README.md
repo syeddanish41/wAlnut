@@ -387,7 +387,7 @@ understand it.
 ## Team Bios
 
 #### Q's bio  
-Hi my name is Q.
+Hi, I'm Q.
 
 In 2011 I watched a talk about a guy trying to build a machine more intelligent
 than humans and I fell in love with this idea. At the time I believed that an
@@ -413,7 +413,7 @@ intense focus on what is necessary over nice to haves, acknowledgement you must
 sometimes forget what you know in order to create something new, and many
 beautiful ideas I have yet to learn.
 
-Outside of AI I like to make YouTube videos, skateboard, watch rom coms, and
+Outside of AI I like to make YouTube videos, skateboard, watch tragic beauty movies, and
 walk around manhattan eating pistachio ice cream and watermelon.
 
 #### Mark's bio
@@ -421,7 +421,7 @@ Hi, I'm Mark. I like math, sometimes.
 
 ## Investors
 
-Hi! My name is Q. To me a wAlnut investor is someone who believes we can build a 
+To us a wAlnut investor is someone who believes we can build a 
 machine more intelligent than humans and use it for more good out of love than 
 evil out of fear. 
 
@@ -432,7 +432,7 @@ It will look similar to this:
 
 2. In the venmo `What's it for?` section
 please provide the following information as you would like it to be displayed
-in our [master investors list](#master-investors-list). Here is
+in our [investors list](#investors-list). Here is
 an example of one of our investors:
 ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/logo/venmo_payment_Walnut_iQ_screenshot.png)
 
@@ -442,14 +442,14 @@ computers, the internet, and now its a machine smarter than humans. Our latest
 research and code will always be available here for free to everyone in the world with 
 a laptop, internet, and a little bit of curiosity.
 
-## Investors
+## Investors List
 
-Name               | Amount (USD) | Favorite nut         | Favourite superhero  | Website
--------------------|--------------|----------------------|----------------------|---------
-Q Liu              | $1,384       | Pistachio ice cream  | Shuyu Liu & Juan Zhao|[youtube](www.youtube.com/quinnliuvideos)
-Aarathi Raghuraman | $140         |                      |                      |[linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
-Frederick Scholl   | $10          |                      |                      |
-Perry Leong        | $5           | Cashews              |                      |[linkedin](linkedin.com/profile/view?id=183115052)
-Ying Ying Wu       | $5           |                      |                      |
-Soni Lamkaj        | $5           |                      |                      |
-Zhi Pan            | $5           |                      |                      |
+Name               | Amount (USD) | Favorite nut         | Favourite superhero   | Website
+-------------------|--------------|----------------------|-----------------------|---------
+Q Liu              | $$3,964.50   | Pistachio ice cream  | Shuyu Liu & Juan Zhao | [youtube](https://www.youtube.com/quinnliuvideos)
+Aarathi Raghuraman | $140         |                      |                       | [linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
+Frederick Scholl   | $10          |                      |                       |
+Perry Leong        | $5           | Cashews              |                       | [linkedin](linkedin.com/profile/view?id=183115052)
+Ying Ying Wu       | $5           |                      |                       |
+Soni Lamkaj        | $5           |                      |                       |
+Zhi Pan            | $5           |                      |                       |
