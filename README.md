@@ -444,13 +444,14 @@ a laptop, internet, and a little bit of curiosity.
 
 ## Investors List
 
-Name               | Amount (USD) | Favorite nut         | Favourite superhero   | Website
--------------------|--------------|----------------------|-----------------------|---------
-Q Liu              | $$3,965.13   | Pistachio ice cream  | Shuyu Liu & Juan Zhao | [youtube](https://www.youtube.com/quinnliuvideos)
-Aarathi Raghuraman | $140         |                      |                       | [linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
-Frederick Scholl   | $10          |                      |                       |
-Perry Leong        | $5           | Cashews              |                       | [linkedin](linkedin.com/profile/view?id=183115052)
-Ying Ying Wu       | $5           |                      |                       |
-Soni Lamkaj        | $5           |                      |                       |
-Zhi Pan            | $5           |                      |                       |
-Pikachu            | $1           | Seedot               | Jessica Jones         | Pika Pika
+Name               | Amount (USD) | Favorite nut         | Favourite superhero    | Website
+-------------------|--------------|----------------------|------------------------|---------
+Q Liu              | $3,965.13    | Pistachio ice cream  | Shuyu Liu & Juan Zhao  | [youtube](https://www.youtube.com/quinnliuvideos)
+Mohamed Ali        | $1000        | Hazelnut             | Zaffer, Noori, Kasmira | [themindlift.com](http://www.themindlift.com/#!who-we-are/c1199) & [root-nyc.com](http://www.root-nyc.com/)
+Aarathi Raghuraman | $140         |                      |                        | [linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
+Frederick Scholl   | $10          |                      |                        |
+Perry Leong        | $5           | Cashews              |                        | [linkedin](linkedin.com/profile/view?id=183115052)
+Ying Ying Wu       | $5           |                      |                        |
+Soni Lamkaj        | $5           |                      |                        |
+Zhi Pan            | $5           |                      |                        |
+Pikachu            | $1           | Seedot               | Jessica Jones          | Pika Pika
