@@ -446,10 +446,11 @@ a laptop, internet, and a little bit of curiosity.
 
 Name               | Amount (USD) | Favorite nut         | Favourite superhero   | Website
 -------------------|--------------|----------------------|-----------------------|---------
-Q Liu              | $$3,964.50   | Pistachio ice cream  | Shuyu Liu & Juan Zhao | [youtube](https://www.youtube.com/quinnliuvideos)
+Q Liu              | $$3,965.13   | Pistachio ice cream  | Shuyu Liu & Juan Zhao | [youtube](https://www.youtube.com/quinnliuvideos)
 Aarathi Raghuraman | $140         |                      |                       | [linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
 Frederick Scholl   | $10          |                      |                       |
 Perry Leong        | $5           | Cashews              |                       | [linkedin](linkedin.com/profile/view?id=183115052)
 Ying Ying Wu       | $5           |                      |                       |
 Soni Lamkaj        | $5           |                      |                       |
 Zhi Pan            | $5           |                      |                       |
+Pikachu            | $1           | Seedot               | Jessica Jones         | Pika Pika
