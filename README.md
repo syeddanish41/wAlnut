@@ -416,9 +416,6 @@ beautiful ideas I have yet to learn.
 Outside of AI I like to make YouTube videos, skateboard, watch tragic beauty movies, and
 walk around manhattan eating pistachio ice cream and watermelon.
 
-#### Mark's bio
-Hi, I'm Mark. I like math, sometimes.
-
 ## Investors
 
 To us a wAlnut investor is someone who believes we can build a 
