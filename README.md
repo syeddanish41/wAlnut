@@ -457,4 +457,5 @@ a laptop, internet, and a little bit of curiosity.
 
 Name               | Amount (USD) | Favorite nut         | Favourite superhero    | Website
 -------------------|--------------|----------------------|------------------------|---------
+Aarathi Raghuraman | $140         |                      |                        |
 Pikachu            | $1           | Seedot               | Jessica Jones          | Pika Pika
