@@ -7,12 +7,26 @@
 
 # wAlnut
 
-"*I wish I'd had the courage to live a life true to myself, not the life others
-expected of me. I mean it, promise this dying women that you will always be
-true to yourself, that you will be brave enough to live the way you want to live
-regardless of what other poeple say.*" 
+"*When I was a kid I thought Zootopia was this perfect
+place where everyone got along and anyone
+could be anything. Turns out real life is a little
+more complicated than a slogan on a bumper sticker.* 
 
-~ Grace
+*Real life is messy. We all have limitations. We all make
+mistakes which means, hey glass half full we all have
+a lot in common. And the more we try to understand one
+another, the more exceptional each one of us will be. But
+we have to try. So no matter what type of animal you are,
+from the biggest elephant to our first fox, I implore you.* 
+
+*Try.*
+
+*Try to make the world a better place.*
+
+*Look inside yourself and recognize that change starts with
+you. It starts with me. It starts with all of us.*" 
+
+~ Judy
   
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
@@ -195,9 +209,9 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    ```
 
 #### How to contribute
-1. I am now looking to pay 
-   other developers a hourly rate of $30/hour(limited to 5 hours/week) to code features for WalnutiQ. The most up to 
-   date income and payment data can be viewed 
+1. I am now looking to pay other developers a hourly rate of $30/hour(limited 
+   to 5 hours/week) to code features for WalnutiQ. The most up to date income 
+   and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
    
 2. Sorry but you must meet these minimum requirements:
@@ -209,7 +223,8 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    - Written at least 3 thousand lines of Java in your life. 
    
 3. E-mail quinnliu@vt.edu the following:
-   - Link to source code of project you enjoyed working on the most. I am really just looking for good object oriented design and good documention.
+   - Link to source code of project you enjoyed working on the most. I am really 
+     just looking for good object oriented design and good documention.
    - Why you want to work on wAlnut. 
   
 4. If I e-mail you back for an interview during the interview we will discuss:
@@ -445,8 +460,9 @@ intense focus on what is necessary over nice to haves, acknowledgement you must
 sometimes forget what you know in order to create something new, and many
 beautiful ideas I have yet to learn.
 
-Outside of AI I like to make [YouTube videos](https://www.youtube.com/quinnliuvideos), [skateboard](https://www.youtube.com/watch?v=QBbtCU8Zd9s), watch tragic yet beautiful movies, and drink Mr. Green Genes from Juice
-Generation. 
+Outside of AI I like to make [YouTube videos](https://www.youtube.com/quinnliuvideos), 
+[skateboard](https://www.youtube.com/watch?v=QBbtCU8Zd9s), watch tragic yet beautiful
+movies, and drink Mr. Green Genes from Juice Generation. 
 
 ## Investors
 
@@ -475,12 +491,6 @@ a laptop, internet, and a little bit of curiosity.
 
 Name               | Amount (USD) | Favorite nut         | Favourite superhero    | Website
 -------------------|--------------|----------------------|------------------------|---------
-Q Liu              | $3,965.13    | Pistachio ice cream  | Shuyu Liu & Juan Zhao  | [youtube](https://www.youtube.com/quinnliuvideos)
-Mohamed Ali        | $1000        | Hazelnut             | Zaffer, Noori, Kasmira | [themindlift.com](http://www.themindlift.com/#!who-we-are/c1199) & [root-nyc.com](http://www.root-nyc.com/)
-Aarathi Raghuraman | $140         |                      |                        | [linkedin](https://www.linkedin.com/in/aarathi-raghuraman-223a0259)
-Frederick Scholl   | $10          |                      |                        |
-Perry Leong        | $5           | Cashews              |                        | [linkedin](linkedin.com/profile/view?id=183115052)
-Ying Ying Wu       | $5           |                      |                        |
-Soni Lamkaj        | $5           |                      |                        |
-Zhi Pan            | $5           |                      |                        |
+Q Liu              | $1,729       | Pistachio Ice Cram   | Shuyu Liu & Juan Zhao  | [YouTube](https://www.youtube.com/quinnliuvideos)
+Aarathi Raghuraman | $140         |                      |                        |
 Pikachu            | $1           | Seedot               | Jessica Jones          | Pika Pika
