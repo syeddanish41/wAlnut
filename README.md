@@ -7,15 +7,26 @@
 
 # wAlnut
 
-"*For what it's worth: it's never too late or, in my case, too early to be whoever
-you want to be. There's no time limit, stop whenever you want. You can change or
-stay the same, there are no rules to this thing. We can make the best or the 
-worst of it. I hope you make the best of it. And I hope you see things that
-startle you. I hope you feel things you never felt before. I hope you meet people
-with a different point of view. I hope you live a life you're proud of. If you
-find that you're not, I hope you have the strength to start all over again.*" 
+"*When I was a kid I thought Zootopia was this perfect
+place where everyone got along and anyone
+could be anything. Turns out real life is a little
+more complicated than a slogan on a bumper sticker.* 
 
-~ Scott
+*Real life is messy. We all have limitations. We all make
+mistakes which means, hey glass half full we all have
+a lot in common. And the more we try to understand one
+another, the more exceptional each one of us will be. But
+we have to try. So no matter what type of animal you are,
+from the biggest elephant to our first fox, I implore you.* 
+
+*Try.*
+
+*Try to make the world a better place.*
+
+*Look inside yourself and recognize that change starts with
+you. It starts with me. It starts with all of us.*" 
+
+~ Judy
   
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
@@ -83,6 +94,37 @@ information please:
 ~ Q Liu
 
 ## How
+Forget everything you know. 
+
+Let go of your ego and understand building the first general strong AI is not
+some competition for fame, money, or respect but for seeking truth and 
+making sure the most advanced known technology that evolution has created is
+used to prevent valotile suffering for all organisms with conciousness. 
+
+Then think about what an intelligent machine needs to be able to do from first 
+principles. Build a model using what you know from mathematics, machine 
+learning, and neuroscience. If you can not build an intelligent machine 
+smarter than humans than you do not understand intelligence. And even if you 
+do manage to build an intelligent machine there is still a lot you do not 
+understand about intelligence. 
+
+Experiment with your model on tasks that only intelligent machines seem to be
+good at. Be extremely open to ways to change the model. Remember that the
+earth was born about 4.6 billion years ago and that it took evolution about
+4.6 billion - 200,000 years to create the first homo sapian. This shit takes
+time so if your frustrated go relax. 
+
+Remember to focus on discovering principles of intelligence instead of getting
+lost in the details of modeling everything a brain does or optimizing a 
+mathematical algorithm. There is a good reason why planes and helicopters do
+not look like birds. 
+
+And as stupid as it sounds remember that it is the journey you go on that makes
+everything worth it when you look back. Sometimes life will hit you with a 
+hammer. When it does take time to regain your hope in humanity in any way you
+feel is right and take as much time as you need. When you get back up you will
+be a stronger version of yourself and ready to fail even harder again :)
+
 Install all code with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
 (Recommended) or **[Gradle](#install-in-linuxmacwindows-with-gradle)** for
 Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
@@ -167,20 +209,22 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    ```
 
 #### How to contribute
-1. Hi my name is Q. I really enjoy trying to build a Strong Aritificial Intelligence and I am now looking to pay 
-   other developers a hourly rate of $20/hour(limited to 2 hours/week) to code features for WalnutiQ. The most up to 
-   date income and payment data can be viewed 
+1. I am now looking to pay other developers a hourly rate of $30/hour(limited 
+   to 5 hours/week) to code features for WalnutiQ. The most up to date income 
+   and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
    
 2. Sorry but you must meet these minimum requirements:
-   - Know how to use Git & Github.com. If you don't know how I created a 1.5 hour playlist on how to use Git & 
+   - Know how to use Git & Github.com. If you don't know how I created a 1.5
+     hour playlist on how to use Git & 
      Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
-   - Be curious about how the human brain works. You don't need to be passionate about it right now. 
+   - Be curious about how the human brain works. You don't need to be
+     passionate about it right now. 
    - Written at least 3 thousand lines of Java in your life. 
    
 3. E-mail quinnliu@vt.edu the following:
-   - Link to source code of project you enjoyed working on the most. I am really just looking for good object oriented 
-     design and good documention.
+   - Link to source code of project you enjoyed working on the most. I am really 
+     just looking for good object oriented design and good documention.
    - Why you want to work on wAlnut. 
   
 4. If I e-mail you back for an interview during the interview we will discuss:
@@ -416,8 +460,9 @@ intense focus on what is necessary over nice to haves, acknowledgement you must
 sometimes forget what you know in order to create something new, and many
 beautiful ideas I have yet to learn.
 
-Outside of AI I like to make YouTube videos, skateboard, watch tragic beauty movies, and
-walk around manhattan eating pistachio ice cream and watermelon.
+Outside of AI I like to make [YouTube videos](https://www.youtube.com/quinnliuvideos), 
+[skateboard](https://www.youtube.com/watch?v=QBbtCU8Zd9s), watch tragic yet beautiful
+movies, and drink Mr. Green Genes from Juice Generation. 
 
 ## Investors
 
@@ -446,4 +491,6 @@ a laptop, internet, and a little bit of curiosity.
 
 Name               | Amount (USD) | Favorite nut         | Favourite superhero    | Website
 -------------------|--------------|----------------------|------------------------|---------
+Q Liu              | $1,729       | Pistachio Ice Cram   | Shuyu Liu & Juan Zhao  | [YouTube](https://www.youtube.com/quinnliuvideos)
+Aarathi Raghuraman | $140         |                      |                        |
 Pikachu            | $1           | Seedot               | Jessica Jones          | Pika Pika
