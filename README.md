@@ -80,6 +80,37 @@ information please:
 ~ Q Liu
 
 ## How
+Forget everything you know. 
+
+Let go of your ego and understand building the first general strong AI is not
+some competition for fame, money, or respect but for seeking truth and 
+making sure the most advanced known technology that evolution has created is
+used to prevent valotile suffering for all organisms with conciousness. 
+
+Then think about what an intelligent machine needs to be able to do from first 
+principles. Build a model using what you know from mathematics, machine 
+learning, and neuroscience. If you can not build an intelligent machine 
+smarter than humans than you do not understand intelligence. And even if you 
+do manage to build an intelligent machine there is still a lot you do not 
+understand about intelligence. 
+
+Experiment with your model on tasks that only intelligent machines seem to be
+good at. Be extremely open to ways to change the model. Remember that the
+earth was born about 4.6 billion years ago and that it took evolution about
+4.6 billion - 200,000 years to create the first homo sapian. This shit takes
+time so if your frustrated go relax. 
+
+Remember to focus on discovering principles of intelligence instead of getting
+lost in the details of modeling everything a brain does or optimizing a 
+mathematical algorithm. There is a good reason why planes and helicopters do
+not look like birds. 
+
+And as stupid as it sounds remember that it is the journey you go on that makes
+everything worth it when you look back. Sometimes life will hit you with a 
+hammer. When it does take time to regain your hope in humanity in any way you
+feel is right and take as much time as you need. When you get back up you will
+be a stronger version of yourself and ready to fail even harder again :)
+
 Install all code with **[IntelliJ](#install-in-linuxmacwindows-with-intellij-recommended)**
 (Recommended) or **[Gradle](#install-in-linuxmacwindows-with-gradle)** for
 Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
@@ -164,20 +195,21 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    ```
 
 #### How to contribute
-1. Hi my name is Q. I really enjoy trying to build a Strong Aritificial Intelligence and I am now looking to pay 
-   other developers a hourly rate of $20/hour(limited to 2 hours/week) to code features for WalnutiQ. The most up to 
+1. I am now looking to pay 
+   other developers a hourly rate of $30/hour(limited to 5 hours/week) to code features for WalnutiQ. The most up to 
    date income and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
    
 2. Sorry but you must meet these minimum requirements:
-   - Know how to use Git & Github.com. If you don't know how I created a 1.5 hour playlist on how to use Git & 
+   - Know how to use Git & Github.com. If you don't know how I created a 1.5
+     hour playlist on how to use Git & 
      Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
-   - Be curious about how the human brain works. You don't need to be passionate about it right now. 
+   - Be curious about how the human brain works. You don't need to be
+     passionate about it right now. 
    - Written at least 3 thousand lines of Java in your life. 
    
 3. E-mail quinnliu@vt.edu the following:
-   - Link to source code of project you enjoyed working on the most. I am really just looking for good object oriented 
-     design and good documention.
+   - Link to source code of project you enjoyed working on the most. I am really just looking for good object oriented design and good documention.
    - Why you want to work on wAlnut. 
   
 4. If I e-mail you back for an interview during the interview we will discuss:
@@ -413,11 +445,8 @@ intense focus on what is necessary over nice to haves, acknowledgement you must
 sometimes forget what you know in order to create something new, and many
 beautiful ideas I have yet to learn.
 
-Outside of AI I like to make YouTube videos, skateboard, watch tragic beauty movies, and
-walk around manhattan eating pistachio ice cream and watermelon.
-
-#### Mark's bio
-Hi, I'm Mark. I like math, sometimes.
+Outside of AI I like to make [YouTube videos](https://www.youtube.com/quinnliuvideos), [skateboard](https://www.youtube.com/watch?v=QBbtCU8Zd9s), watch tragic yet beautiful movies, and drink Mr. Green Genes from Juice
+Generation. 
 
 ## Investors
 
