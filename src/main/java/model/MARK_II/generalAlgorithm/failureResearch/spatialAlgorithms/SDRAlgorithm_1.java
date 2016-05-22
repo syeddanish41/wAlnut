@@ -115,13 +115,6 @@ public class SDRAlgorithm_1 extends Pooler {
 
     @Override
     public void nextTimeStep() {
-        Column[][] columns = super.region.getColumns();
-        for (int ri = 0; ri < columns.length; ri++) {
-            for (int ci = 0; ci < columns[0].length; ci++) {
-                for (Neuron neuron : columns[ri][ci].getNeurons()) {
-                    neuron.nextTimeStep();
-                }
-            }
-        }
+        // NOTE: taken care of in PredictionAlgorith_1 nextTimeStep()
     }
 }

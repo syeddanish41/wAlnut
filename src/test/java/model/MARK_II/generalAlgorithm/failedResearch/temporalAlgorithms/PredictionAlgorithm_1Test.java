@@ -48,7 +48,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
         this.SDRAlgorithm_1.run();
 
         this.predictionAlgorithm_1.run();
-        this.SDRAlgorithm_1.nextTimeStep();
+        //this.SDRAlgorithm_1.nextTimeStep();
         this.predictionAlgorithm_1.nextTimeStep();
 
         // @t = 1
@@ -59,7 +59,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
         this.SDRAlgorithm_1.run();
 
         this.predictionAlgorithm_1.run();
-        this.SDRAlgorithm_1.nextTimeStep();
+        //this.SDRAlgorithm_1.nextTimeStep();
         this.predictionAlgorithm_1.nextTimeStep();
 
         // @t = 2

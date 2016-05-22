@@ -180,7 +180,6 @@ public class PredictionAlgorithm_1 extends Pooler {
     @Override
     public void nextTimeStep() {
         // prepare for next time step by clearing current info that is out of date
-        // TODO: 2) why is wasActiveNeurons.size = 1 @t=0 instead of 0
         this.wasActiveNeurons.clear();
         for (Neuron neuron : this.isActiveNeurons) {
             this.wasActiveNeurons.add(neuron);
