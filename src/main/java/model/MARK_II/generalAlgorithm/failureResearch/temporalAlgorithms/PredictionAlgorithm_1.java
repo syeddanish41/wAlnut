@@ -66,7 +66,6 @@ public class PredictionAlgorithm_1 extends Pooler {
             // previously active neurons. 1 new distal segment per learning neuron.
             DistalSegment distalSegment = new DistalSegment();
             boolean oneOrMorePreviouslyActiveNeuron = false;
-            // TODO: 1) wasActiveNeurons.size() = 0 @t=1 instead of 1
             for (Neuron previouslyActiveNeuron : this.wasActiveNeurons) {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron,
                         Synapse.MINIMAL_CONNECTED_PERMANENCE, 69, 69));
@@ -163,6 +162,7 @@ public class PredictionAlgorithm_1 extends Pooler {
                     for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
                         int connectionScore = this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron);
 
+                        // TODO: why is isPredictingNeurons.size = 1 at t = 2.5?
                         if (this.isPredictingNeurons.size() >= this.SDRAlgorithm_1.getActiveColumnPositions().size()) {
                             break;
                         }
@@ -186,6 +186,8 @@ public class PredictionAlgorithm_1 extends Pooler {
             neuron.nextTimeStep();
         }
         this.isActiveNeurons.clear();
+
+        this.isPredictingNeurons.clear();
     }
 
     /**

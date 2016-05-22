@@ -89,7 +89,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
 
         // @t = 3
         assertTrue(A.getActiveState());
-        //assertTrue(B.getPredictingState());
+        assertTrue(B.getPredictingState());
 
     }
 
