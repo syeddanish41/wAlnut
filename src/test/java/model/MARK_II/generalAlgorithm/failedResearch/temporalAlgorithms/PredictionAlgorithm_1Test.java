@@ -87,41 +87,49 @@ public class PredictionAlgorithm_1Test extends TestCase {
         assertTrue(A.getActiveState());
         assertTrue(B.getPredictingState());
         this.predictionAlgorithm_1.nextTimeStep();
-
-        assertTrue(B.getPreviousPredictingState());
     }
 
     public void test_runAtTEquals4_LTP() throws IOException
     {
         // @t = 3.5
-//        this.test_run();
-//        assertTrue(B.getPreviousPredictingState());
-//        assertFalse(B.getPredictingState());
-//        this.retina.seeBMPImage("visionCell01_active.bmp");
-//        this.SDRAlgorithm_1.run(); // B becomes active
-//        this.predictionAlgorithm_1.run();
-//
-//        // @t = 4
-//        assertTrue(B.getActiveState());
-//
-//        Synapse<Cell> B_synapses[] = new Synapse[1];
-//        B.getDistalSegments().get(0).getSynapses().toArray(B_synapses);
-//        double permanenceAfter = B_synapses[0].getPermanenceValue();
-//        assertEquals(0.25, permanenceAfter);
-//
-//        this.predictionAlgorithm_1.nextTimeStep();
+        this.test_run();
+        this.retina.seeBMPImage("visionCell01_active.bmp");
+        this.SDRAlgorithm_1.run(); // B becomes active
+        this.predictionAlgorithm_1.run();
+
+        // @t = 4
+        assertTrue(B.getActiveState());
+        assertTrue(B.getPreviousPredictingState());
+        assertTrue(A.getPreviousActiveState());
+
+        Synapse<Cell> B_synapses[] = new Synapse[1];
+        B.getDistalSegments().get(0).getSynapses().toArray(B_synapses);
+        double permanenceAfter = B_synapses[0].getPermanenceValue();
+        double expectedPermanence = Synapse.INITIAL_PERMANENCE + Synapse.PERMANENCE_INCREASE;
+        assertEquals(expectedPermanence, permanenceAfter);
+
+        this.predictionAlgorithm_1.nextTimeStep();
     }
 
-    // B does not become active from t=3 to t=4
-//    public void test_runAtTEquals4_Case2() throws IOException
-//    {
-//        this.test_run();
-//        Synapse<Cell>[] synapses = (Synapse<Cell>[])(B.getDistalSegments().get(0).getSynapses()).toArray();
-//        double permanence = synapses[0].getPermanenceValue();
-//        this.predictionAlgorithm_1.run();
-//        double permanenceAfter = synapses[0].getPermanenceValue();
-//        boolean LTPHappened = permanenceAfter>permanence?true:false;
-//        assertFalse(LTPHappened);
-//        this.predictionAlgorithm_1.nextTimeStep();
-//    }
+    public void test_runAtTEquals4_LTD() throws IOException
+    {
+        // @t = 3.5
+        this.test_run();
+        //this.retina.seeBMPImage("visionCell01_active.bmp");
+        this.SDRAlgorithm_1.run(); // B does not becomes active
+        this.predictionAlgorithm_1.run();
+
+        // @t = 4
+        assertFalse(B.getActiveState());
+        assertTrue(B.getPreviousPredictingState());
+        assertTrue(A.getPreviousActiveState());
+
+        Synapse<Cell> B_synapses[] = new Synapse[1];
+        B.getDistalSegments().get(0).getSynapses().toArray(B_synapses);
+        double permanenceAfter = B_synapses[0].getPermanenceValue();
+        double expectedPermanence = Synapse.INITIAL_PERMANENCE - Synapse.PERMANENCE_DECREASE;
+        assertEquals(expectedPermanence, permanenceAfter);
+
+        this.predictionAlgorithm_1.nextTimeStep();
+    }
 }
