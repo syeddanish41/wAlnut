@@ -34,6 +34,7 @@ public class PredictionAlgorithm_1 extends Pooler {
     Set<Neuron> wasActiveNeurons;
     Set<Neuron> isActiveNeurons;
 
+    //Set<Neuron> wasPredictingNeurons;
     Set<Neuron> isPredictingNeurons;
 
     public PredictionAlgorithm_1(SDRAlgorithm_1 SDRAlgorithm_1) {
@@ -43,6 +44,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         this.wasActiveNeurons = new HashSet<>();
         this.isActiveNeurons = new HashSet<>();
 
+        //this.wasPredictingNeurons = new HashSet<>();
         this.isPredictingNeurons = new HashSet<>();
     }
 
@@ -65,14 +67,17 @@ public class PredictionAlgorithm_1 extends Pooler {
             // POSSIBLE ANSWER: For each learning neuron connect to all
             // previously active neurons. 1 new distal segment per learning neuron.
             DistalSegment distalSegment = new DistalSegment();
-
-            // TODO: 1) wasActiveNeurons.size() = 0 @t=1 instead of 1
+            boolean oneOrMorePreviouslyActiveNeuron = false;
             for (Neuron previouslyActiveNeuron : this.wasActiveNeurons) {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron,
                         Synapse.MINIMAL_CONNECTED_PERMANENCE, 69, 69));
+                oneOrMorePreviouslyActiveNeuron = true;
             }
-            System.out.println("Adding distal segment to neuron at position (" + ACP.getRow() + ", " + ACP.getColumn() + ")");
-            learningNeuron.addDistalSegment(distalSegment);
+
+            if (oneOrMorePreviouslyActiveNeuron) {
+                //System.out.println("Adding distal segment to neuron at position (" + ACP.getRow() + ", " + ACP.getColumn() + ")");
+                learningNeuron.addDistalSegment(distalSegment);
+            }
 
             // Step 3) Which neurons should be active for the current time step?
             // POSSIBLE ANSWER: The active neurons that best represent the
@@ -107,6 +112,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         // POSSIBLE ANSWER: Current time-step is @t=4. Strengthen the
         // connection between neuronBs that isActive @t=4 and isPredicting
         // @t=3 and neuronA that isActive @t=3.
+        // TODO: why is neuronB @t = 3.5 isPredicting true and wasPredicting false?
         for (Neuron activeNeuronBatTequals4 : this.isActiveNeurons) {
             if (activeNeuronBatTequals4.getPreviousPredictingState()) {
 
@@ -147,8 +153,6 @@ public class PredictionAlgorithm_1 extends Pooler {
                 }
             }
         }
-
-        this.nextTimeStep();
     }
 
     void updateIsPredictingNeurons(int minimumConnectionScore) {
@@ -159,6 +163,7 @@ public class PredictionAlgorithm_1 extends Pooler {
                     for (Neuron maybePredictingNeuron : columns[ri][ci].getNeurons()) {
                         int connectionScore = this.getNumberOfConnectedSynapsesToCurrentActiveNeuron(maybePredictingNeuron, activeNeuron);
 
+                        // TODO: why is isPredictingNeurons.size = 1 at t = 2.5?
                         if (this.isPredictingNeurons.size() >= this.SDRAlgorithm_1.getActiveColumnPositions().size()) {
                             break;
                         }
@@ -175,14 +180,23 @@ public class PredictionAlgorithm_1 extends Pooler {
 
     @Override
     public void nextTimeStep() {
+        // NOTE: in order to not call neuron.nextTimeStep() for neurons that
+        //       are active and isPredicting sets make isPredictingNeurons set contain
+        //       only neurons not already in isActiveNeurons set
+        this.isPredictingNeurons.removeAll(this.isActiveNeurons);
+
         // prepare for next time step by clearing current info that is out of date
-        // TODO: 2) why is wasActiveNeurons.size = 1 @t=0 instead of 0
         this.wasActiveNeurons.clear();
         for (Neuron neuron : this.isActiveNeurons) {
             this.wasActiveNeurons.add(neuron);
             neuron.nextTimeStep();
         }
         this.isActiveNeurons.clear();
+
+        for (Neuron neuron : this.isPredictingNeurons) {
+            neuron.nextTimeStep();
+        }
+        this.isPredictingNeurons.clear();
     }
 
     /**

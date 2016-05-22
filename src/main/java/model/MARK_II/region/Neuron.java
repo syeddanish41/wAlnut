@@ -199,6 +199,9 @@ public class Neuron extends Cell {
         stringBuilder.append("\n          wasActive: ");
         stringBuilder.append(this.wasActive);
         stringBuilder.append("\n       isPredicting: ");
+        stringBuilder.append(this.isPredicting);
+        stringBuilder.append("\n      wasPredicting: ");
+        stringBuilder.append(this.wasPredicting);
         stringBuilder.append("\n===========================");
         String NeuronInformation = stringBuilder.toString();
         return NeuronInformation;

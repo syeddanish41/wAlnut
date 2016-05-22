@@ -13,5 +13,5 @@ package model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms;
  * @version 10/17/2015
  */
 public class SDRAlgorithm_2 {
-    // TODO:
+
 }
