@@ -48,7 +48,7 @@ public class SDRAlgorithm_1 extends Pooler {
 
         int counter = 0;
         int indexOfMinumOverlapScore = overlapScores.length - numActiveColumns;
-        //TODO live QuickSort implemented here would remove sort algorithm below. 
+        // NOTE: live QuickSort implemented here would remove sort algorithm below.
         for (int row = 0; row < columns.length; row++) {
             for (int column = 0; column < columns[0].length; column++) {
                 overlapScores[counter] = this.computeColumnOverlapScore(columns[row][column]);
