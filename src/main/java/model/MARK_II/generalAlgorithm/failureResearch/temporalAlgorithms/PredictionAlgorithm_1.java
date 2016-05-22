@@ -74,7 +74,7 @@ public class PredictionAlgorithm_1 extends Pooler {
             }
 
             if (oneOrMorePreviouslyActiveNeuron) {
-                System.out.println("Adding distal segment to neuron at position (" + ACP.getRow() + ", " + ACP.getColumn() + ")");
+                //System.out.println("Adding distal segment to neuron at position (" + ACP.getRow() + ", " + ACP.getColumn() + ")");
                 learningNeuron.addDistalSegment(distalSegment);
             }
 
@@ -152,7 +152,7 @@ public class PredictionAlgorithm_1 extends Pooler {
             }
         }
 
-        this.nextTimeStep();
+        //this.nextTimeStep();
     }
 
     void updateIsPredictingNeurons(int minimumConnectionScore) {

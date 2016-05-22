@@ -43,47 +43,54 @@ public class PredictionAlgorithm_1Test extends TestCase {
         this.B = this.region.getColumn(0,1).getNeuron(0);
         //ColumnPosition B_position = new ColumnPosition(0, 1);
 
-        // @t = 0
+        // @t = -0.5
         this.retina.seeBMPImage("visionCell00_active.bmp");
         this.SDRAlgorithm_1.run();
-
         this.predictionAlgorithm_1.run();
-        //this.SDRAlgorithm_1.nextTimeStep();
-        //this.predictionAlgorithm_1.nextTimeStep();
+
+        // @t = 0
+        assertTrue(A.getActiveState());
+        assertFalse(B.getActiveState());
+        this.predictionAlgorithm_1.nextTimeStep();
+
+        // @t = 0.5
+        this.retina.seeBMPImage("visionCell01_active.bmp");
+        this.SDRAlgorithm_1.run();
+        this.predictionAlgorithm_1.run();
 
         // @t = 1
         assertFalse(A.getActiveState());
         assertTrue(A.getPreviousActiveState());
+        assertTrue(B.getActiveState());
+        this.predictionAlgorithm_1.nextTimeStep();
 
-        this.retina.seeBMPImage("visionCell01_active.bmp");
-        this.SDRAlgorithm_1.run();
-
-        this.predictionAlgorithm_1.run();
-        //this.SDRAlgorithm_1.nextTimeStep();
-        //this.predictionAlgorithm_1.nextTimeStep();
+        // @t = 1.5
+        // nothing happens...
 
         // @t = 2
+        assertFalse(A.getActiveState());
         assertFalse(B.getActiveState());
         assertTrue(B.getPreviousActiveState());
 
         // Check for synapse between B and A
         assertEquals(1, B.getDistalSegments().size());
-        Set<Synapse<Cell>> synapses = B.getDistalSegments().get(0).getSynapses();
-        assertEquals(1, synapses.size());
-//        for(Synapse<Cell> synapse: synapses)
-//        {
-//            assertEquals(A, synapse.getCell());
-//        }
-//        assertFalse(B.getActiveState());
-//        assertFalse(A.getActiveState());
-//        this.predictionAlgorithm_1.run();
-//        this.predictionAlgorithm_1.nextTimeStep();
-//
-//        // @t = 3
-//        A.setActiveState(true);
-//        this.predictionAlgorithm_1.run();
-//        assertTrue(B.getPredictingState());
-//        this.predictionAlgorithm_1.nextTimeStep();
+        Set<Synapse<Cell>> B_synapses = B.getDistalSegments().get(0).getSynapses();
+        assertEquals(1, B_synapses.size());
+        for(Synapse<Cell> B_synapse: B_synapses)
+        {
+            assertEquals(A, B_synapse.getCell());
+        }
+        this.predictionAlgorithm_1.nextTimeStep();
+
+        // @t = 2.5
+        this.retina.seeBMPImage("visionCell00_active.bmp");
+        this.SDRAlgorithm_1.run();
+        this.predictionAlgorithm_1.run();
+
+        // @t = 3
+        assertTrue(A.getActiveState());
+        //assertTrue(B.getPredictingState());
+
     }
 
     // B becomes active from t=3 to t=4
