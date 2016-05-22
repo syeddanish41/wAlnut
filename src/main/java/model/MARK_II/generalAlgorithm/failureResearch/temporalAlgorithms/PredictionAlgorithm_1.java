@@ -34,6 +34,7 @@ public class PredictionAlgorithm_1 extends Pooler {
     Set<Neuron> wasActiveNeurons;
     Set<Neuron> isActiveNeurons;
 
+    //Set<Neuron> wasPredictingNeurons;
     Set<Neuron> isPredictingNeurons;
 
     public PredictionAlgorithm_1(SDRAlgorithm_1 SDRAlgorithm_1) {
@@ -43,6 +44,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         this.wasActiveNeurons = new HashSet<>();
         this.isActiveNeurons = new HashSet<>();
 
+        //this.wasPredictingNeurons = new HashSet<>();
         this.isPredictingNeurons = new HashSet<>();
     }
 
@@ -110,6 +112,7 @@ public class PredictionAlgorithm_1 extends Pooler {
         // POSSIBLE ANSWER: Current time-step is @t=4. Strengthen the
         // connection between neuronBs that isActive @t=4 and isPredicting
         // @t=3 and neuronA that isActive @t=3.
+        // TODO: why is neuronB @t = 3.5 isPredicting true and wasPredicting false?
         for (Neuron activeNeuronBatTequals4 : this.isActiveNeurons) {
             if (activeNeuronBatTequals4.getPreviousPredictingState()) {
 
@@ -150,8 +153,6 @@ public class PredictionAlgorithm_1 extends Pooler {
                 }
             }
         }
-
-        //this.nextTimeStep();
     }
 
     void updateIsPredictingNeurons(int minimumConnectionScore) {
@@ -179,6 +180,11 @@ public class PredictionAlgorithm_1 extends Pooler {
 
     @Override
     public void nextTimeStep() {
+        // NOTE: in order to not call neuron.nextTimeStep() for neurons that
+        //       are active and isPredicting sets make isPredictingNeurons set contain
+        //       only neurons not already in isActiveNeurons set
+        this.isPredictingNeurons.removeAll(this.isActiveNeurons);
+
         // prepare for next time step by clearing current info that is out of date
         this.wasActiveNeurons.clear();
         for (Neuron neuron : this.isActiveNeurons) {
@@ -187,6 +193,9 @@ public class PredictionAlgorithm_1 extends Pooler {
         }
         this.isActiveNeurons.clear();
 
+        for (Neuron neuron : this.isPredictingNeurons) {
+            neuron.nextTimeStep();
+        }
         this.isPredictingNeurons.clear();
     }
 

@@ -3,20 +3,18 @@ package model.MARK_II.generalAlgorithm.failedResearch.temporalAlgorithms;
 import junit.framework.TestCase;
 import model.MARK_II.connectTypes.AbstractSensorCellsToRegionConnect;
 import model.MARK_II.connectTypes.SensorCellsToRegionRectangleConnect;
-import model.MARK_II.generalAlgorithm.ColumnPosition;
 import model.MARK_II.generalAlgorithm.failureResearch.spatialAlgorithms.SDRAlgorithm_1;
 import model.MARK_II.generalAlgorithm.failureResearch.temporalAlgorithms.PredictionAlgorithm_1;
 import model.MARK_II.region.*;
 import model.MARK_II.sensory.Retina;
 
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
  * @author Aarathi Raghuraman (raarathi@vt.edu)
  * @author Q Liu (quinnliu@vt.edu)
- * @version 1/31/2016
+ * @version 5/22/2016
  */
 public class PredictionAlgorithm_1Test extends TestCase {
     private Retina retina;
@@ -39,9 +37,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
         // Please refer to this diagram while understanding the code below:
         // https://cloud.githubusercontent.com/assets/2585159/12080374/88609706-b226-11e5-832f-a33fac9d7447.png
         this.A = this.region.getColumn(0,0).getNeuron(0);
-        //ColumnPosition A_position = new ColumnPosition(0, 0);
         this.B = this.region.getColumn(0,1).getNeuron(0);
-        //ColumnPosition B_position = new ColumnPosition(0, 1);
 
         // @t = -0.5
         this.retina.seeBMPImage("visionCell00_active.bmp");
@@ -90,22 +86,31 @@ public class PredictionAlgorithm_1Test extends TestCase {
         // @t = 3
         assertTrue(A.getActiveState());
         assertTrue(B.getPredictingState());
+        this.predictionAlgorithm_1.nextTimeStep();
 
+        assertTrue(B.getPreviousPredictingState());
     }
 
-    // B becomes active from t=3 to t=4
-//    public void test_runAtTEquals4_Case1() throws IOException
-//    {
+    public void test_runAtTEquals4_LTP() throws IOException
+    {
+        // @t = 3.5
 //        this.test_run();
-//        B.setActiveState(true);
-//        Synapse<Cell>[] synapses = (Synapse<Cell>[])(B.getDistalSegments().get(0).getSynapses()).toArray();
-//        double permanence = synapses[0].getPermanenceValue();
+//        assertTrue(B.getPreviousPredictingState());
+//        assertFalse(B.getPredictingState());
+//        this.retina.seeBMPImage("visionCell01_active.bmp");
+//        this.SDRAlgorithm_1.run(); // B becomes active
 //        this.predictionAlgorithm_1.run();
-//        double permanenceAfter = synapses[0].getPermanenceValue();
-//        boolean LTPHappened = permanenceAfter>permanence?true:false;
-//        assertTrue(LTPHappened);
+//
+//        // @t = 4
+//        assertTrue(B.getActiveState());
+//
+//        Synapse<Cell> B_synapses[] = new Synapse[1];
+//        B.getDistalSegments().get(0).getSynapses().toArray(B_synapses);
+//        double permanenceAfter = B_synapses[0].getPermanenceValue();
+//        assertEquals(0.25, permanenceAfter);
+//
 //        this.predictionAlgorithm_1.nextTimeStep();
-//    }
+    }
 
     // B does not become active from t=3 to t=4
 //    public void test_runAtTEquals4_Case2() throws IOException
