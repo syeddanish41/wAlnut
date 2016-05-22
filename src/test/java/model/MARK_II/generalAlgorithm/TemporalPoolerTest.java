@@ -86,7 +86,7 @@ public class TemporalPoolerTest extends junit.framework.TestCase {
         //   segmentUpdateList.size -= adapt segments on learning neurons
         //   segmentUpdateList.size -= adapt segments previously predictive & NOT currently predictive
 
-        // temporal pooling algorithm is deterministic TODO: fix
+        // temporal pooling algorithm is deterministic
 //        this.temporalPooler.performPooling();
 //        assertEquals(20, this.temporalPooler.getSegmentUpdateList().size());
 //        this.temporalPooler.nextTimeStep();
@@ -299,7 +299,6 @@ public class TemporalPoolerTest extends junit.framework.TestCase {
         Synapse<Cell> sameSynapse = new Synapse<Cell>(neuron, 3, 3);
         assertEquals(sameSynapse, newSynapses.get(0));
     }
-// TODO: fix
 
 //    public void test_phaseTwo() {
 //        this.temporalPooler.phaseOne(this.spatialPooler.getActiveColumns());

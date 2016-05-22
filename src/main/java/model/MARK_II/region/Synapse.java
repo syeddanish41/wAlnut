@@ -63,7 +63,7 @@ public class Synapse<CellType extends Cell> {
      */
     public static double MINIMAL_CONNECTED_PERMANENCE = 0.2;
 
-    public static double INITIAL_PERMANENCE = 0.3;
+    public static double INITIAL_PERMANENCE = 0.2;
 
     /**
      * Create a new Synapse object with an Cell object and INITIAL_PERMANENCE
