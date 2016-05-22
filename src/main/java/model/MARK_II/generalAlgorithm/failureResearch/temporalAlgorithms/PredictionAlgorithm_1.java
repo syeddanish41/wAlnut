@@ -65,14 +65,18 @@ public class PredictionAlgorithm_1 extends Pooler {
             // POSSIBLE ANSWER: For each learning neuron connect to all
             // previously active neurons. 1 new distal segment per learning neuron.
             DistalSegment distalSegment = new DistalSegment();
-
+            boolean oneOrMorePreviouslyActiveNeuron = false;
             // TODO: 1) wasActiveNeurons.size() = 0 @t=1 instead of 1
             for (Neuron previouslyActiveNeuron : this.wasActiveNeurons) {
                 distalSegment.addSynapse(new Synapse<>(previouslyActiveNeuron,
                         Synapse.MINIMAL_CONNECTED_PERMANENCE, 69, 69));
+                oneOrMorePreviouslyActiveNeuron = true;
             }
-            System.out.println("Adding distal segment to neuron at position (" + ACP.getRow() + ", " + ACP.getColumn() + ")");
-            learningNeuron.addDistalSegment(distalSegment);
+
+            if (oneOrMorePreviouslyActiveNeuron) {
+                System.out.println("Adding distal segment to neuron at position (" + ACP.getRow() + ", " + ACP.getColumn() + ")");
+                learningNeuron.addDistalSegment(distalSegment);
+            }
 
             // Step 3) Which neurons should be active for the current time step?
             // POSSIBLE ANSWER: The active neurons that best represent the

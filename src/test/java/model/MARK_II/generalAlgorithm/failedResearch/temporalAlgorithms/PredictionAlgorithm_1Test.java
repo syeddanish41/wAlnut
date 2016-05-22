@@ -48,6 +48,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
         this.SDRAlgorithm_1.run();
 
         this.predictionAlgorithm_1.run();
+        this.SDRAlgorithm_1.nextTimeStep();
         this.predictionAlgorithm_1.nextTimeStep();
 
         // @t = 1
@@ -58,6 +59,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
         this.SDRAlgorithm_1.run();
 
         this.predictionAlgorithm_1.run();
+        this.SDRAlgorithm_1.nextTimeStep();
         this.predictionAlgorithm_1.nextTimeStep();
 
         // @t = 2
@@ -67,7 +69,7 @@ public class PredictionAlgorithm_1Test extends TestCase {
         // Check for synapse between B and A
         assertEquals(1, B.getDistalSegments().size());
         Set<Synapse<Cell>> synapses = B.getDistalSegments().get(0).getSynapses();
-//        assertEquals(1, synapses.size());
+        assertEquals(1, synapses.size());
 //        for(Synapse<Cell> synapse: synapses)
 //        {
 //            assertEquals(A, synapse.getCell());
