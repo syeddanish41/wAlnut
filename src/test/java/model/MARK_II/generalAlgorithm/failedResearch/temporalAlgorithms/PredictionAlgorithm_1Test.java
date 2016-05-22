@@ -31,57 +31,43 @@ public class PredictionAlgorithm_1Test extends TestCase {
         this.region = new Region("root", 1, 2, 1, 20.0, 1);
         AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();
         retinaToRegion.connect(this.retina.getVisionCells(), this.region.getColumns(), 0, 0);
-        this.SDRAlgorithm_1 = new SDRAlgorithm_1(1, this.region, 0);
+        this.SDRAlgorithm_1 = new SDRAlgorithm_1(1, this.region, 50);
         this.predictionAlgorithm_1 = new PredictionAlgorithm_1(this.SDRAlgorithm_1);
     }
 
-    /**
-     * @param columnPosition of Neuron you want to active. Remember each column
-     *                       has only 1 neuron currently.
-     */
-    private void runSDRAlgorithm_1AndActiveNeuron(ColumnPosition columnPosition) {
-        Set<ColumnPosition> SDR = new HashSet<>();
-        SDR.add(columnPosition);
-        this.SDRAlgorithm_1.setActiveColumnPositions(SDR);
-
-        this.region.getColumn(columnPosition.getRow(), columnPosition.getColumn())
-                .getNeuron(0).setActiveState(true);
-    }
-
     public void test_run() throws IOException {
-        // TODO: change so that it acutually calls SDR_Algorithm_1.java in case
-        //       logic for that algorithm changes. Then this test won't have to be
-        //       changed.
-
         // Please refer to this diagram while understanding the code below:
         // https://cloud.githubusercontent.com/assets/2585159/12080374/88609706-b226-11e5-832f-a33fac9d7447.png
         this.A = this.region.getColumn(0,0).getNeuron(0);
-        ColumnPosition A_position = new ColumnPosition(0, 0);
+        //ColumnPosition A_position = new ColumnPosition(0, 0);
         this.B = this.region.getColumn(0,1).getNeuron(0);
-        ColumnPosition B_position = new ColumnPosition(0, 1);
+        //ColumnPosition B_position = new ColumnPosition(0, 1);
 
         // @t = 0
-//        this.retina.seeBMPImage("visionCell00_active.bpm");
-//        this.SDRAlgorithm_1.run();
-//        //this.runSDRAlgorithm_1AndActiveNeuron(A_position);
-//
-//        this.predictionAlgorithm_1.run();
-//        this.predictionAlgorithm_1.nextTimeStep();
-//
-//        // @t = 1
-//        assertFalse(A.getActiveState());
-//        assertTrue(A.getPreviousActiveState());
-//
-//        this.runSDRAlgorithm_1AndActiveNeuron(B_position);
-//
-//        this.predictionAlgorithm_1.run();
-//        this.predictionAlgorithm_1.nextTimeStep();
-//
-//        // @t = 2
-//        // Check for synapse between B and A
-//        assertEquals(1, B.getDistalSegments().size());
-//        Set<Synapse<Cell>> synapses = B.getDistalSegments().get(0).getSynapses();
-//        assertEquals(synapses.size(), 1);
+        this.retina.seeBMPImage("visionCell00_active.bmp");
+        this.SDRAlgorithm_1.run();
+
+        this.predictionAlgorithm_1.run();
+        this.predictionAlgorithm_1.nextTimeStep();
+
+        // @t = 1
+        assertFalse(A.getActiveState());
+        assertTrue(A.getPreviousActiveState());
+
+        this.retina.seeBMPImage("visionCell01_active.bmp");
+        this.SDRAlgorithm_1.run();
+
+        this.predictionAlgorithm_1.run();
+        this.predictionAlgorithm_1.nextTimeStep();
+
+        // @t = 2
+        assertFalse(B.getActiveState());
+        assertTrue(B.getPreviousActiveState());
+
+        // Check for synapse between B and A
+        assertEquals(1, B.getDistalSegments().size());
+        Set<Synapse<Cell>> synapses = B.getDistalSegments().get(0).getSynapses();
+//        assertEquals(1, synapses.size());
 //        for(Synapse<Cell> synapse: synapses)
 //        {
 //            assertEquals(A, synapse.getCell());
