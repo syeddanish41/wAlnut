@@ -7,26 +7,12 @@
 
 # wAlnut
 
-"*When I was a kid I thought Zootopia was this perfect
-place where everyone got along and anyone
-could be anything. Turns out real life is a little
-more complicated than a slogan on a bumper sticker.* 
+"*I wish I'd had the courage to live a life true to myself, not the life others
+expected of me. I mean it, promise this dying women that you will always be
+true to yourself, that you will be brave enough to live the way you want to live
+regardless of what other poeple say.*" 
 
-*Real life is messy. We all have limitations. We all make
-mistakes which means, hey glass half full we all have
-a lot in common. And the more we try to understand one
-another, the more exceptional each one of us will be. But
-we have to try. So no matter what type of animal you are,
-from the biggest elephant to our first fox, I implore you.* 
-
-*Try.*
-
-*Try to make the world a better place.*
-
-*Look inside yourself and recognize that change starts with
-you. It starts with me. It starts with all of us.*" 
-
-~ Judy
+~ Grace
   
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=master)](https://travis-ci.org/WalnutiQ/wAlnut)
 
