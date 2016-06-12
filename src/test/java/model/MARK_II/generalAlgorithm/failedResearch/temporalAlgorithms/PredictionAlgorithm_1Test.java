@@ -25,6 +25,12 @@ public class PredictionAlgorithm_1Test extends TestCase {
     private Neuron B;
 
     public void setUp() {
+        // Needed to
+        Synapse.INITIAL_PERMANENCE = 0.2;
+        Synapse.MINIMAL_CONNECTED_PERMANENCE = 0.2;
+        Synapse.PERMANENCE_INCREASE = 0.02;
+        Synapse.PERMANENCE_DECREASE = 0.005;
+
         this.retina = new Retina(1, 2);
         this.region = new Region("root", 1, 2, 1, 20.0, 1);
         AbstractSensorCellsToRegionConnect retinaToRegion = new SensorCellsToRegionRectangleConnect();

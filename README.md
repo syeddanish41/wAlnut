@@ -345,9 +345,8 @@ you want to learn about the most important brain theories we are using read
 2. **Theory:** The 1 common learning algorithm learns about the world by using
    when things happen across time. The algorithm makes no assumptions about
    the different transformations that our world has(shifts, rotations, etc.).
-   The algorithm ONLY says if 1 pattern follows another in time in a
-   predictable way, then they are causally related and should have the
-   SAME REPRESENTATION in the brain.
+   The algorithm ONLY says if pattern B follows pattern A in time then they are 
+   causally related and in the future pattern A should predict pattern B.
    - Kinda Supportive:
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
