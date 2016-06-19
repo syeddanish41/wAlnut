@@ -195,7 +195,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    ```
 
 #### How to contribute
-1. I am now looking to pay other developers a hourly rate of $30/hour(limited 
+1. I am now looking to pay other developers a hourly rate of $30/hour(limited up
    to 5 hours/week) to code features for WalnutiQ. The most up to date income 
    and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
@@ -214,8 +214,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    - Why you want to work on wAlnut. 
   
 4. If I e-mail you back for an interview during the interview we will discuss:
-   - Your hourly rate of $20/hour(or more based on skill level).
-   - How everything will work. Expect to pair program with someone for 2 hours a week. 
+   - How everything will work. Expect to pair program with someone for a few hours a week. 
    - If we both like what we hear we will walk you through making your 1st commit to the repo's master branch!
 
 5. For now we are using the Git workflow model described
