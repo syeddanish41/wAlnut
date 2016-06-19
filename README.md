@@ -1,9 +1,10 @@
 **[Why](#why) |**
 **[How](#how) |**
-**[What](#what) |**
+**[Key Theories](#key-theories) |**
 **[Key Experiments](#key-experiments) |**
 **[Team Bios](#team-bios) |**
 **[Investors](#investors)**
+**[Files](#files) |**
 
 # wAlnut
 
@@ -195,7 +196,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    ```
 
 #### How to contribute
-1. I am now looking to pay other developers a hourly rate of $30/hour(limited 
+1. I am now looking to pay other developers a hourly rate of $30/hour(limited up
    to 5 hours/week) to code features for WalnutiQ. The most up to date income 
    and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
@@ -214,8 +215,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    - Why you want to work on wAlnut. 
   
 4. If I e-mail you back for an interview during the interview we will discuss:
-   - Your hourly rate of $20/hour(or more based on skill level).
-   - How everything will work. Expect to pair program with someone for 2 hours a week. 
+   - How everything will work. Expect to pair program with someone for a few hours a week. 
    - If we both like what we hear we will walk you through making your 1st commit to the repo's master branch!
 
 5. For now we are using the Git workflow model described
@@ -226,77 +226,20 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    following labeled model:
    ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/MARK_I/labeled_MARK_I_version_2_high_contrast.jpg)
 
-## What
+## Key Theories
 
-If you are confused what a file is doing at a high level read
-**[what are all the files here for](#what-are-all-the-files-here-for)**. If
-you want to learn about the most important brain theories we are using read
-**[important brain theories in use](#important-brain-theories-in-use)**.
-
-#### What are all the files here for
-  - gradle/wrapper = the actual Gradle code for building our Java code
-  - images = images used in training & testing the partial brain model
-  - referencedLibraries = contains .jar files(of other people's code) needed to
-    run WalnutiQ
-  - src
-      + main/java/model
-        - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the
-          partial brain model. Includes abstract data types for basic brain
-          structures and learning algorithms that simulate how the brain learns.
-          + [connectTypes](./src/main/java/model/MARK_II/connectTypes) =
-            allow the different brain structures to connect to each other in
-            a variety of ways
-          + [generalAlgorithm](./src/main/java/model/MARK_II/generalAlgorithm)
-            - [failureResearch](./src/main/java/model/MARK_II/generalAlgorithm/failureResearch)
-              + spatialAlgorithms = rethinking SDR algorithm to create different
-                variations of the algorithms from the ground up using
-                ideas from spatial pooler when necessary.
-              + temporalAlgorithms = rethinking a prediction algorithm to create
-                different variations of the algorithm from the ground up using
-                ideas from temporal pooler when necessary.
-            - [SpatialPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/SpatialPooler.java)
-              = models the sparse & distributed spiking activity of neurons
-              seen in the neocortex and models long term potentiation and
-              depression on synapses of proximal dendrites
-            - [TemporalPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/TemporalPooler.java)
-              = models neocortex's ability to predict future input using long
-              term potentiation and depression on synapses of distal dendrites
-          + [parameters](./src/main/java/model/MARK_II/parameters) = allows
-            construction of different WalnutiQ models from command line for
-            this repo https://github.com/WalnutiQ/call_wAlnut
-          + region = components that make up a Region object
-          + sensory = classes for allowing brain model to receive sensory input
-          + unimplementedBiology = parts of the nervous system we haven't
-            implemented into this model
-        - [util](./src/main/java/model/util) = classes that enable the brain
-          model properties to be viewed graphically and efficiently saved
-          and opened  
-      + test/java/model = test classes for important classes in the
-        `src/main/java/model` folder
-        - experiments/vision = experiments with partial visual pathway models  
-  - .gitignore = contains names of files/folders not to add to this repository
-    but keep in your local WalnutiQ folder
-  - .travis.yml = tells [our custom travis testing site](https://travis-ci.org/quinnliu/WalnutiQ)
-    what versions of Java to test the files here
-  - LICENSE.txt = GNU General Public License version 3
-  - README.md = the file you are reading right now
-  - build.gradle = compiles all of the code in this repository using Gradle
-  - gradlew = allows you to use Gradle to run all of the code in this repository
-    in Linux & Mac
-  - gradlew.bat = allows you to use Gradle to run all of the code in this
-    repository in Windows
-
-#### Important brain theories in use
-1. **Theory:** 1 common learning algorithm in the neocortex of the brain
+1. **Theory 1:** 
+   1 common learning algorithm in the neocortex of the brain
    - Supportive:
      + 1992 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualProjectionsRouted.pdf)
        from Department of Brain and
        Cognitive Sciences at MIT.
-       - Summary: A portion of wires of the optic nerve are routed to the auditory
-         cortex in ferrets. The neurons of this primary auditory cortex(A1) with
-         vision input did not work exactly like neurons in primary visual
-         cortex(V1). Neurons in rewired A1 had larger receptive field sizes
-         and other differences. However there are also similarities including:
+       - Summary: A portion of wires of the optic nerve are routed to the 
+         auditory cortex in ferrets. The neurons of this primary auditory 
+         cortex(A1) with vision input did not work exactly like neurons in 
+         primary visual cortex(V1). Neurons in rewired A1 had larger receptive 
+         field sizes and other differences. However there are also 
+         similarities including:
          + rewired A1 neurons showed orientation and direction selectivity.
          + similar proportions of simple, complex, and nonoriented cells between
            rewired A1 and V1.
@@ -320,6 +263,20 @@ you want to learn about the most important brain theories we are using read
            corresponding levels in the visual and somatosensory pathways perform
            similar transformations on their inputs*".
 
+     + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
+       by Dileep George from Stanford University
+       - There is a idea in optimization algorithms called No Free Lunch
+         theorem. No Free Lunch theorem "state[s] that any two optimization 
+         algorithms are equivalent when their performance is averaged across 
+         all possible problems".
+       - "*On the surface, the NFL theorem seems to create problems for the
+         idea of a common cortical algorithm. How can one mechanism/algorithm
+         do very well on tasks as different as vision, audition and language?
+         The answer comes from the part of the NFL theorem that talks about
+         the assumptions that need to be exploited ... If the cortex is good
+         at learning a wide variety of tasks using a common mechanism, then
+         there must be something common about these seemingly different tasks.*".
+
    - Not supportive:
      + 2002 Paper [here](https://github.com/WalnutiQ/papers/blob/master/CorticalHeterogeneity.pdf)
        from Vision, Touch and Hearing Research Centre at The University of Queensland.
@@ -338,36 +295,69 @@ you want to learn about the most important brain theories we are using read
    - Conclusion: If cortex X(arbitrary cortex) of the neocortex(contains visual cortex,
      auditory cortex, somatosensory cortex, and others..) can be given
      non-normal sensory input usually given to say cortex Y and then learn to
-     process this new input similarily to how cortex X would process it, then we
-     can hypothesize that there is a common learning/predicting algorithm in all
-     cortices of the neocortex.
+     process this new input similarily to how cortex X would process it, then 
+     we can hypothesize that there is a common learning/predicting algorithm 
+     in all cortices of the neocortex.
 
-2. **Theory:** The 1 common learning algorithm learns about the world by using
-   when things happen across time. The algorithm makes no assumptions about
-   the different transformations that our world has(shifts, rotations, etc.).
-   The algorithm ONLY says if pattern B follows pattern A in time then they are 
-   causally related and in the future pattern A should predict pattern B.
-   - Kinda Supportive:
-     + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
-       by Dileep George from Stanford University
-       - There is a idea in optimization algorithms called No Free Lunch
-         theorem. No Free Lunch theorem "state[s] that any two optimization algorithms
-         are equivalent when their performance is averaged across all possible
-         problems".
-       - "*On the surface, the NFL theorem seems to create problems for the
-         idea of a common cortical algorithm. How can one mechanism/algorithm
-         do very well on tasks as different as vision, audition and language?
-         The answer comes from the part of the NFL theorem that talks about
-         the assumptions that need to be exploited ... If the cortex is good
-         at learning a wide variety of tasks using a common mechanism, then
-         there must be something common about these seemingly different tasks.*".
+2. **Theory 2:** 
+   The common learning algorithm efficiently learns about the
+   world by making a specific set of assumptions about the world. This is the
+   inductive bias of the common learning algorithm. To find all assumptions
+   the question we need to ask is
+   "*What is the basic set of assumptions that are specific enough to make
+   learning feasible in a reasonable amount of time while being general
+   enough to be applicable to a large class of problems?*" ~ Dileep George 
 
+3. **Assumption 1:** 
+   If pattern B follows pattern A in time then they are causally related and 
+   in the future pattern A should predict pattern B.
+   - Supportive:
+     - The brain is constantly making predictions about the future. 
    - Not supportive:
+     - How does the brain make predictions multiple time steps into the future?
+   - Conclusion: Yes, specific enough to make learning feasible and general
+     enough for large class of problems. 
 
-   - No Conclusion Yet: Still experimenting with rethinking a prediction algorithm
-     from the ground up using ideas from temporal pooler when necessary in folder [failureResearch](./src/main/java/model/MARK_II/generalAlgorithm/failureResearch).
+4. **Assumption 2:**   
+   Manifold = all the images generated by the same object in a 
+   high-dimensional space. 
 
-# Key Experiments
+   If object A occurs close together to object B in time than object C then
+   object A and object B are more similar. This information is used to form
+   manifolds aka invariant representations of the objects.
+   - Supportive: 
+     + A baby has to learn this way before it understands speech. 
+   - Not supportive:
+   - Conclusion: Yes, specific enough to make learning feasible and general
+     enough for large class of problems. 
+
+5. **Assumption 3:** 
+   During the current time step of the common learning algorithm, it will 
+   always recieve input about what muscles were used in the last time step. 
+   - Supportive:
+     + Consciouness doesn't get confused when the eye is moving 
+       around. This means every region in the neocortex must be recieving input
+       about the eye's sensori-motor movement so it can use it to accurately
+       predict the future. 
+  - Not supportive:
+  - Conclusion: This assumption is specific enough to make learning feasible 
+    in a reasonable amount of time while being general enough to be applicable 
+    to a large class of problems.   
+
+6. **Assumption 4:**
+   Complex invariant representations are made up of less complex invariant
+   representations in a hierarchy.
+   - Supportive:
+     + More ideas in the universe than neurons in the brain. Also the universe
+       has natural hierarchies. 
+     + The neocortex has a hierarchal structure. 
+   - Not supportive:
+   - Conclusion: The common learning algorithm first learns invariant 
+     representations of object components then learns invariant 
+     representations of more complex objects in terms of the invariant 
+     representations of the components. 
+
+## Key Experiments
 
 The following experiments show off how a general learning algorithm uses the
 brain's data structure to it's advantage to process input data and create
@@ -478,3 +468,61 @@ Name               | Amount (USD) | Favorite nut         | Favourite superhero  
 Q Liu              | $1,729       | Pistachio Ice Cram   | Shuyu Liu & Juan Zhao  | [YouTube](https://www.youtube.com/quinnliuvideos)
 Aarathi Raghuraman | $140         |                      |                        |
 Pikachu            | $1           | Seedot               | Jessica Jones          | Pika Pika
+
+## Files
+ 
+If you are confused what a file is doing at a high level read
+**[what are all the files here for](#what-are-all-the-files-here-for)**. 
+
+#### What are all the files here for
+  - gradle/wrapper = the actual Gradle code for building our Java code
+  - images = images used in training & testing the partial brain model
+  - referencedLibraries = contains .jar files(of other people's code) needed to
+    run WalnutiQ
+  - src
+      + main/java/model
+        - [MARK_II](./src/main/java/model/MARK_II) = the core logic for the
+          partial brain model. Includes abstract data types for basic brain
+          structures and learning algorithms that simulate how the brain learns.
+          + [connectTypes](./src/main/java/model/MARK_II/connectTypes) =
+            allow the different brain structures to connect to each other in
+            a variety of ways
+          + [generalAlgorithm](./src/main/java/model/MARK_II/generalAlgorithm)
+            - [failureResearch](./src/main/java/model/MARK_II/generalAlgorithm/failureResearch)
+              + spatialAlgorithms = rethinking SDR algorithm to create different
+                variations of the algorithms from the ground up using
+                ideas from spatial pooler when necessary.
+              + temporalAlgorithms = rethinking a prediction algorithm to create
+                different variations of the algorithm from the ground up using
+                ideas from temporal pooler when necessary.
+            - [SpatialPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/SpatialPooler.java)
+              = models the sparse & distributed spiking activity of neurons
+              seen in the neocortex and models long term potentiation and
+              depression on synapses of proximal dendrites
+            - [TemporalPooler.java](./src/main/java/model/MARK_II/generalAlgorithm/TemporalPooler.java)
+              = models neocortex's ability to predict future input using long
+              term potentiation and depression on synapses of distal dendrites
+          + [parameters](./src/main/java/model/MARK_II/parameters) = allows
+            construction of different WalnutiQ models from command line for
+            this repo https://github.com/WalnutiQ/call_wAlnut
+          + region = components that make up a Region object
+          + sensory = classes for allowing brain model to receive sensory input
+          + unimplementedBiology = parts of the nervous system we haven't
+            implemented into this model
+        - [util](./src/main/java/model/util) = classes that enable the brain
+          model properties to be viewed graphically and efficiently saved
+          and opened  
+      + test/java/model = test classes for important classes in the
+        `src/main/java/model` folder
+        - experiments/vision = experiments with partial visual pathway models  
+  - .gitignore = contains names of files/folders not to add to this repository
+    but keep in your local WalnutiQ folder
+  - .travis.yml = tells [our custom travis testing site](https://travis-ci.org/quinnliu/WalnutiQ)
+    what versions of Java to test the files here
+  - LICENSE.txt = GNU General Public License version 3
+  - README.md = the file you are reading right now
+  - build.gradle = compiles all of the code in this repository using Gradle
+  - gradlew = allows you to use Gradle to run all of the code in this repository
+    in Linux & Mac
+  - gradlew.bat = allows you to use Gradle to run all of the code in this
+    repository in Windows
