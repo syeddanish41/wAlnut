@@ -51,7 +51,7 @@ public class Experiment_2 extends TestCase {
 
        this.imageViewer = new ImageViewer("2_minus_1.bmp", retina); // 400 x 400 pixels
        int[][] seenArea = this.imageViewer.saccadeRetinaToNewPositionAndGetWhatItSees(new Point3D(200, 200, 200));
-       RegionConsoleViewer.printDoubleIntArray(seenArea);
+       //RegionConsoleViewer.printDoubleIntArray(seenArea);
 
        this.sdrAlgorithm_1 = new SDRAlgorithm_1(1000, this.regionA, 10);
        this.sdrAlgorithm_1.setLearningState(true);
@@ -90,8 +90,8 @@ public class Experiment_2 extends TestCase {
     public void test_experiment_2() throws IOException {
         assertEquals(2-1, 1);
 
-        for (int i = 0; i < 5; i++) {
-            this.runAlgorithmOneTimeStep();
-        }
+        // for (int i = 0; i < 5; i++) {
+        //     this.runAlgorithmOneTimeStep();
+        // }
     }
 }

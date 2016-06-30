@@ -3,15 +3,15 @@
 **[Key Theories](#key-theories) |**
 **[Key Experiments](#key-experiments) |**
 **[Team Bios](#team-bios) |**
-**[Investors](#investors)**
-**[Files](#files) |**
+**[Investors](#investors) |**
+**[Files](#files)**
 
 # wAlnut
 
 "*I wish I'd had the courage to live a life true to myself, not the life others
 expected of me. I mean it, promise this dying women that you will always be
-true to yourself, that you will be brave enough to live the way you want to live
-regardless of what other poeple say.*" 
+true to yourself, that you will be brave enough to live the way you want to 
+live regardless of what other poeple say.*" 
 
 ~ Grace
   
@@ -20,28 +20,28 @@ regardless of what other poeple say.*"
 ## Why
 
 I believe that intelligent machines will be able to solve many of our
-hardest problems and will cause many new hard problems. Our hardest problems like
-cancer, mortality, and secrets of the universe involve understanding a lot of 
-data and as humans we are limited by the processing power and size of our brains. 
-But if we figure out the computational principles that make you and I 
-intelligent, simulate them on a computer, scale it up to surpass the collective 
-intelligence of the 7+ billion people on Earth we will have created 
+hardest problems and will cause many new hard problems. Our hardest problems 
+like cancer, mortality, and secrets of the universe involve understanding a 
+lot of data and as humans we are limited by the processing power and size of 
+our brains. But if we figure out the computational principles that make you 
+and I intelligent, simulate them on a computer, scale it up to surpass the 
+collective intelligence of the 7+ billion people on Earth we will have created 
 intelligent machines that do not need to eat, sleep, or reproduce that can
 work on our hardest problems much more efficiently than humans. 
 
 Technology has always been used to do great good and great evil and even if we 
 have the best intentions to do good, intelligent machines will cause many new 
 problems. For example there will be massive job loss since most jobs 
-can be replaced by intelligent machines. A possible solution to this hard problem 
-will be to augment our brains and become super intelligent. 
+can be replaced by intelligent machines. A possible solution to this hard 
+problem will be to augment our brains and become super intelligent. 
 
 The current short term goal is to experiment with a simplified visual pathway 
-from an eye(that can move within a room) to experimental general learning 
-algorithms that model hierarchical regions in layer 2/3, 4, & 5 of the 
-neocortex (70+% of the brain) to understand the principles of intelligence. 
+from an "eye" to experimental general learning algorithms to understand the key
+principles of intelligence and rediscover other key principles. 
 
-The long term goal of this repository is to store code that can simulate the 
-general learning ability of a full sized human brain in real time. 
+The long term goal of this repository is to rediscover all of the principles 
+that make a system intelligent and store the code that can simulate the 
+general learning abilitiy of a human brain in real time. 
 
 After we understood the principles of flight we were able to build planes that
 are much faster and can carry more weight than birds. After we understand
@@ -58,25 +58,10 @@ us.
 
 If you are interested in becoming a researcher/developer I would be grateful
 for your collaboration as I cannot do this alone. We currently have $$$
-so read [how to contribute](https://github.com/WalnutiQ/wAlnut#how-to-contribute)
-to get started. If you are interested in donating please read
+so read 
+[how to contribute](https://github.com/WalnutiQ/wAlnut#how-to-contribute) to
+get started. If you are interested in donating please read
 [investors](#investors).
-
-This research was initially inspired by everyone at [Numenta](http://numenta.org/).
-Numenta has theorized and tested algorithms that model layers 2/3 & 4 of the
-human neocortex(~70% of human brain). They generously released the pseudo code for their
-learning algorithms, and this repository is an extended implementation of
-their algorithms using object-oriented programming with a focus on
-<b>understandability</b> over speed and applications to <b>human vision</b>
-using hierarchy and sensory motor integration. Numenta's implementation of their
-algorithms can be found [here](https://github.com/numenta/nupic). For more
-information please:
-
-- Watch this [video playlist](https://www.youtube.com/playlist?list=PLPXsMt57rLtgddN0NQEmXP-FbF6wt2O-f)
-  to become familiar with the neuroscience behind this repository.
-- Read Numenta's great explanation of their research in this
-  [white paper](https://github.com/WalnutiQ/papers/blob/master/HTM_CorticalLearningAlgorithms.pdf)
-  to better understand the theory behind this repository.
 
 ~ Q Liu
 
@@ -266,9 +251,9 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
        - There is a idea in optimization algorithms called No Free Lunch
-         theorem. No Free Lunch theorem "state[s] that any two optimization 
+         theorem. No Free Lunch theorem "*state[s] that any two optimization 
          algorithms are equivalent when their performance is averaged across 
-         all possible problems".
+         all possible problems*".
        - "*On the surface, the NFL theorem seems to create problems for the
          idea of a common cortical algorithm. How can one mechanism/algorithm
          do very well on tasks as different as vision, audition and language?
@@ -282,9 +267,6 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
        from Vision, Touch and Hearing Research Centre at The University of Queensland.
           - "*recent studies have revealed substantial variation in pyramidal
             cell structure in different cortical areas*".
-          - Some of these variations like increase in dendritic arbor size(
-            dendritic branching) can be resolved with the idea of a common
-            algorithm.
 
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
@@ -308,7 +290,17 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    learning feasible in a reasonable amount of time while being general
    enough to be applicable to a large class of problems?*" ~ Dileep George 
 
-3. **Assumption 1:** 
+3. **Assumption 1:**
+   Every input pattern is encoded into a sparse distributed representation of 
+   the input stimuli.
+   - Supportive:
+     - Not possible to process every pixel in the input image.
+   - Not supportive:
+   - Conclusion: Specific enough to make learning feasible in a reasonable 
+     amount of time while being general enough to be applicable to a large 
+     class of problems.
+
+4. **Assumption 2:** 
    If pattern B follows pattern A in time then they are causally related and 
    in the future pattern A should predict pattern B.
    - Supportive:
@@ -318,7 +310,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
 
-4. **Assumption 2:**   
+5. **Assumption 3:**   
    Manifold = all the images generated by the same object in a 
    high-dimensional space. 
 
@@ -331,7 +323,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
 
-5. **Assumption 3:** 
+6. **Assumption 4:** 
    During the current time step of the common learning algorithm, it will 
    always recieve input about what muscles were used in the last time step. 
    - Supportive:
@@ -344,7 +336,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
     in a reasonable amount of time while being general enough to be applicable 
     to a large class of problems.   
 
-6. **Assumption 4:**
+7. **Assumption 5:**
    Complex invariant representations are made up of less complex invariant
    representations in a hierarchy.
    - Supportive:
@@ -356,6 +348,10 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
      representations of object components then learns invariant 
      representations of more complex objects in terms of the invariant 
      representations of the components. 
+
+8. **Assumption 6:**
+   A common learning algorithm must be trained on a unlabeled *movie* of the
+   world it is expected to learn to predict and classify. 
 
 ## Key Experiments
 
