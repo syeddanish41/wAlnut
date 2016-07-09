@@ -459,7 +459,7 @@ an example of one of our investors:
 Name               | Amount (USD) | Favorite nut         | Favourite superhero    | Website
 -------------------|--------------|----------------------|------------------------|---------
 Q Liu              | $1729        | Pistachio Ice Cram   | Shuyu Liu & Juan Zhao  | [YouTube](https://www.youtube.com/quinnliuvideos)
-Pikachu            | $1           | Seedot               | Pika Pika              | Pika Pika
+Pikachu            | $1           | Seedot               | Jessica Jones          | Pika Pika
 
 ## Files
  
