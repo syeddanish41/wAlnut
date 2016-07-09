@@ -57,11 +57,10 @@ super intelligent emotional machines will be much more intelligent compared to
 us.
 
 If you are interested in becoming a researcher/developer I would be grateful
-for your collaboration as I cannot do this alone. We currently have $$$
-so read 
+for your collaboration as I cannot do this alone. Please read
 [how to contribute](https://github.com/WalnutiQ/wAlnut#how-to-contribute) to
-get started. If you are interested in donating please read
-[investors](#investors).
+get started. If you are interested in donating we take donations up to $1 through Venmo.
+For more information read [investors](#investors).
 
 ~ Q Liu
 
@@ -181,7 +180,7 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
    ```
 
 #### How to contribute
-1. I am now looking to pay other developers a hourly rate of $30/hour(limited up
+1. I am now looking to pay other developers a hourly rate of $20/hour(limited up
    to 5 hours/week) to code features for WalnutiQ. The most up to date income 
    and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
@@ -206,10 +205,6 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
 5. For now we are using the Git workflow model described
    [here](https://github.com/WalnutiQ/wAlnut/issues/62) to contribute to this
    repository effectively. 
-
-6. While reading through the code base it will be very helpful to refer to the
-   following labeled model:
-   ![alt text](https://raw.githubusercontent.com/WalnutiQ/artwork/master/MARK_I/labeled_MARK_I_version_2_high_contrast.jpg)
 
 ## Key Theories
 
@@ -437,6 +432,8 @@ movies, and drink Mr. Green Genes from Juice Generation.
 
 ## Investors
 
+### Please note any donations cannot be more than $1. If you venmo us more than $1 we will venmo you back the difference :)
+
 To us a wAlnut investor is someone who believes we can build a 
 machine more intelligent than humans and use it for more good out of love than 
 evil out of fear. In the history of mankind some technologies are so powerful 
@@ -461,9 +458,8 @@ an example of one of our investors:
 
 Name               | Amount (USD) | Favorite nut         | Favourite superhero    | Website
 -------------------|--------------|----------------------|------------------------|---------
-Q Liu              | $1,729       | Pistachio Ice Cram   | Shuyu Liu & Juan Zhao  | [YouTube](https://www.youtube.com/quinnliuvideos)
-Aarathi Raghuraman | $140         |                      |                        |
-Pikachu            | $1           | Seedot               | Jessica Jones          | Pika Pika
+Q Liu              | $1729        | Pistachio Ice Cram   | Shuyu Liu & Juan Zhao  | [YouTube](https://www.youtube.com/quinnliuvideos)
+Pikachu            | $1           | Seedot               | Pika Pika              | Pika Pika
 
 ## Files
  
