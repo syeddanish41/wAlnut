@@ -347,6 +347,14 @@ Linux/Mac/Windows and then read **[how to contribute](#how-to-contribute)**.
 8. **Assumption 6:**
    A common learning algorithm must be trained on a unlabeled *movie* of the
    world it is expected to learn to predict and classify. 
+   
+9. **Theory 3:** There is no such thing as free will.
+   - Supportive:
+   - Not Supportive:
+   
+10. **Theory 4:** Consciousness is the illusion of an object believing it has free will. 
+    - Supportive:
+    - Not Supportive:
 
 ## Key Experiments
 
