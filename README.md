@@ -59,7 +59,7 @@ get started.
 
 ## How
 
-The best approach I have come across fro building an artificial general intelligence 
+The best approach I have come across for building an artificial general intelligence 
 (AGI) are summarized in this [video](https://www.youtube.com/watch?v=NPtAIVieh4k) and
 is the same approach this project uses.
 
