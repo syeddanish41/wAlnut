@@ -289,11 +289,12 @@ and then read **[how to contribute](#how-to-contribute)**.
 
 ## Files
  
-If you are confused what a file is doing at a high level read
-**[what are all the files here for](#what-are-all-the-files-here-for)**. 
-
-#### What are all the files here for
-  - .gitignore = contains names of files/folders not to add to this repository
-    but keep in your local wAlnut folder
-  - LICENSE.txt = GNU General Public License version 3
-  - README.md = the file you are reading right now
+If you are confused what a file is doing:
+```
+- model = object oriented model implementing the [key theories](#key-theories) 
+- tests = unit tests for code in model/
+- .gitignore = contains names of files/folders not to add to this repository
+  but keep in your local wAlnut folder
+- LICENSE.txt = GNU General Public License version 3
+- README.md = the file you are reading right now
+```
