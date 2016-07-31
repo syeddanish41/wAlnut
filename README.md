@@ -61,7 +61,20 @@ get started.
 
 The best approach I have come across for building an artificial general intelligence 
 (AGI) are summarized in this [video](https://www.youtube.com/watch?v=NPtAIVieh4k) and
-is the same approach this project uses.
+is the same approach this project uses. The following are the key take aways:
+
+1. When looking at neuroscience for inspiration only add something to your model 
+   if it is present in reality and neurobiology. 
+     - Reason: the neurons in your brain are trying to do 3 things:
+         + stay alive
+         + communicate with other parts of the brain limited by evoled neurobiology
+           at the time
+         + information processing <=== This is the part we care about!
+     - The information processing is the only part we want to add to our model.
+       Unfortunately elements of neurobiology are not cleanly split. For example,
+       a neuron spike is not present in reality and it might be used for 
+       information processing but is more likely to be the only way 2 neurons can
+       communicate with each other limited by the evolved neurobiology at the time.
 
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
