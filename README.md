@@ -80,8 +80,13 @@ time so if your frustrated go relax.
 Remember to focus on discovering principles of intelligence instead of getting
 lost in the details of modeling everything a brain does or optimizing a 
 mathematical algorithm. Evolution created intelligence but it also created many
-properties of the brain that are not that important like nipples for the body.
-There is a good reason why planes and helicopters do not look like birds. 
+properties of the brain that are not optimally located and other properties that
+may no longer be computationally important like nipples for the body. This model
+will not model every anatomical detail of the brain but instead will strive to
+use the best substitutes to model the principles of a general intelligence. This
+is analagous to how a plane and helicopter do no model every anatomical detail
+of a birds wing but instead strive to use the best substitutes to model the
+principles of general flight.  
 
 And as stupid as it sounds remember that it is the journey you go on that makes
 everything worth it when you look back. Sometimes life will hit you with a 
