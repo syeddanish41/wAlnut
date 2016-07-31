@@ -58,20 +58,24 @@ get started.
 ~ Q Liu
 
 ## How
-Forget everything you know. 
 
-Let go of your ego and understand building the first artificial general intelligence
-is not some competition for fame, money, or respect but for seeking truth and 
-making sure the most advanced known technology that evolution has created is
-used to prevent volatile suffering for all organisms with consciousness. 
+The best approach I have come across fro building an artificial general intelligence 
+(AGI) are summarized in this [video](https://www.youtube.com/watch?v=NPtAIVieh4k) and
+is the same approach this project uses.
+
+Building an AGI should be viewed as a challenge that is at a larger scale than 
+when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
+end of the decade. To build an AGI that exceeds human intelligence will 
+require a few more breakthroughs. Because we cannot predict when these 
+breakthroughs will occur the first AGI to exceed human intelligence may happen 
+anytime in the next 10 to 50 years. 
 
 Remember "*what I cannot create I do not understand*" was said by Richard Feynman. 
 Then think about what an intelligent machine needs to be able to do from first 
-principles. Build a model using what you know from mathematics, machine 
-learning, and neuroscience.  
+principles.  
 
 Experiment with your model on tasks that only intelligent machines seem to be
-good at. Be extremely open to ways to change the model. Remember that the
+good at. Be open to ways to change the model. Remember that the
 earth was born about 4.6 billion years ago and that it took evolution about
 4.6 billion - 200,000 years to create the first homo sapiens. This shit takes
 time so if your frustrated go relax. 
@@ -79,9 +83,9 @@ time so if your frustrated go relax.
 Remember to focus on discovering principles of intelligence instead of getting
 lost in the details of modeling everything a brain does or optimizing a 
 mathematical algorithm. Evolution created intelligence but it also created many
-properties of the brain that are not optimally located and other properties that
-may no longer be computationally important like nipples for the body. This model
-will not model every anatomical detail of the brain but instead will strive to
+properties of the brain that are not for information processing but for keeping
+neurons alive and communicating between each other. The model should not model 
+every anatomical detail of the brain but instead will strive to
 use the best substitutes to model the principles of a general intelligence. This
 is analogous to how a plane and helicopter do no model every anatomical detail
 of a birds wing but instead strive to use the best substitutes to model the
