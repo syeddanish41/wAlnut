@@ -34,9 +34,8 @@ The current short term goal is to experiment with a simplified visual pathway
 from an "eye" to experimental general learning algorithms to understand the key
 principles of intelligence and rediscover other key principles. 
 
-The long term goal of this repository is to rediscover all of the principles 
-that make a system intelligent and store the code that can simulate the 
-general learning abilitiy of a human brain in real time. 
+The long term goal of this project is to rediscover all of the principles 
+that make a system intelligent and to implement them to better humanity.
 
 After we understood the principles of flight we were able to build planes that
 are much faster and can carry more weight than birds. After we understand
@@ -144,51 +143,51 @@ and then read **[how to contribute](#how-to-contribute)**.
 1. **Theory 1:** 
    1 common learning algorithm in the neocortex of the brain
    - Supportive:
-     + 1992 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualProjectionsRouted.pdf)
+     - 1992 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualProjectionsRouted.pdf)
        from Department of Brain and
        Cognitive Sciences at MIT.
-       - Summary: A portion of wires of the optic nerve are routed to the 
-         auditory cortex in ferrets. The neurons of this primary auditory 
-         cortex(A1) with vision input did not work exactly like neurons in 
-         primary visual cortex(V1). Neurons in rewired A1 had larger receptive 
-         field sizes and other differences. However there are also 
-         similarities including:
-         + rewired A1 neurons showed orientation and direction selectivity.
-         + similar proportions of simple, complex, and nonoriented cells between
-           rewired A1 and V1.
-         + implies "*significant implications for possible commonalities in
-           intracortical processing circuits between sensory cortices*".
+         - Summary: A portion of wires of the optic nerve are routed to the
+           auditory cortex in ferrets. The neurons of this primary auditory
+           cortex(A1) with vision input did not work exactly like neurons in
+           primary visual cortex(V1). Neurons in rewired A1 had larger receptive
+           field sizes and other differences. However there are also
+           similarities including:
+             + rewired A1 neurons showed orientation and direction selectivity.
+             + similar proportions of simple, complex, and nonoriented cells between
+               rewired A1 and V1.
+             + implies "*significant implications for possible commonalities in
+               intracortical processing circuits between sensory cortices*".
 
      + 1988 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualResponses.pdf)
        from Laboratoire des Neuroscience de la Vision at Universite de Paris.
-       - Summary: Wires of the optic nerve were routed permanently to the
-         main thalamic somatosensory nucleus in hamsters. After the hamsters
-         grew up the neurons in the somatosensory cortex were recorded.
-         The "*somatosensory neurons responded to visual stimulation of
-         distinct receptive fields, and their response properties resembled,
-         in several characteristic features, those of normal visual cortical
-         neurons.*"
-         + "*the same functional categories of neurons occurred in similar
-           proportions, and the neurons' selectivity for the orientation or
-           direction of movement of visual stimuli was comparable*" between
-           normal hamsters and rewired hamsters.
-         + "*These results suggest that thalamic nuclei or cortical areas at
-           corresponding levels in the visual and somatosensory pathways perform
-           similar transformations on their inputs*".
+         - Summary: Wires of the optic nerve were routed permanently to the
+           main thalamic somatosensory nucleus in hamsters. After the hamsters
+           grew up the neurons in the somatosensory cortex were recorded.
+           The "*somatosensory neurons responded to visual stimulation of
+           distinct receptive fields, and their response properties resembled,
+           in several characteristic features, those of normal visual cortical
+           neurons.*"
+             + "*the same functional categories of neurons occurred in similar
+               proportions, and the neurons' selectivity for the orientation or
+               direction of movement of visual stimuli was comparable*" between
+               normal hamsters and rewired hamsters.
+             + "*These results suggest that thalamic nuclei or cortical areas at
+               corresponding levels in the visual and somatosensory pathways perform
+               similar transformations on their inputs*".
 
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
-       - There is a idea in optimization algorithms called No Free Lunch
-         theorem. No Free Lunch theorem "*state[s] that any two optimization 
-         algorithms are equivalent when their performance is averaged across 
-         all possible problems*".
-       - "*On the surface, the NFL theorem seems to create problems for the
-         idea of a common cortical algorithm. How can one mechanism/algorithm
-         do very well on tasks as different as vision, audition and language?
-         The answer comes from the part of the NFL theorem that talks about
-         the assumptions that need to be exploited ... If the cortex is good
-         at learning a wide variety of tasks using a common mechanism, then
-         there must be something common about these seemingly different tasks.*".
+         - There is a idea in optimization algorithms called No Free Lunch
+           theorem. No Free Lunch theorem "*state[s] that any two optimization 
+           algorithms are equivalent when their performance is averaged across 
+           all possible problems*".
+         - "*On the surface, the NFL theorem seems to create problems for the
+           idea of a common cortical algorithm. How can one mechanism/algorithm
+           do very well on tasks as different as vision, audition and language?
+           The answer comes from the part of the NFL theorem that talks about
+           the assumptions that need to be exploited ... If the cortex is good
+           at learning a wide variety of tasks using a common mechanism, then
+           there must be something common about these seemingly different tasks.*".
 
    - Not supportive:
      + 2002 Paper [here](https://github.com/WalnutiQ/papers/blob/master/CorticalHeterogeneity.pdf)
@@ -216,18 +215,18 @@ and then read **[how to contribute](#how-to-contribute)**.
    - Supportive:
      + Thought Experiment [here](https://www.youtube.com/watch?v=NPtAIVieh4k) by D. Scott Phoenix
        from Vicarious.com
-       - "*Imagine we are designing a system to distinguish faces from non-faces and we are just
-           using 32 by 32 pixel images and 256 shades of grey.*" This is a very reduced version of
-           what your visual brain is doing. "*Even with that reduction it is still
-           256^1024 different possible combinations you need to be able to distinguish
-           between*". Because 32 by 32 with 256 different values is equivalent to the permutation
-           (choose value between 0 and 256)(0-256)...32*32 more times.
-       - 256^1024 is approximately 10^2400 which is a very very large number. On the other hand
-         a human lives about 2.5 * 10^9 seconds(80 years) and has about 10^11 neurons. And in about
-         3.1 * 10^7 seconds(1 year) "*we are able to solve this problem space and distinguish 
-         readily between faces and not faces. What this implies is that our brains are making
-         a lot of assumptions.*"
-         
+         - "*Imagine we are designing a system to distinguish faces from non-faces and we are just
+             using 32 by 32 pixel images and 256 shades of grey.*" This is a very reduced version of
+             what your visual brain is doing. "*Even with that reduction it is still
+             256^1024 different possible combinations you need to be able to distinguish
+             between*". Because 32 by 32 with 256 different values is equivalent to the permutation
+             (choose value between 0 and 256)(0-256)...32*32 more times.
+         - 256^1024 is approximately 10^2400 which is a very very large number. On the other hand
+           a human lives about 2.5 * 10^9 seconds(80 years) and has about 10^11 neurons. And in about
+           3.1 * 10^7 seconds(1 year) "*we are able to solve this problem space and distinguish 
+           readily between faces and not faces. What this implies is that our brains are making
+           a lot of assumptions.*"
+
    - Not Supportive:
 
    - Conclusion: We need to find all the assumptions the brain's common
@@ -237,11 +236,14 @@ and then read **[how to contribute](#how-to-contribute)**.
      enough to be applicable to a large class of problems?*" ~ Dileep George 
 
 3. **Theory 2 Assumption 1:**
-   A common learning algorithm must be trained on a unlabeled *movie* of the
+   A common learning algorithm must be trained on a unlabeled *movies* of the
    world it is expected to learn to predict and classify. 
-   - Supportive: TODO
-   - Not supportive: TODO
-   - Conclusion: TODO
+   - Supportive: 
+     + A baby has to learn this way for the first year of life before it 
+       understands speech.
+   - Not supportive: 
+   - Conclusion: Yes, specific enough to make learning feasible and general
+     enough for large class of problems. 
 
 4. **Theory 2 Assumption 2:**   
    Manifold = all the images generated by the same object in a 
@@ -251,7 +253,8 @@ and then read **[how to contribute](#how-to-contribute)**.
    object A and object B are more similar. This information is used to form
    manifolds aka invariant representations of the objects.
    - Supportive: 
-     + A baby has to learn this way before it understands speech. 
+     + A baby has to learn this way for the first year of life before it 
+       understands speech.
    - Not supportive:
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
