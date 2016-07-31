@@ -1,0 +1,13 @@
+# virtualenv
+wAlnut_environment
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac
+.DS_Store
+
+# PyCharm IDE
+.idea/
