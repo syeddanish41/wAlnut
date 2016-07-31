@@ -118,7 +118,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
    
-2. Sorry but you must meet these minimum requirements:
+2. You must meet these minimum requirements:
    - Know how to use Git & Github.com. If you don't know how I created a 1.5
      hour playlist on how to use Git & 
      Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
@@ -134,8 +134,6 @@ and then read **[how to contribute](#how-to-contribute)**.
 4. If I e-mail you back for an interview during the interview we will discuss:
    - How everything will work. Expect to pair program with someone for a few 
      hours a week. 
-   - If we both like what we hear we will walk you through making your 1st 
-     commit to the repo's master branch!
 
 5. For now we are using the Git workflow model described
    [here](https://github.com/WalnutiQ/wAlnut/issues/62) to contribute to this
@@ -216,9 +214,20 @@ and then read **[how to contribute](#how-to-contribute)**.
    world by making a specific set of assumptions about the world. This is the
    inductive bias of the common learning algorithm. 
    - Supportive:
-     + TODO: Insert speech by Scott from Vicarious about all the possible
-             things one must learn and how there are too many if no 
-             assumptions are made.
+     + Thought Experiment [here](https://www.youtube.com/watch?v=NPtAIVieh4k) by D. Scott Phoenix
+       from Vicarious.com
+       - "*Imagine we are designing a system to distinguish faces from non-faces and we are just
+           using 32 by 32 pixel images and 256 shades of grey.*" This is a very reduced version of
+           what your visual brain is doing. "*Even with that reduction it is still
+           256^1024 different possible combinations you need to be able to distinguish
+           between*". Because 32 by 32 with 256 different values is equivalent to the permutation
+           (choose value between 0 and 256)(0-256)...32*32 more times.
+       - 256^1024 is approximately 10^2400 which is a very very large number. On the other hand
+         a human lives about 2.5 * 10^9 seconds(80 years) and has about 10^11 neurons. And in about
+         3.1 * 10^7 seconds(1 year) "*we are able to solve this problem space and distinguish 
+         readily between faces and not faces. What this implies is that our brains are making
+         a lot of assumptions.*"
+         
    - Not Supportive:
 
    - Conclusion: We need to find all the assumptions the brain's common
