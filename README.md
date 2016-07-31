@@ -8,7 +8,7 @@
 "*I wish I'd had the courage to live a life true to myself, not the life others
 expected of me. I mean it, promise this dying women that you will always be
 true to yourself, that you will be brave enough to live the way you want to 
-live regardless of what other poeple say.*" 
+live regardless of what other people say.*" 
 
 ~ Grace
 
@@ -26,7 +26,7 @@ work on our hardest problems much more efficiently than humans.
 
 Technology has always been used to do great good and great evil and even if we 
 have the best intentions to do good, intelligent machines will cause many new 
-problems. For example there will be massive job loss since most jobs 
+problems. For example, there will be massive job loss since most jobs 
 can be replaced by intelligent machines. A possible solution to this hard 
 problem will be to augment our brains and become super intelligent. 
 
@@ -44,13 +44,13 @@ machines much more intelligent than humans with unimaginable capabilities. At
 first it will not have any emotions like you and I. This will be a good thing 
 because it will force us to ask if it would be moral to create an super 
 intelligent machine with emotions to help us. It may not necessarily be a 
-good thing for the human race. For example look at how humans treat 
+good thing for the human race. For example, look at how humans treat 
 [intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
 We are more intelligent emotional machines compared to pigs and the future
 super intelligent emotional machines will be much more intelligent compared to 
 us.
 
-If you are interested in becoming a researcher/developer I would be grateful
+If you are interested in becoming a researcher/developer, I would be grateful
 for your collaboration as I cannot do this alone. Please read
 [how to contribute](https://github.com/WalnutiQ/wAlnut#how-to-contribute) to
 get started. 
@@ -63,7 +63,7 @@ Forget everything you know.
 Let go of your ego and understand building the first artificial general intelligence
 is not some competition for fame, money, or respect but for seeking truth and 
 making sure the most advanced known technology that evolution has created is
-used to prevent valotile suffering for all organisms with conciousness. 
+used to prevent volatile suffering for all organisms with consciousness. 
 
 Remember "*what I cannot create I do not understand*" was said by Richard Feynman. 
 Then think about what an intelligent machine needs to be able to do from first 
@@ -73,7 +73,7 @@ learning, and neuroscience.
 Experiment with your model on tasks that only intelligent machines seem to be
 good at. Be extremely open to ways to change the model. Remember that the
 earth was born about 4.6 billion years ago and that it took evolution about
-4.6 billion - 200,000 years to create the first homo sapian. This shit takes
+4.6 billion - 200,000 years to create the first homo sapiens. This shit takes
 time so if your frustrated go relax. 
 
 Remember to focus on discovering principles of intelligence instead of getting
@@ -83,7 +83,7 @@ properties of the brain that are not optimally located and other properties that
 may no longer be computationally important like nipples for the body. This model
 will not model every anatomical detail of the brain but instead will strive to
 use the best substitutes to model the principles of a general intelligence. This
-is analagous to how a plane and helicopter do no model every anatomical detail
+is analogous to how a plane and helicopter do no model every anatomical detail
 of a birds wing but instead strive to use the best substitutes to model the
 principles of general flight.  
 
@@ -100,7 +100,7 @@ and then read **[how to contribute](#how-to-contribute)**.
 1. Go to the top right of this page and hit the Fork button. Then clone your forked 
    repository locally.
 
-2. Intall [python](https://docs.python.org/devguide/setup.html#build-dependencies)
+2. Install [python](https://docs.python.org/devguide/setup.html#build-dependencies)
    and [pip](https://pip.pypa.io/en/stable/installing/)
 
 3. Then run: `pip install virtualenv`
@@ -112,7 +112,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    - optionally type `deactivate` to leave the virtual environment
 
 #### How to contribute
-1. I am now looking to pay other developers a hourly rate of $20/hour(limited up
+1. I am now looking to pay other developers an hourly rate of $20/hour (limited up
    to 5 hours/week) to code features for WalnutiQ. The most up to date income 
    and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
@@ -127,7 +127,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    
 3. E-mail quinnliu@vt.edu the following:
    - Link to source code of project you enjoyed working on the most. I am really 
-     just looking for good object oriented design and good documention.
+     just looking for good object oriented design and good documentation.
    - Why you want to work on wAlnut. 
   
 4. If I e-mail you back for an interview during the interview we will discuss:
@@ -140,7 +140,7 @@ and then read **[how to contribute](#how-to-contribute)**.
 
 ## Key Theories
 
-1. **Theory 1:** 
+1. **Theory 1** 
    1 common learning algorithm in the neocortex of the brain
    - Supportive:
      - 1992 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualProjectionsRouted.pdf)
@@ -150,7 +150,7 @@ and then read **[how to contribute](#how-to-contribute)**.
            auditory cortex in ferrets. The neurons of this primary auditory
            cortex(A1) with vision input did not work exactly like neurons in
            primary visual cortex(V1). Neurons in rewired A1 had larger receptive
-           field sizes and other differences. However there are also
+           field sizes and other differences. However, there are also
            similarities including:
              + rewired A1 neurons showed orientation and direction selectivity.
              + similar proportions of simple, complex, and nonoriented cells between
@@ -202,13 +202,13 @@ and then read **[how to contribute](#how-to-contribute)**.
             will have to be considered as a working hypothesis*".
 
    - Conclusion: If cortex X(arbitrary cortex) of the neocortex(contains visual cortex,
-     auditory cortex, somatosensory cortex, and others..) can be given
+     auditory cortex, somatosensory cortex, and others.) can be given
      non-normal sensory input usually given to say cortex Y and then learn to
-     process this new input similarily to how cortex X would process it, then 
+     process this new input similarly to how cortex X would process it, then 
      we can hypothesize that there is a common learning/predicting algorithm 
      in all cortices of the neocortex.
 
-2. **Theory 2:** 
+2. **Theory 2** 
    The common learning algorithm efficiently learns about the
    world by making a specific set of assumptions about the world. This is the
    inductive bias of the common learning algorithm. 
@@ -221,9 +221,9 @@ and then read **[how to contribute](#how-to-contribute)**.
              256^1024 different possible combinations you need to be able to distinguish
              between*". Because 32 by 32 with 256 different values is equivalent to the permutation
              (choose value between 0 and 256)(0-256)...32*32 more times.
-         - 256^1024 is approximately 10^2400 which is a very very large number. On the other hand
-           a human lives about 2.5 * 10^9 seconds(80 years) and has about 10^11 neurons. And in about
-           3.1 * 10^7 seconds(1 year) "*we are able to solve this problem space and distinguish 
+         - 256^1024 is approximately 10^2400 which is a very large number. On the other hand
+           a human lives about 2.5 * 10^9 seconds (80 years) and has about 10^11 neurons. And in about
+           3.1 * 10^7 seconds (1 year) "*we are able to solve this problem space and distinguish 
            readily between faces and not faces. What this implies is that our brains are making
            a lot of assumptions.*"
 
@@ -235,8 +235,8 @@ and then read **[how to contribute](#how-to-contribute)**.
      learning feasible in a reasonable amount of time while being general
      enough to be applicable to a large class of problems?*" ~ Dileep George 
 
-3. **Theory 2 Assumption 1:**
-   A common learning algorithm must be trained on a unlabeled *movies* of the
+3. **Theory 2 Assumption 1**
+   A common learning algorithm must be trained on unlabeled movies of the
    world it is expected to learn to predict and classify. 
    - Supportive: 
      + A baby has to learn this way for the first year of life before it 
@@ -245,7 +245,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
 
-4. **Theory 2 Assumption 2:**   
+4. **Theory 2 Assumption 2**   
    Manifold = all the images generated by the same object in a 
    high-dimensional space. 
 
@@ -259,8 +259,8 @@ and then read **[how to contribute](#how-to-contribute)**.
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
 
-5. **Theory 2 Assumption 3:** 
-   If pattern B follows pattern A in time then they are causally related and 
+5. **Theory 2 Assumption 3** 
+   If pattern B follows pattern A in time, then they are causally related and 
    in the future pattern A should predict pattern B.
    - Supportive:
      - The brain is constantly making predictions about the future. 
@@ -269,7 +269,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
 
-6. **Theory 2 Assumption 4:**
+6. **Theory 2 Assumption 4**
    Complex invariant representations are made up of less complex invariant
    representations in a hierarchy.
    - Supportive:
@@ -282,12 +282,12 @@ and then read **[how to contribute](#how-to-contribute)**.
      representations of more complex objects in terms of the invariant 
      representations of the components.
 
-7. **Theory 2 Assumption 5:** 
+7. **Theory 2 Assumption 5** 
    During the current time step of the common learning algorithm, it will 
-   always recieve input about what muscles were used in the last time step. 
+   always receive input about what muscles were used in the last time step. 
    - Supportive:
-     + Consciouness doesn't get confused when the eye is moving 
-       around. This means every region in the neocortex must be recieving input
+     + Consciousness doesn't get confused when the eye is moving 
+       around. This means every region in the neocortex must be receiving input
        about the eye's sensori-motor movement so it can use it to accurately
        predict the future. 
   - Not supportive:
@@ -295,7 +295,7 @@ and then read **[how to contribute](#how-to-contribute)**.
     in a reasonable amount of time while being general enough to be applicable 
     to a large class of problems.    
 
-8. **Theory 2 Assumption 6:**
+8. **Theory 2 Assumption 6**
    Every input pattern is encoded into a sparse distributed representation of 
    the input stimuli.
    - Supportive:
@@ -305,11 +305,11 @@ and then read **[how to contribute](#how-to-contribute)**.
      amount of time while being general enough to be applicable to a large 
      class of problems.
    
-9. **Theory 3:** There is no such thing as free will.
+9. **Theory 3** There is no such thing as free will.
    - Supportive:
    - Not Supportive:
    
-10. **Theory 4:** Consciousness is the illusion of an object believing it has free
+10. **Theory 4** Consciousness is the illusion of an object believing it has free
     will. 
     - Supportive:
     - Not Supportive:
