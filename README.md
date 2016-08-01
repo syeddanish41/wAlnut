@@ -50,11 +50,6 @@ We are more intelligent emotional machines compared to pigs and the future
 super intelligent emotional machines will be much more intelligent compared to 
 us.
 
-If you are interested in becoming a researcher/developer, I would be grateful
-for your collaboration as I cannot do this alone. Please read
-[how to contribute](https://github.com/WalnutiQ/wAlnut#how-to-contribute) to
-get started. 
-
 ~ Q Liu
 
 ## How
@@ -65,16 +60,28 @@ is the same approach this project uses. The following are the key take aways:
 
 1. When looking at neuroscience for inspiration only add something to your model 
    if it is present in reality and neurobiology. 
-     - Reason: the neurons in your brain are trying to do 3 things:
+     - This is because the neurons in your brain are trying to do 3 things:
          + stay alive
          + communicate with other parts of the brain limited by evoled neurobiology
            at the time
-         + information processing <=== This is the part we care about!
+         + information processing 
      - The information processing is the only part we want to add to our model.
        Unfortunately elements of neurobiology are not cleanly split. For example,
        a neuron spike is not present in reality and it might be used for 
        information processing but is more likely to be the only way 2 neurons can
-       communicate with each other limited by the evolved neurobiology at the time.
+       communicate with each other. So we must remember to focus on discovering the
+       principles of intelligence instead of getting lost in the details of modeling 
+       everything a brain does or optimizing a mathematical algorithm. Evolution 
+       created intelligence but it also created many properties of the brain that are 
+       not for information processing but for keeping neurons alive and communicating 
+       between each other. The model should not model every anatomical detail of the 
+       brain but instead will strive to use the best substitutes to model the 
+       principles of a general intelligence. This is analogous to how a plane and
+       helicopter do no model every anatomical detail of a birds wing but instead 
+       strive to use the best substitutes to model the principles of general flight.
+
+This repo is an object oriented Python implementation of the computational framework outlined 
+in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for Learning and Recognition*](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
 
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
@@ -91,18 +98,7 @@ Experiment with your model on tasks that only intelligent machines seem to be
 good at. Be open to ways to change the model. Remember that the
 earth was born about 4.6 billion years ago and that it took evolution about
 4.6 billion - 200,000 years to create the first homo sapiens. This shit takes
-time so if your frustrated go relax. 
-
-Remember to focus on discovering principles of intelligence instead of getting
-lost in the details of modeling everything a brain does or optimizing a 
-mathematical algorithm. Evolution created intelligence but it also created many
-properties of the brain that are not for information processing but for keeping
-neurons alive and communicating between each other. The model should not model 
-every anatomical detail of the brain but instead will strive to
-use the best substitutes to model the principles of a general intelligence. This
-is analogous to how a plane and helicopter do no model every anatomical detail
-of a birds wing but instead strive to use the best substitutes to model the
-principles of general flight.  
+time so if your frustrated go relax.   
 
 And as stupid as it sounds remember that it is the journey you go on that makes
 everything worth it when you look back. Sometimes life will hit you with a 
@@ -110,8 +106,18 @@ hammer. When it does take time to regain your hope in humanity in any way you
 feel is right and take as much time as you need. When you get back up you will
 be a stronger version of yourself and ready to fail even harder again.
 
-**[Setup development environment for Mac](#setup-development-environment-for-mac)** 
-and then read **[how to contribute](#how-to-contribute)**.
+If you are interested in becoming a researcher/developer, I would be grateful
+for your collaboration as I cannot do this alone. To us a wAlnut researcher/developer 
+is someone who believes we can build a machine more intelligent than humans and use 
+it for more good out of love than evil out of fear. In the history of mankind some 
+technologies are so powerful it would be wrong to have it only accessible by a 
+group of people. Examples include electricity, computers, the internet, and 
+now its a machine smarter than humans. Our latest research and code will always 
+be available here for free to everyone in the world with a laptop, internet, 
+and a little bit of curiosity.
+
+To get started read **[how to contribute](#how-to-contribute)** and then 
+**[setup development environment for Mac](#setup-development-environment-for-mac)**.
 
 #### Setup development environment for Mac
 1. Go to the top right of this page and hit the Fork button. Then clone your forked 
@@ -129,7 +135,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    - optionally type `deactivate` to leave the virtual environment
 
 #### How to contribute
-1. I am now looking to pay other developers an hourly rate of $20/hour (limited up
+1. I am now looking to pay developers an hourly rate of $20/hour (currently limited up
    to 5 hours/week) to code features for WalnutiQ. The most up to date income 
    and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
