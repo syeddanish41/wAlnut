@@ -1,8 +1,3 @@
-**[Why](#why) |**
-**[How](#how) |**
-**[Key Theories](#key-theories) |**
-**[Files](#files)**
-
 # wAlnut
 
 "*I wish I'd had the courage to live a life true to myself, not the life others
@@ -11,6 +6,13 @@ true to yourself, that you will be brave enough to live the way you want to
 live regardless of what other people say.*" 
 
 ~ Grace
+
+#### Table of Contents
+- **[Why](#why)**
+- **[How](#how)**
+- **[What](#what)**
+    + **[Key Theories](#key-theories)**
+    + **[Code Outline](#code-outline)**
 
 ## Why 
 
@@ -56,32 +58,60 @@ us.
 
 The best approach I have come across for building an artificial general intelligence 
 (AGI) are summarized in this [video](https://www.youtube.com/watch?v=NPtAIVieh4k) and
-is the same approach this project uses. The following are the key take aways:
+is the same approach for this project. The following are the key points:
 
 1. When looking at neuroscience for inspiration only add something to your model 
    if it is present in reality and neurobiology. 
      - This is because the neurons in your brain are trying to do 3 things:
          + stay alive
-         + communicate with other parts of the brain limited by evoled neurobiology
+         + communicate with other parts of the brain limited by the evolved neurobiology
            at the time
-         + information processing 
+         + **information processing**
      - The information processing is the only part we want to add to our model.
-       Unfortunately elements of neurobiology are not cleanly split. For example,
+       Unfortunately, elements of neurobiology are not cleanly split. For example,
        a neuron spike is not present in reality and it might be used for 
        information processing but is more likely to be the only way 2 neurons can
-       communicate with each other. So we must remember to focus on discovering the
+       communicate with each other. We must remember to focus on discovering the
        principles of intelligence instead of getting lost in the details of modeling 
-       everything a brain does or optimizing a mathematical algorithm. Evolution 
-       created intelligence but it also created many properties of the brain that are 
-       not for information processing but for keeping neurons alive and communicating 
-       between each other. The model should not model every anatomical detail of the 
+       everything a brain does. Modeling how a neuron stays alive and communicates
+       with other parts of the brain is not useful for information processing and will
+       overcomplicate the model.
+
+2. Solve the same problem at different levels of complexity to discover general 
+   principles of intelligence.
+     - **Flying Example:**
+       When the Wright brothers where building their flying machine they
+       tried to solve the problem of controlling the machine in the air
+       by starting with flying a kite, then controlling a glider, and then 
+       using a wind tunnel. In each case they were trying to solve the same 
+       problem at different complexity levels.
+     - **AGI Example 1:**
+       When trying to recognize what is in a greyscale image that is 1000 by 1000
+       pixels, instead try to recognize what is in a greyscale image that is 32 by
+       32 pixels. When that is too hard first try to recognize what is in a binary
+       32 by 32 pixel image.
+
+3. For each principle of general intelligence produced by neurobiology try to use a
+   more efficient substitute from other fields if there is a mapping.
+     - **Flying Example:**
+       When the Wright brothers where building how to control their flying
+       machine they did not build a plane with a birds wing. When they were
+       trying to replicate the banking behavior of a birds wing they substituted
+       the birds wing with a technique called wing warping that adjusts the wing
+       flaps up or down on each side of the wing so that an airplane can efficiently
+       bank.
+     - The model should not model every anatomical detail of the 
        brain but instead will strive to use the best substitutes to model the 
-       principles of a general intelligence. This is analogous to how a plane and
+       principles of general intelligence. This is analogous to how a plane and
        helicopter do no model every anatomical detail of a birds wing but instead 
        strive to use the best substitutes to model the principles of general flight.
 
-This repo is an object oriented Python implementation of the computational framework outlined 
-in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for Learning and Recognition*](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
+4. Do not try to find all principles of general intelligence from neuroscience.
+     - This is because if you do you are assuming that the human brain has discovered
+       all the principles to general intelligence which is very wrong. Evolution
+       accidentally discovered several principles of general intelligence over
+       hundreds of thousands of years. There are definitely some principles it
+       has yet to discover.
 
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
@@ -107,16 +137,8 @@ feel is right and take as much time as you need. When you get back up you will
 be a stronger version of yourself and ready to fail even harder again.
 
 If you are interested in becoming a researcher/developer, I would be grateful
-for your collaboration as I cannot do this alone. To us a wAlnut researcher/developer 
-is someone who believes we can build a machine more intelligent than humans and use 
-it for more good out of love than evil out of fear. In the history of humans some 
-technologies are so powerful it would be wrong to have it only accessible by a 
-group of people. Examples include electricity, computers, the internet, and 
-now its a machine smarter than humans. Our latest research and code will always 
-be available here for free to everyone in the world with a laptop, internet, 
-and a little bit of curiosity.
-
-To get started read **[how to contribute](#how-to-contribute)** and then 
+for your collaboration as I cannot do this alone. To get started read
+**[how to contribute](#how-to-contribute)** and then
 **[setup development environment for Mac](#setup-development-environment-for-mac)**.
 
 #### Setup development environment for Mac
@@ -155,7 +177,13 @@ To get started read **[how to contribute](#how-to-contribute)** and then
 
 4. For now we are using the Git workflow model described
    [here](https://github.com/WalnutiQ/wAlnut/issues/62) to contribute to this
-   repository effectively. 
+   repository effectively.
+
+## What
+
+This repo is an object oriented Python implementation of the computational framework outlined
+in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for
+Learning and Recognition*](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
 
 ## Key Theories
 
@@ -333,9 +361,9 @@ To get started read **[how to contribute](#how-to-contribute)** and then
     - Supportive:
     - Not Supportive:
 
-## Files
+## Code Outline
  
-If you are confused what a file is doing:
+If you are confused what a file/foder is for:
 ```
 - model = object oriented model implementing the key theories
 - tests = unit tests for code in model folder
