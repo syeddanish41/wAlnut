@@ -1,8 +1,3 @@
-**[Why](#why) |**
-**[How](#how) |**
-**[Key Theories](#key-theories) |**
-**[Files](#files)**
-
 # wAlnut
 
 "*I wish I'd had the courage to live a life true to myself, not the life others
@@ -11,6 +6,13 @@ true to yourself, that you will be brave enough to live the way you want to
 live regardless of what other people say.*" 
 
 ~ Grace
+
+#### Table of Contents
+- **[Why](#why)**
+- **[How](#how)**
+- **[What](#what)**
+    + **[Key Theories](#key-theories)**
+    + **[Code Outline](#code-outline)**
 
 ## Why 
 
@@ -50,18 +52,66 @@ We are more intelligent emotional machines compared to pigs and the future
 super intelligent emotional machines will be much more intelligent compared to 
 us.
 
-If you are interested in becoming a researcher/developer, I would be grateful
-for your collaboration as I cannot do this alone. Please read
-[how to contribute](https://github.com/WalnutiQ/wAlnut#how-to-contribute) to
-get started. 
-
 ~ Q Liu
 
 ## How
 
 The best approach I have come across for building an artificial general intelligence 
 (AGI) are summarized in this [video](https://www.youtube.com/watch?v=NPtAIVieh4k) and
-is the same approach this project uses.
+is the same approach for this project. The following are the key points:
+
+1. When looking at neuroscience for inspiration only add something to your model 
+   if it is present in reality and neurobiology. 
+     - This is because the neurons in your brain are trying to do 3 things:
+         + stay alive
+         + communicate with other parts of the brain limited by the evolved neurobiology
+           at the time
+         + **information processing**
+     - The information processing is the only part we want to add to our model.
+       Unfortunately, elements of neurobiology are not cleanly split. For example,
+       a neuron spike is not present in reality and it might be used for 
+       information processing but is more likely to be the only way 2 neurons can
+       communicate with each other. We must remember to focus on discovering the
+       principles of intelligence instead of getting lost in the details of modeling 
+       everything a brain does. Modeling how a neuron stays alive and communicates
+       with other parts of the brain is not useful for information processing and will
+       overcomplicate the model.
+
+2. Solve the same problem at different levels of complexity to discover general 
+   principles of intelligence.
+     - **Flying Example:**
+       When the Wright brothers where building their flying machine they
+       tried to solve the problem of controlling the machine in the air
+       by starting with flying a kite, then controlling a glider, and then 
+       using a wind tunnel. In each case they were trying to solve the same 
+       problem at different complexity levels.
+     - **AGI Example 1:**
+       When trying to recognize what is in a greyscale image that is 1000 by 1000
+       pixels, instead try to recognize what is in a greyscale image that is 32 by
+       32 pixels. When that is too hard first try to recognize what is in a binary
+       32 by 32 pixel image.
+
+3. For each principle of general intelligence produced by neurobiology try to use a
+   more efficient substitute from other fields if there is a mapping.
+     - **Flying Example:**
+       When the Wright brothers where building how to control their flying
+       machine they did not build a plane with a birds wing. When they were
+       trying to replicate the banking behavior of a birds wing they substituted
+       the birds wing with a technique called wing warping that adjusts the wing
+       flaps up or down on each side of the wing so that an airplane can efficiently
+       bank.
+     - The model should not model every anatomical detail of the 
+       brain but instead will strive to use the best substitutes to model the 
+       principles of general intelligence. This is analogous to how a plane and
+       helicopter do no model every anatomical detail of a birds wing but instead 
+       strive to use the best substitutes to model the principles of general flight.
+
+4. Do not try to find all principles of general intelligence from neuroscience.
+     - This is because if you do you are assuming that the human brain has discovered
+       all the principles to general intelligence which is very wrong. Evolution
+       accidentally discovered several principles of general intelligence over
+       hundreds of thousands of years. There are definitely some principles it
+       has yet to discover.
 
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
@@ -78,18 +128,7 @@ Experiment with your model on tasks that only intelligent machines seem to be
 good at. Be open to ways to change the model. Remember that the
 earth was born about 4.6 billion years ago and that it took evolution about
 4.6 billion - 200,000 years to create the first homo sapiens. This shit takes
-time so if your frustrated go relax. 
-
-Remember to focus on discovering principles of intelligence instead of getting
-lost in the details of modeling everything a brain does or optimizing a 
-mathematical algorithm. Evolution created intelligence but it also created many
-properties of the brain that are not for information processing but for keeping
-neurons alive and communicating between each other. The model should not model 
-every anatomical detail of the brain but instead will strive to
-use the best substitutes to model the principles of a general intelligence. This
-is analogous to how a plane and helicopter do no model every anatomical detail
-of a birds wing but instead strive to use the best substitutes to model the
-principles of general flight.  
+time so if your frustrated go relax.   
 
 And as stupid as it sounds remember that it is the journey you go on that makes
 everything worth it when you look back. Sometimes life will hit you with a 
@@ -97,8 +136,10 @@ hammer. When it does take time to regain your hope in humanity in any way you
 feel is right and take as much time as you need. When you get back up you will
 be a stronger version of yourself and ready to fail even harder again.
 
-**[Setup development environment for Mac](#setup-development-environment-for-mac)** 
-and then read **[how to contribute](#how-to-contribute)**.
+If you are interested in becoming a researcher/developer, I would be grateful
+for your collaboration as I cannot do this alone. To get started read
+**[how to contribute](#how-to-contribute)** and then
+**[setup development environment for Mac](#setup-development-environment-for-mac)**.
 
 #### Setup development environment for Mac
 1. Go to the top right of this page and hit the Fork button. Then clone your forked 
@@ -116,7 +157,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    - optionally type `deactivate` to leave the virtual environment
 
 #### How to contribute
-1. I am now looking to pay other developers an hourly rate of $20/hour (limited up
+1. I am looking to pay developers an hourly rate of $20/hour (currently limited up
    to 5 hours/week) to code features for WalnutiQ. The most up to date income 
    and payment data can be viewed 
    [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
@@ -133,18 +174,20 @@ and then read **[how to contribute](#how-to-contribute)**.
    - Link to source code of project you enjoyed working on the most. I am really 
      just looking for good object oriented design and good documentation.
    - Why you want to work on wAlnut. 
-  
-4. If I e-mail you back for an interview during the interview we will discuss:
-   - How everything will work. Expect to pair program with someone for a few 
-     hours a week. 
 
-5. For now we are using the Git workflow model described
+4. For now we are using the Git workflow model described
    [here](https://github.com/WalnutiQ/wAlnut/issues/62) to contribute to this
-   repository effectively. 
+   repository effectively.
+
+## What
+
+This repo is an object oriented Python implementation of the computational framework outlined
+in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for
+Learning and Recognition*](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
 
 ## Key Theories
 
-1. **Theory 1** 
+1. **Theory 1:** 
    1 common learning algorithm in the neocortex of the brain
    - Supportive:
      - 1992 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualProjectionsRouted.pdf)
@@ -212,7 +255,7 @@ and then read **[how to contribute](#how-to-contribute)**.
      we can hypothesize that there is a common learning/predicting algorithm 
      in all cortices of the neocortex.
 
-2. **Theory 2** 
+2. **Theory 2:** 
    The common learning algorithm efficiently learns about the
    world by making a specific set of assumptions about the world. This is the
    inductive bias of the common learning algorithm. 
@@ -239,7 +282,7 @@ and then read **[how to contribute](#how-to-contribute)**.
      learning feasible in a reasonable amount of time while being general
      enough to be applicable to a large class of problems?*" ~ Dileep George 
 
-3. **Theory 2 Assumption 1**
+3. **Theory 2 Assumption 1:**
    A common learning algorithm must be trained on unlabeled movies of the
    world it is expected to learn to predict and classify. 
    - Supportive: 
@@ -249,7 +292,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
 
-4. **Theory 2 Assumption 2**   
+4. **Theory 2 Assumption 2:**   
    Manifold = all the images generated by the same object in a 
    high-dimensional space. 
 
@@ -263,7 +306,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
 
-5. **Theory 2 Assumption 3** 
+5. **Theory 2 Assumption 3:** 
    If pattern B follows pattern A in time, then they are causally related and 
    in the future pattern A should predict pattern B.
    - Supportive:
@@ -273,7 +316,7 @@ and then read **[how to contribute](#how-to-contribute)**.
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
 
-6. **Theory 2 Assumption 4**
+6. **Theory 2 Assumption 4:**
    Complex invariant representations are made up of less complex invariant
    representations in a hierarchy.
    - Supportive:
@@ -286,7 +329,7 @@ and then read **[how to contribute](#how-to-contribute)**.
      representations of more complex objects in terms of the invariant 
      representations of the components.
 
-7. **Theory 2 Assumption 5** 
+7. **Theory 2 Assumption 5:** 
    During the current time step of the common learning algorithm, it will 
    always receive input about what muscles were used in the last time step. 
    - Supportive:
@@ -299,7 +342,7 @@ and then read **[how to contribute](#how-to-contribute)**.
     in a reasonable amount of time while being general enough to be applicable 
     to a large class of problems.    
 
-8. **Theory 2 Assumption 6**
+8. **Theory 2 Assumption 6:**
    Every input pattern is encoded into a sparse distributed representation of 
    the input stimuli.
    - Supportive:
@@ -309,18 +352,18 @@ and then read **[how to contribute](#how-to-contribute)**.
      amount of time while being general enough to be applicable to a large 
      class of problems.
    
-9. **Theory 3** There is no such thing as free will.
+9. **Theory 3:** There is no such thing as free will.
    - Supportive:
    - Not Supportive:
    
-10. **Theory 4** Consciousness is the illusion of an object believing it has free
+10. **Theory 4:** Consciousness is the illusion of an object believing it has free
     will. 
     - Supportive:
     - Not Supportive:
 
-## Files
+## Code Outline
  
-If you are confused what a file is doing:
+If you are confused what a file/foder is for:
 ```
 - model = object oriented model implementing the key theories
 - tests = unit tests for code in model folder
