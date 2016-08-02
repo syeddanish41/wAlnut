@@ -22,3 +22,6 @@ class Node(object):
 
         self.temporal_groups = []
         self.active_temporal_group_index = -1
+
+    def get_active_temporal_group_index(self):
+        return self.active_temporal_group_index
