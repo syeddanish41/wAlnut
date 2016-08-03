@@ -1,5 +1,4 @@
 from nose.tools import *
-# from model.node import Node
 from model.layer import Layer
 
 

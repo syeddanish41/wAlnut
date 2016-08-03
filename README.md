@@ -153,7 +153,8 @@ for your collaboration as I cannot do this alone. To get started read
    - then `virtualenv wAlnut_environment`
    - then `source wAlnut_environment/bin/activate` 
    - then `pip install -r requirements.txt`
-   - then `nosetests`
+   - then `pip install -r requirements.txt`
+   - then `nosetests -s` where -s tells nose to show print statments in test files
    - optionally type `deactivate` to leave the virtual environment
 
 #### How to contribute
@@ -175,8 +176,9 @@ for your collaboration as I cannot do this alone. To get started read
      just looking for good object oriented design and good documentation.
    - Why you want to work on wAlnut. 
 
-4. For now we are using the Git workflow model described
-   [here](https://github.com/WalnutiQ/wAlnut/issues/62) to contribute to this
+4. For now we are using the Git workflow model
+   [here](https://github.com/WalnutiQ/wAlnut/issues/62) and the Google python style
+   guide [here](https://google.github.io/styleguide/pyguide.html) to contribute to this
    repository effectively.
 
 ## What
