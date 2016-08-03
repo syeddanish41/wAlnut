@@ -11,4 +11,4 @@ def test_reading_zip():
         for entry in archive.infolist():
             with archive.open(entry) as file:
                 binary_image = Image.open(file)
-                print(binary_image.size, binary_image.mode, len(binary_image.getdata()))
+                assert_equal(binary_image.size, (32, 32))
