@@ -10,5 +10,5 @@ def test_reading_zip():
     with ZipFile('model/datasets/digit_0.zip') as archive:
         for entry in archive.infolist():
             with archive.open(entry) as file:
-                image = Image.open(file)
-                print(image.size, image.mode, len(image.getdata()))
+                binary_image = Image.open(file)
+                print(binary_image.size, binary_image.mode, len(binary_image.getdata()))
