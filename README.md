@@ -58,7 +58,11 @@ us.
 
 The best approach I have come across for building an artificial general intelligence 
 (AGI) are summarized in this [video](https://www.youtube.com/watch?v=NPtAIVieh4k) and
-is the same approach for this project. The following are the key points:
+is the same approach for this project. I believe this approach is the most efficient
+because it was thought up using a first principles approach where you start with the
+most fundamental truths and reason up from there.
+
+The following are the key points:
 
 1. When looking at neuroscience for inspiration only add something to your model 
    if it is present in reality and neurobiology. 
