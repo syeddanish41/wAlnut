@@ -8,23 +8,24 @@ live regardless of what other people say.*"
 ~ Grace
 
 #### Table of Contents
-- **[Why](#why)**
+- **[Why and Goals](#why-and-goals)**
 - **[How](#how)**
 - **[What](#what)**
     + **[Key Theories](#key-theories)**
     + **[Code Outline](#code-outline)**
 
-## Why 
+## Why and Goals
 
 I believe that intelligent machines will be able to solve many of our
 hardest problems and will cause many new hard problems. Our hardest problems 
-like cancer, mortality, and secrets of the universe involve understanding a 
-lot of data and as humans we are limited by the processing power and size of 
-our brains. But if we figure out the computational principles that make you 
-and I intelligent, simulate them on a computer, scale it up to surpass the 
-collective intelligence of the 7+ billion people on Earth we will have created 
-intelligent machines that do not need to eat, sleep, or reproduce that can
-work on our hardest problems much more efficiently than humans. 
+like scarcity of water, food, shelter, resources, understanding, affection and
+mysteries like cancer, mortality, and secretes of the universe involve
+understanding a lot of data and as humans we are limited by the processing
+power and size of our brains. But if we figure out the computational principles
+that make you and I intelligent, simulate them on a computer, scale it up to
+surpass the collective intelligence of the 7+ billion people on Earth we will
+have created intelligent machines that do not need to eat, sleep, or reproduce
+that can work on our hardest problems much more efficiently than humans.
 
 Technology has always been used to do great good and great evil and even if we 
 have the best intentions to do good, intelligent machines will cause many new 
@@ -33,32 +34,26 @@ can be replaced by intelligent machines. A possible solution to this hard
 problem will be to augment our brains and become super intelligent. 
 
 The current short term goal is to experiment with a simplified visual pathway 
-from an "eye" to experimental general learning algorithms to understand the key
-principles of intelligence and rediscover other key principles. 
+from an eye that sees binary bitmap training videos to experimental general
+learning algorithms to understand the key principles of intelligence and discover
+new principles of intelligence that evolution missed. This repo is currently
+an object oriented Python implementation of the computational framework
+outlined in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for Learning and Recognition*](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
 
-The long term goal of this project is to rediscover all of the principles 
+The long term goal of this project is to discover all of the principles
 that make a system intelligent and to implement them to better humanity.
-
-After we understood the principles of flight we were able to build planes that
-are much faster and can carry more weight than birds. After we understand
-the human brain's computation principles we will be able to create intelligent
-machines much more intelligent than humans with unimaginable capabilities. At 
-first it will not have any emotions like you and I. This will be a good thing 
-because it will force us to ask if it would be moral to create an super 
-intelligent machine with emotions to help us. It may not necessarily be a 
-good thing for the human race. For example, look at how humans treat 
-[intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
-We are more intelligent emotional machines compared to pigs and the future
-super intelligent emotional machines will be much more intelligent compared to 
-us.
 
 ~ Q Liu
 
 ## How
 
-The best approach I have come across for building an artificial general intelligence 
+Start with the most fundamental truths and reason up from there.
+
+The best approach I have come across for building an artificial general intelligence
 (AGI) are summarized in this [video](https://www.youtube.com/watch?v=NPtAIVieh4k) and
-is the same approach for this project. The following are the key points:
+is the same approach for this project.
+
+The following are the key points:
 
 1. When looking at neuroscience for inspiration only add something to your model 
    if it is present in reality and neurobiology. 
@@ -153,7 +148,8 @@ for your collaboration as I cannot do this alone. To get started read
    - then `virtualenv wAlnut_environment`
    - then `source wAlnut_environment/bin/activate` 
    - then `pip install -r requirements.txt`
-   - then `nosetests`
+   - then `pip install -r requirements.txt`
+   - then `nosetests -s` where -s tells nose to show print statments in test files
    - optionally type `deactivate` to leave the virtual environment
 
 #### How to contribute
@@ -175,8 +171,9 @@ for your collaboration as I cannot do this alone. To get started read
      just looking for good object oriented design and good documentation.
    - Why you want to work on wAlnut. 
 
-4. For now we are using the Git workflow model described
-   [here](https://github.com/WalnutiQ/wAlnut/issues/62) to contribute to this
+4. For now we are using the Git workflow model
+   [here](https://github.com/WalnutiQ/wAlnut/issues/62) and the Google python style
+   guide [here](https://google.github.io/styleguide/pyguide.html) to contribute to this
    repository effectively.
 
 ## What
@@ -184,6 +181,19 @@ for your collaboration as I cannot do this alone. To get started read
 This repo is an object oriented Python implementation of the computational framework outlined
 in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for
 Learning and Recognition*](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
+
+After we understood the principles of flight we were able to build planes that
+are much faster and can carry more weight than birds. After we understand
+the human brain's computation principles we will be able to create intelligent
+machines much more intelligent than humans with unimaginable capabilities. At
+first it will not have any emotions like you and I. This will be a good thing
+because it will force us to ask if it would be moral to create an super
+intelligent machine with emotions to help us. It may not necessarily be a
+good thing for the human race. For example, look at how humans treat
+[intelligent pigs](http://modernfarmer.com/2014/03/pigheaded-smart-swine/).
+We are more intelligent emotional machines compared to pigs and the future
+super intelligent emotional machines will be much more intelligent compared to
+us.
 
 ## Key Theories
 
@@ -366,6 +376,8 @@ Learning and Recognition*](https://github.com/WalnutiQ/papers/blob/master/HowThe
 If you are confused what a file/foder is for:
 ```
 - model = object oriented model implementing the key theories
+  - datasets = contains zipped datasets generated by https://github.com/WalnutiQ/time_series_data
+  - images = contains explanatory images about how the model looks
 - tests = unit tests for code in model folder
 - .gitignore = contains names of files/folders not to add to this repository
   but keep in your local wAlnut folder
