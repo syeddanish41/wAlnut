@@ -1,12 +1,14 @@
 from nose.tools import *
 from zipfile import ZipFile
 from PIL import Image
+from model.retina import Retina
 from model.layer import Layer
 from model.network import Network
 from model.common_cortical_algorithm_v1 import CommonCorticalAlgorithmV1
 
 
 def test_classify_digits():
+    retina = Retina(32)
     layer_level1 = Layer(3)
     layer_level2 = Layer(2)
     layer_level3 = Layer(1)
@@ -23,8 +25,9 @@ def test_classify_digits():
                 binary_image = Image.open(file)
                 assert_equal(binary_image.size, (32, 32))
 
-                # TODO: cca_v1.see_image(binary_image)
 
+                retina.see_binary_image(binary_image)
+                break
                 # run 1 time step for all levels in hierarchy?
                 # TODO: cca_v1.run_one_time_step()
 

@@ -4,8 +4,7 @@ class Network(object):
 
     Example network is model/images/explanatory/network_structure.png.
 
-    Attributes:
-        layers: 2d array of nodes
+    :param layers: 2d array of nodes
     """
     def __init__(self, layers):
         self.layers = layers

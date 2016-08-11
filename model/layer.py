@@ -4,8 +4,7 @@ from model.node import Node
 class Layer(object):
     """ 2D square array of Node objects.
 
-    Attributes:
-        length: number of nodes along each side of the layer
+    :param length: number of nodes along each side of the square layer
     """
     def __init__(self, length):
         self.length = length
