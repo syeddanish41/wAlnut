@@ -108,6 +108,15 @@ The following are the key points:
        hundreds of thousands of years. There are definitely some principles it
        has yet to discover.
 
+5 . **_You can solve one problem independently before solving another problem._**
+     - **Flying Example:**
+       The Wright Brothers solved the problem of flight control with wind warping 
+       before even starting to solve the problem of efficient enough engine.  
+     - We can understand principles of intelligence before we have a detailed
+       video of how networks of neurons interact with each other. 
+     - We can understand principles of hierarchy and time in intelligence before having
+       A fully sensory motor theory.
+
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
 end of the decade. To build an AGI that exceeds human intelligence will 
