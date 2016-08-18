@@ -309,6 +309,9 @@ us.
        understands speech.
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
+         - ![alt text](./model/images/translation_training_creates_scale_invariance.png)
+         - Notice how the scaling of "A" in (c) would be the exact same input as (b) if you translate the input
+           to the left by 1 pixel.
    - Not supportive: 
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
@@ -373,7 +376,10 @@ us.
      amount of time while being general enough to be applicable to a large 
      class of problems.
 
-9. **Theory 2 Assumption 7:**
+9. **Theory 2 Assumption 7:** Each layer in the network hierarchy operates at a different rate of change. Higher
+   levels operate slower than lower levels.
+   - Supportive:
+   - Not Supportive:
 
 10. **Theory 3:** There is no such thing as free will.
    - Supportive:
