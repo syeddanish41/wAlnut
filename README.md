@@ -307,6 +307,8 @@ us.
    - Supportive: 
      + A baby has to learn this way for the first year of life before it 
        understands speech.
+     + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
+       by Dileep George from Stanford University
    - Not supportive: 
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
@@ -370,12 +372,14 @@ us.
    - Conclusion: Specific enough to make learning feasible in a reasonable 
      amount of time while being general enough to be applicable to a large 
      class of problems.
-   
-9. **Theory 3:** There is no such thing as free will.
+
+9. **Theory 2 Assumption 7:**
+
+10. **Theory 3:** There is no such thing as free will.
    - Supportive:
    - Not Supportive:
    
-10. **Theory 4:** Consciousness is the illusion of an object believing it has free
+11. **Theory 4:** Consciousness is the illusion of an object believing it has free
     will. 
     - Supportive:
     - Not Supportive:
