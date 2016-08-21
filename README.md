@@ -1,11 +1,8 @@
 # wAlnut
 
-"*I wish I'd had the courage to live a life true to myself, not the life others
-expected of me. I mean it, promise this dying women that you will always be
-true to yourself, that you will be brave enough to live the way you want to 
-live regardless of what other people say.*" 
+"*Though we are limited physically. Our spirit is limitless.*"
 
-~ Grace
+~ [Wenqi Jia](https://www.youtube.com/watch?v=Mx6hBgNNacE)
 
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
