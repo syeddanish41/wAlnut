@@ -18,16 +18,22 @@ def test_classify_digits():
     network = Network(layers)
     cca_v1 = CommonCorticalAlgorithmV1(network)
 
+    number_training_timesteps = 3
+    timestep = 1
     # train network on digit dataset to form memory and temporal groups
     with ZipFile('model/datasets/digit_0.zip') as archive:
         for entry in archive.infolist():
             with archive.open(entry) as file:
+                if (timestep > number_training_timesteps):
+                    break
+                else:
+                    timestep += 1
+
                 binary_image = Image.open(file)
                 assert_equal(binary_image.size, (32, 32))
 
+                retina.see_binary_image(binary_image, True)
 
-                retina.see_binary_image(binary_image)
-                break
                 # run 1 time step for all levels in hierarchy?
                 # TODO: cca_v1.run_one_time_step()
 

@@ -9,7 +9,7 @@ class Retina(object):
     def __init__(self, length):
         self.vision_cells = np.zeros((length, length), dtype=bool)
 
-    def see_binary_image(self, image):
+    def see_binary_image(self, image, print_image_to_console=False):
         """stores the seen part of the world
 
         :param image: a binary square section of the world
@@ -18,9 +18,16 @@ class Retina(object):
         image_width = image.size[0]
         image_height = image.size[1]
         pixels = image.load()
-        for r in range(image_width):
-            for c in range(image_height):
+        image_row = ''
+        for c in range(image_height):
+            for r in range(image_width):
                 if pixels[r,c] == 1:
                     self.vision_cells[r][c] = True
+                    image_row += '1'
                 else:
                     self.vision_cells[r][c] = False
+                    image_row += '0'
+            image_row += '\n'
+
+        if (print_image_to_console):
+            print image_row
