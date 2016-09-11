@@ -1,11 +1,8 @@
 # wAlnut
 
-"*I wish I'd had the courage to live a life true to myself, not the life others
-expected of me. I mean it, promise this dying women that you will always be
-true to yourself, that you will be brave enough to live the way you want to 
-live regardless of what other people say.*" 
+"*Though we are limited physically. Our spirit is limitless.*"
 
-~ Grace
+~ [Wenqi Jia](https://www.youtube.com/watch?v=Mx6hBgNNacE)
 
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
@@ -40,8 +37,8 @@ new principles of intelligence that evolution missed. This repo is currently
 an object oriented Python implementation of the computational framework
 outlined in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for Learning and Recognition*](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
 
-The long term goal of this project is to discover all of the principles
-that make a system intelligent and to implement them to better humanity.
+The long term goal of this project is to build a machine that exceeds human
+intelligence to solve our hardest problems.
 
 ~ Q Liu
 
@@ -55,13 +52,13 @@ is the same approach for this project.
 
 The following are the key points:
 
-1. When looking at neuroscience for inspiration only add something to your model 
-   if it is present in reality and neurobiology. 
+1. **_When looking at neuroscience for inspiration consider add something to your computational
+   framework if it is present in reality and neurobiology._**
      - This is because the neurons in your brain are trying to do 3 things:
          + stay alive
          + communicate with other parts of the brain limited by the evolved neurobiology
            at the time
-         + **information processing**
+         + information processing
      - The information processing is the only part we want to add to our model.
        Unfortunately, elements of neurobiology are not cleanly split. For example,
        a neuron spike is not present in reality and it might be used for 
@@ -72,8 +69,8 @@ The following are the key points:
        with other parts of the brain is not useful for information processing and will
        overcomplicate the model.
 
-2. Solve the same problem at different levels of complexity to discover general 
-   principles of intelligence.
+2. **_Solve the same problem at different levels of complexity starting at the
+   simplest complexity level to discover general principles of intelligence._**
      - **Flying Example:**
        When the Wright brothers where building their flying machine they
        tried to solve the problem of controlling the machine in the air
@@ -83,11 +80,11 @@ The following are the key points:
      - **AGI Example 1:**
        When trying to recognize what is in a greyscale image that is 1000 by 1000
        pixels, instead try to recognize what is in a greyscale image that is 32 by
-       32 pixels. When that is too hard first try to recognize what is in a binary
+       32 pixels. When that is too hard try to recognize what is in a binary
        32 by 32 pixel image.
 
-3. For each principle of general intelligence produced by neurobiology try to use a
-   more efficient substitute from other fields if there is a mapping.
+3. **_For each principle of general intelligence produced by neurobiology try to use a
+   more efficient substitute from other fields if there is a mapping._**
      - **Flying Example:**
        When the Wright brothers where building how to control their flying
        machine they did not build a plane with a birds wing. When they were
@@ -101,12 +98,21 @@ The following are the key points:
        helicopter do no model every anatomical detail of a birds wing but instead 
        strive to use the best substitutes to model the principles of general flight.
 
-4. Do not try to find all principles of general intelligence from neuroscience.
+4. **_Do not try to find all principles of general intelligence from neuroscience._**
      - This is because if you do you are assuming that the human brain has discovered
        all the principles to general intelligence which is very wrong. Evolution
        accidentally discovered several principles of general intelligence over
        hundreds of thousands of years. There are definitely some principles it
        has yet to discover.
+
+5 . **_You can solve one problem independently before solving another problem._**
+     - **Flying Example:**
+       The Wright Brothers solved the problem of flight control with wind warping 
+       before even starting to solve the problem of efficient enough engine.  
+     - We can understand principles of intelligence before we have a detailed
+       video of how networks of neurons interact with each other. 
+     - We can understand principles of hierarchy and time in intelligence before having
+       A fully sensory motor theory.
 
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
@@ -136,22 +142,6 @@ for your collaboration as I cannot do this alone. To get started read
 **[how to contribute](#how-to-contribute)** and then
 **[setup development environment for Mac](#setup-development-environment-for-mac)**.
 
-#### Setup development environment for Mac
-1. Go to the top right of this page and hit the Fork button. Then clone your forked 
-   repository locally.
-
-2. Install [python](https://docs.python.org/devguide/setup.html#build-dependencies)
-   and [pip](https://pip.pypa.io/en/stable/installing/)
-
-3. Then run: `pip install virtualenv`
-   - then `cd wAlnut` 
-   - then `virtualenv wAlnut_environment`
-   - then `source wAlnut_environment/bin/activate` 
-   - then `pip install -r requirements.txt`
-   - then `pip install -r requirements.txt`
-   - then `nosetests -s` where -s tells nose to show print statments in test files
-   - optionally type `deactivate` to leave the virtual environment
-
 #### How to contribute
 1. I am looking to pay developers an hourly rate of $20/hour (currently limited up
    to 5 hours/week) to code features for WalnutiQ. The most up to date income 
@@ -175,6 +165,22 @@ for your collaboration as I cannot do this alone. To get started read
    [here](https://github.com/WalnutiQ/wAlnut/issues/62) and the Google python style
    guide [here](https://google.github.io/styleguide/pyguide.html) to contribute to this
    repository effectively.
+
+#### Setup development environment for Mac
+1. Go to the top right of this page and hit the Fork button. Then clone your forked
+   repository locally.
+
+2. Install [python](https://docs.python.org/devguide/setup.html#build-dependencies)
+   and [pip](https://pip.pypa.io/en/stable/installing/)
+
+3. Then run: `pip install virtualenv`
+   - then `cd wAlnut`
+   - then `virtualenv wAlnut_environment`
+   - then `source wAlnut_environment/bin/activate`
+   - then `pip install -r requirements.txt`
+   - then `pip install -r requirements.txt`
+   - then `nosetests -s` where -s tells nose to show print statments in test files
+   - optionally type `deactivate` to leave the virtual environment
 
 ## What
 
@@ -298,6 +304,11 @@ us.
    - Supportive: 
      + A baby has to learn this way for the first year of life before it 
        understands speech.
+     + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
+       by Dileep George from Stanford University
+         - ![alt text](./model/images/translation_training_creates_scale_invariance.png)
+         - Notice how the scaling of "A" in (c) would be the exact same input as (b) if you translate the input
+           to the left by 1 pixel.
    - Not supportive: 
    - Conclusion: Yes, specific enough to make learning feasible and general
      enough for large class of problems. 
@@ -361,12 +372,17 @@ us.
    - Conclusion: Specific enough to make learning feasible in a reasonable 
      amount of time while being general enough to be applicable to a large 
      class of problems.
-   
-9. **Theory 3:** There is no such thing as free will.
+
+9. **Theory 2 Assumption 7:** Each layer in the network hierarchy operates at a different rate of change. Higher
+   levels operate slower than lower levels.
+   - Supportive:
+   - Not Supportive:
+
+10. **Theory 3:** There is no such thing as free will.
    - Supportive:
    - Not Supportive:
    
-10. **Theory 4:** Consciousness is the illusion of an object believing it has free
+11. **Theory 4:** Consciousness is the illusion of an object believing it has free
     will. 
     - Supportive:
     - Not Supportive:

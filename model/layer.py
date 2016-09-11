@@ -4,13 +4,16 @@ from model.node import Node
 class Layer(object):
     """ 2D square array of Node objects.
 
-    Attributes:
-        length: number of nodes along each side of the layer
+    :param length: number of nodes along each side of the square layer
     """
-    def __init__(self, length):
+    def __init__(self, length, name):
         self.length = length
         node = Node()
         self.nodes = [[node for i in range(0, length)] for j in range(0, length)]
+        self.name = name
 
     def get_node(self, row, column):
         return self.nodes[row][column]
+
+    def get_name(self):
+        return self.name

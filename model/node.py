@@ -13,8 +13,7 @@ class Node(object):
               After understanding model/images/explanatory/object_manifolds.png one can think of a temporal group as an
               object manifold. 
 
-    Returns: 
-        After training returns an active temporal group for each input pattern
+    :returns After training returns an active temporal group for each input pattern
     """
     def __init__(self):
         self.memory = []
