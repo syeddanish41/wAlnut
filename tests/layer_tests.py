@@ -1,6 +1,6 @@
 from nose.tools import *
 from model.layer import Layer
-
+from model.connect_types import ConnectTypes
 
 def test_constructor():
     layer = Layer(1, 'layer_1')

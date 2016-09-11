@@ -22,5 +22,14 @@ class Node(object):
         self.temporal_groups = []
         self.active_temporal_group_index = -1
 
+        self.receptive_field = None
+
+    def set_receptive_field(self, rectangle):
+        """ Add the dimensions of the rectangle this node is connected to for input
+
+        :param rectangle: Where in the input layer this node will connect to in the format (x1, y1, x2, y2) inclusively
+        """
+        self.receptive_field = rectangle
+
     def get_active_temporal_group_index(self):
         return self.active_temporal_group_index

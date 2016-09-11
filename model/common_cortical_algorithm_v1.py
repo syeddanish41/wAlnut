@@ -7,11 +7,14 @@ class CommonCorticalAlgorithmV1(object):
         self.network = network
 
     def learn_one_time_step(self):
-        # TODO:
+        # start at the bottom layer
         for i in xrange(0, 3):
-            print self.network.get_layer(i).get_name() + 'i = ' + str(i)
+            print self.network.get_layer(i).get_name() + ' i = ' + str(i)
+            if (i == 0):
+                # we are at the bottom most layer
+                retina = self.network.get_retina()
 
-        # 1) start at bottom layer -> top layer
+
         return None
 
     def switch_to_sensing_mode(self):

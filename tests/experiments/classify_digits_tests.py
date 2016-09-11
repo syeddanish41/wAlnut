@@ -17,14 +17,14 @@ def test_classify_digits():
     network = Network(layers, retina)
     cca_v1 = CommonCorticalAlgorithmV1(network)
 
-    number_training_timesteps = 3
+    number_training_timesteps = 1
     t = 0
     print_to_console = False
     # train network on digit dataset to form memory and temporal groups
     with ZipFile('model/datasets/digit_0.zip') as archive:
         for entry in archive.infolist():
             with archive.open(entry) as file:
-                if (t > number_training_timesteps):
+                if (t >= number_training_timesteps):
                     break
                 else:
                     binary_image = Image.open(file)
