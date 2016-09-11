@@ -5,6 +5,7 @@ from model.retina import Retina
 from model.layer import Layer
 from model.network import Network
 from model.common_cortical_algorithm_v1 import CommonCorticalAlgorithmV1
+from model.connect_types import ConnectTypes
 
 
 def test_classify_digits():
@@ -13,7 +14,11 @@ def test_classify_digits():
     layer_level2 = Layer(4, 'layer_2')
     layer_level3 = Layer(1, 'layer_3')
 
-    layers = [ layer_level1, layer_level2, layer_level3 ]
+    layers = [layer_level1, layer_level2, layer_level3]
+    ConnectTypes.rectangle_connect(retina.get_vision_cells(), layer_level1.get_nodes(), 0, 0)
+    ConnectTypes.rectangle_connect(layer_level1.get_nodes(), layer_level2.get_nodes(), 0, 0)
+    ConnectTypes.rectangle_connect(layer_level2.get_nodes(), layer_level3.get_nodes(), 0, 0)
+
     network = Network(layers, retina)
     cca_v1 = CommonCorticalAlgorithmV1(network)
 
@@ -30,20 +35,14 @@ def test_classify_digits():
                     binary_image = Image.open(file)
                     if (print_to_console):
                         print 'timestep = ' + str(t)
-                    retina.see_binary_image(binary_image, print_to_console)
+                    input_layer = retina.see_binary_image(binary_image, print_to_console)
 
                     # run 1 time step for all levels in hierarchy?
-                    cca_v1.learn_one_time_step()
+                    cca_v1.learn_one_time_step(input_layer)
 
                     t += 1
 
-    # now we have trained the network using cca_v1 on dataset
-    # TODO:
-    # 1) assert elements in memory for nodes are correct at each level?
-    # 2) assert temporal groups in nodes are correct at each level?
-
-
-
-
-
-
+                    # now we have trained the network using cca_v1 on dataset
+                    # TODO:
+                    # 1) assert elements in memory for nodes are correct at each level?
+                    # 2) assert temporal groups in nodes are correct at each level?

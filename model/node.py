@@ -22,14 +22,28 @@ class Node(object):
         self.temporal_groups = []
         self.active_temporal_group_index = -1
 
-        self.receptive_field = None
+        self.receptive_field_dimensions = None
 
-    def set_receptive_field(self, rectangle):
+    def set_receptive_field_dimensions(self, rectangle):
         """ Add the dimensions of the rectangle this node is connected to for input
 
-        :param rectangle: Where in the input layer this node will connect to in the format (x1, y1, x2, y2) inclusively
+        :param rectangle: Where in the input layer this node will connect to in the format (r1, c1, r2, c2) inclusively
         """
-        self.receptive_field = rectangle
+        self.receptive_field_dimension = rectangle
+
+    def get_receptive_field_dimensions(self):
+        return self.receptive_field_dimensions
 
     def get_active_temporal_group_index(self):
         return self.active_temporal_group_index
+
+    def get_memory(self):
+        return self.memory
+
+    def add_unique_pattern(self, receptive_field):
+        for unique_pattern in self.memory:
+            if unique_pattern == receptive_field:
+                self.memory.append(receptive_field)
+                return True
+            else:
+                return False
