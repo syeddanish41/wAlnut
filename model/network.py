@@ -9,9 +9,3 @@ class Network(object):
     def __init__(self, layers, retina):
         self.layers = layers
         self.retina = retina
-
-    def get_layer(self, level_index):
-        return self.layers[level_index]
-
-    def get_retina(self):
-        return self.retina

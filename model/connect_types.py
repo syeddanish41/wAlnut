@@ -26,7 +26,8 @@ class ConnectTypes(object):
 
                 # actually add connection dimensions from bottom input cells receptive field to top layer node
                 current_node = nodes[rowT][colT]
-                current_node.set_receptive_field_dimensions((rowBinitial, colBinitial, rowBfinal, colBfinal))
+                current_node.receptive_field_dimensions = (rowBinitial, colBinitial, rowBfinal, colBfinal)
+                #print 'current_node.get_receptive_field = ' + str(current_node.receptive_field_dimensions)
 
     @staticmethod
     def __update_receptive_field_dimension_length(top_length, bot_length, top_index):

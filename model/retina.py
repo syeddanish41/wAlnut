@@ -33,6 +33,3 @@ class Retina(object):
             print image_row
 
         return pixels
-
-    def get_vision_cells(self):
-        return self.vision_cells
