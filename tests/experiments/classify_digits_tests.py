@@ -11,14 +11,15 @@ from model.connect_types import ConnectTypes
 def test_classify_digits():
     retina = Retina(8)
     layer_level1 = Layer(2, 'layer_1')
-    # layer_level2 = Layer(4, 'layer_2')
+    layer_level2 = Layer(4, 'layer_2')
     # layer_level3 = Layer(1, 'layer_3')
     # layers = [layer_level1, layer_level2, layer_level3]
     test = 0
-    ConnectTypes.rectangle_connect(retina.vision_cells, layer_level1.nodes, 0, 0, test)
+    ConnectTypes.rectangle_connect(retina.vision_cells, layer_level1, 0, 0, test, layer_level2)
     #ConnectTypes.rectangle_connect(layer_level1.nodes, layer_level2.nodes, 0, 0)
     #ConnectTypes.rectangle_connect(layer_level2.nodes, layer_level3.nodes, 0, 0)
     print 'test = ' + str(test)
+    print 'layer_level2.name = ' + layer_level2.name
 
     for r in xrange(len(layer_level1.nodes)):
         for c in xrange(len(layer_level1.nodes[0])):

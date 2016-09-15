@@ -1,7 +1,7 @@
 class ConnectTypes(object):
 
     @staticmethod
-    def rectangle_connect(input_cells, nodes, x_axis_overlap, y_axis_overlap, test):
+    def rectangle_connect(input_cells, layer, x_axis_overlap, y_axis_overlap, test, layer_2):
         """connects an rectangle portion of an input layer to a layer of nodes
 
         :param input_cells: 2D int array where '1' is black and '0' is white
@@ -10,8 +10,9 @@ class ConnectTypes(object):
         :param y_axis_overlap: number of input cells to overlap along y axis input cells
         """
         test = 1 # outside of this method Python test is still just 0
-        top_row_length = len(nodes)
-        top_col_length = len(nodes[0])
+        layer_2.name = 'changed'
+        top_row_length = len(layer.nodes)
+        top_col_length = len(layer.nodes[0])
         bot_row_length = len(input_cells)
         bot_col_length = len(input_cells[0])
 
@@ -29,10 +30,10 @@ class ConnectTypes(object):
 
                 # actually add connection dimensions from bottom input cells receptive field to top layer node
                 # current_node = nodes[row_top][col_top]
-                nodes[row_top][col_top].receptive_field_dimensions = (row_B_initial, col_B_initial, row_B_final,
+                layer.nodes[row_top][col_top].receptive_field_dimensions = (row_B_initial, col_B_initial, row_B_final,
                                                                       col_B_final)
-                print 'nodes[row_top][col_top].receptive_field_dimensions = ' + \
-                      str(nodes[row_top][col_top].receptive_field_dimensions)
+                print 'layer.nodes[row_top][col_top].receptive_field_dimensions = ' + \
+                      str(layer.nodes[row_top][col_top].receptive_field_dimensions)
 
     @staticmethod
     def __update_receptive_field_dimension_length(top_length, bot_length, top_index):
