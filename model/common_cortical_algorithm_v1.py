@@ -22,7 +22,8 @@ class CommonCorticalAlgorithmV1(object):
                 for r in xrange(len(nodes)):
                     for c in xrange(len(nodes[0])):
                         # 2) get receptive field from input layer
-                        print 'nodes[' + str(r) + '][' + str(c) + '].receptive_field_dimensions = ' + str(nodes[r][c].receptive_field_dimensions)
+                        print 'nodes[' + str(r) + '][' + str(c) + '].receptive_field_dimensions = ' \
+                              + str(nodes[r][c].receptive_field_dimensions)
                         # r_initial = receptive_field_dimensions[0]
                         # r_final = receptive_field_dimensions[2] + 1 # xrange(1, 3) = 1, 2
                         # c_inital = receptive_field_dimensions[1]

@@ -9,24 +9,24 @@ class ConnectTypes(object):
         :param x_axis_overlap: number of input cells to overlap along x axis input cells
         :param y_axis_overlap: number of input cells to overlap along y axis input cells
         """
-        topRowLength = len(nodes)
-        topColLength = len(nodes[0])
-        botRowLength = len(input_cells)
-        botColLength = len(input_cells[0])
+        top_row_length = len(nodes)
+        top_col_length = len(nodes[0])
+        bot_row_length = len(input_cells)
+        bot_col_length = len(input_cells[0])
 
-        for rowT in xrange(topRowLength):
-            rowReceptiveField = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(topRowLength, botRowLength, rowT, y_axis_overlap)
-            rowBinitial = rowReceptiveField[0]
-            rowBfinal = rowReceptiveField[1]
+        for row_top in xrange(top_row_length):
+            row_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(top_row_length, bot_row_length, row_top, y_axis_overlap)
+            row_B_initial = row_receptive_field[0]
+            row_B_final = row_receptive_field[1]
 
-            for colT in xrange(topColLength):
-                colReceptiveField = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(topColLength, botColLength, colT, x_axis_overlap);
-                colBinitial = colReceptiveField[0]
-                colBfinal = colReceptiveField[1]
+            for col_top in xrange(top_col_length):
+                col_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(top_col_length, bot_col_length, col_top, x_axis_overlap);
+                col_B_initial = col_receptive_field[0]
+                col_B_final = col_receptive_field[1]
 
                 # actually add connection dimensions from bottom input cells receptive field to top layer node
-                current_node = nodes[rowT][colT]
-                current_node.receptive_field_dimensions = (rowBinitial, colBinitial, rowBfinal, colBfinal)
+                current_node = nodes[row_top][col_top]
+                current_node.receptive_field_dimensions = (row_B_initial, col_B_initial, row_B_final, col_B_final)
                 #print 'current_node.get_receptive_field = ' + str(current_node.receptive_field_dimensions)
 
     @staticmethod

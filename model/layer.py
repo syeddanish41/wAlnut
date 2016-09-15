@@ -6,6 +6,7 @@ class Layer(object):
 
     :param length: number of nodes along each side of the square layer
     """
+
     def __init__(self, length, name):
         self.length = length
         node = Node()
