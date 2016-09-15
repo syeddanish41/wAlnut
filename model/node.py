@@ -22,6 +22,9 @@ class Node(object):
         self.temporal_groups = []
         self.active_temporal_group_index = -1
 
+        # In the format (x1, y1, x2, y2) where (x1, y1) is the top left of the rectangle
+        # and (x2, y2) is the bottom right of the rectangle. All rectangles are in the 4th
+        # quadrant of the Euclidean plane where the negative y axis is positive.
         self.receptive_field_dimensions = None
 
     def add_unique_pattern(self, receptive_field):

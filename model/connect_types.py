@@ -1,7 +1,7 @@
 class ConnectTypes(object):
 
     @staticmethod
-    def rectangle_connect(input_cells, nodes, x_axis_overlap, y_axis_overlap):
+    def rectangle_connect(input_cells, nodes, x_axis_overlap, y_axis_overlap, test):
         """connects an rectangle portion of an input layer to a layer of nodes
 
         :param input_cells: 2D int array where '1' is black and '0' is white
@@ -9,25 +9,30 @@ class ConnectTypes(object):
         :param x_axis_overlap: number of input cells to overlap along x axis input cells
         :param y_axis_overlap: number of input cells to overlap along y axis input cells
         """
+        test = 1 # outside of this method Python test is still just 0
         top_row_length = len(nodes)
         top_col_length = len(nodes[0])
         bot_row_length = len(input_cells)
         bot_col_length = len(input_cells[0])
 
         for row_top in xrange(top_row_length):
-            row_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(top_row_length, bot_row_length, row_top, y_axis_overlap)
+            row_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(top_row_length,
+                                                                            bot_row_length, row_top, y_axis_overlap)
             row_B_initial = row_receptive_field[0]
             row_B_final = row_receptive_field[1]
 
             for col_top in xrange(top_col_length):
-                col_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(top_col_length, bot_col_length, col_top, x_axis_overlap);
+                col_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(
+                                                            top_col_length, bot_col_length, col_top, x_axis_overlap)
                 col_B_initial = col_receptive_field[0]
                 col_B_final = col_receptive_field[1]
 
                 # actually add connection dimensions from bottom input cells receptive field to top layer node
-                current_node = nodes[row_top][col_top]
-                current_node.receptive_field_dimensions = (row_B_initial, col_B_initial, row_B_final, col_B_final)
-                #print 'current_node.get_receptive_field = ' + str(current_node.receptive_field_dimensions)
+                # current_node = nodes[row_top][col_top]
+                nodes[row_top][col_top].receptive_field_dimensions = (row_B_initial, col_B_initial, row_B_final,
+                                                                      col_B_final)
+                print 'nodes[row_top][col_top].receptive_field_dimensions = ' + \
+                      str(nodes[row_top][col_top].receptive_field_dimensions)
 
     @staticmethod
     def __update_receptive_field_dimension_length(top_length, bot_length, top_index):
