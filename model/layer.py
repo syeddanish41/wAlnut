@@ -11,12 +11,3 @@ class Layer(object):
         node = Node()
         self.nodes = [[node for i in range(0, length)] for j in range(0, length)]
         self.name = name
-
-    def get_nodes(self):
-        return self.nodes
-
-    def get_node(self, row, column):
-        return self.nodes[row][column]
-
-    def get_name(self):
-        return self.name

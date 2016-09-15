@@ -13,12 +13,12 @@ class CommonCorticalAlgorithmV1(object):
         # start at the bottom layer
         for i in xrange(0, 3):
             current_layer = self.network.layers[i]
-            print current_layer.get_name() + ' i = ' + str(i)
+            print current_layer.name + ' i = ' + str(i)
             if i == 0:
                 # we are at the bottom most layer
                 print 'in bottom most layer'
                 # 1) iterate through nodes in this layer
-                nodes = current_layer.get_nodes()
+                nodes = current_layer.nodes
                 for r in xrange(len(nodes)):
                     for c in xrange(len(nodes[0])):
                         # 2) get receptive field from input layer
