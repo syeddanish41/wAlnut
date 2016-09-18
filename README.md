@@ -170,10 +170,18 @@ for your collaboration as I cannot do this alone. To get started read
 1. Go to the top right of this page and hit the Fork button. Then clone your forked
    repository locally.
 
-2. Install [python](https://docs.python.org/devguide/setup.html#build-dependencies)
-   and [pip](https://pip.pypa.io/en/stable/installing/)
+2. Install [Python 3.5.2](https://www.python.org/) and 
+   [pip](https://pip.pypa.io/en/stable/installing/). You have installed successfully
+   when you can:
 
-3. Then run: `pip install virtualenv`
+   ```
+   $ python3 --version
+   Python 3.5.2
+   ```
+
+3. Install [PyCharm Community](https://www.jetbrains.com/pycharm/download/)
+
+3. Locally run: `pip install virtualenv`
    - then `cd wAlnut`
    - then `virtualenv wAlnut_environment`
    - then `source wAlnut_environment/bin/activate`
