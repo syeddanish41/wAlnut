@@ -16,8 +16,8 @@ def test_classify_digits():
     # layers = [layer_level1, layer_level2, layer_level3]
     test = 0
     ConnectTypes.rectangle_connect(retina.vision_cells, layer_level1, 0, 0, test, layer_level2)
-    #ConnectTypes.rectangle_connect(layer_level1.nodes, layer_level2.nodes, 0, 0)
-    #ConnectTypes.rectangle_connect(layer_level2.nodes, layer_level3.nodes, 0, 0)
+    # ConnectTypes.rectangle_connect(layer_level1.nodes, layer_level2.nodes, 0, 0)
+    # ConnectTypes.rectangle_connect(layer_level2.nodes, layer_level3.nodes, 0, 0)
     print('test = ' + str(test))
     print('layer_level2.name = ' + layer_level2.name)
 
