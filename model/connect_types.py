@@ -1,7 +1,7 @@
 class ConnectTypes(object):
 
     @staticmethod
-    def rectangle_connect(input_cells, layer, x_axis_overlap, y_axis_overlap, test, layer_2):
+    def rectangle_connect(input_cells, layer, x_axis_overlap, y_axis_overlap):
         """connects an rectangle portion of an input layer to a layer of nodes
 
         :param input_cells: 2D int array where '1' is black and '0' is white
@@ -9,8 +9,6 @@ class ConnectTypes(object):
         :param x_axis_overlap: number of input cells to overlap along x axis input cells
         :param y_axis_overlap: number of input cells to overlap along y axis input cells
         """
-        test = 1 # outside of this method Python test is still just 0
-        layer_2.name = 'changed'
         top_row_length = len(layer.nodes)
         top_col_length = len(layer.nodes[0])
         bot_row_length = len(input_cells)

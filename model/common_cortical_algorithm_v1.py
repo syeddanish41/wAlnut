@@ -11,7 +11,7 @@ class CommonCorticalAlgorithmV1(object):
         :param input_layer: 2D int array where '1' is black and '0' is white
         """
         # start at the bottom layer
-        for i in xrange(0, 3):
+        for i in range(3):
             current_layer = self.network.layers[i]
             print(current_layer.name + ' i = ' + str(i))
             if i == 0:
