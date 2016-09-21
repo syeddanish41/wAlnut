@@ -32,7 +32,7 @@ class ConnectTypes(object):
                 # current_node = nodes[row_top][col_top]
                 layer.nodes[row_top][col_top].receptive_field_dimensions = (row_B_initial, col_B_initial, row_B_final,
                                                                       col_B_final)
-                print('layer.nodes[row_top][col_top].receptive_field_dimensions = ' + \
+                print('layer.nodes[' + str(row_top) + '][' + str(col_top) + '].receptive_field_dimensions = ' + \
                       str(layer.nodes[row_top][col_top].receptive_field_dimensions))
 
     @staticmethod

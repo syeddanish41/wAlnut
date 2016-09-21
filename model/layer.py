@@ -9,6 +9,5 @@ class Layer(object):
 
     def __init__(self, length, name):
         self.length = length
-        node = Node()
-        self.nodes = [[node for i in range(0, length)] for j in range(0, length)]
+        self.nodes = [[Node() for i in range(0, length)] for j in range(0, length)]
         self.name = name
