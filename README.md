@@ -181,12 +181,11 @@ for your collaboration as I cannot do this alone. To get started read
 
 3. Install [PyCharm Community](https://www.jetbrains.com/pycharm/download/)
 
-3. Locally run: `pip install virtualenv`
+4. Locally run: `pip3 install virtualenv`
    - then `cd wAlnut`
    - then `virtualenv wAlnut_environment`
    - then `source wAlnut_environment/bin/activate`
-   - then `pip install -r requirements.txt`
-   - then `pip install -r requirements.txt`
+   - then `pip3 install -r requirements.txt`
    - then `nosetests -s` where -s tells nose to show print statments in test files
    - optionally type `deactivate` to leave the virtual environment
 

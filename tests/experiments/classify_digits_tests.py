@@ -18,14 +18,14 @@ def test_classify_digits():
     ConnectTypes.rectangle_connect(retina.vision_cells, layer_level1, 0, 0, test, layer_level2)
     #ConnectTypes.rectangle_connect(layer_level1.nodes, layer_level2.nodes, 0, 0)
     #ConnectTypes.rectangle_connect(layer_level2.nodes, layer_level3.nodes, 0, 0)
-    print 'test = ' + str(test)
-    print 'layer_level2.name = ' + layer_level2.name
+    print('test = ' + str(test))
+    print('layer_level2.name = ' + layer_level2.name)
 
-    for r in xrange(len(layer_level1.nodes)):
-        for c in xrange(len(layer_level1.nodes[0])):
+    for r in range(len(layer_level1.nodes)):
+        for c in range(len(layer_level1.nodes[0])):
             # 2) get receptive field from input layer
-            print 'nodes[' + str(r) + '][' + str(c) + '].receptive_field_dimensions = ' \
-                  + str(layer_level1.nodes[r][c].receptive_field_dimensions)
+            print('nodes[' + str(r) + '][' + str(c) + '].receptive_field_dimensions = ' \
+                  + str(layer_level1.nodes[r][c].receptive_field_dimensions))
 
     # network = Network(layers, retina)
     # cca_v1 = CommonCorticalAlgorithmV1(network)

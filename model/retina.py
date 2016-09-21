@@ -30,6 +30,6 @@ class Retina(object):
             image_row += '\n'
 
         if (print_image_to_console):
-            print image_row
+            print(image_row)
 
         return pixels

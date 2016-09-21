@@ -16,13 +16,13 @@ class ConnectTypes(object):
         bot_row_length = len(input_cells)
         bot_col_length = len(input_cells[0])
 
-        for row_top in xrange(top_row_length):
+        for row_top in range(top_row_length):
             row_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(top_row_length,
                                                                             bot_row_length, row_top, y_axis_overlap)
             row_B_initial = row_receptive_field[0]
             row_B_final = row_receptive_field[1]
 
-            for col_top in xrange(top_col_length):
+            for col_top in range(top_col_length):
                 col_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(
                                                             top_col_length, bot_col_length, col_top, x_axis_overlap)
                 col_B_initial = col_receptive_field[0]
@@ -32,8 +32,8 @@ class ConnectTypes(object):
                 # current_node = nodes[row_top][col_top]
                 layer.nodes[row_top][col_top].receptive_field_dimensions = (row_B_initial, col_B_initial, row_B_final,
                                                                       col_B_final)
-                print 'layer.nodes[row_top][col_top].receptive_field_dimensions = ' + \
-                      str(layer.nodes[row_top][col_top].receptive_field_dimensions)
+                print('layer.nodes[row_top][col_top].receptive_field_dimensions = ' + \
+                      str(layer.nodes[row_top][col_top].receptive_field_dimensions))
 
     @staticmethod
     def __update_receptive_field_dimension_length(top_length, bot_length, top_index):
