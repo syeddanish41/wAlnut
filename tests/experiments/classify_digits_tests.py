@@ -9,20 +9,14 @@ from model.connect_types import ConnectTypes
 
 
 def test_classify_digits():
-    retina = Retina(8)
-    layer_level1 = Layer(2, 'layer_1')
+    retina = Retina(32)
+    layer_level1 = Layer(8, 'layer_1')
     layer_level2 = Layer(4, 'layer_2')
     layer_level3 = Layer(1, 'layer_3')
     layers = [layer_level1, layer_level2, layer_level3]
     ConnectTypes.rectangle_connect(retina.vision_cells, layer_level1, 0, 0)
     ConnectTypes.rectangle_connect(layer_level1.nodes, layer_level2, 0, 0)
     ConnectTypes.rectangle_connect(layer_level2.nodes, layer_level3, 0, 0)
-
-    for r in range(len(layer_level1.nodes)):
-        for c in range(len(layer_level1.nodes[0])):
-            # 2) get receptive field from input layer
-            print('nodes[' + str(r) + '][' + str(c) + '].receptive_field_dimensions = ' \
-                  + str(layer_level1.nodes[r][c].receptive_field_dimensions))
 
     network = Network(layers, retina)
     cca_v1 = CommonCorticalAlgorithmV1(network)
@@ -34,11 +28,11 @@ def test_classify_digits():
     with ZipFile('model/datasets/digit_0.zip') as archive:
         for entry in archive.infolist():
             with archive.open(entry) as file:
-                if (t >= number_training_timesteps):
+                if t >= number_training_timesteps:
                     break
                 else:
                     binary_image = Image.open(file)
-                    if (print_to_console):
+                    if print_to_console:
                         print('timestep = ' + str(t))
                     input_layer = retina.see_binary_image(binary_image, print_to_console)
 
