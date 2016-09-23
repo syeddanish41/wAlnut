@@ -30,6 +30,8 @@ class Node(object):
     def add_unique_pattern(self, receptive_field):
         for unique_pattern in self.memory:
             if unique_pattern == receptive_field:
+                # TODO: rethinnk implementation here
+                print('added unique pattern = ' + str(receptive_field))
                 self.memory.append(receptive_field)
                 return True
             else:
