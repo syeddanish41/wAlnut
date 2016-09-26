@@ -13,10 +13,10 @@ class CommonCorticalAlgorithmV1(object):
         # start at the bottom layer
         for i in range(3):
             current_layer = self.network.layers[i]
-            print(current_layer.name + ' i = ' + str(i))
+            #print(current_layer.name + ' i = ' + str(i))
             if i == 0:
                 # we are at the bottom most layer
-                print('in bottom most layer')
+                #print('in bottom most layer')
                 # 1) iterate through nodes in this layer
                 nodes = current_layer.nodes
                 for r in range(len(nodes)):
@@ -37,7 +37,8 @@ class CommonCorticalAlgorithmV1(object):
 
                         # 2) if you find a unique receptive field add it to the node's memory
                         nodes[r][c].add_unique_pattern(current_node_receptive_field)
-                        print('for node[' + str(r) + '][' + str(c) + '] a pattern is trying to be added')
+                        #print('current_node_receptive_field = ' + str(current_node_receptive_field))
+                        #print('for node[' + str(r) + '][' + str(c) + '] a pattern is trying to be added')
 
         return None
 

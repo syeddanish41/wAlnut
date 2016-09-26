@@ -23,7 +23,7 @@ def test_classify_digits():
 
     number_training_timesteps = 1
     t = 0
-    print_to_console = True
+    print_to_console = False
     # train network on digit dataset to form memory and temporal groups
     with ZipFile('model/datasets/digit_0.zip') as archive:
         for entry in archive.infolist():
@@ -43,10 +43,10 @@ def test_classify_digits():
 
                     # now we have trained the network using cca_v1 on dataset
 
-    print('layer_level1.nodes[0][0].receptive_field_dimensions = ' +
-          str(layer_level1.nodes[0][0].receptive_field_dimensions))
-    print('layer_level1.nodes[0][0].memory = ' +
-          str(layer_level1.nodes[0][0].memory))
+    #print('layer_level1.nodes[0][0].receptive_field_dimensions = ' +
+    #      str(layer_level1.nodes[0][0].receptive_field_dimensions))
+    #print('layer_level1.nodes[0][0].memory = ' +
+    #      str(layer_level1.nodes[0][0].memory))
     # TODO:
     # 1) assert elements in memory for nodes are correct at each level?
     # 2) assert temporal groups in nodes are correct at each level?

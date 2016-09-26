@@ -28,11 +28,15 @@ class Node(object):
         self.receptive_field_dimensions = None
 
     def add_unique_pattern(self, receptive_field):
-        for unique_pattern in self.memory:
-            if unique_pattern == receptive_field:
-                # TODO: rethinnk implementation here
-                print('added unique pattern = ' + str(receptive_field))
-                self.memory.append(receptive_field)
-                return True
-            else:
-                return False
+        if len(self.memory) == 0:
+            self.memory.append(receptive_field)
+            return True
+        else:
+            for unique_pattern in self.memory:
+                if unique_pattern == receptive_field:
+                    # already have this unique pattern
+                    return False
+
+            # otherwise receptive_field is a new pattern so add it
+            self.memory.append(receptive_field)
+            return True
