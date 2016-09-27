@@ -154,8 +154,8 @@ for your collaboration as I cannot do this alone. To get started read
    - Know how to use Git & Github.com. If you don't know how I created a 1.5
      hour playlist on how to use Git & 
      Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
-   - Be curious about how the human brain works. You don't need to be
-     passionate about it right now. 
+   - Be very curious about how the human brain works and realized this is a problem you can
+     and want to solve in your lifetime.
    - Written at least 2 thousand lines of Python in your life.
    - Have at least 2 hours of free time each day to video chat with me 4 consecutive
      days of the week. This is based on the learning principle that if you want to
