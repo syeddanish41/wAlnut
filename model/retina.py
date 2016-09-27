@@ -13,7 +13,7 @@ class Retina(object):
         """stores the seen part of the world
 
         :param image: a binary square section of the world
-        :return:
+        :return: 2D int array where '1' is black and '0' is white
         """
         image_width = image.size[0]
         image_height = image.size[1]
@@ -30,4 +30,6 @@ class Retina(object):
             image_row += '\n'
 
         if (print_image_to_console):
-            print image_row
+            print(image_row)
+
+        return pixels
