@@ -22,5 +22,21 @@ class Node(object):
         self.temporal_groups = []
         self.active_temporal_group_index = -1
 
-    def get_active_temporal_group_index(self):
-        return self.active_temporal_group_index
+        # In the format (x1, y1, x2, y2) where (x1, y1) is the top left of the rectangle
+        # and (x2, y2) is the bottom right of the rectangle. All rectangles are in the 4th
+        # quadrant of the Euclidean plane where the negative y axis is positive.
+        self.receptive_field_dimensions = None
+
+    def add_unique_pattern(self, receptive_field):
+        if len(self.memory) == 0:
+            self.memory.append(receptive_field)
+            return True
+        else:
+            for unique_pattern in self.memory:
+                if unique_pattern == receptive_field:
+                    # already have this unique pattern
+                    return False
+
+            # otherwise receptive_field is a new pattern so add it
+            self.memory.append(receptive_field)
+            return True
