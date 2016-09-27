@@ -38,7 +38,8 @@ an object oriented Python implementation of the computational framework
 outlined in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for Learning and Recognition*](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
 
 The long term goal of this project is to build a machine that exceeds human
-intelligence to solve our hardest problems.
+intelligence to solve our hardest problems. If you are interested in investing
+in this project please e-mail quinnliu@vt.edu
 
 ~ Q Liu
 
@@ -143,22 +144,27 @@ for your collaboration as I cannot do this alone. To get started read
 **[setup development environment for Mac](#setup-development-environment-for-mac)**.
 
 #### How to contribute
-1. I am looking to pay developers an hourly rate of $20/hour (currently limited up
-   to 5 hours/week) to code features for WalnutiQ. The most up to date income 
-   and payment data can be viewed 
-   [here](https://docs.google.com/spreadsheets/d/1GQoIOGFrmOWseQKszW8GSSTaCMKE_oxoxjhNWfERcCU/edit?usp=sharing). 
-   
-2. You must meet these minimum requirements:
+1. I am looking for developers to build an open source artificial general
+   intelligence. As a developer you will be given the opportunity to work on
+   a variety of projects including coding a general learning algorithm and
+   visualizing a general learning algorithm.
+
+   You must meet these minimum requirements but exceptions can be made given
+   applicants with other backgrounds.
    - Know how to use Git & Github.com. If you don't know how I created a 1.5
      hour playlist on how to use Git & 
      Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
    - Be curious about how the human brain works. You don't need to be
      passionate about it right now. 
-   - Written at least 2 thousand lines of Python in your life. 
+   - Written at least 2 thousand lines of Python in your life.
+   - Have at least 2 hours of free time each day to video chat with me 4 consecutive
+     days of the week. This is based on the learning principle that if you want to
+     get really good at something you have to work on it consecutively everyday.
    
 3. E-mail quinnliu@vt.edu the following:
-   - Link to source code of project you enjoyed working on the most. I am really 
-     just looking for good object oriented design and good documentation.
+   - Link to source code of project you enjoyed working on the most preferably in
+     Python. I am really just looking for good object oriented design and good
+     documentation.
    - Why you want to work on wAlnut. 
 
 4. For now we are using the Git workflow model
@@ -186,7 +192,7 @@ for your collaboration as I cannot do this alone. To get started read
    - then `virtualenv wAlnut_environment`
    - then `source wAlnut_environment/bin/activate`
    - then `pip3 install -r requirements.txt`
-   - then `nosetests -s` where -s tells nose to show print statments in test files
+   - then `nosetests -s` where -s tells nose to show print statements in test files
    - optionally type `deactivate` to leave the virtual environment
 
 ## What
