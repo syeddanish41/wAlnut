@@ -5,13 +5,21 @@ class CommonCorticalAlgorithmV1(object):
     """
     def __init__(self, network):
         self.network = network
+        self.learning_phase = True
 
     def learn_one_time_step(self, input_layer):
         """
         :param input_layer: 2D int array where '1' is black and '0' is white
         """
+        self._memorize_input_patterns(input_layer)
+        # _learn_transitional_probabilities()
+        # _form_temporal_groups()
+        #self._generate_training_log()
+        return
+
+    def _memorize_input_patterns(self, input_layer):
         # start at the bottom layer
-        for i in range(3):
+        for i in range(len(self.network.layers)):
             current_layer = self.network.layers[i]
             print(current_layer.name + ' i = ' + str(i))
             if i == 0:
@@ -38,13 +46,11 @@ class CommonCorticalAlgorithmV1(object):
                         # 3) if you find a unique receptive field add it to the node's memory
                         nodes[r][c].add_unique_pattern(current_node_receptive_field)
 
-
-        return None
-
     def switch_to_sensing_mode(self):
-        # TODO: return category of input image it is current looking at
-        return None
+        self.learning_phase = False
+        # this function may be unnecessary
 
     def catagorize_current_image(self):
-        # TODO: catogorize current input image
+        # check if learning_phase is turned off
+        # TODO: categorize current input image
         return None
