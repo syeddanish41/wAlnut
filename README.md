@@ -7,6 +7,8 @@
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
 - **[How](#how)**
+    + **[How to Contribute](#how-to-contribute)**
+    + **[Setup Development Environment for Mac](#setup-development-environment-for-mac)**
 - **[What](#what)**
     + **[Key Theories](#key-theories)**
     + **[Code Outline](#code-outline)**
@@ -106,7 +108,7 @@ The following are the key points:
        hundreds of thousands of years. There are definitely some principles it
        has yet to discover.
 
-5 . **_You can solve one problem independently before solving another problem._**
+5. **_You can solve one problem independently before solving another problem._**
       - **Flying Example:**
         The Wright Brothers solved the problem of flight control with wind warping
         before even starting to solve the problem of efficient enough engine.
@@ -143,7 +145,7 @@ for your collaboration as I cannot do this alone. To get started read
 **[how to contribute](#how-to-contribute)** and then
 **[setup development environment for Mac](#setup-development-environment-for-mac)**.
 
-#### How to contribute
+## How to contribute
 1. I am looking for developers to build an open source artificial general
    intelligence. As a developer you will be given the opportunity to work on
    a variety of projects including coding a general learning algorithm and
@@ -156,7 +158,8 @@ for your collaboration as I cannot do this alone. To get started read
      Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
    - Be very curious about how the human brain works and realized this is a problem you can
      and want to solve in your lifetime.
-   - Written at least 2 thousand lines of Python in your life.
+   - Written at least 2 thousand lines of Python or Javascript in your life. D3.js experience
+     is a big plus!
    - Have at least 2 hours of free time each day to video chat with me 4 consecutive
      days of the week. This is based on the learning principle that if you want to
      get really good at something you have to work on it consecutively everyday.
@@ -172,7 +175,7 @@ for your collaboration as I cannot do this alone. To get started read
    guide [here](https://google.github.io/styleguide/pyguide.html) to contribute to this
    repository effectively.
 
-#### Setup development environment for Mac
+## Setup development environment for Mac
 1. Go to the top right of this page and hit the Fork button. Then clone your forked
    repository locally.
 

@@ -12,9 +12,8 @@ class CommonCorticalAlgorithmV1(object):
         :param input_layer: 2D int array where '1' is black and '0' is white
         """
         self._memorize_input_patterns(input_layer)
-        # _learn_transitional_probabilities()
-        # _form_temporal_groups()
-        #self._generate_training_log()
+        # TODO: _learn_transitional_probabilities()
+        # TODO: _form_temporal_groups()
         return
 
     def _memorize_input_patterns(self, input_layer):
