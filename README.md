@@ -41,7 +41,7 @@ outlined in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchica
 
 The long term goal of this project is to build a machine that exceeds human
 intelligence to solve our hardest problems. If you are interested in investing
-in this project please e-mail quinnliu@vt.edu.
+in this project please e-mail <quinnliuvideos@gmail.com>.
 
 <b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe. Please e-mail quinnliuvideos@gmail.com :)</b>
 
