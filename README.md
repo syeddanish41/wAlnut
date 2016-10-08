@@ -7,6 +7,8 @@
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
 - **[How](#how)**
+    + **[How to Contribute](#how-to-contribute)**
+    + **[Setup Development Environment for Mac](#setup-development-environment-for-mac)**
 - **[What](#what)**
     + **[Key Theories](#key-theories)**
     + **[Code Outline](#code-outline)**
@@ -39,7 +41,9 @@ outlined in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchica
 
 The long term goal of this project is to build a machine that exceeds human
 intelligence to solve our hardest problems. If you are interested in investing
-in this project please e-mail quinnliu@vt.edu
+in this project please e-mail <quinnliuvideos@gmail.com>.
+
+<b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe. Please e-mail quinnliuvideos@gmail.com :)</b>
 
 ~ Q Liu
 
@@ -106,14 +110,14 @@ The following are the key points:
        hundreds of thousands of years. There are definitely some principles it
        has yet to discover.
 
-5 . **_You can solve one problem independently before solving another problem._**
-     - **Flying Example:**
-       The Wright Brothers solved the problem of flight control with wind warping 
-       before even starting to solve the problem of efficient enough engine.  
-     - We can understand principles of intelligence before we have a detailed
-       video of how networks of neurons interact with each other. 
-     - We can understand principles of hierarchy and time in intelligence before having
-       A fully sensory motor theory.
+5. **_You can solve one problem independently before solving another problem._**
+      - **Flying Example:**
+        The Wright Brothers solved the problem of flight control with wind warping
+        before even starting to solve the problem of efficient enough engine.
+      - We can understand principles of intelligence before we have a detailed
+        video of how networks of neurons interact with each other.
+      - We can understand principles of hierarchy and time in intelligence before having
+        A fully sensory motor theory.
 
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
@@ -143,7 +147,7 @@ for your collaboration as I cannot do this alone. To get started read
 **[how to contribute](#how-to-contribute)** and then
 **[setup development environment for Mac](#setup-development-environment-for-mac)**.
 
-#### How to contribute
+## How to contribute
 1. I am looking for developers to build an open source artificial general
    intelligence. As a developer you will be given the opportunity to work on
    a variety of projects including coding a general learning algorithm and
@@ -156,12 +160,14 @@ for your collaboration as I cannot do this alone. To get started read
      Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
    - Be very curious about how the human brain works and realized this is a problem you can
      and want to solve in your lifetime.
-   - Written at least 2 thousand lines of Python in your life.
+   - Written at least 2 thousand lines of Python or Javascript in your life. D3.js experience
+     is a big plus!
    - Have at least 2 hours of free time each day to video chat with me 4 consecutive
      days of the week. This is based on the learning principle that if you want to
      get really good at something you have to work on it consecutively everyday.
    
-3. E-mail quinnliu@vt.edu the following:
+3. E-mail quinnliuvideos@gmail.com the following:
+   - <b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe. Please e-mail quinnliuvideos@gmail.com :)</b>
    - Link to source code of project you enjoyed working on the most preferably in
      Python. I am really just looking for good object oriented design and good
      documentation.
@@ -172,7 +178,7 @@ for your collaboration as I cannot do this alone. To get started read
    guide [here](https://google.github.io/styleguide/pyguide.html) to contribute to this
    repository effectively.
 
-#### Setup development environment for Mac
+## Setup development environment for Mac
 1. Go to the top right of this page and hit the Fork button. Then clone your forked
    repository locally.
 
