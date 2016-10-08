@@ -24,7 +24,7 @@ def test_classify_digits():
     network = Network(layers, retina)
     cca_v1 = CommonCorticalAlgorithmV1(network)
 
-    number_training_timesteps = 2
+    number_training_timesteps = 1
     t = 0
     print_to_console = True
     # train network on digit dataset to form memory and temporal groups
@@ -47,7 +47,7 @@ def test_classify_digits():
     # 2) TODO: assert temporal groups in nodes are correct at each level?
 
     # save model across time logs into 1 zip file
-    File.save_data_into_1_file('tests/experiments/classify_digits/model_across_time', 'classify_digits_experiment', 'tests/experiments/classify_digits')
+    #File.save_data_into_1_file('tests/experiments/classify_digits/model_across_time', 'classify_digits_experiment', 'tests/experiments/classify_digits')
 
 
 def _save_model_at_current_timestep(timestep, network):
@@ -55,7 +55,7 @@ def _save_model_at_current_timestep(timestep, network):
     Generate a JSON file representing the state of the model at each timestep.
     """
     pickled_network = jsonpickle.encode(network)
-    #print('picked_network = ' + pickled_network)
+    print('picked_network = ' + pickled_network)
 
-    with open('tests/experiments/classify_digits/model_across_time/t=' + str(timestep) + '.json', 'w') as outfile:
-        json.dump(pickled_network, outfile)
+    # with open('tests/experiments/classify_digits/model_across_time/t=' + str(timestep) + '.json', 'w') as outfile:
+    #    json.dump(pickled_network, outfile)
