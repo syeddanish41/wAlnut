@@ -7,9 +7,11 @@
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
 - **[How](#how)**
+    + **[Strategies](#strategies)**
     + **[How to Contribute](#how-to-contribute)**
     + **[Setup Development Environment for Mac](#setup-development-environment-for-mac)**
 - **[What](#what)**
+    + **[Introduction](#introduction)**
     + **[Key Theories](#key-theories)**
     + **[Code Outline](#code-outline)**
 
@@ -43,11 +45,14 @@ The long term goal of this project is to build a machine that exceeds human
 intelligence to solve our hardest problems. If you are interested in investing
 in this project please e-mail <quinnliuvideos@gmail.com>.
 
-<b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe. Please e-mail quinnliuvideos@gmail.com :)</b>
+<b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe.
+Please e-mail quinnliuvideos@gmail.com :)</b>
 
 ~ Q Liu
 
 ## How
+
+## Strategies
 
 Start with the most fundamental truths and reason up from there.
 
@@ -119,6 +124,21 @@ The following are the key points:
       - We can understand principles of hierarchy and time in intelligence before having
         A fully sensory motor theory.
 
+The following are additional strategies being used that are not presented in the video:
+
+1. **_Say there is idea A and idea B that contradict each other. The idea that has more people moving
+   from one idea to the other is the more likely to be truth idea._**
+     - 1) Every human is susceptible to believing in wrong ideas this since there is no free will.
+     - 2) In my past I have believed in ideas that are false because I have no control over the information
+       I am presented. For example I have believed:
+       + Santa is real, if you eat earwax you go deaf, there is a god that looks similar to humans,
+         there is free will, you are born with confidence, ...
+     - **Example:**
+       Say there is idea A and idea B that contradict each other. And you notice that the number of people that
+       strongly believe idea A after having something happen to them decide to strongly believe in idea B is more than
+       the other way around. THEN it is pretty likely idea B is more truthful than idea A. However this does not mean
+       idea B is completely true.
+
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
 end of the decade. To build an AGI that exceeds human intelligence will 
@@ -167,7 +187,8 @@ for your collaboration as I cannot do this alone. To get started read
      get really good at something you have to work on it consecutively everyday.
    
 3. E-mail quinnliuvideos@gmail.com the following:
-   - <b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe. Please e-mail quinnliuvideos@gmail.com :)</b>
+   - <b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe.
+     Please e-mail quinnliuvideos@gmail.com :)</b>
    - Link to source code of project you enjoyed working on the most preferably in
      Python. I am really just looking for good object oriented design and good
      documentation.
@@ -202,6 +223,8 @@ for your collaboration as I cannot do this alone. To get started read
    - optionally type `deactivate` to leave the virtual environment
 
 ## What
+
+## Introduction
 
 This repo is an object oriented Python implementation of the computational framework outlined
 in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for
