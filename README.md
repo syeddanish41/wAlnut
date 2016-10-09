@@ -7,9 +7,11 @@
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
 - **[How](#how)**
+    + **[Strategies](#strategies)**
     + **[How to Contribute](#how-to-contribute)**
     + **[Setup Development Environment for Mac](#setup-development-environment-for-mac)**
 - **[What](#what)**
+    + **[Introduction](#introduction)**
     + **[Key Theories](#key-theories)**
     + **[Code Outline](#code-outline)**
 
@@ -43,11 +45,14 @@ The long term goal of this project is to build a machine that exceeds human
 intelligence to solve our hardest problems. If you are interested in investing
 in this project please e-mail <quinnliuvideos@gmail.com>.
 
-<b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe. Please e-mail quinnliuvideos@gmail.com :)</b>
+<b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe.
+Please e-mail quinnliuvideos@gmail.com :)</b>
 
 ~ Q Liu
 
 ## How
+
+## Strategies
 
 Start with the most fundamental truths and reason up from there.
 
@@ -57,13 +62,13 @@ is the same approach for this project.
 
 The following are the key points:
 
-1. **_When looking at neuroscience for inspiration consider add something to your computational
+1. **_When looking at neuroscience for inspiration consider adding something to your computational
    framework if it is present in reality and neurobiology._**
      - This is because the neurons in your brain are trying to do 3 things:
-         + stay alive
-         + communicate with other parts of the brain limited by the evolved neurobiology
+         + 1) stay alive
+         + 2) communicate with other parts of the brain limited by the evolved neurobiology
            at the time
-         + information processing
+         + 3) information processing
      - The information processing is the only part we want to add to our model.
        Unfortunately, elements of neurobiology are not cleanly split. For example,
        a neuron spike is not present in reality and it might be used for 
@@ -119,6 +124,50 @@ The following are the key points:
       - We can understand principles of hierarchy and time in intelligence before having
         A fully sensory motor theory.
 
+The following are additional strategies being used that are not presented in the video:
+
+1. **_Say there is idea A and idea B that contradict each other. The idea that has more people moving
+   from one idea to the other is the more likely to be truth idea._**
+     - 1) Every human is susceptible to believing in wrong ideas this since there is no free will.
+     - 2) In my past I have believed in ideas that are false because I have no control over the information
+       I am presented. For example I have believed:
+       + Santa is real, if you eat earwax you go deaf, there is a god that looks similar to humans,
+         there is free will, you are born with confidence and can't learn how to be confident, ...
+     - **Example:**
+       Say there is idea A and idea B that contradict each other. And you notice that the number of people that
+       strongly believe idea A after having something happen to them decide to strongly believe in idea B is more than
+       the other way around. THEN it is pretty likely idea B is more truthful than idea A. However this does not mean
+       idea B is completely true.
+     - **AI Example:** Right now the # of machine/deep learning researchers that are changing their approach from using
+       Classical Machine Learning Techniques like deep neural nets(Idea A) and deciding to try a new approach to AGI
+       called Probabilistic Graphical Models(Idea B) is much greater than the # of people going from Idea B -> Idea A.
+       + This is a list of [29 serious AI researchers](http://www.vicarious.com/about.html) that originally believed in
+         Idea A but then after learning about Idea B decided that Idea B is much better.
+       + I know of 0 AI researchers that originally strongly believed in Idea B then after learning about Idea A
+         decided that Idea A is much better.
+
+2. **_Currently we are missing a tool that visualizes a model of the brain across time extremely efficiently on
+      intelligence metrics that really matter._**
+     - Currently the best way to view information processing across time of an general intelligent machine is using fMRI.
+       Unfortunately, machines like fMRI show delayed high level brain activity for brain metrics that are not
+       necessary for a general AI including:
+       + 1) how neurons stay alive through movement of oxygen throughout the brain.
+       + 2) how neurons communicate with other parts of the brain limited by the evolved neurobiology
+           at the time
+       + The fMRI metrics for how an intelligent machine is doing information processing are barely shown.
+     - So what are the intelligence metrics that really matter?
+       + Intelligence metrics that really matter have to be replicable and make clear how a lot of information is
+         being processed and stored to produce certain results.
+         + These results include:
+           + 1) Being able to answer questions that require an accurate model of the world.
+             + One example is to answer questions where the task is to answer which of 2 statements are nonsense.
+               + Statement 1) After waiting barefoot in the lake Eric used his shirt to dry his feet.
+               + Statement 2) After waiting barefoot in the lake Eric used his glasses to dry his feet.
+               + Clearly statement B does not make sense but if you do not have an accurate model of the world you
+                 will not be able to answer this question correctly. Siri, Google Now, and Watson are successful
+                 artificial narrow intelligence but not artificial general intelligence because they do not have
+                 accurate models of the world. [Video Source at 24:20](https://www.youtube.com/watch?v=NPtAIVieh4k)
+
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
 end of the decade. To build an AGI that exceeds human intelligence will 
@@ -167,7 +216,8 @@ for your collaboration as I cannot do this alone. To get started read
      get really good at something you have to work on it consecutively everyday.
    
 3. E-mail quinnliuvideos@gmail.com the following:
-   - <b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe. Please e-mail quinnliuvideos@gmail.com :)</b>
+   - <b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe.
+     Please e-mail quinnliuvideos@gmail.com :)</b>
    - Link to source code of project you enjoyed working on the most preferably in
      Python. I am really just looking for good object oriented design and good
      documentation.
@@ -202,6 +252,8 @@ for your collaboration as I cannot do this alone. To get started read
    - optionally type `deactivate` to leave the virtual environment
 
 ## What
+
+## Introduction
 
 This repo is an object oriented Python implementation of the computational framework outlined
 in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchical and Temporal Model for
