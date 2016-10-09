@@ -167,6 +167,8 @@ The following are additional strategies being used that are not presented in the
                  will not be able to answer this question correctly. Siri, Google Now, and Watson are successful
                  artificial narrow intelligence but not artificial general intelligence because they do not have
                  accurate models of the world. [Video Source at 24:20](https://www.youtube.com/watch?v=NPtAIVieh4k)
+     - The tool for understanding intelligent machines through visualizations is starting to be built at
+       [WalnutiQ/toph](https://github.com/WalnutiQ/toph).
 
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
@@ -219,7 +221,7 @@ for your collaboration as I cannot do this alone. To get started read
    - <b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe.
      Please e-mail quinnliuvideos@gmail.com :)</b>
    - Link to source code of project you enjoyed working on the most preferably in
-     Python. I am really just looking for good object oriented design and good
+     Python or Javascript. I am really just looking for good object oriented design and good
      documentation.
    - Why you want to work on wAlnut. 
 
