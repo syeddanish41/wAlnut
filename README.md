@@ -62,7 +62,7 @@ is the same approach for this project.
 
 The following are the key points:
 
-1. **_When looking at neuroscience for inspiration consider add something to your computational
+1. **_When looking at neuroscience for inspiration consider adding something to your computational
    framework if it is present in reality and neurobiology._**
      - This is because the neurons in your brain are trying to do 3 things:
          + 1) stay alive
