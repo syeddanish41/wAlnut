@@ -43,10 +43,7 @@ outlined in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchica
 
 The long term goal of this project is to build a machine that exceeds human
 intelligence to solve our hardest problems. If you are interested in investing
-in this project please e-mail <quinnliuvideos@gmail.com>.
-
-<b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe.
-Please e-mail quinnliuvideos@gmail.com :)</b>
+in this project please e-mail quinnliu@vt.edu
 
 ~ Q Liu
 
@@ -217,9 +214,7 @@ for your collaboration as I cannot do this alone. To get started read
      days of the week. This is based on the learning principle that if you want to
      get really good at something you have to work on it consecutively everyday.
    
-3. E-mail quinnliuvideos@gmail.com the following:
-   - <b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe.
-     Please e-mail quinnliuvideos@gmail.com :)</b>
+3. E-mail quinnliu@vt.edu the following:
    - Link to source code of project you enjoyed working on the most preferably in
      Python or Javascript. I am really just looking for good object oriented design and good
      documentation.
