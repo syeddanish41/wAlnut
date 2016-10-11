@@ -43,10 +43,7 @@ outlined in Dileep George's PhD thesis [*How the Brain Might Work: A Hierarchica
 
 The long term goal of this project is to build a machine that exceeds human
 intelligence to solve our hardest problems. If you are interested in investing
-in this project please e-mail <quinnliuvideos@gmail.com>.
-
-<b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe.
-Please e-mail quinnliuvideos@gmail.com :)</b>
+in this project please e-mail quinnliu@vt.edu
 
 ~ Q Liu
 
@@ -167,6 +164,8 @@ The following are additional strategies being used that are not presented in the
                  will not be able to answer this question correctly. Siri, Google Now, and Watson are successful
                  artificial narrow intelligence but not artificial general intelligence because they do not have
                  accurate models of the world. [Video Source at 24:20](https://www.youtube.com/watch?v=NPtAIVieh4k)
+     - The tool for understanding intelligent machines through visualizations is starting to be built at
+       [WalnutiQ/toph](https://github.com/WalnutiQ/toph).
 
 Building an AGI should be viewed as a challenge that is at a larger scale than 
 when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
@@ -215,11 +214,9 @@ for your collaboration as I cannot do this alone. To get started read
      days of the week. This is based on the learning principle that if you want to
      get really good at something you have to work on it consecutively everyday.
    
-3. E-mail quinnliuvideos@gmail.com the following:
-   - <b>NOTE: If you emailed quinnliu@vt.edu after Oct. 3rd I am currently unable to check it right now while in Europe.
-     Please e-mail quinnliuvideos@gmail.com :)</b>
+3. E-mail quinnliu@vt.edu the following:
    - Link to source code of project you enjoyed working on the most preferably in
-     Python. I am really just looking for good object oriented design and good
+     Python or Javascript. I am really just looking for good object oriented design and good
      documentation.
    - Why you want to work on wAlnut. 
 
