@@ -7,7 +7,7 @@
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
 - **[How](#how)**
-    + **[Strategies](#strategies)**
+    + **[How to Develop the Confidence to Work on a Project so Seemingly Hard](#how-to-develop-the-confidence-to-work-on-a-project-so-seemingly-hard)**
     + **[How to Contribute](#how-to-contribute)**
     + **[Setup Development Environment for Mac](#setup-development-environment-for-mac)**
 - **[What](#what)**
@@ -32,7 +32,7 @@ Technology has always been used to do great good and great evil and even if we
 have the best intentions to do good, intelligent machines will cause many new 
 problems. For example, there will be massive job loss since most jobs 
 can be replaced by intelligent machines. A possible solution to this hard 
-problem will be to augment our brains and become super intelligent. 
+problem will be to augment our brains and become super intelligent as a species.
 
 The current short term goal is to experiment with a simplified visual pathway 
 from an eye that sees binary bitmap training videos to experimental general
@@ -49,13 +49,17 @@ in this project please e-mail quinnliu@vt.edu
 
 ## How
 
-## Strategies
+## How to Develop the Confidence to Work on a Project so Seemingly Hard
 
 Start with the most fundamental truths and reason up from there.
 
+Then watch this video on [developing true confidence by Kong](https://www.youtube.com/watch?v=xSURldy2EJE).  
+Then watch this video on [how to live by Steve](https://www.youtube.com/watch?v=UF8uR6Z6KLc).  
+Then watch this video on [how to live by Neil](https://www.youtube.com/watch?v=ikAb-NYkseI).
+
 The best approach I have come across for building an artificial general intelligence
-(AGI) are summarized in this [video](https://www.youtube.com/watch?v=NPtAIVieh4k) and
-is the same approach for this project.
+(AGI) are summarized in this [video by Dileep](https://www.youtube.com/watch?v=NPtAIVieh4k) and
+is the same approach used for this project.
 
 The following are the key points:
 
@@ -68,10 +72,10 @@ The following are the key points:
          + 3) information processing
      - The information processing is the only part we want to add to our model.
        Unfortunately, elements of neurobiology are not cleanly split. For example,
-       a neuron spike is not present in reality and it might be used for 
+       a neuron spike is not present in reality and it might be used for
        information processing but is more likely to be the only way 2 neurons can
        communicate with each other. We must remember to focus on discovering the
-       principles of intelligence instead of getting lost in the details of modeling 
+       principles of intelligence instead of getting lost in the details of modeling
        everything a brain does. Modeling how a neuron stays alive and communicates
        with other parts of the brain is not useful for information processing and will
        overcomplicate the model.
@@ -79,30 +83,30 @@ The following are the key points:
 2. **_Solve the same problem at different levels of complexity starting at the
    simplest complexity level to discover general principles of intelligence._**
      - **Flying Example:**
-       When the Wright brothers where building their flying machine they
+       When the Wright brothers were building their flying machine they
        tried to solve the problem of controlling the machine in the air
-       by starting with flying a kite, then controlling a glider, and then 
-       using a wind tunnel. In each case they were trying to solve the same 
+       by starting with flying a kite, then controlling a glider, and then
+       using a wind tunnel. In each case they were trying to solve the same
        problem at different complexity levels.
      - **AGI Example 1:**
-       When trying to recognize what is in a greyscale image that is 1000 by 1000
-       pixels, instead try to recognize what is in a greyscale image that is 32 by
+       When trying to recognize what is in a grayscale image that is 1000 by 1000
+       pixels, instead try to recognize what is in a grayscale image that is 32 by
        32 pixels. When that is too hard try to recognize what is in a binary
        32 by 32 pixel image.
 
 3. **_For each principle of general intelligence produced by neurobiology try to use a
    more efficient substitute from other fields if there is a mapping._**
      - **Flying Example:**
-       When the Wright brothers where building how to control their flying
-       machine they did not build a plane with a birds wing. When they were
-       trying to replicate the banking behavior of a birds wing they substituted
-       the birds wing with a technique called wing warping that adjusts the wing
+       When the Wright brothers were building how to control their flying
+       machine they did not build a plane with a bird's wing. When they were
+       trying to replicate the banking behavior of a bird's wing they substituted
+       the bird's wing with a technique called wing warping that adjusts the wing
        flaps up or down on each side of the wing so that an airplane can efficiently
        bank.
-     - The model should not model every anatomical detail of the 
-       brain but instead will strive to use the best substitutes to model the 
+     - The model should not model every anatomical detail of the
+       brain but instead will strive to use the best substitutes to model the
        principles of general intelligence. This is analogous to how a plane and
-       helicopter do no model every anatomical detail of a birds wing but instead 
+       helicopter do not model every anatomical detail of a bird's wing but instead
        strive to use the best substitutes to model the principles of general flight.
 
 4. **_Do not try to find all principles of general intelligence from neuroscience._**
@@ -151,7 +155,7 @@ The following are additional strategies being used that are not presented in the
        + 1) how neurons stay alive through movement of oxygen throughout the brain.
        + 2) how neurons communicate with other parts of the brain limited by the evolved neurobiology
            at the time
-       + The fMRI metrics for how an intelligent machine is doing information processing are barely shown.
+       + The fMRI metrics for how an intelligent machine is doing information processing are rarely shown.
      - So what are the intelligence metrics that really matter?
        + Intelligence metrics that really matter have to be replicable and make clear how a lot of information is
          being processed and stored to produce certain results.
@@ -167,26 +171,57 @@ The following are additional strategies being used that are not presented in the
      - The tool for understanding intelligent machines through visualizations is starting to be built at
        [WalnutiQ/toph](https://github.com/WalnutiQ/toph).
 
-Building an AGI should be viewed as a challenge that is at a larger scale than 
-when John F. Kennedy proposed we go to the moon on September 12, 1962 by the 
-end of the decade. To build an AGI that exceeds human intelligence will 
-require a few more breakthroughs. Because we cannot predict when these 
-breakthroughs will occur the first AGI to exceed human intelligence may happen 
-anytime in the next 10 to 50 years. 
+Building an AGI should be viewed as a challenge that is at a larger scale than
+when John F. Kennedy proposed we go to the moon on September 12, 1962 by the
+end of the decade. To build an AGI that exceeds human intelligence will
+require a few more breakthroughs. Because we cannot predict when these
+breakthroughs will occur the first AGI to exceed human intelligence may happen
+anytime in the next 10 to 50 years.
 
-Remember "*what I cannot create I do not understand*" was said by Richard Feynman. 
-Then think about what an intelligent machine needs to be able to do from first 
-principles.  
+Remember "*what I cannot create I do not understand*" was said by Richard Feynman.
+Then think about what an intelligent machine needs to be able to do from first
+principles.
 
 Experiment with your model on tasks that only intelligent machines seem to be
 good at. Be open to ways to change the model. Remember that the
 earth was born about 4.6 billion years ago and that it took evolution about
 4.6 billion - 200,000 years to create the first homo sapiens. This shit takes
-time so if your frustrated go relax.   
+time so if you're frustrated go relax.
 
 And as stupid as it sounds remember that it is the journey you go on that makes
-everything worth it when you look back. Sometimes life will hit you with a 
-hammer. When it does take time to regain your hope in humanity in any way you
+everything worth it when you look back. If your happiness depends on reaching
+any goal in this project your happiness will only be temporary. You have made
+the false assumption that your default state is not happiness because throughout
+your life others have told you:
+
+Others: `You should feel successful only if you are the best`  
+But why can't it become `I should follow my curiosity to improve myself a little
+bit everyday`?
+
+The advice communicated by others whether through their actions or words comes
+from a place of insecurity and fear of others while the latter comes from a place
+of curiosity and love of yourself and others.
+
+Here are some other examples of how your past experiences are pushing you
+towards being less like yourself and how you can change it:
+
+Others: `You should feel successful if you listen to what I tell you and not question it`  
+Becomes: `I should be open-minded and think from 1st principles and do what I
+think is right`
+
+Others: `You should feel successful if you do the thing that will make you the most money`  
+Becomes: `When I do not need the money I should do things that make me excited
+and that I want to see exist in reality over doing something just for the money`
+
+Others: `You should feel successful only if you are approved wildly`  
+Becomes: `I should help others improve themselves a little bit everyday`
+
+In each of these examples we removed happiness being dependent on some kind of success.
+<b>You deserve to be happy by default</b> and should reach for your goals from
+a place of curiosity and love of yourself and others instead of insecurity and fear of
+others.
+
+Sometimes life will hit you with a hammer. When it does take time to regain your hope in humanity in any way you
 feel is right and take as much time as you need. When you get back up you will
 be a stronger version of yourself and ready to fail even harder again.
 
@@ -284,7 +319,7 @@ us.
            field sizes and other differences. However, there are also
            similarities including:
              + rewired A1 neurons showed orientation and direction selectivity.
-             + similar proportions of simple, complex, and nonoriented cells between
+             + similar proportions of simple, complex, and non oriented cells between
                rewired A1 and V1.
              + implies "*significant implications for possible commonalities in
                intracortical processing circuits between sensory cortices*".
@@ -374,7 +409,7 @@ us.
        understands speech.
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
-         - ![alt text](./model/images/translation_training_creates_scale_invariance.png)
+         - Figure 1: ![alt text](https://raw.githubusercontent.com/WalnutiQ/wAlnut/master/model/images/explanatory/translation_training_creates_scale_invariance.png)
          - Notice how the scaling of "A" in (c) would be the exact same input as (b) if you translate the input
            to the left by 1 pixel.
    - Not supportive: 
@@ -457,7 +492,7 @@ us.
 
 ## Code Outline
  
-If you are confused what a file/foder is for:
+If you are confused what a file/folder is for:
 ```
 - model = object oriented model implementing the key theories
   - datasets = contains zipped datasets generated by https://github.com/WalnutiQ/time_series_data
