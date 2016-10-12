@@ -7,7 +7,7 @@
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
 - **[How](#how)**
-    + **[Strategies](#strategies)**
+    + **[How to Develop the Confidence to Work on a Project so Seemingly Hard](#how-to-develop-the-confidence-to-work-on-a-project-so-seemingly-hard)**
     + **[How to Contribute](#how-to-contribute)**
     + **[Setup Development Environment for Mac](#setup-development-environment-for-mac)**
 - **[What](#what)**
@@ -32,7 +32,7 @@ Technology has always been used to do great good and great evil and even if we
 have the best intentions to do good, intelligent machines will cause many new 
 problems. For example, there will be massive job loss since most jobs 
 can be replaced by intelligent machines. A possible solution to this hard 
-problem will be to augment our brains and become super intelligent. 
+problem will be to augment our brains and become super intelligent as a species.
 
 The current short term goal is to experiment with a simplified visual pathway 
 from an eye that sees binary bitmap training videos to experimental general
@@ -49,13 +49,17 @@ in this project please e-mail quinnliu@vt.edu
 
 ## How
 
-## Strategies
+## How to Develop the Confidence to Work on a Project so Seemingly Hard
 
 Start with the most fundamental truths and reason up from there.
 
+Then watch this vidoe on [developing true confidence by Kong](https://www.youtube.com/watch?v=xSURldy2EJE).
+Then watch this video on [how to live by Steve](https://www.youtube.com/watch?v=UF8uR6Z6KLc).
+Then watch this vdieo on [how to live by Neil](https://www.youtube.com/watch?v=ikAb-NYkseI).
+
 The best approach I have come across for building an artificial general intelligence
-(AGI) are summarized in this [video](https://www.youtube.com/watch?v=NPtAIVieh4k) and
-is the same approach for this project.
+(AGI) are summarized in this [video by Dileep](https://www.youtube.com/watch?v=NPtAIVieh4k) and
+is the same approach used for this project.
 
 The following are the key points:
 
@@ -185,8 +189,42 @@ earth was born about 4.6 billion years ago and that it took evolution about
 time so if your frustrated go relax.   
 
 And as stupid as it sounds remember that it is the journey you go on that makes
-everything worth it when you look back. Sometimes life will hit you with a 
-hammer. When it does take time to regain your hope in humanity in any way you
+everything worth it when you look back. If your happiness depends on reaching
+any goal in this project your happiness will only be temporary. You have made
+the false assumption that your default state is not happiness because throughout
+your life others have told you:
+
+Others: `You should feel successful only if you are the best`
+
+But why can't it become `I should follow my curiosity to improve myself a little
+bit everyday`?
+
+The advice communicated by others whether through they actions or words comes
+from a place of insecurity and fear or others while the later comes from a place
+of curiosity and love of myself and others.
+
+Here are someone other examples of how your past experiences are pushing you
+towards being less like yourself and how you can change it:
+
+Others: `You should listen to what I tell you and not question it`
+Becomes: `I should be open-minded and think from 1st principals and do what I
+think is right`
+
+Others: `Do the thing that will make you the most money`
+Becomes: `When I do not need the money I should do things that make me excited
+and that I want to see exist in reality over doing something for the money`
+
+Others: `You should feel successful only if you are approved wildly`
+Becomes: `I should help others improve themselves a little bit everyday`
+
+Others: `You should plan so you will live until retirement`
+Me: `If I have the resources I should live like today is the last day I am alive`
+
+In each of these examples we removed happiness being dependent on something.
+<b>You deserve to be happy by default</b> and should reach for your goals from
+a place of curiosity and love of yourself and others.
+
+Sometimes life will hit you with a hammer. When it does take time to regain your hope in humanity in any way you
 feel is right and take as much time as you need. When you get back up you will
 be a stronger version of yourself and ready to fail even harder again.
 
