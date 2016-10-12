@@ -53,9 +53,9 @@ in this project please e-mail quinnliu@vt.edu
 
 Start with the most fundamental truths and reason up from there.
 
-Then watch this vidoe on [developing true confidence by Kong](https://www.youtube.com/watch?v=xSURldy2EJE).
+Then watch this video on [developing true confidence by Kong](https://www.youtube.com/watch?v=xSURldy2EJE).
 Then watch this video on [how to live by Steve](https://www.youtube.com/watch?v=UF8uR6Z6KLc).
-Then watch this vdieo on [how to live by Neil](https://www.youtube.com/watch?v=ikAb-NYkseI).
+Then watch this video on [how to live by Neil](https://www.youtube.com/watch?v=ikAb-NYkseI).
 
 The best approach I have come across for building an artificial general intelligence
 (AGI) are summarized in this [video by Dileep](https://www.youtube.com/watch?v=NPtAIVieh4k) and
@@ -199,30 +199,28 @@ Others: `You should feel successful only if you are the best`
 But why can't it become `I should follow my curiosity to improve myself a little
 bit everyday`?
 
-The advice communicated by others whether through they actions or words comes
-from a place of insecurity and fear or others while the later comes from a place
-of curiosity and love of myself and others.
+The advice communicated by others whether through their actions or words comes
+from a place of insecurity and fear of others while the later comes from a place
+of curiosity and love of yourself and others.
 
-Here are someone other examples of how your past experiences are pushing you
+Here are some other examples of how your past experiences are pushing you
 towards being less like yourself and how you can change it:
 
-Others: `You should listen to what I tell you and not question it`
+Others: `You should feel successful if you listen to what I tell you and not question it`
 Becomes: `I should be open-minded and think from 1st principals and do what I
 think is right`
 
-Others: `Do the thing that will make you the most money`
+Others: `You should feel successful if you do the thing that will make you the most money`
 Becomes: `When I do not need the money I should do things that make me excited
-and that I want to see exist in reality over doing something for the money`
+and that I want to see exist in reality over doing something just for the money`
 
 Others: `You should feel successful only if you are approved wildly`
 Becomes: `I should help others improve themselves a little bit everyday`
 
-Others: `You should plan so you will live until retirement`
-Me: `If I have the resources I should live like today is the last day I am alive`
-
-In each of these examples we removed happiness being dependent on something.
+In each of these examples we removed happiness being dependent on some kind of success.
 <b>You deserve to be happy by default</b> and should reach for your goals from
-a place of curiosity and love of yourself and others.
+a place of curiosity and love of yourself and others instead of insecurity and fear of
+others.
 
 Sometimes life will hit you with a hammer. When it does take time to regain your hope in humanity in any way you
 feel is right and take as much time as you need. When you get back up you will
