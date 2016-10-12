@@ -409,7 +409,7 @@ us.
        understands speech.
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
-         - ![alt text](./model/images/translation_training_creates_scale_invariance.png)
+         - ![alt text](https://raw.githubusercontent.com/WalnutiQ/wAlnut/master/model/images/explanatory/translation_training_creates_scale_invariance.png)
          - Notice how the scaling of "A" in (c) would be the exact same input as (b) if you translate the input
            to the left by 1 pixel.
    - Not supportive: 
