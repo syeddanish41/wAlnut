@@ -53,8 +53,8 @@ in this project please e-mail quinnliu@vt.edu
 
 Start with the most fundamental truths and reason up from there.
 
-Then watch this video on [developing true confidence by Kong](https://www.youtube.com/watch?v=xSURldy2EJE).
-Then watch this video on [how to live by Steve](https://www.youtube.com/watch?v=UF8uR6Z6KLc).
+Then watch this video on [developing true confidence by Kong](https://www.youtube.com/watch?v=xSURldy2EJE).  
+Then watch this video on [how to live by Steve](https://www.youtube.com/watch?v=UF8uR6Z6KLc).  
 Then watch this video on [how to live by Neil](https://www.youtube.com/watch?v=ikAb-NYkseI).
 
 The best approach I have come across for building an artificial general intelligence
@@ -194,7 +194,7 @@ any goal in this project your happiness will only be temporary. You have made
 the false assumption that your default state is not happiness because throughout
 your life others have told you:
 
-Others: `You should feel successful only if you are the best`
+Others: `You should feel successful only if you are the best`  
 But why can't it become `I should follow my curiosity to improve myself a little
 bit everyday`?
 
@@ -205,15 +205,15 @@ of curiosity and love of yourself and others.
 Here are some other examples of how your past experiences are pushing you
 towards being less like yourself and how you can change it:
 
-Others: `You should feel successful if you listen to what I tell you and not question it`
+Others: `You should feel successful if you listen to what I tell you and not question it`  
 Becomes: `I should be open-minded and think from 1st principles and do what I
 think is right`
 
-Others: `You should feel successful if you do the thing that will make you the most money`
+Others: `You should feel successful if you do the thing that will make you the most money`  
 Becomes: `When I do not need the money I should do things that make me excited
 and that I want to see exist in reality over doing something just for the money`
 
-Others: `You should feel successful only if you are approved wildly`
+Others: `You should feel successful only if you are approved wildly`  
 Becomes: `I should help others improve themselves a little bit everyday`
 
 In each of these examples we removed happiness being dependent on some kind of success.
