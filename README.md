@@ -237,7 +237,7 @@ for your collaboration as I cannot do this alone. To get started read
    visualizing a general learning algorithm.
 
    You must meet these minimum requirements but exceptions can be made given
-   applicants with other backgrounds.
+   applicants with exceptional backgrounds in particular areas.
    - Know how to use Git & Github.com. If you don't know how I created a 1.5
      hour playlist on how to use Git & 
      Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
@@ -251,9 +251,11 @@ for your collaboration as I cannot do this alone. To get started read
    
 3. E-mail quinnliu@vt.edu the following:
    - Link to source code of project you enjoyed working on the most preferably in
-     Python or Javascript. I am really just looking for good object oriented design and good
-     documentation.
+     Python or Javascript or D3.js. I am really just looking for good object oriented design 
+     and good documentation.
    - Why you want to work on wAlnut. 
+   - My current rule of thumb for hiring someone is if the roles where reversed and you
+     were hiring me would I want to work for you. 
 
 4. For now we are using the Git workflow model
    [here](https://github.com/WalnutiQ/wAlnut/issues/62) and the Google python style
