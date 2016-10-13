@@ -1,8 +1,9 @@
 # wAlnut
 
-"*Though we are limited physically. Our spirit is limitless.*"
+"*It seems that perfection is attained, not when there is nothing more to 
+  add, but when there is nothing more to take away.*"
 
-~ [Wenqi Jia](https://www.youtube.com/watch?v=Mx6hBgNNacE)
+~ [Antoine de Saint Exupéry](https://en.wikiquote.org/wiki/Antoine_de_Saint_Exup%C3%A9ry)
 
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
