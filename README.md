@@ -1,9 +1,14 @@
 # wAlnut
 
-"*It seems that perfection is attained, not when there is nothing more to 
-  add, but when there is nothing more to take away.*"
+"*Now fear is going to be a player in your life. But you get to decide how much.
+  You can spend your whole life imagining ghosts worrying about your pathway to 
+  the future, but all there will ever be is what’s happening here. And the 
+  decisions we make in this moment which are based on either love or fear. So 
+  many of us choose our path out of fear disguised as practicality. What we 
+  really want seems impossibly out of reach and ridiculous to expect so we 
+  never dare to ask to ask the universe for it.*"
 
-~ [Antoine de Saint Exupéry](https://en.wikiquote.org/wiki/Antoine_de_Saint_Exup%C3%A9ry)
+~ [Jim Carrey](https://www.youtube.com/watch?v=V80-gPkpH6M)
 
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
