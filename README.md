@@ -1,9 +1,14 @@
 # wAlnut
 
-"*It seems that perfection is attained, not when there is nothing more to 
-  add, but when there is nothing more to take away.*"
+"*Now fear is going to be a player in your life. But you get to decide how much.
+  You can spend your whole life imagining ghosts worrying about your pathway to
+  the future, but all there will ever be is what’s happening here. And the
+  decisions we make in this moment which are based on either love or fear. So
+  many of us choose our path out of fear disguised as practicality. What we
+  really want seems impossibly out of reach and ridiculous to expect so we
+  never dare to ask to ask the universe for it.*"
 
-~ [Antoine de Saint Exupéry](https://en.wikiquote.org/wiki/Antoine_de_Saint_Exup%C3%A9ry)
+~ [Jim Carrey](https://www.youtube.com/watch?v=V80-gPkpH6M)
 
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**
@@ -19,7 +24,7 @@
 ## Why and Goals
 
 I believe that intelligent machines will be able to solve many of our
-hardest problems and will cause many new hard problems. Our hardest problems 
+hardest problems and will cause many new hard problems. Our hardest problems
 like scarcity of water, food, shelter, resources, understanding, affection and
 mysteries like cancer, mortality, and secretes of the universe involve
 understanding a lot of data and as humans we are limited by the processing
@@ -29,13 +34,13 @@ surpass the collective intelligence of the 7+ billion people on Earth we will
 have created intelligent machines that do not need to eat, sleep, or reproduce
 that can work on our hardest problems much more efficiently than humans.
 
-Technology has always been used to do great good and great evil and even if we 
-have the best intentions to do good, intelligent machines will cause many new 
-problems. For example, there will be massive job loss since most jobs 
-can be replaced by intelligent machines. A possible solution to this hard 
+Technology has always been used to do great good and great evil and even if we
+have the best intentions to do good, intelligent machines will cause many new
+problems. For example, there will be massive job loss since most jobs
+can be replaced by intelligent machines. A possible solution to this hard
 problem will be to augment our brains and become super intelligent as a species.
 
-The current short term goal is to experiment with a simplified visual pathway 
+The current short term goal is to experiment with a simplified visual pathway
 from an eye that sees binary bitmap training videos to experimental general
 learning algorithms to understand the key principles of intelligence and discover
 new principles of intelligence that evolution missed. This repo is currently
@@ -240,7 +245,7 @@ for your collaboration as I cannot do this alone. To get started read
    You must meet these minimum requirements but exceptions can be made given
    applicants with exceptional backgrounds in particular areas.
    - Know how to use Git & Github.com. If you don't know how I created a 1.5
-     hour playlist on how to use Git & 
+     hour playlist on how to use Git &
      Github [here](https://www.youtube.com/watch?v=44E8o-xuxWo&list=PLPXsMt57rLtgpwFBqZq4QKxrD9Hhc_8L4).
    - Be very curious about how the human brain works and realized this is a problem you can
      and want to solve in your lifetime.
@@ -249,14 +254,14 @@ for your collaboration as I cannot do this alone. To get started read
    - Have at least 2 hours of free time each day to video chat with me 4 consecutive
      days of the week. This is based on the learning principle that if you want to
      get really good at something you have to work on it consecutively everyday.
-   
+
 3. E-mail quinnliu@vt.edu the following:
    - Link to source code of project you enjoyed working on the most preferably in
-     Python or Javascript or D3.js. I am really just looking for good object oriented design 
+     Python or Javascript or D3.js. I am really just looking for good object oriented design
      and good documentation.
-   - Why you want to work on wAlnut. 
+   - Why you want to work on wAlnut.
    - My current rule of thumb for hiring someone is if the roles where reversed and you
-     were hiring me would I want to work for you. 
+     were hiring me would I want to work for you.
 
 4. For now we are using the Git workflow model
    [here](https://github.com/WalnutiQ/wAlnut/issues/62) and the Google python style
@@ -267,7 +272,7 @@ for your collaboration as I cannot do this alone. To get started read
 1. Go to the top right of this page and hit the Fork button. Then clone your forked
    repository locally.
 
-2. Install [Python 3.5.2](https://www.python.org/) and 
+2. Install [Python 3.5.2](https://www.python.org/) and
    [pip](https://pip.pypa.io/en/stable/installing/). You have installed successfully
    when you can:
 
@@ -283,7 +288,7 @@ for your collaboration as I cannot do this alone. To get started read
    - then `virtualenv wAlnut_environment`
    - then `source wAlnut_environment/bin/activate`
    - then `pip3 install -r requirements.txt`
-   - then `nosetests -s` where -s tells nose to show print statements in test files
+   - then `nosetests --exe -s` where -s tells nose to show print statements in test files and --exe flag look for tests in python modules that are executable
    - optionally type `deactivate` to leave the virtual environment
 
 ## What
@@ -309,7 +314,7 @@ us.
 
 ## Key Theories
 
-1. **Theory 1:** 
+1. **Theory 1:**
    1 common learning algorithm in the neocortex of the brain
    - Supportive:
      - 1992 Paper [here](https://github.com/WalnutiQ/papers/blob/master/VisualProjectionsRouted.pdf)
@@ -347,8 +352,8 @@ us.
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
          - There is a idea in optimization algorithms called No Free Lunch
-           theorem. No Free Lunch theorem "*state[s] that any two optimization 
-           algorithms are equivalent when their performance is averaged across 
+           theorem. No Free Lunch theorem "*state[s] that any two optimization
+           algorithms are equivalent when their performance is averaged across
            all possible problems*".
          - "*On the surface, the NFL theorem seems to create problems for the
            idea of a common cortical algorithm. How can one mechanism/algorithm
@@ -373,14 +378,14 @@ us.
    - Conclusion: If cortex X(arbitrary cortex) of the neocortex(contains visual cortex,
      auditory cortex, somatosensory cortex, and others.) can be given
      non-normal sensory input usually given to say cortex Y and then learn to
-     process this new input similarly to how cortex X would process it, then 
-     we can hypothesize that there is a common learning/predicting algorithm 
+     process this new input similarly to how cortex X would process it, then
+     we can hypothesize that there is a common learning/predicting algorithm
      in all cortices of the neocortex.
 
-2. **Theory 2:** 
+2. **Theory 2:**
    The common learning algorithm efficiently learns about the
    world by making a specific set of assumptions about the world. This is the
-   inductive bias of the common learning algorithm. 
+   inductive bias of the common learning algorithm.
    - Supportive:
      + Thought Experiment [here](https://www.youtube.com/watch?v=NPtAIVieh4k) by D. Scott Phoenix
        from Vicarious.com
@@ -392,7 +397,7 @@ us.
              (choose value between 0 and 256)(0-256)...32*32 more times.
          - 256^1024 is approximately 10^2400 which is a very large number. On the other hand
            a human lives about 2.5 * 10^9 seconds (80 years) and has about 10^11 neurons. And in about
-           3.1 * 10^7 seconds (1 year) "*we are able to solve this problem space and distinguish 
+           3.1 * 10^7 seconds (1 year) "*we are able to solve this problem space and distinguish
            readily between faces and not faces. What this implies is that our brains are making
            a lot of assumptions.*"
 
@@ -402,88 +407,88 @@ us.
      learning algorithm makes about the world by asking the question
      "*What is the basic set of assumptions that are specific enough to make
      learning feasible in a reasonable amount of time while being general
-     enough to be applicable to a large class of problems?*" ~ Dileep George 
+     enough to be applicable to a large class of problems?*" ~ Dileep George
 
 3. **Theory 2 Assumption 1:**
    A common learning algorithm must be trained on unlabeled movies of the
-   world it is expected to learn to predict and classify. 
-   - Supportive: 
-     + A baby has to learn this way for the first year of life before it 
+   world it is expected to learn to predict and classify.
+   - Supportive:
+     + A baby has to learn this way for the first year of life before it
        understands speech.
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
          - Figure 1: ![alt text](https://raw.githubusercontent.com/WalnutiQ/wAlnut/master/model/images/explanatory/translation_training_creates_scale_invariance.png)
          - Notice how the scaling of "A" in (c) would be the exact same input as (b) if you translate the input
            to the left by 1 pixel.
-   - Not supportive: 
+   - Not supportive:
    - Conclusion: Yes, specific enough to make learning feasible and general
-     enough for large class of problems. 
+     enough for large class of problems.
 
 4. **Theory 2 Assumption 2:**   
-   Manifold = all the images generated by the same object in a 
-   high-dimensional space. 
+   Manifold = all the images generated by the same object in a
+   high-dimensional space.
 
    If object A occurs close together to object B in time than object C then
    object A and object B are more similar. This information is used to form
    manifolds aka invariant representations of the objects.
-   - Supportive: 
-     + A baby has to learn this way for the first year of life before it 
+   - Supportive:
+     + A baby has to learn this way for the first year of life before it
        understands speech.
    - Not supportive:
    - Conclusion: Yes, specific enough to make learning feasible and general
-     enough for large class of problems. 
+     enough for large class of problems.
 
-5. **Theory 2 Assumption 3:** 
-   If pattern B follows pattern A in time, then they are causally related and 
+5. **Theory 2 Assumption 3:**
+   If pattern B follows pattern A in time, then they are causally related and
    in the future pattern A should predict pattern B.
    - Supportive:
-     - The brain is constantly making predictions about the future. 
+     - The brain is constantly making predictions about the future.
    - Not supportive:
      - How does the brain make predictions multiple time steps into the future?
    - Conclusion: Yes, specific enough to make learning feasible and general
-     enough for large class of problems. 
+     enough for large class of problems.
 
 6. **Theory 2 Assumption 4:**
    Complex invariant representations are made up of less complex invariant
    representations in a hierarchy.
    - Supportive:
      + More ideas in the universe than neurons in the brain. Also the universe
-       has natural hierarchies. 
-     + The neocortex has a hierarchal structure. 
+       has natural hierarchies.
+     + The neocortex has a hierarchal structure.
    - Not supportive:
-   - Conclusion: The common learning algorithm first learns invariant 
-     representations of object components then learns invariant 
-     representations of more complex objects in terms of the invariant 
+   - Conclusion: The common learning algorithm first learns invariant
+     representations of object components then learns invariant
+     representations of more complex objects in terms of the invariant
      representations of the components.
 
-7. **Theory 2 Assumption 5:** 
-   During the current time step of the common learning algorithm, it will 
-   always receive input about what muscles were used in the last time step. 
+7. **Theory 2 Assumption 5:**
+   During the current time step of the common learning algorithm, it will
+   always receive input about what muscles were used in the last time step.
    - Supportive:
-     + Consciousness doesn't get confused when the eye is moving 
+     + Consciousness doesn't get confused when the eye is moving
        around. This means every region in the neocortex must be receiving input
        about the eye's sensori-motor movement so it can use it to accurately
-       predict the future. 
+       predict the future.
   - Not supportive:
-  - Conclusion: This assumption is specific enough to make learning feasible 
-    in a reasonable amount of time while being general enough to be applicable 
+  - Conclusion: This assumption is specific enough to make learning feasible
+    in a reasonable amount of time while being general enough to be applicable
     to a large class of problems.    
 
 8. **Theory 2 Assumption 6:**
-   Every input pattern is encoded into a sparse distributed representation of 
+   Every input pattern is encoded into a sparse distributed representation of
    the input stimuli.
    - Supportive:
      - Not possible to process every pixel in the input image.
      - Sparse distributed representations can represent vision data, audio data,
-       touch data and in general any time of data can be encoded into a 
+       touch data and in general any time of data can be encoded into a
        sparse distributed representation.
    - Not supportive:
-   - Conclusion: Specific enough to make learning feasible in a reasonable 
-     amount of time while being general enough to be applicable to a large 
+   - Conclusion: Specific enough to make learning feasible in a reasonable
+     amount of time while being general enough to be applicable to a large
      class of problems.
 
 ## Code Outline
- 
+
 If you are confused what a file/folder is for:
 ```
 - model/ = object oriented model implementing the key theories
@@ -496,5 +501,5 @@ If you are confused what a file/folder is for:
 - LICENSE.txt = GNU General Public License version 3
 - README.md = the file you are reading right now
 - requirements.txt = list of python library versions we are using. These are installed
-                     in your virtual environment during setup 
+                     in your virtual environment during setup
 ```
