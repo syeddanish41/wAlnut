@@ -6,10 +6,9 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-before_install:
-  - pip3 install virtualenv
-  - pip3 install -r requirements.txt
-install:
+install::
+  - pip install virtualenv
+  - pip install -r requirements.txt
   - virtualenv wAlnut_environment
   - source wAlnut_environment/bin/activate
 script: nosetests --exe -s
