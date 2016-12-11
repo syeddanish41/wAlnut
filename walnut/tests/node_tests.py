@@ -1,5 +1,5 @@
-from nose.tools import *
-from model.node import Node
+from nose.tools import assert_equal
+from walnut.model.htmmodel.node import Node
 
 
 def test_add_unique_pattern():
