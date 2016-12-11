@@ -5,10 +5,6 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-install::
-  - pip install coveralls
-  - pip install virtualenv
+install:
   - pip install -r requirements.txt
-  - virtualenv wAlnut_environment
-  - source wAlnut_environment/bin/activate
-script: nosetests  --with-coverage
+script: nosetests  --with-coverage --exe --cover-package=walnut

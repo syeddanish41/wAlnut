@@ -13,7 +13,6 @@ __pycache__/
 .idea/
 
 # Files generated in experiments
-*.zip
 *.json
 
 # Continuous integration

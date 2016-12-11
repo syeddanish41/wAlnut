@@ -1,4 +1,4 @@
-from model.node import Node
+from walnut.model.htmmodel.node import Node
 
 
 class Layer(object):
