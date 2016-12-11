@@ -1,11 +1,10 @@
-from nose.tools import *
 from zipfile import ZipFile
 from PIL import Image
 from walnut.model.retina import Retina
-from walnut.model.layer import Layer
-from walnut.model.network import Network
-from walnut.model.common_cortical_algorithm_v1 import CommonCorticalAlgorithmV1
-from walnut.model.connect_types import ConnectTypes
+from walnut.model.htmmodel.layer import Layer
+from walnut.model.htmmodel.network import Network
+from walnut.model.htmmodel.common_cortical_algorithm_v1 import CommonCorticalAlgorithmV1
+from walnut.model.htmmodel.connect_types import ConnectTypes
 from walnut.utils.file import File
 import jsonpickle
 import json
@@ -55,7 +54,7 @@ def _save_model_at_current_timestep(timestep, network):
     Generate a JSON file representing the state of the model at each timestep.
     """
     pickled_network = jsonpickle.encode(network)
-    #print('picked_network = ' + pickled_network)
+    # print('picked_network = ' + pickled_network)
 
     with open('walnut/tests/experiments/classify_digits/model_across_time/t=' + str(timestep) + '.json', 'w') as outfile:
-       json.dump(pickled_network, outfile)
+        json.dump(pickled_network, outfile)

@@ -1,5 +1,6 @@
-from nose.tools import *
-from walnut.model.layer import Layer
+from nose.tools import assert_equal
+from walnut.model.htmmodel.layer import Layer
+
 
 def test_constructor():
     layer = Layer(1, 'layer_1')
