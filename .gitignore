@@ -15,3 +15,6 @@ __pycache__/
 # Files generated in experiments
 *.zip
 *.json
+
+#Continuous Integration
+.coverage
