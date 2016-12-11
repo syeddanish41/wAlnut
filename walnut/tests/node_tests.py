@@ -1,5 +1,5 @@
 from nose.tools import *
-from model.node import Node
+from walnut.model.node import Node
 
 
 def test_add_unique_pattern():

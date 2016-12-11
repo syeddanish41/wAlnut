@@ -1,5 +1,5 @@
 from nose.tools import *
-from model.layer import Layer
+from walnut.model.layer import Layer
 
 def test_constructor():
     layer = Layer(1, 'layer_1')

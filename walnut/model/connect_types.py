@@ -45,7 +45,7 @@ class ConnectTypes(object):
 
         without_overlap = (b_initial, b_final)
 
-        #TODO if overlap==0 this should pose no effect but it does.
+        # TODO if overlap==0 this should pose no effect but it does.
         if overlap:
 
             new_b_initial = without_overlap[0] - overlap

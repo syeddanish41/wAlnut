@@ -1,12 +1,12 @@
 from nose.tools import *
 from zipfile import ZipFile
 from PIL import Image
-from model.retina import Retina
-from model.layer import Layer
-from model.network import Network
-from model.common_cortical_algorithm_v1 import CommonCorticalAlgorithmV1
-from model.connect_types import ConnectTypes
-from model.utils.file import File
+from walnut.model.retina import Retina
+from walnut.model.layer import Layer
+from walnut.model.network import Network
+from walnut.model.common_cortical_algorithm_v1 import CommonCorticalAlgorithmV1
+from walnut.model.connect_types import ConnectTypes
+from walnut.utils.file import File
 import jsonpickle
 import json
 
@@ -28,7 +28,7 @@ def test_classify_digits():
     t = 0
     print_to_console = True
     # train network on digit dataset to form memory and temporal groups
-    with ZipFile('model/datasets/digit_0.zip') as archive:
+    with ZipFile('walnut/datasets/digit_0.zip') as archive:
         for entry in archive.infolist():
             with archive.open(entry) as file:
                 binary_image = Image.open(file)
@@ -47,7 +47,7 @@ def test_classify_digits():
     # 2) TODO: assert temporal groups in nodes are correct at each level?
 
     # save model across time logs into 1 zip file
-    File.save_data_into_1_file('tests/experiments/classify_digits/model_across_time', 'classify_digits_experiment', 'tests/experiments/classify_digits')
+    File.save_data_into_1_file('walnut/tests/experiments/classify_digits/model_across_time', 'classify_digits_experiment', 'walnut/tests/experiments/classify_digits')
 
 
 def _save_model_at_current_timestep(timestep, network):
@@ -57,5 +57,5 @@ def _save_model_at_current_timestep(timestep, network):
     pickled_network = jsonpickle.encode(network)
     #print('picked_network = ' + pickled_network)
 
-    with open('tests/experiments/classify_digits/model_across_time/t=' + str(timestep) + '.json', 'w') as outfile:
+    with open('walnut/tests/experiments/classify_digits/model_across_time/t=' + str(timestep) + '.json', 'w') as outfile:
        json.dump(pickled_network, outfile)
