@@ -7,4 +7,6 @@ python:
   - "3.5"
 install:
   - pip install -r requirements.txt
-script: nosetests  --with-coverage --exe --cover-package=walnut
+script:
+  - nosetests  --with-coverage --exe --cover-package=walnut
+  - coala --non-interactive
