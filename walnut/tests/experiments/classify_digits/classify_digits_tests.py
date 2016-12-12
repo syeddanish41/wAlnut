@@ -23,7 +23,7 @@ def test_classify_digits():
     network = Network(layers, retina)
     cca_v1 = CommonCorticalAlgorithmV1(network)
 
-    number_training_timesteps = 1
+    number_training_timesteps = 10
     t = 0
     print_to_console = True
     # train network on digit dataset to form memory and temporal groups
