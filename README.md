@@ -1,6 +1,6 @@
 # wAlnut
 
-*Think 1st principles*
+*Think 1st principles*  
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=develop)](https://travis-ci.org/WalnutiQ/wAlnut)
 
 #### Table of Contents
@@ -50,8 +50,8 @@ in this project please e-mail quinnliu@vt.edu
 
 Start with the most fundamental truths and reason up from there.
 
-Then watch this video on [developing true confidence by Kong](https://www.youtube.com/watch?v=xSURldy2EJE).
-Then watch this video on [how to live by Steve](https://www.youtube.com/watch?v=UF8uR6Z6KLc).
+Then watch this video on [developing true confidence by Kong](https://www.youtube.com/watch?v=xSURldy2EJE).  
+Then watch this video on [how to live by Steve](https://www.youtube.com/watch?v=UF8uR6Z6KLc).  
 Then watch this video on [how to live by Neil](https://www.youtube.com/watch?v=ikAb-NYkseI).
 
 The best approach we have come across for building an artificial general intelligence
@@ -408,7 +408,7 @@ us.
        understands speech.
      + 2008 PhD thesis [here](https://github.com/WalnutiQ/papers/blob/master/HowTheBrainMightWork.pdf)
        by Dileep George from Stanford University
-         - Figure 1: ![alt text](https://raw.githubusercontent.com/WalnutiQ/wAlnut/master/model/images/explanatory/translation_training_creates_scale_invariance.png)
+         - Figure 1: ![alt text](https://raw.githubusercontent.com/WalnutiQ/wAlnut/develop/walnut/images/explanatory/translation_training_creates_scale_invariance.png)
          - Notice how the scaling of "A" in (c) would be the exact same input as (b) if you translate the input
            to the left by 1 pixel.
    - Not supportive:
