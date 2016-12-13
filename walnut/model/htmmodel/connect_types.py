@@ -14,13 +14,13 @@ class ConnectTypes(object):
         bot_col_length = len(input_cells[0])
 
         for row_top in range(top_row_length):
-            row_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(
+            row_receptive_field = ConnectTypes.__update_receptive_field_dimension_length(
                 top_row_length, bot_row_length, row_top, y_axis_overlap)
             row_b_initial = row_receptive_field[0]
             row_b_final = row_receptive_field[1]
 
             for col_top in range(top_col_length):
-                col_receptive_field = ConnectTypes.__update_receptive_field_dimension_length_with_overlap(
+                col_receptive_field = ConnectTypes.__update_receptive_field_dimension_length(
                     top_col_length, bot_col_length, col_top, x_axis_overlap)
                 col_b_initial = col_receptive_field[0]
                 col_b_final = col_receptive_field[1]
@@ -32,7 +32,7 @@ class ConnectTypes(object):
                 #       str(layer.nodes[row_top][col_top].receptive_field_dimensions))
 
     @staticmethod
-    def __update_receptive_field_dimension_length(top_length, bot_length, top_index):
+    def __update_receptive_field_dimension_length(top_length, bot_length, top_index, overlap=False):
         if top_length > bot_length:
             raise ValueError('top_length must be <= bot_length')
 
@@ -43,18 +43,19 @@ class ConnectTypes(object):
             b_initial = top_index * (bot_length / top_length) + bot_length % top_length
             b_final = (top_index + 1) * (bot_length / top_length) + bot_length % top_length - 1
 
-        return (b_initial, b_final)
+        without_overlap = (b_initial, b_final)
 
-    @staticmethod
-    def __update_receptive_field_dimension_length_with_overlap(top_length, bot_length, top_index, overlap):
-        without_overlap = ConnectTypes.__update_receptive_field_dimension_length(top_length, bot_length, top_index)
+        # TODO if overlap==0 this should pose no effect but it does.
+        if overlap:
 
-        new_b_initial = without_overlap[0] - overlap
-        if new_b_initial < 0:
-            new_b_initial = 0
+            new_b_initial = without_overlap[0] - overlap
+            if new_b_initial < 0:
+                new_b_initial = 0
 
-        new_b_final = without_overlap[1] + overlap
-        if new_b_final > bot_length - 1:
-            new_b_final = bot_length - 1
+            new_b_final = without_overlap[1] + overlap
+            if new_b_final > bot_length - 1:
+                new_b_final = bot_length - 1
 
-        return (new_b_initial, new_b_final)
+            return (new_b_initial, new_b_final)
+
+        return without_overlap
