@@ -17,7 +17,7 @@ class CommonCorticalAlgorithmV1(object):
         :param input_layer: 2D int array where '1' is black and '0' is white
         """
         # start at the bottom layer
-        print(CommonCorticalAlgorithmV1.time_step)
+        print("Time Step:", CommonCorticalAlgorithmV1.time_step)
         for i in range(len(self.network.layers)):
             current_layer = self.network.layers[i]
             print(current_layer.name + ' i = ' + str(i))
@@ -45,27 +45,12 @@ class CommonCorticalAlgorithmV1(object):
                         # 3) if you find a unique receptive field add it to the node's memory
                         cur_active_input_pattern_index, ret = nodes[r][c].add_unique_pattern(current_node_receptive_field)
 
-                        # TODO remove these before merge
-                        # print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-                        # print("mkgraph", nodes[r][c].markov_graph.graph)
-                        # print(r, c)
-                        # print("memory", nodes[r][c].memory)
-                        # print(current_node_receptive_field in nodes[r][c].memory)
-                        # print("current_node_receptive_field-", current_node_receptive_field)
-
                         if nodes[r][c].prev_active_input_pattern_index != -1:
-                            # print("there was something previously")
-                            # print(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index)
-                            # print(nodes[r][c].memory[nodes[r][c].prev_active_input_pattern_index])
-                            # print(nodes[r][c].memory[cur_active_input_pattern_index])
                             nodes[r][c].markov_graph.connect(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index)
 
-                        if CommonCorticalAlgorithmV1.time_step == 2:
-                            # print("mkgraph again", nodes[r][c].markov_graph.graph[0])
-                            nodes[r][c].markov_graph.draw_graph(0)
+                        nodes[r][c].markov_graph.draw_graph(0)
                         nodes[r][c].prev_active_input_pattern_index = cur_active_input_pattern_index
 
-        # self._learn_transitional_probabilities(input_layer)
         # TODO: _form_temporal_groups()
         CommonCorticalAlgorithmV1.time_step += 1
         return
