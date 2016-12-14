@@ -21,7 +21,7 @@ class Retina(object):
         image_row = ''
         for c in range(image_height):
             for r in range(image_width):
-                if pixels[r,c] == 1:
+                if pixels[r, c] == 1:
                     self.vision_cells[r][c] = True
                     image_row += '1'
                 else:
