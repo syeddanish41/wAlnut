@@ -1,4 +1,4 @@
-from walnut.model.htmmodel.markov_graph import Markov_graph
+from walnut.model.htmmodel.markov_graph import MarkovGraph
 
 
 class Node(object):
@@ -13,14 +13,14 @@ class Node(object):
         temporal_group = [ {c1, c3, c5}, {c2, c4} ] where g1 = {c1, c3, c5} and g2 = {c2, c4}
 
         NOTE: At nodes high in the hierarchy temporal groups will begin to represent complex objects.
-              After understanding model/images/explanatory/object_manifolds.png one can think of a temporal group as an
-              object manifold.
+              After understanding walnut/model/images/explanatory/object_manifolds.png one can think of a temporal
+              group as an object manifold.
 
     :returns After training returns an active temporal group for each input pattern
     """
     def __init__(self):
         self.memory = []
-        self.markov_graph = Markov_graph()
+        self.markov_graph = MarkovGraph()
         self.active_input_pattern_index = -1
         self.prev_active_input_pattern_index = -1
 

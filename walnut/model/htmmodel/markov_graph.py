@@ -1,44 +1,47 @@
 from __future__ import division
-from collections import defaultdict
+import numpy as np
 
 
-class Markov_graph(object):
-    """A directional graph determing the transitional probabilities.
+class MarkovGraph(object):
+    """A directional graph determining the transitional probabilities between vertices.
 
-    Example network is walnut/model/images/explanatory/normalised_markov_graph.png.
+    To understand Markov Graph's better read this: http://setosa.io/ev/markov-chains/
 
-    :param layers: 2d adjacency matrix of nodes
+    Example image of markov graph used for vision times series data is
+    walnut/model/images/explanatory/normalised_markov_graph.png
     """
 
     def __init__(self):
-        self.graph = defaultdict(list)
+        self.current_max_vertices = 4
+        self.square_matrix = np.zeros(self.current_max_vertices)
+        self.number_of_vertices = 0
+        self.vertex_names_hashtable = {}
 
-    def connect(self, prev_active_input_pattern_index, cur_active_input_pattern_index):
-        for index, edge in enumerate(self.graph[prev_active_input_pattern_index]):
-            if cur_active_input_pattern_index == edge[0]:
-                self.graph[prev_active_input_pattern_index][index][1] += 1
-                return
+    def add_vertex(self, vertex_name):
+        self.number_of_vertices += 1
+        if self.number_of_vertices == self.current_max_vertices:
+            self.__double_matrix_size()
 
-        self.graph[prev_active_input_pattern_index].append([cur_active_input_pattern_index, 1])
+        # then add vertex to graph
+        self.vertex_names_hashtable[vertex_name] = self.number_of_vertices
 
-    def dfs(self, cur_index, visited, normalise=False):
-        visited[cur_index] = True
+    def __double_matrix_size(self):
+        # Create new matrix
+        self.current_max_vertices *= 2
+        new_square_matrix = np.zeros(self.current_max_vertices)
 
-        if normalise:
-            total_wt = 0
-            for edge in self.graph[cur_index]:
-                total_wt += edge[1]
+        # copy original matrix into new matrix
+        new_square_matrix[0:self.number_of_vertices+1, 0:self.number_of_vertices+1] = self.square_matrix
+        # Why + 1? Because Python uses half-open ranges. So the slice [0:1] is the half-open range [0, 1),
+        # meaning just the index 0; the slice [0:2] is the half-open range [0, 2), meaning the indices 0 and 1
+        self.square_matrix = new_square_matrix
 
-            for index, edge in enumerate(self.graph[cur_index]):
-                self.graph[cur_index][index][1] /= total_wt
+    def record_transition_from_vertex_A_to_B(self, vertex_A_name, vertex_B_name):
+        # TODO: throw illegal argument exception if vertexA or vertexB do not exist in markov graph
+        vertex_A_row_index = self.vertex_names_hashtable[vertex_A_name] - 1
+        vertex_B_row_index = self.vertex_names_hashtable[vertex_B_name] - 1
+        position = (vertex_A_row_index, vertex_B_row_index)
+        old_value = self.square_matrix.item(position)
+        self.square_matrix.itemset(position, old_value + 1)
 
-        for edge in self.graph[cur_index]:
-            if edge[0] < len(self.graph) and visited[edge[0]] is False:
-                self.dfs(edge[0], visited, normalise)
-
-    def draw_graph(self, normalise=False):
-        visited = [False] * (len(self.graph))
-
-        for index in range(len(self.graph)):
-            if visited[index] is False:
-                self.dfs(index, visited, normalise)
+    #def normalize_graph(self):
