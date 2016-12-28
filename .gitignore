@@ -1,3 +1,9 @@
+#installation generated files
+.eggs/
+build/
+dist/
+wAlnut.egg-info/
+
 # virtualenv
 wAlnut_environment
 
