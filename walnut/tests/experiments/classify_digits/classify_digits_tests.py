@@ -27,7 +27,7 @@ def test_classify_digits():
     t = 0
     print_to_console = True
     # train network on digit dataset to form memory and temporal groups
-    with ZipFile('walnut/datasets/digit_0.zip') as archive:
+    with ZipFile('walnut/datasets/video_1.zip') as archive:
         for entry in archive.infolist():
             with archive.open(entry) as file:
                 binary_image = Image.open(file)

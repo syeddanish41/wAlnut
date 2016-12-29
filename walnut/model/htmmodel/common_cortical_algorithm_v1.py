@@ -17,13 +17,10 @@ class CommonCorticalAlgorithmV1(object):
         :param input_layer: 2D int array where '1' is black and '0' is white
         """
         # start at the bottom layer
-        print("Time Step:", CommonCorticalAlgorithmV1.time_step)
         for i in range(len(self.network.layers)):
             current_layer = self.network.layers[i]
-            print(current_layer.name + ' i = ' + str(i))
             if i == 0:
                 # we are at the bottom most layer
-                print('in bottom most layer')
                 # 1) iterate through nodes in this layer
                 nodes = current_layer.nodes
                 for r in range(len(nodes)):
@@ -45,12 +42,18 @@ class CommonCorticalAlgorithmV1(object):
                         # 3) if you find a unique receptive field add it to the node's memory
                         cur_active_input_pattern_index, ret = nodes[r][c].add_unique_pattern(current_node_receptive_field)
 
+                        # TODO remove these before merge
                         if nodes[r][c].prev_active_input_pattern_index != -1:
                             nodes[r][c].markov_graph.connect(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index)
-
-                        nodes[r][c].markov_graph.draw_graph(0)
+                        # CommonCorticalAlgorithmV1.time_step == 9 because we have to print the mk graph for the last pattern
+                        if CommonCorticalAlgorithmV1.time_step == 9:
+                            # aliaba : added two new variables in markov_graph.draw_graph
+                            print('Markov Graph for patch no =', r, ',', c)
+                            nodes[r][c].markov_graph.draw_graph(r, c, 1)
+                            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                         nodes[r][c].prev_active_input_pattern_index = cur_active_input_pattern_index
 
+        # self._learn_transitional_probabilities(input_layer)
         # TODO: _form_temporal_groups()
         CommonCorticalAlgorithmV1.time_step += 1
         return
