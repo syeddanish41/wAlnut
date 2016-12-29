@@ -8,5 +8,5 @@ python:
 before_install:
   - pip install pep8
 script:
-  - python setup.py nosetests --with-coverage -s --exe --cover-package=walnut
+  - python setup.py nosetests --with-coverage --exe --cover-package=walnut
   - find . -name \*.py -exec pep8 --ignore=E501 {} +
