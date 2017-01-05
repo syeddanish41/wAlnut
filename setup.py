@@ -8,7 +8,7 @@ setup(
     author='Mohit Rathore',
     author_email='mrmohitrathoremr@gmail.com',
     description='Work in progress towards an artificial general intelligence',
-    setup_requires=['numpy'],
+    setup_requires=['numpy>=1.11.1'],
     install_requires=[
         'nose>=1.3.7',
         'Pillow>=2.9.0',
