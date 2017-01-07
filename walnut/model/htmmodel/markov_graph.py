@@ -1,6 +1,5 @@
 from __future__ import division
 from collections import defaultdict
-# alibaba: added here for markov graph json dump
 import json
 
 
@@ -12,7 +11,6 @@ class Markov_graph(object):
     """
     def __init__(self):
         self.graph = defaultdict(list)
-        # alibaba: added markov graph matrix having initial, final and weight
         self.initial = []
         self.final = []
         self.weight = []
@@ -43,7 +41,6 @@ class Markov_graph(object):
             if edge[0] < len(self.graph) and visited[edge[0]] is False:
                 self.dfs(edge[0], visited, normalise)
 
-    # alibaba: added two new variables in markov_graph.draw_graph
     # patch_x and patch_y locates the 4*4 patch form the present 64 patches
     def draw_graph(self, patch_x, patch_y, normalise=False):
         visited = [False] * (len(self.graph))
@@ -53,6 +50,5 @@ class Markov_graph(object):
         data = {'patch_x': patch_x, 'patch_y': patch_y, 'initial': self.initial, 'final': self.final, 'weight': self.weight}
         print(data)
         # Writing JSON data
-        # alibaba: added for markov graph dump
         with open('walnut/tests/experiments/classify_digits/model_across_time/markov' + '_' + str(patch_x) + '_' + str(patch_y) + '.json', 'w') as f:
             json.dump(data, f)
