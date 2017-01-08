@@ -44,14 +44,14 @@ class CommonCorticalAlgorithmV1(object):
 
                         # TODO remove these before merge
                         if nodes[r][c].prev_active_input_pattern_index != -1:
-                            print(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index, "........................................................................")
+                            # print(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index, "........................................................................")
                             nodes[r][c].markov_graph.connect(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index)
                         # CommonCorticalAlgorithmV1.time_step == 9 because we have to print the mk graph for the last pattern
                         if CommonCorticalAlgorithmV1.time_step == 9:
                             # aliaba : added two new variables in markov_graph.draw_graph
-                            print('Markov Graph for patch no =', r, ',', c)
-                            nodes[r][c].markov_graph.draw_graph(r, c, 1)
+                            # print('Markov Graph for patch no =', r, ',', c)
                             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+                            nodes[r][c].markov_graph.draw_graph(r, c, 1)
                         nodes[r][c].prev_active_input_pattern_index = cur_active_input_pattern_index
 
         # self._learn_transitional_probabilities(input_layer)
