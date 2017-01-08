@@ -37,8 +37,8 @@ class Markov_graph(object):
         self.num_vertices += 1
 
     def dfs(self, cur_index, normalise=False):
-        print("----------------------------------------------------------------------------------------")
-        print(self.graph[cur_index])
+        # print("----------------------------------------------------------------------------------------")
+        # print(self.graph[cur_index])
         self.visited[cur_index] = True
 
         if normalise:
@@ -47,25 +47,23 @@ class Markov_graph(object):
             if _sum:
                 self.graph[cur_index] = np.divide(self.graph[cur_index], _sum)
 
-        print(self.graph[cur_index])
         for index, weight in enumerate(self.graph[cur_index]):
-            self.initial.append(index)
-            self.final.append(index)
-            self.weight.append(self.graph.item((cur_index, index)))
+            if self.graph.item((cur_index, index)):
+                self.initial.append(cur_index)
+                self.final.append(index)
+                self.weight.append(self.graph.item((cur_index, index)))
             if index < len(self.graph) and self.visited[index] is False:
                 self.dfs(index, normalise)
 
     def draw_graph(self, patch_x, patch_y, normalise=False):
-        print("drawing graph",self.max_unq_patches)
-        print(self.graph)
+        # print("drawing graph",self.max_unq_patches)
+        # print(self.graph)
         self.visited = np.zeros(self.max_unq_patches, dtype=bool)
         for index in range(len(self.graph)):
             if self.visited[index] == False:
-                print("new dfs")
                 self.dfs(index, normalise)
         data = {'patch_x': patch_x, 'patch_y': patch_y, 'initial': self.initial, 'final': self.final, 'weight': self.weight}
-        print(self.visited)
-        # print(data)
+        print(data)
         # Writing JSON data
         with open('walnut/tests/experiments/classify_digits/model_across_time/markov' + '_' + str(patch_x) + '_' + str(patch_y) + '.json', 'w') as f:
             json.dump(data, f)
