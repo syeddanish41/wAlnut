@@ -23,15 +23,15 @@ class Markov_graph(object):
     def double_matrix_size(self):
         self.max_unq_patches *= 2
         temp_graph = np.zeros((self.max_unq_patches, self.max_unq_patches))
-        temp_graph[0:self.num_vertices+1, 0:self.num_vertices+1] = self.graph
+        temp_graph[0:self.num_vertices + 1, 0:self.num_vertices + 1] = self.graph
         self.graph = temp_graph.copy()
 
     def connect(self, prev_active_input_pattern_index, cur_active_input_pattern_index):
-        #print(prev_active_input_pattern_index, cur_active_input_pattern_index, "........................................................................")
+        # print(prev_active_input_pattern_index, cur_active_input_pattern_index, "........................................................................")
         if self.num_vertices + 1 == self.max_unq_patches:
             self.double_matrix_size()
 
-        self.graph[(prev_active_input_pattern_index,cur_active_input_pattern_index)] += 1
+        self.graph[(prev_active_input_pattern_index, cur_active_input_pattern_index)] += 1
         self.num_vertices += 1
 
     def dfs(self, cur_index, normalise=False):
@@ -40,9 +40,9 @@ class Markov_graph(object):
         if normalise:
             total_wt = 0
             _sum = self.graph.sum(axis=1)[cur_index]
-            self.graph[cur_index] = np.divide(self.graph[cur_index],_sum)
+            self.graph[cur_index] = np.divide(self.graph[cur_index], _sum)
 
-        for index,weight in enumerate(self.graph[cur_index]):
+        for index, weight in enumerate(self.graph[cur_index]):
             self.initial.append(index)
             self.final.append(index)
             self.weight.append(self.graph.item((cur_index, index)))
@@ -59,4 +59,3 @@ class Markov_graph(object):
         # Writing JSON data
         with open('walnut/tests/experiments/classify_digits/model_across_time/markov' + '_' + str(patch_x) + '_' + str(patch_y) + '.json', 'w') as f:
             json.dump(data, f)
-
