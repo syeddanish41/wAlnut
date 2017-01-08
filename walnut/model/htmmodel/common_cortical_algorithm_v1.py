@@ -44,6 +44,7 @@ class CommonCorticalAlgorithmV1(object):
 
                         # TODO remove these before merge
                         if nodes[r][c].prev_active_input_pattern_index != -1:
+                            print(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index, "........................................................................")
                             nodes[r][c].markov_graph.connect(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index)
                         # CommonCorticalAlgorithmV1.time_step == 9 because we have to print the mk graph for the last pattern
                         if CommonCorticalAlgorithmV1.time_step == 9:

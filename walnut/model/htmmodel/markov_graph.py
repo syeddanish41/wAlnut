@@ -1,5 +1,5 @@
 from __future__ import division
-from collections import defaultdict
+import numpy as np
 import json
 
 
@@ -8,47 +8,55 @@ class Markov_graph(object):
 
     Example network is walnut/model/images/explanatory/normalised_markov_graph.png.
 
+    :param layers: 2d adjacency matrix of nodes
     """
+
     def __init__(self):
-        self.graph = defaultdict(list)
+        self.max_unq_patches = 1
+        self.num_vertices = 0
+        self.graph = np.zeros((self.max_unq_patches, self.max_unq_patches))
+        self.visited = np.zeros(self.max_unq_patches)
         self.initial = []
-        self.final = []
         self.weight = []
+        self.final = []
+
+    def double_matrix_size(self):
+        self.max_unq_patches *= 2
+        temp_graph = np.zeros((self.max_unq_patches, self.max_unq_patches))
+        temp_graph[0:self.num_vertices+1, 0:self.num_vertices+1] = self.graph
+        self.graph = temp_graph.copy()
 
     def connect(self, prev_active_input_pattern_index, cur_active_input_pattern_index):
-        # print (cur_active_input_pattern_index)
-        for index, edge in enumerate(self.graph[prev_active_input_pattern_index]):
-            if cur_active_input_pattern_index == edge[0]:
-                self.graph[prev_active_input_pattern_index][index][1] += 1
-                return
+        #print(prev_active_input_pattern_index, cur_active_input_pattern_index, "........................................................................")
+        if self.num_vertices + 1 == self.max_unq_patches:
+            self.double_matrix_size()
 
-        self.graph[prev_active_input_pattern_index].append([cur_active_input_pattern_index, 1])
+        self.graph[(prev_active_input_pattern_index,cur_active_input_pattern_index)] += 1
+        self.num_vertices += 1
 
-    def dfs(self, cur_index, visited, normalise=False):
-        visited[cur_index] = True
+    def dfs(self, cur_index, normalise=False):
+        self.visited[cur_index] = True
+
         if normalise:
             total_wt = 0
-            for edge in self.graph[cur_index]:
-                total_wt += edge[1]
+            _sum = self.graph.sum(axis=1)[cur_index]
+            self.graph[cur_index] = np.divide(self.graph[cur_index],_sum)
 
-            for index, edge in enumerate(self.graph[cur_index]):
-                self.graph[cur_index][index][1] /= total_wt
+        for index,weight in enumerate(self.graph[cur_index]):
+            self.initial.append(index)
+            self.final.append(index)
+            self.weight.append(self.graph.item((cur_index, index)))
+            if index < len(self.graph) and self.visited[index] is False:
+                self.dfs(index, normalise)
 
-        for edge in self.graph[cur_index]:
-            self.initial.append(cur_index)
-            self.final.append(edge[0])
-            self.weight.append(edge[1])
-            if edge[0] < len(self.graph) and visited[edge[0]] is False:
-                self.dfs(edge[0], visited, normalise)
-
-    # patch_x and patch_y locates the 4*4 patch form the present 64 patches
     def draw_graph(self, patch_x, patch_y, normalise=False):
-        visited = [False] * (len(self.graph))
+        self.visited = np.zeros(self.max_unq_patches)
         for index in range(len(self.graph)):
-            if visited[index] is False:
-                self.dfs(index, visited, normalise)
+            if self.visited[index] is False:
+                self.dfs(index, normalise)
         data = {'patch_x': patch_x, 'patch_y': patch_y, 'initial': self.initial, 'final': self.final, 'weight': self.weight}
         print(data)
         # Writing JSON data
         with open('walnut/tests/experiments/classify_digits/model_across_time/markov' + '_' + str(patch_x) + '_' + str(patch_y) + '.json', 'w') as f:
             json.dump(data, f)
+
