@@ -16,9 +16,6 @@ class Markov_graph(object):
         self.num_vertices = 0
         self.graph = np.zeros((self.max_unq_patches, self.max_unq_patches))
         self.visited = np.zeros(self.max_unq_patches)
-        self.initial = []
-        self.weight = []
-        self.final = []
 
     def double_matrix_size(self):
         self.max_unq_patches *= 2
@@ -48,22 +45,16 @@ class Markov_graph(object):
                 self.graph[cur_index] = np.divide(self.graph[cur_index], _sum)
 
         for index, weight in enumerate(self.graph[cur_index]):
-            if self.graph.item((cur_index, index)):
-                self.initial.append(cur_index)
-                self.final.append(index)
-                self.weight.append(self.graph.item((cur_index, index)))
             if index < len(self.graph) and self.visited[index] is False:
                 self.dfs(index, normalise)
 
     def draw_graph(self, patch_x, patch_y, normalise=False):
         # print("drawing graph",self.max_unq_patches)
-        # print(self.graph)
         self.visited = np.zeros(self.max_unq_patches, dtype=bool)
         for index in range(len(self.graph)):
             if self.visited[index] == False:
                 self.dfs(index, normalise)
-        data = {'patch_x': patch_x, 'patch_y': patch_y, 'initial': self.initial, 'final': self.final, 'weight': self.weight}
-        print(data)
+        print(self.graph)
         # Writing JSON data
         with open('walnut/tests/experiments/classify_digits/model_across_time/markov' + '_' + str(patch_x) + '_' + str(patch_y) + '.json', 'w') as f:
-            json.dump(data, f)
+            json.dump(self.graph[:10,:10].tolist(), f)
