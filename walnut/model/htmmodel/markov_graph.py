@@ -36,7 +36,7 @@ class Markov_graph(object):
     def dfs(self, cur_index, normalise=False):
         # print("----------------------------------------------------------------------------------------")
         # print(self.graph[cur_index])
-        self.visited[cur_index] = True
+        self.visited[cur_index] = 1
 
         if normalise:
             total_wt = 0
@@ -45,16 +45,16 @@ class Markov_graph(object):
                 self.graph[cur_index] = np.divide(self.graph[cur_index], _sum)
 
         for index, weight in enumerate(self.graph[cur_index]):
-            if index < len(self.graph) and self.visited[index] is False:
+            if index < len(self.graph) and self.visited[index] == 0:
                 self.dfs(index, normalise)
 
     def draw_graph(self, patch_x, patch_y, normalise=False):
         # print("drawing graph",self.max_unq_patches)
-        self.visited = np.zeros(self.max_unq_patches, dtype=bool)
+        self.visited = np.zeros(self.max_unq_patches)
         for index in range(len(self.graph)):
-            if self.visited[index] == False:
+            if self.visited[index] == 0:
                 self.dfs(index, normalise)
         print(self.graph)
         # Writing JSON data
         with open('walnut/tests/experiments/classify_digits/model_across_time/markov' + '_' + str(patch_x) + '_' + str(patch_y) + '.json', 'w') as f:
-            json.dump(self.graph[:10,:10].tolist(), f)
+            json.dump(self.graph[:10, :10].tolist(), f)
