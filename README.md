@@ -2,6 +2,8 @@
 
 *Think 1st principles*  
 [![Build Status](https://travis-ci.org/WalnutiQ/wAlnut.svg?branch=develop)](https://travis-ci.org/WalnutiQ/wAlnut)
+[![Coverage Status](https://coveralls.io/repos/github/WalnutiQ/wAlnut/badge.svg?branch=develop)](https://coveralls.io/github/WalnutiQ/wAlnut?branch=develop)
+
 
 #### Table of Contents
 - **[Why and Goals](#why-and-goals)**

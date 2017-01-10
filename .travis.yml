@@ -7,6 +7,9 @@ python:
   - "3.5"
 before_install:
   - pip install pep8
+  - pip install coveralls
 script:
-  - python setup.py nosetests --with-coverage --exe --cover-package=walnut
+  - coverage run setup.py nosetests --with-coverage --exe --cover-package=walnut
   - find walnut -name \*.py -exec pep8 --ignore=E501 {} +
+after_success:
+  - coveralls
