@@ -1,3 +1,5 @@
+''' Installation script for python wAlnut package'''
+
 import os
 import sys
 from setuptools import find_packages, setup
@@ -8,6 +10,7 @@ setup(
     author='Mohit Rathore',
     author_email='mrmohitrathoremr@gmail.com',
     description='Work in progress towards an artificial general intelligence',
+    # Workaround for handling error of easy_install numpy
     setup_requires=['numpy'],
     install_requires=[
         'nose',
@@ -25,5 +28,6 @@ setup(
     ],
     url='https://github.com/WalnutiQ/wAlnut/',
     license='GPL-3.0',
+    # Automatically find packages inside wAlnut to install
     packages=find_packages(),
 )

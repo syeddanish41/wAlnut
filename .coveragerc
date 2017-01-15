@@ -1,0 +1,9 @@
+[run]
+branch = True
+source = walnut
+
+[report]
+omit =
+    */python?.?/*
+    */python?.?-dev/*
+    */site-packages/nose/*
