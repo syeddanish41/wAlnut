@@ -19,7 +19,6 @@ __pycache__/
 .idea/
 
 # Files generated in experiments
-*.json
 walnut/tests/**/*.zip
 *.bmp
 
