@@ -21,6 +21,7 @@ __pycache__/
 # Files generated in experiments
 *.json
 walnut/tests/**/*.zip
+*.bmp
 
 # Continuous integration
 .coverage
