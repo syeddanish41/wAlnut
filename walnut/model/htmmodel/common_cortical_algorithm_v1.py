@@ -7,8 +7,9 @@ class CommonCorticalAlgorithmV1(object):
     # Defining a static variable time_step
     time_step = 0
 
-    def __init__(self, network):
+    def __init__(self, network, time_steps=0):
         self.network = network
+        self.time_steps = time_steps
         self.learning_phase = True
         self.prev_active_input_pattern_index = -1
 
@@ -47,7 +48,7 @@ class CommonCorticalAlgorithmV1(object):
                             # print(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index, "........................................................................")
                             nodes[r][c].markov_graph.connect(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index)
                         # CommonCorticalAlgorithmV1.time_step == 9 because we have to print the mk graph for the last pattern
-                        if CommonCorticalAlgorithmV1.time_step == 9:
+                        if CommonCorticalAlgorithmV1.time_step == self.time_steps:
                             # print('Markov Graph for patch no =', r, ',', c)
                             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                             nodes[r][c].markov_graph.draw_graph(r, c, 1)

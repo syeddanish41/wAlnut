@@ -20,10 +20,10 @@ def test_classify_digits():
     ConnectTypes.rectangle_connect(layer_level1.nodes, layer_level2, 0, 0)
     ConnectTypes.rectangle_connect(layer_level2.nodes, layer_level3, 0, 0)
 
-    network = Network(layers, retina)
-    cca_v1 = CommonCorticalAlgorithmV1(network)
-
     number_training_timesteps = 10
+    network = Network(layers, retina)
+    cca_v1 = CommonCorticalAlgorithmV1(network, time_steps=number_training_timesteps)
+
     t = 0
     print_to_console = True
     # train network on digit dataset to form memory and temporal groups

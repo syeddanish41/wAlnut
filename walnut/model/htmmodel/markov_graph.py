@@ -57,4 +57,4 @@ class Markov_graph(object):
         print(self.graph)
         # Writing JSON data
         with open('walnut/tests/experiments/classify_digits/model_across_time/markov' + '_' + str(patch_x) + '_' + str(patch_y) + '.json', 'w') as f:
-            json.dump(self.graph[:10, :10].tolist(), f)
+            json.dump(self.graph[:self.num_vertices + 1, :self.num_vertices + 1].tolist(), f)
