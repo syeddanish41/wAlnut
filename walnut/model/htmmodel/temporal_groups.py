@@ -40,7 +40,7 @@ class Temporal_groups(object):
                 exp: Expansion parameter
                 itr: Number of iterations required to converge
 
-            :returns A set of temporal groups.
+            :returns A set of temporal groups
         """
         total_nodes = AdjacencyMatrix.shape[0]
         print("No of Nodes", total_nodes)
