@@ -11,7 +11,7 @@ setup(
     author_email='mrmohitrathoremr@gmail.com',
     description='Work in progress towards an artificial general intelligence',
     # Workaround for handling error of easy_install numpy
-    setup_requires=['numpy', 'scipy'],
+    setup_requires=['numpy'],
     install_requires=[
         'nose',
         'Pillow',

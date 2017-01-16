@@ -52,7 +52,7 @@ class CommonCorticalAlgorithmV1(object):
                             # print('Markov Graph for patch no =', r, ',', c)
                             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                             transition_matrix = nodes[r][c].markov_graph.draw_graph(r, c, 1)
-                            print (transition_matrix)
+                            print(transition_matrix)
                             # assuming the transition_matrix is normalized
                             nodes[r][c].temporal_groups.form_groups(transition_matrix, inf=2, exp=2, itr=100)
                         nodes[r][c].prev_active_input_pattern_index = cur_active_input_pattern_index

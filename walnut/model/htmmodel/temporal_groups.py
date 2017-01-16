@@ -69,7 +69,7 @@ class Temporal_groups(object):
             myList = np.where(row > 0)[0]
             if myList.any():
                 self.clusters.add(tuple(myList))
-        print (self.clusters)
+        print(self.clusters)
         print("Number of Clusters formed", len(self.clusters))
         for idx, clusters in enumerate(self.clusters):
             for node in clusters:
