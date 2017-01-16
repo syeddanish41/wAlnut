@@ -1,4 +1,5 @@
 from walnut.model.htmmodel.markov_graph import Markov_graph
+from walnut.model.htmmodel.temporal_groups import Temporal_groups
 
 
 class Node(object):
@@ -21,10 +22,10 @@ class Node(object):
     def __init__(self):
         self.memory = []
         self.markov_graph = Markov_graph()
+        self.temporal_groups = Temporal_groups()
         self.active_input_pattern_index = -1
         self.prev_active_input_pattern_index = -1
 
-        self.temporal_groups = []
         self.active_temporal_group_index = -1
 
         # In the format (x1, y1, x2, y2) where (x1, y1) is the top left of the rectangle

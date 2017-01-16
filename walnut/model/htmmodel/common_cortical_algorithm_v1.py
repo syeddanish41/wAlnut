@@ -48,10 +48,13 @@ class CommonCorticalAlgorithmV1(object):
                             # print(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index, "........................................................................")
                             nodes[r][c].markov_graph.connect(nodes[r][c].prev_active_input_pattern_index, cur_active_input_pattern_index)
                         # CommonCorticalAlgorithmV1.time_step == 9 because we have to print the mk graph for the last pattern
-                        if CommonCorticalAlgorithmV1.time_step == self.time_steps:
+                        if CommonCorticalAlgorithmV1.time_step == self.time_steps - 1:
                             # print('Markov Graph for patch no =', r, ',', c)
                             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-                            nodes[r][c].markov_graph.draw_graph(r, c, 1)
+                            transition_matrix = nodes[r][c].markov_graph.draw_graph(r, c, 1)
+                            print (transition_matrix)
+                            # assuming the transition_matrix is normalized
+                            nodes[r][c].temporal_groups.form_groups(transition_matrix, inf=2, exp=2, itr=100)
                         nodes[r][c].prev_active_input_pattern_index = cur_active_input_pattern_index
 
         # self._learn_transitional_probabilities(input_layer)

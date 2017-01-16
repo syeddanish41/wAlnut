@@ -9,6 +9,8 @@ class Markov_graph(object):
     Example network is walnut/model/images/explanatory/normalised_markov_graph.png.
 
     :param layers: 2d adjacency matrix of nodes
+
+    :returns After creating Markov graph returns the Transition matrix
     """
 
     def __init__(self):
@@ -54,7 +56,8 @@ class Markov_graph(object):
         for index in range(len(self.graph)):
             if self.visited[index] == 0:
                 self.dfs(index, normalise)
-        print(self.graph)
+        # print(self.graph)
         # Writing JSON data
         with open('walnut/tests/experiments/classify_digits/model_across_time/markov' + '_' + str(patch_x) + '_' + str(patch_y) + '.json', 'w') as f:
             json.dump(self.graph[:self.num_vertices + 1, :self.num_vertices + 1].tolist(), f)
+        return self.graph[:self.num_vertices + 1, :self.num_vertices + 1]
