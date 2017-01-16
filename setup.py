@@ -16,7 +16,6 @@ setup(
         'nose',
         'Pillow',
         'numpy',
-        'scipy',
         'jsonpickle',
         'coverage',
     ],

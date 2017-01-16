@@ -1,6 +1,5 @@
 from __future__ import division
 import numpy as np
-import scipy.sparse as sps
 
 
 class Temporal_groups(object):
@@ -26,10 +25,7 @@ class Temporal_groups(object):
         return np.linalg.matrix_power(matrix, exp)  # np.einsum('ij,ij->ij', matrix, matrix)
 
     def inflate(self, matrix, inf):
-        if sps.issparse(matrix):
-            return matrix.power(inf)
-        else:
-            return matrix ** inf
+        return np.power(matrix, inf)
 
     def form_groups(self, AdjacencyMatrix, inf=2, exp=2, itr=100):
         """ Function for forming temporal groups based on MArkov chain clustering.
